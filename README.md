@@ -9,18 +9,20 @@
 
 ## Installation/Setup
 
-1. Edit the 'vimrc' file and select whether to expect powerline fonts, choose a font for gVim, and add or change any of the loaded config files to match your personal setup.
-2. For a distro-agnostic system-wide installation in the /etc directory, copy:
-  * The 'vimrc' file to '/etc/vimrc'
-  * The 'vim' folder to '/etc/vim'
-3. -or- For a single-user installation in a user's home directory, copy:
-  * The 'vimrc' file to '~/.vimrc'
-  * The 'vim' folder to '~/.vim'
-  * Note: When using the second installation type, the following line in the vimrc file isn't necessary (though it won't hurt to keep it): "set runtimepath+=/etc/vim".
+1. Clone this repository then initialize and update the git submodules (in our case, the vim plugins)
+  * ]$ git clone https://github.com/prurigro/darkcloud-vimconfig.git
+  * ]$ cd darkcloud-vimconfig
+  * ]$ git submodule init
+  * ]$ git submodule update
+2. Edit the 'vimrc' file and select whether to expect powerline fonts, choose a font for gVim, and add or change any of the loaded config files to match your personal setup.
+3. There are two main ways this package can be deployed: system-wide or single-user.
+  * For a distro-agnostic system-wide installation in the /etc directory, copy or link: 'vimrc' to '/etc/vimrc' -and- the 'vim' folder to '/etc/vim'.
+  * For a single-user installation in a user's home directory, copy or link: 'vimrc' to '~/.vimrc' -and- the 'vim' folder to '~/.vim'.
 4. Make sure the 'vimrc' file and 'vim' folder are at least readable to any users that will be using the config.
-5. Clone additional vim plugin repos in the 'bundle' folder to have them loaded at startup, and you can add or replace config files in your 'vimrc' file to customize behaviour.
-6. Run the pathogen_update_plugins script to update your plugins by running 'git pull' on each folder with a '.git' directory in the bundle folder.
-7. The 'vim/config/keyboard.vim' file has a list of the commands it configures, as well as some basic examples of some provided directly by plugins (though check the plugin folder's README for a full explanation)
+5. Clone additional vim plugin repos in the 'bundle' folder to have them loaded at startup.
+6. Yyou can add or replace config files in your 'vimrc' file to customize behaviour.
+7. Run the pathogen_update_plugins script to update your plugins by running 'git pull' on each folder with a '.git' directory in the bundle folder.
+8. The 'vim/config/keyboard.vim' file has a list of the commands it configures, as well as some basic examples of some provided directly by plugins (though check the plugin folder's README for a full explanation).
 
 ## Credits
 

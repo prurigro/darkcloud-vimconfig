@@ -5,9 +5,13 @@ pushd bundle > /dev/null 2>&1
     for each in *; do
         if [ -d "$each" ]; then
             pushd "$each" > /dev/null 2>&1
-                if [ -d .git ]; then
-                    echo "Updating ${each}..."
+                if [ -d .git  ]; then
+                    echo "Updating git repo: ${each}..."
                     git pull
+                elif [ -d .git -o -f .git ]; then
+                    echo "Updating git submodule: ${each}..."
+                    git pull origin master
+                    git submodule update
                 fi
             popd > /dev/null 2>&1
         fi
