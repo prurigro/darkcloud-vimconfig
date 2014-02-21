@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+#Update pathogen bundles
+pushd bundle > /dev/null 2>&1
+    for each in *; do
+        if [ -d "$each" ]; then
+            pushd "$each" > /dev/null 2>&1
+                if [ -d .git ]; then
+                    echo "Updating ${each}..."
+                    git pull
+                fi
+            popd > /dev/null 2>&1
+        fi
+    done
+popd > /dev/null 2>&1
