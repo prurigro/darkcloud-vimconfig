@@ -54,6 +54,11 @@ set smarttab expandtab autoindent tabstop=4 shiftwidth=4 "configure tabs
 set laststatus=2 showcmd statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v] "statusline init and config
 set hlsearch incsearch ignorecase smartcase "configure search
 
+"load the system version of matchit if another hasn't already been
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+    runtime! macros/matchit.vim
+endif
+
 "enable menu tab completion, configure its behaviour and set configure suffixes to reduce priority for and ignore"
 set completeopt=longest,menuone
 set wildmenu
