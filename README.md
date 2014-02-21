@@ -20,8 +20,8 @@
   * For a single-user installation in a user's home directory, copy or link: 'vimrc' to '~/.vimrc' -and- the 'vim' folder to '~/.vim'.
 4. Make sure the 'vimrc' file and 'vim' folder are at least readable to any users that will be using the config.
 5. Clone additional vim plugin repos in the 'bundle' folder to have them loaded at startup.
-6. Yyou can add or replace config files in your 'vimrc' file to customize behaviour.
-7. Run the pathogen_update_plugins script to update your plugins by running 'git pull' on each folder with a '.git' directory in the bundle folder.
+6. You can add or replace config files in your 'vimrc' file to customize behaviour.
+7. Run the pathogen_update_plugins script to update your plugins by pulling the latest changes from each plugin repo.
 8. The 'vim/config/keyboard.vim' file has a list of the commands it configures, as well as some basic examples of some provided directly by plugins (though check the plugin folder's README for a full explanation).
 
 ## Credits
