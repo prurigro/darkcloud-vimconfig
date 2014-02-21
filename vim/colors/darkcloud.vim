@@ -261,32 +261,30 @@ let colors_name = "darkcloud"
     endfun
 "}}}
 
-"COLOR SETTINGS:
 if !exists("g:colorscheme_use_lowcolor_black") || g:colorscheme_use_lowcolor_black
     let s:termBlack = "Black"
 else
     let s:termBlack = "Grey"
 endif
 
+"COLOR SETTINGS:
 "format: (name ,fg      ,bg      ,style        ,lowcolor-fg,lowcolor-bg)
 "exmple: ("Sel","000000","f0f0f0","italic,bold",s:termBlack,"White")
 
+"Default foreground and background
 call s:X("Normal","bcbcbc","262626","","White",s:termBlack)
 
-if version >= 700
-    " Auto-completion
-    call s:X("Pmenu","303030","87d7ff","","Grey","LightBlue")
-    call s:X("PmenuSel","bcbcbc","4e4e4e","","White","Black")
+call s:X("Pmenu","303030","87d7ff","","Grey","LightBlue")
+call s:X("PmenuSel","bcbcbc","4e4e4e","","White","Black")
 
-    call s:X("CursorLine","","3a3a3a","bold","",s:termBlack)
-    call s:X("CursorLineNr","000000","87d7ff","bold",s:termBlack,"Blue")
-    call s:X("CursorColumn","","3a3a3a","","",s:termBlack)
-    call s:X("MatchParen","","87d7ff","bold","","Blue")
+call s:X("CursorLine","","3a3a3a","bold","",s:termBlack)
+call s:X("CursorLineNr","000000","87d7ff","bold",s:termBlack,"Blue")
+call s:X("CursorColumn","","3a3a3a","","",s:termBlack)
+call s:X("MatchParen","","87d7ff","bold","","Blue")
 
-    call s:X("TabLine","","000000","","",s:termBlack)
-    call s:X("TabLineFill","","000000","","",s:termBlack)
-    call s:X("TabLineSel","000000","ffffff","",s:termBlack,"White")
-endif
+call s:X("TabLine","","000000","","",s:termBlack)
+call s:X("TabLineFill","","000000","","",s:termBlack)
+call s:X("TabLineSel","000000","ffffff","",s:termBlack,"White")
 
 call s:X("Visual","","3a3a3a","","",s:termBlack)
 call s:X("Cursor","000000","ffff00","underline",s:termBlack,"Yellow")
@@ -323,10 +321,11 @@ call s:X("SpecialKey","000000","","",s:termBlack,"")
 call s:X("Search","ffffff","d75f5f","bold","White","Red")
 call s:X("IncSearch","87d7ff","626262","standout","Blue","Grey")
 call s:X("Directory","ffff00","","","Yellow","")
+call s:X("Question","ffaf00","","","","")
+call s:X("ExtraWhitespace","262626","","standout",s:termBlack,"")
 call s:X("ErrorMsg","5f0000","ffaf00","bold","DarkRed","Yellow")
 hi! link Error ErrorMsg
 hi! link MoreMsg Special
-call s:X("Question","ffaf00","","","","")
 
 "spell checking
 call s:X("SpellBad","bcbcbc","262626","undercurl","White",s:termBlack)
@@ -344,32 +343,32 @@ call s:X("DiffText","000000","626262","bold",s:termBlack,"White")
 
 "php
 hi! link phpFunctions Function
-call s:X("StorageClass","","","","","")
 hi! link phpSuperglobal Identifier
 hi! link phpQuoteSingle StringDelimiter
 hi! link phpQuoteDouble StringDelimiter
 hi! link phpBoolean Constant
 hi! link phpNull Constant
 hi! link phpArrayPair Operator
+"call s:X("StorageClass","","","","","")
 
 "ruby
 hi! link rubySharpBang Comment
-call s:X("rubyClass","","","","","")
-call s:X("rubyIdentifier","","","","","")
 hi! link rubyConstant Type
 hi! link rubyFunction Function
-call s:X("rubyInstanceVariable","","","","","")
-call s:X("rubySymbol","","","","","")
 hi! link rubyGlobalVariable rubyInstanceVariable
 hi! link rubyModule rubyClass
-call s:X("rubyControl","","","","","")
 hi! link rubyString String
 hi! link rubyStringDelimiter StringDelimiter
 hi! link rubyInterpolationDelimiter Identifier
-call s:X("rubyRegexpDelimiter","","","","","")
-call s:X("rubyRegexp","","","","","")
-call s:X("rubyRegexpSpecial","","","","","")
-call s:X("rubyPredefinedIdentifier","","","","","")
+"call s:X("rubyClass","","","","","")
+"call s:X("rubyIdentifier","","","","","")
+"call s:X("rubyInstanceVariable","","","","","")
+"call s:X("rubySymbol","","","","","")
+"call s:X("rubyControl","","","","","")
+"call s:X("rubyRegexpDelimiter","","","","","")
+"call s:X("rubyRegexp","","","","","")
+"call s:X("rubyRegexpSpecial","","","","","")
+"call s:X("rubyPredefinedIdentifier","","","","","")
 
 "javaScript
 hi! link javaScriptValue Constant
@@ -396,13 +395,13 @@ hi! link objcMethodName Identifier
 hi! link objcMethodArg Normal
 hi! link objcMessageName Identifier
 
-"debugger.vim
-call s:X("DbgCurrent","","","","","")
-call s:X("DbgBreakPt","","","","","")
+""debugger.vim
+"call s:X("DbgCurrent","","","","","")
+"call s:X("DbgBreakPt","","","","","")
 
 "vim-indent-guides
-call s:X("IndentGuidesOdd","","7c7c7c","","","")
-call s:X("IndentGuidesEven","","1c1c1c","","","")
+call s:X("IndentGuidesOdd","","7c7c7c","","","Grey")
+call s:X("IndentGuidesEven","","1c1c1c","","",s:termBlack)
 if !exists("g:indent_guides_auto_colors")
     let g:indent_guides_auto_colors = 0
 endif
