@@ -26,7 +26,7 @@
 "  <F6>                 | (A) -> toggle visible trailing whitespace
 "  <F12>                | (A) -> toggle collapsed/folded rows
 "  <Leader><C-f>        | (N) -> format document and return to current line
-"  <Leader><C-w>        | (N) -> format document and return to current line
+"  <Leader><C-w>        | (N) -> remove whitespace
 "
 "  (git-fugitive)
 "   <Leader>G           | (N) -> Git     : view the menu
