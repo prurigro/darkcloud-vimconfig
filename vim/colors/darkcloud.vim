@@ -10,12 +10,11 @@
 " Acknowledgements:
 "  I found the jellybeans theme part way through creating
 "  this one and liked how it scripted compatibility between
-"  cterm and gui colours, so I stripped its colours and
-"  ported my in so I could use jellybeans as a functional
-"  template.
+"  cterm and gui, so I stripped its colours and ported
+"  my own in, using jellybeans as a functional template.
 "
 "  As referenced in the original jellybean theme, the set
-"  of color approximation scripts were creaed by Henry
+"  of color approximation functions were creaed by Henry
 "  So, Jr. and David Liang
 "
 
