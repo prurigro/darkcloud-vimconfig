@@ -22,7 +22,7 @@
 let powerlinefonts=1
 
 "GVim Font Selection: (term font set by terminal)
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 12
+set guifont=Droid\ Sans\ Mono\ 12
 
 "Add Config Directory: (distro-agnostic system-wide)
 set runtimepath+=/etc/vim
