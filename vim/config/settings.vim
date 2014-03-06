@@ -31,6 +31,7 @@ set foldmethod=syntax foldcolumn=1 foldlevel=8 "configure how folding code works
 au BufNewFile,BufRead *.txt set spell "enable spellcheck for text files (*.txt)
 au BufNewFile,BufRead *tmux.conf setf sh "set syntax for *tmux.conf to sh (bash)
 au BufNewFile,BufRead pacman.conf setf sh "set syntax for *tmux.conf to sh (bash)
+au BufNewFile,BufRead yaourtrc setf sh "set syntax for *tmux.conf to sh (bash)
 au BufNewFile,BufRead cjdroute.conf setf javascript "set syntax for *cjdroute.conf to javascript
 au BufNewFile,BufRead ircd.conf setf javascript "set syntax for *ircd.conf to javascript
 
