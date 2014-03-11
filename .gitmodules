@@ -1,6 +1,3 @@
-[submodule "vim/bundle/vim-multiple-cursors"]
-	path = vim/bundle/vim-multiple-cursors
-	url = https://github.com/terryma/vim-multiple-cursors.git
 [submodule "vim/bundle/SudoEdit.vim"]
 	path = vim/bundle/SudoEdit.vim
 	url = https://github.com/vim-scripts/SudoEdit.vim.git
@@ -34,9 +31,6 @@
 [submodule "vim/bundle/neocomplcache.vim"]
 	path = vim/bundle/neocomplcache.vim
 	url = https://github.com/Shougo/neocomplcache.vim.git
-[submodule "vim/bundle/vim-fugitive"]
-	path = vim/bundle/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
 [submodule "vim/bundle/emmet-vim"]
 	path = vim/bundle/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
@@ -46,6 +40,3 @@
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "vim/bundle/perlomni.vim"]
-	path = vim/bundle/perlomni.vim
-	url = https://github.com/c9s/perlomni.vim.git

@@ -1,22 +1,25 @@
 "=========================="
-"                          "
 "  Plugins Configuration:  "
-"                          "
 "=========================="
 
 "PATHOGEN BUNDLED EXTENSIONS PLUGIN: LOAD BUNDLED PLUGINS {{{"
     execute pathogen#infect()
 "}}}
 
+"EMMET: CONFIGURE WHEN ZENCODING IS ENABLED {{{
+    let g:user_emmet_install_global = 0
+    autocmd FileType html,css,php,aspx EmmetInstall
+"}}}
+
 "NEOCOMPLCACHE AUTOCOMPLETION PLUGIN: ENABLE, CONFIG AND SETUP OMNICOMPLETION {{{"
-    let g:neocomplcache_enable_at_startup = 1
-    let g:neocomplcache_enable_smart_case = 1
-    let g:neocomplcache_min_syntax_length = 3
+    let g:neocomplcache_enable_at_startup=1
+    let g:neocomplcache_enable_smart_case=1
+    let g:neocomplcache_min_syntax_length=3
     let g:neocomplcache_max_list=10
-    let g:neocomplcache_enable_insert_char_pre = 1
-    let g:neocomplcache_enable_underbar_completion   = 1
-    let g:neocomplcache_enable_camel_case_completion = 1
-    let g:neocomplcache_wildcard_characters = {'_': '-'}
+    let g:neocomplcache_enable_insert_char_pre=1
+    let g:neocomplcache_enable_underbar_completion=1
+    let g:neocomplcache_enable_camel_case_completion=1
+    let g:neocomplcache_wildcard_characters={'_': '-'}
 
     if has("autocmd") && exists("+omnifunc")
         autocmd Filetype * if &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
@@ -28,9 +31,9 @@
     autocmd FileType ruby set omnifunc=rubycomplete#Complete
     autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 
-    if !exists('g:neocomplcache_omni_patterns') | let g:neocomplcache_omni_patterns = {} | endif
-    let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-    let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+    if !exists('g:neocomplcache_omni_patterns') | let g:neocomplcache_omni_patterns={} | endif
+    let g:neocomplcache_omni_patterns.c='[^.[:digit:] *\t]\%(\.\|->\)'
+    let g:neocomplcache_omni_patterns.cpp='[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
     let g:neocomplcache_omni_patterns.xml='<[^>]*'
     let g:neocomplcache_omni_patterns.html='<[^>]*'
     let g:neocomplcache_omni_patterns.xhtml='<[^>]*'
@@ -38,18 +41,17 @@
     let g:neocomplcache_omni_patterns.css='^\s\+\w+\|\w+[):;]?\s\+\|[@!]'
     let g:neocomplcache_omni_patterns.less='^\s\+\w+\|\w+[):;]?\s\+\|[@!]'
     let g:neocomplcache_omni_patterns.javascript='[^. \t]\.\%(\h\w*\)\?'
-    let g:neocomplcache_omni_patterns.python = '[^. *\t]\.\h\w*\|\h\w*::'
-    let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-    let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-
-    let g:neocomplcache_omni_patterns.actionscript = '[^. \t][.:]\h\w*'
-    let g:neocomplcache_omni_patterns.python3 = '[^. *\t]\.\h\w*\|\h\w*::'
-    let g:neocomplcache_omni_patterns.go = '\h\w*\%.'
-    let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-    let g:neocomplcache_omni_patterns.java = '\%(\h\w*\|)\)\.'
-    let g:neocomplcache_omni_patterns.objc = '\h\w\+\|\h\w*\%(\.\|->\)\h\w*'
-    let g:neocomplcache_omni_patterns.objj = '[\[ \.]\w\+$\|:\w*$'
-    let g:neocomplcache_omni_patterns.vimshell= '\%(\\[^[:alnum:].-]\|[[:alnum:]@/.-_+,#$%~=*]\)\{2,}'
+    let g:neocomplcache_omni_patterns.python='[^. *\t]\.\h\w*\|\h\w*::'
+    let g:neocomplcache_omni_patterns.ruby='[^. *\t]\.\w*\|\h\w*::'
+    let g:neocomplcache_omni_patterns.php='[^. \t]->\h\w*\|\h\w*::'
+    let g:neocomplcache_omni_patterns.actionscript='[^. \t][.:]\h\w*'
+    let g:neocomplcache_omni_patterns.python3='[^. *\t]\.\h\w*\|\h\w*::'
+    let g:neocomplcache_omni_patterns.go='\h\w*\%.'
+    let g:neocomplcache_omni_patterns.perl='\h\w*->\h\w*\|\h\w*::'
+    let g:neocomplcache_omni_patterns.java='\%(\h\w*\|)\)\.'
+    let g:neocomplcache_omni_patterns.objc='\h\w\+\|\h\w*\%(\.\|->\)\h\w*'
+    let g:neocomplcache_omni_patterns.objj='[\[ \.]\w\+$\|:\w*$'
+    let g:neocomplcache_omni_patterns.vimshell='\%(\\[^[:alnum:].-]\|[[:alnum:]@/.-_+,#$%~=*]\)\{2,}'
 "}}}
 
 "ASPNET ABSHIRE SYNTAX PLUGIN: {{{
