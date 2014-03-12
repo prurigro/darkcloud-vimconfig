@@ -285,7 +285,7 @@ call s:X("TabLine","","000000","","",s:termBlack)
 call s:X("TabLineFill","","000000","","",s:termBlack)
 call s:X("TabLineSel","000000","ffffff","",s:termBlack,"White")
 
-call s:X("Visual","","3a3a3a","bold","",s:termBlack)
+call s:X("Visual","","000000","standout","",s:termBlack)
 call s:X("Cursor","000000","ffff00","underline",s:termBlack,"Yellow")
 
 call s:X("LineNr","ffaf00","","","Red","")
