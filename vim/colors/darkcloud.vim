@@ -279,14 +279,14 @@ call s:X("PmenuSel","87d7ff","4e4e4e","bold","White","Black")
 call s:X("CursorLine","","303030","","",s:termBlack)
 call s:X("CursorLineNr","000000","87d7ff","bold",s:termBlack,"Blue")
 call s:X("CursorColumn","","303030","","",s:termBlack)
-call s:X("MatchParen","","000000","standout","","000000")
+call s:X("MatchParen","000000","87d7ff","bold",s:termBlack,"Blue")
 
 call s:X("TabLine","","000000","","",s:termBlack)
 call s:X("TabLineFill","","000000","","",s:termBlack)
 call s:X("TabLineSel","000000","ffffff","",s:termBlack,"White")
 
 call s:X("Visual","","000000","standout","",s:termBlack)
-call s:X("Cursor","000000","ffff00","underline",s:termBlack,"Yellow")
+call s:X("Cursor","000000","87d7ff","underline",s:termBlack,"Blue")
 
 call s:X("LineNr","ffaf00","","","Red","")
 call s:X("Comment","626262","","","Grey","")
