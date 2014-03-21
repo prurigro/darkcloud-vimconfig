@@ -26,6 +26,8 @@
 "  <Leader><C-w>        | (N) -> remove whitespace
 "  <Shift-p>            | (N) -> paste and replace the current word
 "  <Shift-p>            | (V) -> paste and replace the selection
+"  <Ctrl-Up>            | (A) -> move up a chunk of text
+"  <Ctrl-Down>          | (A) -> move down a chunk of text
 "
 "  (neocomplcache)
 "   <Tab>               | (I) -> write the part common to all suggestions
@@ -89,6 +91,10 @@
     "map shift-p to paste and replace the current word or selection
     nnoremap <S-p> "_diwP
     vnoremap <S-p> "_d"0P
+
+    "map ctrl-up and ctrl-down to moving up/down by a block of text
+    map <C-Up> <C-U>
+    map <C-Down> <C-D>
 "}}}
 
 "PLUGIN KEYBINDINGS {{{
