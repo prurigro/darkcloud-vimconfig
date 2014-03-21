@@ -24,6 +24,8 @@
 "  <F12>                | (A) -> toggle collapsed/folded rows
 "  <Leader><C-f>        | (N) -> format document and return to current line
 "  <Leader><C-w>        | (N) -> remove whitespace
+"  <Shift-p>            | (N) -> paste and replace the current word
+"  <Shift-p>            | (V) -> paste and replace the selection
 "
 "  (neocomplcache)
 "   <Tab>               | (I) -> write the part common to all suggestions
@@ -83,6 +85,10 @@
     "map shift to enable middle-click paste while being held
     map <S-Insert> <MiddleMouse>
     map! <S-Insert> <MiddleMouse>
+
+    "map shift-p to paste and replace the current word or selection
+    nnoremap <S-p> "_diwP
+    vnoremap <S-p> "_d"0P
 "}}}
 
 "PLUGIN KEYBINDINGS {{{
