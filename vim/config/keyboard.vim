@@ -28,6 +28,8 @@
 "  <Shift-p>            | (V) -> paste and replace the selection
 "  <Ctrl-Up>            | (A) -> move up a chunk of text
 "  <Ctrl-Down>          | (A) -> move down a chunk of text
+"  <Shift-Left>         | (N) -> move to the start of the text
+"  <Shift-Right>        | (N) -> move to the end of the line
 "
 "  (neocomplcache)
 "   <Tab>               | (I) -> write the part common to all suggestions
@@ -92,9 +94,13 @@
     nnoremap <S-p> "_diwP
     vnoremap <S-p> "_d"0P
 
-    "map ctrl-up and ctrl-down to moving up/down by a block of text
+    "map ctrl-up/down to moving up/down by a block of text
     map <C-Up> <C-U>
     map <C-Down> <C-D>
+
+    "map shift-left/right to move to the start/end of the line's text
+    nmap <S-Left> ^
+    nmap <S-Right> $
 "}}}
 
 "PLUGIN KEYBINDINGS {{{
