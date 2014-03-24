@@ -3,7 +3,7 @@
 "==========================="
 "
 " Reference: (view plugin documentation for the full list of commands each offers)
-"  <Ctrl-z>,            | (A) -> follows an emme term to expand it (ie: 'html:5')
+"  <Ctrl-z>,            | (A) -> enter this following an emme 'word' (ie: html:5)
 "  <Leader><F2>         | (N) -> toggle hexhighlight's hexcode to colours in :gui
 "  cs'"                 | (N) -> change surrounding '' to "" (any delimiters work)
 "  cs"<q>               | (N) -> change surrounding "" to the tag: <q></q>
@@ -11,6 +11,8 @@
 "  ds"                  | (N) -> delete surrounding ""
 "
 " Mappings:
+"  <Ctrl-ScrollUp>      | (A) -> scroll right
+"  <Ctrl-ScrollDown>    | (A) -> scroll left
 "  <Shift-MiddleClick>  | (A) -> unbind this from vim so xorg can paste
 "  <Leader><n>          | (A) -> go to the next open tab
 "  <Leader><p>          | (A) -> go to the previous open tab
@@ -58,9 +60,13 @@
 "
 
 "MAPPINGS: GENERAL KEYBINDINGS AND REBINDINGS {{{
-    "map shift to enable middle-click paste while being held
+    "hold shift to enable middle-click paste
     noremap <S-Insert> <MiddleMouse>
     noremap! <S-Insert> <MiddleMouse>
+
+    "hold ctrl to scroll left/right instead of up/down
+    noremap <C-ScrollWheelUp> 3zl
+    noremap <C-ScrollWheelDown> 3zh
 
     "tab and untabbing selected blocks
     vnoremap <Tab> >gv

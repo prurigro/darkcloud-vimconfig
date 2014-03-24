@@ -36,7 +36,7 @@
 "GENERAL: ANYTHING THAT DOESN'T FIT ELSEWHERE {{{
     set cursorline cursorcolumn "enable row/column highlighting
     set splitright "add new tiles on the right (and not left) when added
-    set scrolloff=3 sidescrolloff=3 "how many vertical and horizontal characters left before scrolling
+    set scrolloff=1 sidescrolloff=1 "how many vertical and horizontal characters left before scrolling
     set number "enable line numbers
     set list listchars=tab:>-,trail:- "display whitespace
     set nowrap "disable line wrapping
