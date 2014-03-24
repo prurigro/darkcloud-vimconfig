@@ -19,10 +19,13 @@
     filetype plugin indent on
     syntax on "turn syntax highlighting on
     set foldmethod=syntax foldcolumn=1 foldlevel=8 "configure how folding code works
+    set formatoptions=roqnl12 "configure format options
 "}}}
 
 "FILETYPES: SETTINGS SPECIFIC TO A FILETYPE {{{
-    au BufNewFile,BufRead *.txt set spell "enable spellcheck for text files (*.txt)
+    au FileType mail setl spell "enable spellcheck for e-mail (mutt)
+    au FileType gitcommit setl spell "enable spellcheck in git commits
+    au BufNewFile,BufRead *.txt setl spell "enable spellcheck for text files (*.txt)
     au BufNewFile,BufRead *tmux.conf setf sh "set syntax for *tmux.conf to sh (bash)
     au BufNewFile,BufRead pacman.conf setf sh "set syntax for *tmux.conf to sh (bash)
     au BufNewFile,BufRead yaourtrc setf sh "set syntax for *tmux.conf to sh (bash)
