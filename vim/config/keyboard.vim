@@ -14,32 +14,38 @@
 "  <Ctrl-ScrollUp>      | (A) -> scroll right
 "  <Ctrl-ScrollDown>    | (A) -> scroll left
 "  <Shift-MiddleClick>  | (A) -> unbind this from vim so xorg can paste
-"  <Leader><n>          | (A) -> go to the next open tab
-"  <Leader><p>          | (A) -> go to the previous open tab
+"  <Ctrl-t>             | (A) -> open a new tab
+"  <Ctrl-n>             | (A) -> go to the next open tab
+"  <Ctrl-p>             | (A) -> go to the previous open tab
 "  <Tab>                | (V) -> indent a block in visual mode
 "  <Shift-Tab>          | (V) -> unindent a block in visual mod
-"  <F1>                 | (N) -> toggle the nerdtree sidebar
-"  <F2>                 | (N) -> toggle the tagbar sidebar
-"  <F3>                 | (A) -> toggle row/column highlighting
-"  <F4>                 | (A) -> toggle line numbers
-"  <F5>                 | (N) -> toggle line wrapping
-"  <F6>                 | (A) -> toggle visible trailing whitespace
-"  <F12>                | (A) -> toggle collapsed/folded rows
-"  <Shift-p>            | (V) -> paste and replace the selection
+"  `                    | (N) -> toggle the nerdtree sidebar
+"  ~                    | (N) -> toggle the tagbar sidebar
+"  p                    | (V) -> paste and replace the selection
 "  <Shift-p>            | (N) -> paste and replace the current word
+"  <F2>                 | (A) -> toggle line numbers
+"  <F3>                 | (N) -> toggle line wrapping
+"  <F4>                 | (A) -> toggle row/column highlighting
+"  <F12>                | (A) -> toggle collapsed/folded rows
 "  <Leader><C-f>        | (N) -> format document and return to current line
 "  <Leader><C-w>        | (N) -> remove whitespace
 "  <Ctrl-Up>            | (N) -> move to the beginning of the document
+"  <Ctrl-k>             | (N) -> move to the beginning of the document
 "  <Ctrl-Down>          | (N) -> move to the end of the document
+"  <Ctrl-j>             | (N) -> move to the end of the document
 "  <Ctrl-Right>         | (N) -> move to the end of the line
+"  <Ctrl-l>             | (N) -> move to the end of the line
 "  <Ctrl-Left>          | (N) -> move to the beginning of the non-whitespace
-"  <Ctrl-\>             | (N) -> move to the beginning of the line
+"  <Ctrl-h>             | (N) -> move to the beginning of the line
 "  <Ctrl-a>             | (N) -> select all
 "  <Shift-Up>           | (N) -> select all text above the cursor
+"  <Shift-k>            | (N) -> select all text above the cursor
 "  <Shift-Down>         | (N) -> select all text below the cursor
+"  <Shift-j>            | (N) -> select all text below the cursor
 "  <Shift-Right>        | (N) -> select all text to the right of the cursor
+"  <Shift-l>            | (N) -> select all text to the right of the cursor
 "  <Shift-Left>         | (N) -> select to the beginning of the non-whitespace
-"  <Shift-\>            | (N) -> select to the beginning of the line
+"  <Shift-h>            | (N) -> select to the beginning of the line
 "
 "  (neocomplcache)
 "   <Tab>               | (I) -> write the part common to all suggestions
@@ -73,24 +79,26 @@
     vnoremap <S-Tab> <gv
 
     "move to the next and previous tabs
-    nnoremap <Silent><Expr> <Leader>n ':tabn<CR>'
-    nnoremap <Silent><Expr> <Leader>p ':tabp<CR>'
+    nnoremap <silent><expr> <C-t> ':tabnew<CR>'
+    nnoremap <silent><expr> <C-n> ':tabnext<CR>'
+    nnoremap <silent><expr> <C-p> ':tabprev<CR>'
 
-    "toggle the cursor line and column
-    nnoremap <Silent><Expr> <F3> ':set cursorline! cursorcolumn!<CR>'
+    "map shift-p to paste over a word, and visual paste to replace selection
+    vnoremap p "_d"0P
+    nnoremap <S-p> "_diwP
 
     "toggle the display of line numbers
-    nnoremap <Silent><Expr> <F4> ':set number!<CR>'
+    nnoremap <silent><expr> <F2> ':set number!<CR>'
 
     "toggle line wrapping (and bottom bar if using the gui)
     if !has("gui_running")
-        nnoremap <Silent><Expr> <F5> ':set wrap!<CR>'
+        nnoremap <silent><expr> <F3> ':set wrap!<CR>'
     else
-        nnoremap <Silent><Expr> <F5> ':set wrap! go'.'-+'[&wrap]."=b\r"
+        nnoremap <silent><expr> <F3> ':set wrap! go'.'-+'[&wrap]."=b\r"
     endif
 
-    "toggle the display of whitespace
-    nnoremap <Silent><Expr> <F6> ':set list!<CR>'
+    "toggle the cursor line and column
+    nnoremap <silent><expr> <F4> ':set cursorline! cursorcolumn!<CR>'
 
     "toggle folded code at foldpoints
     inoremap <F12> <C-O>za
@@ -98,43 +106,45 @@
     onoremap <F12> <C-C>za
     vnoremap <F12> zf
 
-    "map shift-p to paste and replace the current word or selection
-    vnoremap <S-p> "_d"0P
-    nnoremap <S-p> "_diwP
-
-    "format document then return to current line
+    "format the document
     nnoremap <Leader><C-f> mzgg=G`z<CR>
 
-    "remove trailing white space
-    nnoremap <Silent><Expr> <Leader><C-w> ':FixWhitespace<CR>'
+    "remove trailing white space from the document
+    nnoremap <silent><expr> <Leader><C-w> ':FixWhitespace<CR>'
 
     "remap keys to scroll through text
-    nnoremap <C-Up> gg0
-    nnoremap <C-Down> G$
+    nnoremap <C-Up> gg
+    nnoremap <C-k> gg0
+    nnoremap <C-Down> G
+    nnoremap <C-j> G$
     nnoremap <C-Right> $
+    nnoremap <C-l> $
     nnoremap <C-Left> ^
-    nnoremap <C-\> 0
+    nnoremap <C-h> 0
 
     "map remap keys to select text
     nnoremap <C-a> ggvG
-    nnoremap <S-Up> vgg0
-    nnoremap <S-Down> vG$
+    nnoremap <S-Up> vgg
+    nnoremap <S-k> vgg0
+    nnoremap <S-Down> vG
+    nnoremap <S-j> vG$
     nnoremap <S-Right> v$
+    nnoremap <S-l> v$
     nnoremap <S-Left> v^
-    nnoremap <S-\> v0
+    nnoremap <S-h> v0
 "}}}
 
 "PLUGIN KEYBINDINGS {{{
     "toggle the nerd tree sidebar
-    nnoremap <Silent><Expr> <F1> ':NERDTree<CR>'
+    nnoremap <silent><expr> ` ':NERDTree<CR>'
 
     "toggle the tagbar sidebar
-    nnoremap <Silent><Expr> <F2> ':TagbarToggle<CR>'
+    nnoremap <silent><expr> ~ ':TagbarToggle<CR>'
 
     "neocomplcache suggestions: cancel, autocomplete, scroll up and scroll down
-    inoremap <Expr><Tab> pumvisible() ? neocomplcache#complete_common_string() : "\<Tab>"
-    inoremap <Expr><Backspace> pumvisible() ? neocomplcache#close_popup() : "\<Backspace>"
-    inoremap <Expr><Leader><Backspace> neocomplcache#undo_completion()
+    inoremap <expr><Tab> pumvisible() ? neocomplcache#complete_common_string() : "\<Tab>"
+    inoremap <expr><Backspace> pumvisible() ? neocomplcache#close_popup() : "\<Backspace>"
+    inoremap <expr><Leader><Backspace> neocomplcache#undo_completion()
 
     "emmet switch triggerkey from <Ctrl-Y> to <Ctrl-Z>
     let g:user_emmet_leader_key='<C-Z>'
@@ -151,9 +161,9 @@
 
 "GVIM: MAPPINGS FOR GUI ELEMENTS {{{
     "map toggles for the menu, toolbar and scrollbar
-    noremap <Silent><Expr> <C-F1> ":if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>"
-    noremap <Silent><Expr> <C-F2> ":if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>"
-    noremap <Silent><Expr> <C-F3> ":if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>"
+    noremap <silent><expr> <C-F1> ":if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>"
+    noremap <silent><expr> <C-F2> ":if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>"
+    noremap <silent><expr> <C-F3> ":if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>"
 "}}}
 
 "ALIASES: COMMAND SHORTCUTS {{{

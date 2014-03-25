@@ -273,13 +273,14 @@ endif
 "Default foreground and background
 call s:X("Normal","bcbcbc","262626","","White",s:termBlack)
 
-call s:X("Pmenu","87d7ff","303030","","Grey","LightBlue")
+call s:X("Pmenu","87d7ff","303030","","Grey","Blue")
 call s:X("PmenuSel","87d7ff","4e4e4e","bold","White","Black")
 
-call s:X("CursorLine","","303030","","",s:termBlack)
-call s:X("CursorLineNr","000000","87d7ff","bold",s:termBlack,"Blue")
-call s:X("CursorColumn","","303030","","",s:termBlack)
 call s:X("MatchParen","000000","87d7ff","bold",s:termBlack,"Blue")
+call s:X("CursorColumn","","303030","","",s:termBlack)
+call s:X("CursorLine","","303030","","",s:termBlack)
+call s:X("CursorLineNr","87d7ff","","bold","Blue",s:termBlack)
+call s:X("LineNr","ffaf00","","","Red",s:termBlack)
 
 call s:X("TabLine","","000000","","",s:termBlack)
 call s:X("TabLineFill","","000000","","",s:termBlack)
@@ -288,7 +289,6 @@ call s:X("TabLineSel","000000","ffffff","",s:termBlack,"White")
 call s:X("Visual","","000000","standout","",s:termBlack)
 call s:X("Cursor","000000","87d7ff","underline",s:termBlack,"Blue")
 
-call s:X("LineNr","ffaf00","","","Red","")
 call s:X("Comment","626262","","","Grey","")
 call s:X("Todo","5f0000","808080","","Red",s:termBlack)
 
@@ -297,19 +297,19 @@ call s:X("StatusLineNC","ffffff","626262","","White","Grey")
 call s:X("VertSplit","626262","626262","",s:termBlack,s:termBlack)
 call s:X("WildMenu","808080","303030","","White",s:termBlack)
 
-call s:X("Folded","ffaf00","262626","standout","Red",s:termBlack)
-call s:X("FoldColumn","ffaf00","262626","bold","Red",s:termBlack)
-call s:X("SignColumn","","000000","","",s:termBlack)
-call s:X("ColorColumn","","000000","","",s:termBlack)
+call s:X("Folded","ffaf00","626262","bold","Red",s:termBlack)
+call s:X("FoldColumn","ffaf00","626262","bold","Red",s:termBlack)
+call s:X("SignColumn","ffaf00","626262","bold","Red",s:termBlack)
+call s:X("ColorColumn","ffaf00","626262","bold","Red",s:termBlack)
 
-call s:X("Title","d75f5f","","bold","Red","")
-call s:X("Constant","ffaf00","","","Yellow","")
+call s:X("Title","d75f5f","","underline","Red","")
+call s:X("Constant","d75f5f","","bold","Red","")
 call s:X("Special","ffaf00","","","Yellow","")
 call s:X("Delimiter","ffaf00","","","Yellow","")
-call s:X("String","ffffff","","","White","")
+call s:X("String","ffffff","","italic","White","")
 call s:X("StringDelimiter","ffff00","","","Yellow","")
 call s:X("Identifier","87d7ff","","","Blue","")
-call s:X("Structure","d75f5f","","","Red","")
+call s:X("Structure","ffffff","","bold","White","")
 call s:X("Function","87d7ff","","","Blue","")
 call s:X("Statement","ffd787","","","Yellow","")
 call s:X("PreProc","ffd787","","","Yellow","")
@@ -320,25 +320,25 @@ call s:X("SpecialKey","000000","","",s:termBlack,"")
 call s:X("Search","ffffff","d75f5f","bold","White","Red")
 call s:X("IncSearch","87d7ff","626262","standout","Blue","Grey")
 call s:X("Directory","ffff00","","","Yellow","")
-call s:X("Question","ffaf00","","","","")
+call s:X("Question","d75f5f","","","Red","")
 call s:X("ExtraWhitespace","262626","","standout",s:termBlack,"")
-call s:X("ErrorMsg","5f0000","ffaf00","bold","DarkRed","Yellow")
+call s:X("ErrorMsg","d75f5f","000000","standout","Red",s:termBlack)
 hi! link Error ErrorMsg
 hi! link MoreMsg Special
 
 "spell checking
-call s:X("SpellBad","bcbcbc","262626","undercurl","White",s:termBlack)
-call s:X("SpellCap","bcbcbc","262626","undercurl","White",s:termBlack)
-call s:X("SpellRare","bcbcbc","262626","undercurl","White",s:termBlack)
-call s:X("SpellLocal","bcbcbc","262626","undercurl","White",s:termBlack)
+call s:X("SpellBad","ff0000","","undercurl","Red","")
+call s:X("SpellCap","ffd787","","undercurl","","")
+call s:X("SpellLocal","ffd787","","undercurl","","")
+"call s:X("SpellRare","","","","","")
 
 "diff
 hi! link diffRemoved Constant
 hi! link diffAdded String
-call s:X("DiffAdd","000000","00ff00","",s:termBlack,"Green")
-call s:X("DiffDelete","000000","d75f5f","",s:termBlack,"Red")
-call s:X("DiffChange","000000","87d7ff","",s:termBlack,"Blue")
-call s:X("DiffText","000000","626262","bold",s:termBlack,"White")
+call s:X("DiffAdd","000000","ffd787","italic",s:termBlack,"Yellow")
+call s:X("DiffDelete","000000","d75f5f","italic",s:termBlack,"Red")
+call s:X("DiffChange","000000","87d7ff","italic",s:termBlack,"Blue")
+call s:X("DiffText","000000","c6c6c6","italic",s:termBlack,"White")
 
 "php
 hi! link phpFunctions Function

@@ -18,7 +18,7 @@
 "SYNTAX: INDENTING, HIGHLIGHTING, FOLDING {{{
     filetype plugin indent on
     syntax on "turn syntax highlighting on
-    set foldmethod=syntax foldcolumn=1 foldlevel=8 "configure how folding code works
+    set foldmethod=syntax foldcolumn=1 foldlevel=3 "configure how folding code works
     set formatoptions=roqnl12 "configure format options
 "}}}
 
@@ -45,7 +45,7 @@
     set history=75 "undo history
     set mouse=a "enables mouse
     set whichwrap=b,s,<,>,[,] "allow the cursor to wrap lines
-    set clipboard=unnamed "enable copy/paste support between vim and xorg's middle-click style clipboard
+    set clipboard=unnamedplus "enable copy/paste support between vim and xorg's middle-click style clipboard
     set textwidth=0 "the default width text will go before breaking when line breaks are enabled
     set nolinebreak "disable linebreaks, though this will be overridden by filetype plugins
     set showmatch "show matching open bracket when closed bracket is inserted
