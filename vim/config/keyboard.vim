@@ -23,9 +23,9 @@
 "  ~                    | (N) -> toggle the tagbar sidebar
 "  p                    | (V) -> paste and replace the selection
 "  <Shift-p>            | (N) -> paste and replace the current word
-"  <F2>                 | (A) -> toggle line numbers
-"  <F3>                 | (N) -> toggle line wrapping
-"  <F4>                 | (A) -> toggle row/column highlighting
+"  <F1>                 | (A) -> toggle line numbers
+"  <F2>                 | (N) -> toggle line wrapping
+"  <F3>                 | (A) -> toggle row/column highlighting
 "  <F12>                | (A) -> toggle collapsed/folded rows
 "  <Leader><C-f>        | (N) -> format document and return to current line
 "  <Leader><C-w>        | (N) -> remove whitespace
@@ -87,18 +87,19 @@
     vnoremap p "_d"0P
     nnoremap <S-p> "_diwP
 
-    "toggle the display of line numbers
-    nnoremap <silent><expr> <F2> ':set number!<CR>'
+    "unmap F1 from help then map it to toggle the display of line numbers
+    nmap <F1> <nop>
+    nnoremap <silent><expr> <F1> ':set number!<CR>'
 
     "toggle line wrapping (and bottom bar if using the gui)
     if !has("gui_running")
-        nnoremap <silent><expr> <F3> ':set wrap!<CR>'
+        nnoremap <silent><expr> <F2> ':set wrap!<CR>'
     else
-        nnoremap <silent><expr> <F3> ':set wrap! go'.'-+'[&wrap]."=b\r"
+        nnoremap <silent><expr> <F2> ':set wrap! go'.'-+'[&wrap]."=b\r"
     endif
 
     "toggle the cursor line and column
-    nnoremap <silent><expr> <F4> ':set cursorline! cursorcolumn!<CR>'
+    nnoremap <silent><expr> <F3> ':set cursorline! cursorcolumn!<CR>'
 
     "toggle folded code at foldpoints
     inoremap <F12> <C-O>za
