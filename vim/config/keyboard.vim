@@ -53,9 +53,9 @@
 "   <Leader><Backspace> | (N) -> undo the most recent match selection
 "
 " GVim Mappings:
-"  <Ctrl-F10>           | (A) -> toggle the menu
-"  <Ctrl-F11>           | (A) -> toggle the toolbar
-"  <Ctrl-F12>           | (A) -> toggle the scrollbar
+"  <Ctrl-F1>           | (A) -> toggle the menu
+"  <Ctrl-F2>           | (A) -> toggle the toolbar
+"  <Ctrl-F3>           | (A) -> toggle the scrollbar
 "
 " Aliases:
 "  :wsudo               | (N) -> :SudoWrite (write the file as root using sudo)
