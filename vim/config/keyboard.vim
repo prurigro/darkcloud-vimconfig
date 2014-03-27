@@ -18,14 +18,16 @@
 "  <Ctrl-n>             | (A) -> go to the next open tab
 "  <Ctrl-p>             | (A) -> go to the previous open tab
 "  <Tab>                | (V) -> indent a block in visual mode
-"  <Shift-Tab>          | (V) -> unindent a block in visual mod
+"  <Shift-Tab>          | (V) -> unindent a block in visual mode
+"  \\                   | (N) -> show spelling suggestions popup for selection
 "  `                    | (N) -> toggle the nerdtree sidebar
 "  ~                    | (N) -> toggle the tagbar sidebar
 "  p                    | (V) -> paste and replace the selection
 "  <Shift-p>            | (N) -> paste and replace the current word
 "  <F1>                 | (A) -> toggle line numbers
-"  <F2>                 | (N) -> toggle line wrapping
+"  <F2>                 | (A) -> toggle line wrapping
 "  <F3>                 | (A) -> toggle row/column highlighting
+"  <F4>                 | (A) -> toggle spellcheck
 "  <F12>                | (A) -> toggle collapsed/folded rows
 "  <Leader><C-f>        | (N) -> format document and return to current line
 "  <Leader><C-w>        | (N) -> remove whitespace
@@ -78,6 +80,9 @@
     vnoremap <Tab> >gv
     vnoremap <S-Tab> <gv
 
+    "press backslash twice on a mispelled word for suggestions
+    nnoremap \\ ea<C-X><C-S>
+
     "move to the next and previous tabs
     nnoremap <silent><expr> <C-t> ':tabnew<CR>'
     nnoremap <silent><expr> <C-n> ':tabnext<CR>'
@@ -88,24 +93,36 @@
     nnoremap <S-p> "_diwP
 
     "unmap F1 from help then map it to toggle the display of line numbers
-    nmap <F1> <nop>
     nnoremap <silent><expr> <F1> ':set number!<CR>'
+    inoremap <silent><expr> <F1> '<Esc>:set number!<CR>a'
+    vnoremap <silent><expr> <F1> '<Esc>:set number!<CR>v'
 
     "toggle line wrapping (and bottom bar if using the gui)
     if !has("gui_running")
         nnoremap <silent><expr> <F2> ':set wrap!<CR>'
+        inoremap <silent><expr> <F2> '<Esc>:set wrap!<CR>'
+        vnoremap <silent><expr> <F2> '<Esc>:set wrap!<CR>'
     else
         nnoremap <silent><expr> <F2> ':set wrap! go'.'-+'[&wrap]."=b\r"
+        inoremap <silent><expr> <F2> '<Esc>:set wrap! go'.'-+'[&wrap]."=b\ra"
+        vnoremap <silent><expr> <F2> '<Esc>:set wrap! go'.'-+'[&wrap]."=b\rv"
     endif
 
     "toggle the cursor line and column
     nnoremap <silent><expr> <F3> ':set cursorline! cursorcolumn!<CR>'
+    inoremap <silent><expr> <F3> '<Esc>:set cursorline! cursorcolumn!<CR>a'
+    vnoremap <silent><expr> <F3> '<Esc>:set cursorline! cursorcolumn!<CR>v'
+
+    "toggle spellcheck
+    nnoremap <silent><expr> <F4> ':set spell!<CR>'
+    inoremap <silent><expr> <F4> '<Esc>:set spell!<CR>a'
+    vnoremap <silent><expr> <F4> '<Esc>:set spell!<CR>a'
 
     "toggle folded code at foldpoints
     inoremap <F12> <C-O>za
     nnoremap <F12> za
     onoremap <F12> <C-C>za
-    vnoremap <F12> zf
+    vnoremap <F12> <Esc>zav
 
     "format the document
     nnoremap <Leader><C-f> mzgg=G`z<CR>

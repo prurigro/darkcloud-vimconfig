@@ -280,7 +280,7 @@ call s:X("MatchParen","000000","87d7ff","bold",s:termBlack,"Blue")
 call s:X("CursorColumn","","303030","","",s:termBlack)
 call s:X("CursorLine","","303030","","",s:termBlack)
 call s:X("CursorLineNr","87d7ff","","bold","Blue",s:termBlack)
-call s:X("LineNr","ffaf00","","","Red",s:termBlack)
+call s:X("LineNr","ffaf00","","","Yellow",s:termBlack)
 
 call s:X("TabLine","","000000","","",s:termBlack)
 call s:X("TabLineFill","","000000","","",s:termBlack)
@@ -290,7 +290,7 @@ call s:X("Visual","","000000","standout","",s:termBlack)
 call s:X("Cursor","000000","87d7ff","underline",s:termBlack,"Blue")
 
 call s:X("Comment","626262","","","Grey","")
-call s:X("Todo","5f0000","808080","","Red",s:termBlack)
+call s:X("Todo","ffaf00","808080","","Red",s:termBlack)
 
 call s:X("StatusLine","000000","d75f5f","bold",s:termBlack,"Red")
 call s:X("StatusLineNC","ffffff","626262","","White","Grey")
@@ -319,7 +319,7 @@ call s:X("NonText","ffff00","","","Yellow","")
 call s:X("SpecialKey","000000","","",s:termBlack,"")
 call s:X("Search","ffffff","d75f5f","bold","White","Red")
 call s:X("IncSearch","87d7ff","626262","standout","Blue","Grey")
-call s:X("Directory","ffff00","","","Yellow","")
+call s:X("Directory","ffaf00","","","Yellow","")
 call s:X("Question","d75f5f","","","Red","")
 call s:X("ExtraWhitespace","262626","","standout",s:termBlack,"")
 call s:X("ErrorMsg","d75f5f","000000","standout","Red",s:termBlack)
@@ -327,9 +327,9 @@ hi! link Error ErrorMsg
 hi! link MoreMsg Special
 
 "spell checking
-call s:X("SpellBad","ff0000","","undercurl","Red","")
-call s:X("SpellCap","ffd787","","undercurl","","")
-call s:X("SpellLocal","ffd787","","undercurl","","")
+call s:X("SpellBad","d75f5f","","undercurl","","Red")
+call s:X("SpellCap","87d7ff","","undercurl","","Blue")
+call s:X("SpellLocal","ffd787","","undercurl","","Yellow")
 "call s:X("SpellRare","","","","","")
 
 "diff
