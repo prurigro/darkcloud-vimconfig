@@ -1,4 +1,4 @@
-"==========================="
+
 "  Keyboard Configuration:  "
 "==========================="
 "
@@ -11,14 +11,17 @@
 "  ds"                  | (N) -> delete surrounding ""
 "
 " Mappings:
+"  =                    | (N) -> move to the first character on the next line
 "  <Ctrl-ScrollUp>      | (A) -> scroll right
 "  <Ctrl-ScrollDown>    | (A) -> scroll left
 "  <Shift-MiddleClick>  | (A) -> unbind this from vim so xorg can paste
 "  <Ctrl-t>             | (A) -> open a new tab
 "  <Ctrl-n>             | (A) -> go to the next open tab
 "  <Ctrl-p>             | (A) -> go to the previous open tab
-"  <Tab>                | (V) -> indent a block in visual mode
-"  <Shift-Tab>          | (V) -> unindent a block in visual mode
+"  <Tab>                | (V) -> indent all the lines currently selected
+"  <Tab>                | (N) -> indent the current line
+"  <Shift-Tab>          | (V) -> unindent all the lines currently selected
+"  <Shift-Tab>          | (N) -> unindent the current line
 "  \\                   | (N) -> show spelling suggestions popup for selection
 "  `                    | (N) -> toggle the nerdtree sidebar
 "  ~                    | (N) -> toggle the tagbar sidebar
@@ -55,19 +58,22 @@
 "   <Leader><Backspace> | (N) -> undo the most recent match selection
 "
 " GVim Mappings:
-"  <Ctrl-F1>           | (A) -> toggle the menu
-"  <Ctrl-F2>           | (A) -> toggle the toolbar
-"  <Ctrl-F3>           | (A) -> toggle the scrollbar
+"  <Ctrl-F1>            | (A) -> toggle the menu
+"  <Ctrl-F2>            | (A) -> toggle the toolbar
+"  <Ctrl-F3>            | (A) -> toggle the scrollbar
 "
 " Aliases:
-"  :wsudo               | (N) -> :SudoWrite (write the file as root using sudo)
-"  :esudo               | (N) -> :SudoRead (read a file as root using sudo)
+"  :wsudo & :sudow      | (N) -> :SudoWrite (write the file as root using sudo)
+"  :esudo & :sudoe      | (N) -> :SudoRead (read a file as root using sudo)
 "
 " Notes:
 "  *by the default <Leader> key is: \
 "
 
 "MAPPINGS: GENERAL KEYBINDINGS AND REBINDINGS {{{
+    "map = to + so shift doesn't need to be held to use its functionality
+    nnoremap = +
+
     "hold shift to enable middle-click paste
     noremap <S-Insert> <MiddleMouse>
     noremap! <S-Insert> <MiddleMouse>
@@ -79,6 +85,8 @@
     "tab and untabbing selected blocks
     vnoremap <Tab> >gv
     vnoremap <S-Tab> <gv
+    nnoremap <Tab> v>gv<Esc>
+    nnoremap <S-Tab> v<gv<Esc>
 
     "press backslash twice on a mispelled word for suggestions
     nnoremap \\ ea<C-X><C-S>
@@ -98,15 +106,9 @@
     vnoremap <silent><expr> <F1> '<Esc>:set number!<CR>v'
 
     "toggle line wrapping (and bottom bar if using the gui)
-    if !has("gui_running")
-        nnoremap <silent><expr> <F2> ':set wrap!<CR>'
-        inoremap <silent><expr> <F2> '<Esc>:set wrap!<CR>'
-        vnoremap <silent><expr> <F2> '<Esc>:set wrap!<CR>'
-    else
-        nnoremap <silent><expr> <F2> ':set wrap! go'.'-+'[&wrap]."=b\r"
-        inoremap <silent><expr> <F2> '<Esc>:set wrap! go'.'-+'[&wrap]."=b\ra"
-        vnoremap <silent><expr> <F2> '<Esc>:set wrap! go'.'-+'[&wrap]."=b\rv"
-    endif
+    nnoremap <silent><expr> <F2> ':set wrap! go'.'-+'[&wrap]."=b\r"
+    inoremap <silent><expr> <F2> '<Esc>:set wrap! go'.'-+'[&wrap]."=b\ra"
+    vnoremap <silent><expr> <F2> '<Esc>:set wrap! go'.'-+'[&wrap]."=b\rv"
 
     "toggle the cursor line and column
     nnoremap <silent><expr> <F3> ':set cursorline! cursorcolumn!<CR>'
@@ -131,25 +133,25 @@
     nnoremap <silent><expr> <Leader><C-w> ':FixWhitespace<CR>'
 
     "remap keys to scroll through text
-    nnoremap <C-Up> gg
+    nnoremap <C-Up> gg0
     nnoremap <C-k> gg0
-    nnoremap <C-Down> G
+    nnoremap <C-Down> G$
     nnoremap <C-j> G$
     nnoremap <C-Right> $
     nnoremap <C-l> $
     nnoremap <C-Left> ^
-    nnoremap <C-h> 0
+    nnoremap <C-h> ^
 
     "map remap keys to select text
     nnoremap <C-a> gg0vG$
-    nnoremap <S-Up> vgg
+    nnoremap <S-Up> vgg0
     nnoremap <S-k> vgg0
-    nnoremap <S-Down> vG
+    nnoremap <S-Down> vG$
     nnoremap <S-j> vG$
     nnoremap <S-Right> v$
     nnoremap <S-l> v$
     nnoremap <S-Left> v^
-    nnoremap <S-h> v0
+    nnoremap <S-h> v^
 "}}}
 
 "PLUGIN KEYBINDINGS {{{
@@ -175,16 +177,44 @@
         nmap <Esc>OF <End>
         imap <Esc>OF <End>
     endif
+
+    "tmux will send xterm-style keys when xterm-keys is on
+    if &term =~ '^screen' && exists('$TMUX')
+        execute "set <xUp>=\e[1;*A"
+        execute "set <xDown>=\e[1;*B"
+        execute "set <xRight>=\e[1;*C"
+        execute "set <xLeft>=\e[1;*D"
+        execute "set <xHome>=\e[1;*H"
+        execute "set <xEnd>=\e[1;*F"
+        execute "set <Insert>=\e[2;*~"
+        execute "set <Delete>=\e[3;*~"
+        execute "set <PageUp>=\e[5;*~"
+        execute "set <PageDown>=\e[6;*~"
+        execute "set <xF1>=\e[1;*P"
+        execute "set <xF2>=\e[1;*Q"
+        execute "set <xF3>=\e[1;*R"
+        execute "set <xF4>=\e[1;*S"
+        execute "set <F5>=\e[15;*~"
+        execute "set <F6>=\e[17;*~"
+        execute "set <F7>=\e[18;*~"
+        execute "set <F8>=\e[19;*~"
+        execute "set <F9>=\e[20;*~"
+        execute "set <F10>=\e[21;*~"
+        execute "set <F11>=\e[23;*~"
+        execute "set <F12>=\e[24;*~"
+    endif
 "}}}
 
 "GVIM: MAPPINGS FOR GUI ELEMENTS {{{
-    "map toggles for the menu, toolbar and scrollbar
+    "map toggles for the menu, toolbar and vertical scrollbar
     noremap <silent><expr> <C-F1> ":if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>"
     noremap <silent><expr> <C-F2> ":if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>"
     noremap <silent><expr> <C-F3> ":if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>"
 "}}}
 
 "ALIASES: COMMAND SHORTCUTS {{{
+    cabbrev sudow SudoWrite
     cabbrev wsudo SudoWrite
+    cabbrev sudoe SudoRead
     cabbrev esudo SudoRead
 "}}}
