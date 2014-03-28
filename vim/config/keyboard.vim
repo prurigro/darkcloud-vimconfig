@@ -49,13 +49,21 @@
 "  <Ctrl-a>             | (N) -> select all
 "  <Leader>a            | (V) -> select all
 "  <Leader>a            | (N) -> select all
+"  <Shift-Up>           | (V) -> toggle selection of all text above the cursor
 "  <Shift-Up>           | (N) -> select all text above the cursor
+"  <Shift-k>            | (V) -> toggle selection of all text above the cursor
 "  <Shift-k>            | (N) -> select all text above the cursor
+"  <Shift-Down>         | (V) -> toggle selection of all text below the cursor
 "  <Shift-Down>         | (N) -> select all text below the cursor
+"  <Shift-j>            | (V) -> toggle selection of all text below the cursor
 "  <Shift-j>            | (N) -> select all text below the cursor
+"  <Shift-Right>        | (V) -> toggle selection of all text to the right of the cursor
 "  <Shift-Right>        | (N) -> select all text to the right of the cursor
+"  <Shift-l>            | (V) -> toggle selection of all text to the right of the cursor
 "  <Shift-l>            | (N) -> select all text to the right of the cursor
-"  <Shift-Left>         | (N) -> select to the beginning of the non-whitespace
+"  <Shift-Left>         | (V) -> toggle selection of all non-whitespace to the left
+"  <Shift-Left>         | (N) -> select all non-whitespace to the left
+"  <Shift-h>            | (V) -> toggle selection of all non-whitespace to the left
 "  <Shift-h>            | (N) -> select to the beginning of the line
 "
 "  (neocomplcache)
@@ -154,17 +162,25 @@
     nnoremap <C-h> ^
 
     "map remap keys to select text
-    nnoremap <C-a> gg0vG$
     vnoremap <C-a> <Esc>gg0vG$
-    nnoremap <Leader>a gg0vG$
+    nnoremap <C-a> gg0vG$
     vnoremap <Leader>a <Esc>gg0vG$
+    nnoremap <Leader>a gg0vG$
+    vnoremap <S-Up> gg0
     nnoremap <S-Up> vgg0
+    vnoremap <S-k> gg0
     nnoremap <S-k> vgg0
+    vnoremap <S-Down> G$
     nnoremap <S-Down> vG$
+    vnoremap <S-j> G$
     nnoremap <S-j> vG$
+    vnoremap <S-Right> $
     nnoremap <S-Right> v$
+    vnoremap <S-l> $
     nnoremap <S-l> v$
+    vnoremap <S-Left> ^
     nnoremap <S-Left> v^
+    vnoremap <S-h> ^
     nnoremap <S-h> v^
 "}}}
 
