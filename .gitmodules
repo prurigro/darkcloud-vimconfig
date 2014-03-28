@@ -34,9 +34,6 @@
 [submodule "vim/bundle/emmet-vim"]
 	path = vim/bundle/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
-[submodule "vim/bundle/hexHighlight.vim"]
-	path = vim/bundle/hexHighlight.vim
-	url = https://github.com/vim-scripts/hexHighlight.vim.git
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git

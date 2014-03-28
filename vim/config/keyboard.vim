@@ -18,11 +18,14 @@
 "  <Ctrl-t>             | (A) -> open a new tab
 "  <Ctrl-n>             | (A) -> go to the next open tab
 "  <Ctrl-p>             | (A) -> go to the previous open tab
+"  <Backspace>          | (V) -> deletes currently selected text
+"  <Backspace>          | (N) -> deletes the character behind the cursor
 "  <Tab>                | (V) -> indent all the lines currently selected
 "  <Tab>                | (N) -> indent the current line
 "  <Shift-Tab>          | (V) -> unindent all the lines currently selected
 "  <Shift-Tab>          | (N) -> unindent the current line
-"  \\                   | (N) -> show spelling suggestions popup for selection
+"  \\                   | (N) -> show spelling suggestions popup for word
+"  \|                   | (N) -> add word to a local list of correct spellings
 "  `                    | (N) -> toggle the nerdtree sidebar
 "  ~                    | (N) -> toggle the tagbar sidebar
 "  p                    | (V) -> paste and replace the selection
@@ -82,6 +85,10 @@
     noremap <C-ScrollWheelUp> 3zl
     noremap <C-ScrollWheelDown> 3zh
 
+    "have backspace delete the highlighted selection in visual mode
+    vnoremap <Backspace> x
+    nnoremap <Backspace> i<Backspace><Esc>l
+
     "tab and untabbing selected blocks
     vnoremap <Tab> >gv
     vnoremap <S-Tab> <gv
@@ -90,6 +97,7 @@
 
     "press backslash twice on a mispelled word for suggestions
     nnoremap \\ ea<C-X><C-S>
+    nnoremap \| zg
 
     "move to the next and previous tabs
     nnoremap <silent><expr> <C-t> ':tabnew<CR>'
