@@ -37,6 +37,8 @@
 "  <F12>                | (A) -> toggle collapsed/folded rows
 "  <Leader><C-f>        | (N) -> format document and return to current line
 "  <Leader><C-w>        | (N) -> remove whitespace
+"  <Leader><C-t>        | (N) -> convert tabs into spaces
+"  <Leader>\            | (N) -> remove search highlighting
 "  <Ctrl-Up>            | (N) -> move to the beginning of the document
 "  <Ctrl-k>             | (N) -> move to the beginning of the document
 "  <Ctrl-Down>          | (N) -> move to the end of the document
@@ -150,6 +152,12 @@
 
     "remove trailing white space from the document
     nnoremap <silent><expr> <Leader><C-w> ':FixWhitespace<CR>'
+
+    "convert tabs to spaces
+    nnoremap <silent><expr> <Leader><C-t> ':retab<CR>:noh<CR>'
+
+    "remove search highlight
+    nnoremap <silent><expr> <Leader>/ ':noh<CR>'
 
     "remap keys to scroll through text
     nnoremap <C-Up> gg0
