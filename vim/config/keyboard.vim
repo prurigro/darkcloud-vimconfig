@@ -1,4 +1,4 @@
-
+"=========================="
 "  Keyboard Configuration:  "
 "==========================="
 "
@@ -45,7 +45,10 @@
 "  <Ctrl-l>             | (N) -> move to the end of the line
 "  <Ctrl-Left>          | (N) -> move to the beginning of the non-whitespace
 "  <Ctrl-h>             | (N) -> move to the beginning of the line
+"  <Ctrl-a>             | (V) -> select all
 "  <Ctrl-a>             | (N) -> select all
+"  <Leader>a            | (V) -> select all
+"  <Leader>a            | (N) -> select all
 "  <Shift-Up>           | (N) -> select all text above the cursor
 "  <Shift-k>            | (N) -> select all text above the cursor
 "  <Shift-Down>         | (N) -> select all text below the cursor
@@ -152,7 +155,9 @@
 
     "map remap keys to select text
     nnoremap <C-a> gg0vG$
-    nnoremap <S-a> gg0vG$
+    vnoremap <C-a> <Esc>gg0vG$
+    nnoremap <Leader>a gg0vG$
+    vnoremap <Leader>a <Esc>gg0vG$
     nnoremap <S-Up> vgg0
     nnoremap <S-k> vgg0
     nnoremap <S-Down> vG$
