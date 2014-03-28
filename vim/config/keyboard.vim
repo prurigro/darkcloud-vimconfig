@@ -152,6 +152,7 @@
 
     "map remap keys to select text
     nnoremap <C-a> gg0vG$
+    nnoremap <S-a> gg0vG$
     nnoremap <S-Up> vgg0
     nnoremap <S-k> vgg0
     nnoremap <S-Down> vG$
