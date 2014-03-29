@@ -263,10 +263,10 @@
   "VIMDIFF:{
     "map shortcuts for vimdiff
     nnoremap <silent><expr> du ':diffu<CR>'
-    nnoremap <C-n> ]c
-    nnoremap <C-p> [c
-    nnoremap < do
-    nnoremap > dp
+    nnoremap > ]c
+    nnoremap < [c
+    nnoremap <Leader>. dp
+    nnoremap <Leader>, do
   "}
 
   "PASTE BUFFER OVERRIDE:{
