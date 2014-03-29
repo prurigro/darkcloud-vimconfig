@@ -31,6 +31,7 @@
     set list listchars=tab:>-,trail:- "display tabs as >--- and trailing spaces as -
     set autochdir "current dir is file dir
     set history=250 "undo history
+    set timeoutlen=1000 ttimeoutlen=0 "shorten the timeout length of escapes
     set whichwrap=b,s,<,>,[,] "allow the cursor to wrap lines
     set textwidth=0 "set an unlimited text width before breaking the line when line breaks are enabled
     set nolinebreak "disable linebreaks, though this will be overridden by filetype plugins
