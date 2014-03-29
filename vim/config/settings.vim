@@ -4,7 +4,6 @@
 
 "COMPATIBILITY SETTINGS: DOCUMENT AND ENVIRONMENT SETTINGS {{{
     set nocompatible "enable vim specific capabilities
-    set hidden "tells vim to track things like undo history while a buffer is in the background
     set encoding=utf-8 "set encoding
     set fileformats=unix,dos,mac "set compatible line endings in order of preference
     set backspace=indent,eol,start "enables backspacing
@@ -58,8 +57,13 @@
 "SYNTAX: INDENTING, HIGHLIGHTING, FOLDING {{{
     filetype plugin indent on
     syntax on "turn syntax highlighting on
-    set foldmethod=syntax foldcolumn=1 foldlevel=3 "configure how folding code works
     set formatoptions=roqnl12 "configure format options
+    set foldmethod=syntax foldcolumn=1 foldlevel=3 "fold layers 3 or more deep
+
+    "disable folding by default in vimdiff
+    if &diff
+        au VimEnter * windo set nofoldenable
+    endif
 "}}}
 
 "FILETYPES: SETTINGS SPECIFIC TO A FILETYPE {{{
