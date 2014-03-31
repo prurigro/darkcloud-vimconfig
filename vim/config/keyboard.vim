@@ -98,7 +98,8 @@
 "    <                    | (N) -> replace diff in current pane with other pane
 "    >                    | (N) -> replace diff in other pane with current pane
 "
-"  (paste-buffer-override)
+"  (paste)
+"    y                    | (N) -> copies the character
 "    p                    | (V) -> paste and replace the currently selected text
 "    P                    | (V) -> paste and replace the currently selected text
 "    \d                   | (V) -> delete the currently selected text
@@ -125,6 +126,8 @@
     "hold ctrl to scroll left/right instead of up/down
     noremap <C-ScrollWheelUp> 3zl
     noremap <C-ScrollWheelDown> 3zh
+    inoremap <C-ScrollWheelUp> <C-O>3zl
+    inoremap <C-ScrollWheelDown> <C-O>3zh
   "}
 
   "TABS:{
@@ -269,7 +272,10 @@
     nnoremap <Leader>, do
   "}
 
-  "PASTE BUFFER OVERRIDE:{
+  "PASTE:{
+    "allow y to copy in normal mode
+    nnoremap y vy<Esc>
+
     "alternatives that preserve the paste buffer
     vnoremap p "_d"0P
     vnoremap P "_d"0P
