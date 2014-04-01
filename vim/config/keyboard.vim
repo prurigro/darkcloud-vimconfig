@@ -39,7 +39,7 @@
 "    <Ctrl-F3>            | (A) -> toggle the scrollbar
 "
 "  (spelling-and-completion)
-"    <Ctrl-z>,            | (A) -> enter this following an emme 'word' (ie: html:5)
+"    <Tab><Tab>,          | (A) -> enter this following an emme 'word' (ie: html:5)
 "    \\                   | (N) -> show spelling suggestions popup for word
 "    \|                   | (N) -> add word to a local list of correct spellings
 "    <Leader><Backspace>  | (N) -> undo the most recent match selection
@@ -183,7 +183,7 @@
 
   "SPELLING AND COMPLETION:{
     "emmet switch triggerkey from <Ctrl-Y> to <Ctrl-Z>
-    let g:user_emmet_leader_key='<C-Z>'
+    let g:user_emmet_leader_key='<Tab><Tab>'
 
     "press backslash twice on a mispelled word for suggestions
     nnoremap \\ hei<C-X><C-S>
