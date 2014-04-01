@@ -1,4 +1,4 @@
-"=========================="
+"==========================="
 "  Keyboard Configuration:  "
 "==========================="
 "
@@ -25,7 +25,7 @@
 "  (toggles)
 "    <F1>                 | (A) -> toggle line numbers
 "    <F2>                 | (A) -> toggle row/column highlighting
-"    <F3>                 | (A) -> toggle spellcheck
+"    <F3>                 | (A) -> toggle spell check
 "    <F4>                 | (A) -> toggle line wrapping
 "    <F9>                 | (A) -> toggle the nerdtree sidebar
 "    <Shift-F9>           | (A) -> toggle the tagbar sidebar
@@ -44,7 +44,7 @@
 "    \|                   | (N) -> add word to a local list of correct spellings
 "    <Leader><Backspace>  | (N) -> undo the most recent match selection
 "    <Tab>                | (I) -> write the part common to all suggestions
-"    <Backspace>          | (I) -> cancle the match dialog (during suggestion)
+"    <Backspace>          | (I) -> cancel the match dialog (during suggestion)
 "
 "  (formatting)
 "    <Backspace>          | (V) -> deletes currently selected text
@@ -61,13 +61,9 @@
 "  (movement)
 "    =                    | (N) -> move to the first character on the next line
 "    <Ctrl-Up>            | (N) -> move to the beginning of the document
-"    <Ctrl-k>             | (N) -> move to the beginning of the document
 "    <Ctrl-Down>          | (N) -> move to the end of the document
-"    <Ctrl-j>             | (N) -> move to the end of the document
 "    <Ctrl-Right>         | (N) -> move to the end of the line
-"    <Ctrl-l>             | (N) -> move to the end of the line
 "    <Ctrl-Left>          | (N) -> move to the beginning of the non-whitespace
-"    <Ctrl-h>             | (N) -> move to the beginning of the line
 "
 "  (selection)
 "    <Ctrl-a>             | (V) -> select all
@@ -76,41 +72,34 @@
 "    <Leader>a            | (N) -> select all
 "    <Shift-Up>           | (V) -> toggle selection of all text above the cursor
 "    <Shift-Up>           | (N) -> select all text above the cursor
-"    <Shift-k>            | (V) -> toggle selection of all text above the cursor
-"    <Shift-k>            | (N) -> select all text above the cursor
 "    <Shift-Down>         | (V) -> toggle selection of all text below the cursor
 "    <Shift-Down>         | (N) -> select all text below the cursor
-"    <Shift-j>            | (V) -> toggle selection of all text below the cursor
-"    <Shift-j>            | (N) -> select all text below the cursor
 "    <Shift-Right>        | (V) -> toggle selection of all text to the right of the cursor
 "    <Shift-Right>        | (N) -> select all text to the right of the cursor
-"    <Shift-l>            | (V) -> toggle selection of all text to the right of the cursor
-"    <Shift-l>            | (N) -> select all text to the right of the cursor
 "    <Shift-Left>         | (V) -> toggle selection of all non-whitespace to the left
 "    <Shift-Left>         | (N) -> select all non-whitespace to the left
-"    <Shift-h>            | (V) -> toggle selection of all non-whitespace to the left
-"    <Shift-h>            | (N) -> select to the beginning of the line
 "
 "  (vimdiff)
-"    du                   | (N) -> update differences
-"    <Ctrl-n>             | (N) -> next difference
-"    <Ctrl-p>             | (N) -> previous difference
-"    <                    | (N) -> replace diff in current pane with other pane
-"    >                    | (N) -> replace diff in other pane with current pane
+"    <Leader><Space>      | (N) -> update differences
+"    >>                   | (N) -> next difference
+"    <<                   | (N) -> previous difference
+"    ><                   | (N) -> replace diff in current pane with other pane
+"    <>                   | (N) -> replace diff in other pane with current pane
 "
 "  (paste)
 "    y                    | (N) -> copies the character
 "    p                    | (V) -> paste and replace the currently selected text
 "    P                    | (V) -> paste and replace the currently selected text
-"    \d                   | (V) -> delete the currently selected text
-"    \x                   | (V) -> delete the currently selected text
-"    \x                   | (N) -> delete the char(s) under and the cursor
-"    \X                   | (V) -> delete the currently selected lines
-"    \X                   | (N) -> delete the char(s) before the cursor
-"    \D                   | (V) -> delete the currently selected lines
-"    \D                   | (N) -> delete chars under and after the cursor on the line
-"    \dw                  | (N) -> delete chars under and after the cursor in the word
-"    \dd                  | (N) -> delete lines under and after the one below
+"    <Leader>p            | (N) -> view the paste buffers and register contents
+"    <Leader>d            | (V) -> delete the currently selected text
+"    <Leader>x            | (V) -> delete the currently selected text
+"    <Leader>x            | (N) -> delete the char(s) under and the cursor
+"    <Leader>X            | (V) -> delete the currently selected lines
+"    <Leader>X            | (N) -> delete the char(s) before the cursor
+"    <Leader>D            | (V) -> delete the currently selected lines
+"    <Leader>D            | (N) -> delete chars under and after the cursor on the line
+"    <Leader>dw           | (N) -> delete chars under and after the cursor in the word
+"    <Leader>dd           | (N) -> delete lines under and after the one below
 "
 "  Aliases:
 "    :wsudo -and- :sudow  | (C) -> :SudoWrite (write the file as root using sudo)
@@ -197,7 +186,7 @@
     let g:user_emmet_leader_key='<C-Z>'
 
     "press backslash twice on a mispelled word for suggestions
-    nnoremap \\ ea<C-X><C-S>
+    nnoremap \\ hei<C-X><C-S>
     nnoremap \| zg
 
     "neocomplcache suggestions: cancel, autocomplete, scroll up and scroll down
@@ -230,13 +219,9 @@
 
     "remap keys to scroll through text
     nnoremap <C-Up> gg0
-    nnoremap <C-k> gg0
     nnoremap <C-Down> G$
-    nnoremap <C-j> G$
     nnoremap <C-Right> $
-    nnoremap <C-l> $
     nnoremap <C-Left> ^
-    nnoremap <C-h> ^
   "}
 
   "SELECTION:{
@@ -247,32 +232,27 @@
     nnoremap <Leader>a gg0vG$
     vnoremap <S-Up> gg0
     nnoremap <S-Up> vgg0
-    vnoremap <S-k> gg0
-    nnoremap <S-k> vgg0
     vnoremap <S-Down> G$
     nnoremap <S-Down> vG$
-    vnoremap <S-j> G$
-    nnoremap <S-j> vG$
     vnoremap <S-Right> $
     nnoremap <S-Right> v$
-    vnoremap <S-l> $
-    nnoremap <S-l> v$
     vnoremap <S-Left> ^
     nnoremap <S-Left> v^
-    vnoremap <S-h> ^
-    nnoremap <S-h> v^
   "}
 
   "VIMDIFF:{
     "map shortcuts for vimdiff
-    nnoremap <silent><expr> du ':diffu<CR>'
-    nnoremap > ]c
-    nnoremap < [c
-    nnoremap <Leader>. dp
-    nnoremap <Leader>, do
+    nnoremap <silent><expr> <Leader><Space> ':diffu<CR>'
+    nnoremap >> ]c
+    nnoremap << [c
+    nnoremap <> dp
+    nnoremap >< do
   "}
 
   "PASTE:{
+    "display contents of paste buffers
+    nnoremap <silent><expr> <Leader>p ':reg<CR>'
+
     "allow y to copy in normal mode
     nnoremap y vy<Esc>
 

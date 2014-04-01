@@ -2,8 +2,8 @@
 "                        "
 "  Darkcloud Vim Theme:  "
 "                        "
-"  Version:     1.0      "
-"  Maintainer:  Prurigro "
+"  Version:    1.0       "
+"  Maintainer: Prurigro  "
 "                        "
 "========================"
 "
@@ -267,30 +267,14 @@ else
 endif
 
 "COLOR SETTINGS:
-"format: (name ,fg      ,bg      ,style        ,lowcolor-fg,lowcolor-bg)
-"exmple: ("Sel","000000","f0f0f0","italic,bold",s:termBlack,"White")
+"format: ('name','fg    ','bg    ','style      ',s:lowcolor-fg,'lowcolor-bg')
+"example:('Line','000000','f0f0f0','italic,bold',s:termBlack  ,'White')
 
-"Default foreground and background
-call s:X("Normal","bcbcbc","262626","","White",s:termBlack)
+call s:X("Visual","","262626","standout","",s:termBlack)
+call s:X("Cursor","","262626","standout,bold,underline","",s:termBlack)
 
 call s:X("Pmenu","87d7ff","303030","","Grey","Blue")
 call s:X("PmenuSel","87d7ff","4e4e4e","bold","White","Black")
-
-call s:X("MatchParen","000000","87d7ff","bold",s:termBlack,"Blue")
-call s:X("CursorColumn","","303030","","",s:termBlack)
-call s:X("CursorLine","","303030","","",s:termBlack)
-call s:X("CursorLineNr","87d7ff","","bold","Blue",s:termBlack)
-call s:X("LineNr","ffaf00","","","Yellow",s:termBlack)
-
-call s:X("TabLine","","000000","","",s:termBlack)
-call s:X("TabLineFill","","000000","","",s:termBlack)
-call s:X("TabLineSel","000000","ffffff","",s:termBlack,"White")
-
-call s:X("Visual","","000000","standout","",s:termBlack)
-call s:X("Cursor","000000","87d7ff","underline",s:termBlack,"Blue")
-
-call s:X("Comment","626262","","","Grey","")
-call s:X("Todo","ffaf00","808080","","Red",s:termBlack)
 
 call s:X("StatusLine","000000","d75f5f","bold",s:termBlack,"Red")
 call s:X("StatusLineNC","ffffff","626262","","White","Grey")
@@ -302,6 +286,19 @@ call s:X("FoldColumn","ffaf00","626262","bold","Red",s:termBlack)
 call s:X("SignColumn","ffaf00","626262","bold","Red",s:termBlack)
 call s:X("ColorColumn","ffaf00","626262","bold","Red",s:termBlack)
 
+call s:X("TabLine","","000000","","",s:termBlack)
+call s:X("TabLineFill","","000000","","",s:termBlack)
+call s:X("TabLineSel","000000","ffffff","",s:termBlack,"White")
+
+call s:X("Comment","626262","","","Grey","")
+call s:X("Todo","ffaf00","808080","","Red",s:termBlack)
+
+call s:X("Normal","d0d0d0","262626","","White",s:termBlack)
+call s:X("MatchParen","ffffff","262626","standout,underline",s:termBlack,"White")
+call s:X("CursorColumn","","303030","","",s:termBlack)
+call s:X("CursorLine","","303030","","",s:termBlack)
+call s:X("CursorLineNr","87d7ff","","bold","Blue",s:termBlack)
+call s:X("LineNr","ffaf00","","","Yellow",s:termBlack)
 call s:X("Title","d75f5f","","underline","Red","")
 call s:X("Constant","d75f5f","","bold","Red","")
 call s:X("Special","ffaf00","","","Yellow","")
@@ -330,7 +327,7 @@ hi! link MoreMsg Special
 call s:X("SpellBad","d75f5f","","undercurl","","Red")
 call s:X("SpellCap","87d7ff","","undercurl","","Blue")
 call s:X("SpellLocal","ffd787","","undercurl","","Yellow")
-"call s:X("SpellRare","","","","","")
+call s:X("SpellRare","ffffff","","italic","White","")
 
 "diff
 hi! link diffRemoved Constant
@@ -340,6 +337,16 @@ call s:X("DiffDelete","000000","d75f5f","italic",s:termBlack,"Red")
 call s:X("DiffChange","000000","87d7ff","italic",s:termBlack,"Blue")
 call s:X("DiffText","000000","c6c6c6","italic",s:termBlack,"White")
 
+"html
+hi! link htmlLink Statement
+call s:X("htmlTitle","ffffff","","underline","White","")
+call s:X("htmlH1","d75f5f","","standout,underline,bold","Red","")
+call s:X("htmlH2","ffd787","","standout,underline,bold","Red","")
+call s:X("htmlH3","87d7ff","","standout,underline,bold","Blue","")
+call s:X("htmlH4","d75f5f","","underline,bold","Blue","")
+call s:X("htmlH5","ffd787","","underline,bold","Yellow","")
+call s:X("htmlH6","87d7ff","","underline,bold","Yellow","")
+
 "php
 hi! link phpFunctions Function
 hi! link phpSuperglobal Identifier
@@ -348,7 +355,7 @@ hi! link phpQuoteDouble StringDelimiter
 hi! link phpBoolean Constant
 hi! link phpNull Constant
 hi! link phpArrayPair Operator
-"call s:X("StorageClass","","","","","")
+hi! link StorageClass Type
 
 "ruby
 hi! link rubySharpBang Comment
@@ -359,9 +366,9 @@ hi! link rubyModule rubyClass
 hi! link rubyString String
 hi! link rubyStringDelimiter StringDelimiter
 hi! link rubyInterpolationDelimiter Identifier
-"call s:X("rubyClass","","","","","")
-"call s:X("rubyIdentifier","","","","","")
-"call s:X("rubyInstanceVariable","","","","","")
+hi! link rubyClass Type
+hi! link rubyIdentifier Identifier
+call s:X("rubyGlobalVariable","","","bold","","")
 "call s:X("rubySymbol","","","","","")
 "call s:X("rubyControl","","","","","")
 "call s:X("rubyRegexpDelimiter","","","","","")

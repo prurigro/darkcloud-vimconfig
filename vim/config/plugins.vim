@@ -11,6 +11,11 @@
     autocmd FileType html,css,php,aspx EmmetInstall
 "}}}
 
+"MARKDOWN VIM MODE: SETTINGS {{{
+    let g:vim_markdown_folding_disabled=0
+    let g:vim_markdown_initial_foldlevel=2
+"}}}
+
 "NEOCOMPLCACHE AUTOCOMPLETION PLUGIN: ENABLE, CONFIG AND SETUP OMNICOMPLETION {{{"
     let g:neocomplcache_enable_at_startup=1
     let g:neocomplcache_enable_smart_case=1

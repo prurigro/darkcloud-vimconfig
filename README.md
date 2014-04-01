@@ -2,18 +2,18 @@
 
 ## Requirements
 
-1. Git and Bash: Required to manage plugin updates using the "pathogen_update_plugins" script.
-2. CTags: Available @ http://ctags.sourceforge.net, this can be in $PATH or in the vim folder and is required for the tagbar plugin.
-3. Vim v7.4+: Everything has been written and tested using Vim 7.4.135, and I assume there could be issues with 7.3 and below.
-4. Powerline Fonts (optional): Required for the powerline lightline theme, which can be toggled in /etc/vimrc along with the gvim font
+1. Git: Required to clone and update the repository.
+3. CTags: Available @ http://ctags.sourceforge.net, this can be in $PATH or in the vim folder and is required for the tagbar plugin.
+4. Vim v7.4+: Everything has been written and tested using Vim 7.4.135, and I assume there could be issues with 7.3 and below.
+2. Bash (optional): Required to use the update script, which simply runs the git repo and submodule update commands.
+5. Powerline Fonts (optional): Required for the powerline lightline theme, which can be toggled in /etc/vimrc along with the gvim font
 
 ## Installation
 
 1. Clone this repository then initialize and update the git submodules (in our case, the vim plugins)
   * ]$ git clone https://github.com/prurigro/darkcloud-vimconfig.git
   * ]$ cd darkcloud-vimconfig
-  * ]$ git submodule init
-  * ]$ git submodule update
+  * ]$ git submodule update --init
 2. Edit the 'vimrc' file and select whether to expect powerline fonts, choose a font for gvim, and add or change any of the loaded config files to match your personal setup.
 3. There are two main ways this package can be deployed: system-wide or single-user.
   * For a distro-agnostic system-wide installation in the /etc directory, copy or link: 'vimrc' to '/etc/vimrc' and the 'vim' folder to '/etc/vim'.

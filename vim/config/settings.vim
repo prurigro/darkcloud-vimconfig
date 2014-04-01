@@ -70,6 +70,7 @@
 "FILETYPES: SETTINGS SPECIFIC TO A FILETYPE {{{
     au FileType mail setl spell "enable spellcheck for e-mail (mutt)
     au FileType gitcommit setl spell "enable spellcheck in git commits
+    au FileType mkd setl spell "enable spellcheck in markdown (ie: README.md)
     au BufNewFile,BufRead *.txt setl spell "enable spellcheck for text files (*.txt)
     au BufNewFile,BufRead *tmux.conf setf sh "set syntax for *tmux.conf to sh (bash)
     au BufNewFile,BufRead pacman.conf setf sh "set syntax for *tmux.conf to sh (bash)
