@@ -21,8 +21,8 @@
 4. Make sure the 'vimrc' file and 'vim' folder are at least readable to any users that will be using the config.
 5. Clone additional vim plugin repos in the 'bundle' folder to have them loaded at startup.
 6. You can add or replace config files in your 'vimrc' file to customize behaviour.
-7. Run the pathogen_update_plugins script to update your plugins by pulling the latest changes from each plugin repo.
-8. The 'vim/config/keyboard.vim' file has a list of the commands it configures, as well as some basic examples of some provided directly by plugins (though check the plugin folder's README for a full explanation).
+7. Run the 'update' script in the base directory of the repo as an easy way to pull changes and update the plugins all at once.
+8. You can find a list of keybindings that were added by this config as well as a few of the ones added by plugins in 'vim/config/keyboard.vim'
 
 ## Features
 
