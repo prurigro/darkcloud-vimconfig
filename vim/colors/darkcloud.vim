@@ -290,28 +290,28 @@ call s:X("TabLine","","000000","","",s:termBlack)
 call s:X("TabLineFill","","000000","","",s:termBlack)
 call s:X("TabLineSel","000000","ffffff","",s:termBlack,"White")
 
-call s:X("Comment","626262","","","Grey","")
+call s:X("Comment","626262","","italic","Grey","")
 call s:X("Todo","ffaf00","808080","","Red",s:termBlack)
 
 call s:X("Normal","d0d0d0","262626","","White",s:termBlack)
-call s:X("MatchParen","ffffff","262626","standout,underline",s:termBlack,"White")
+call s:X("MatchParen","ffffff","262626","standout,bold",s:termBlack,"White")
 call s:X("CursorColumn","","303030","","",s:termBlack)
 call s:X("CursorLine","","303030","","",s:termBlack)
 call s:X("CursorLineNr","87d7ff","","bold","Blue",s:termBlack)
 call s:X("LineNr","ffaf00","","","Yellow",s:termBlack)
 call s:X("Title","d75f5f","","underline","Red","")
-call s:X("Constant","d75f5f","","bold","Red","")
+call s:X("Constant","87d7ff","","bold","Blue","")
 call s:X("Special","ffaf00","","","Yellow","")
-call s:X("Delimiter","ffaf00","","","Yellow","")
+call s:X("Delimiter","ffffff","","","White","")
 call s:X("String","ffffff","","italic","White","")
 call s:X("StringDelimiter","ffff00","","","Yellow","")
 call s:X("Identifier","87d7ff","","","Blue","")
-call s:X("Structure","ffffff","","bold","White","")
+call s:X("Type","d75f5f","","","Red","")
 call s:X("Function","87d7ff","","","Blue","")
+call s:X("Label","87d7ff","","","Blue","")
 call s:X("Statement","ffd787","","","Yellow","")
 call s:X("PreProc","ffd787","","","Yellow","")
 call s:X("Operator","d75f5f","","","Red","")
-call s:X("Type","87d7ff","","","Blue","")
 call s:X("NonText","87d7ff","","","Blue","")
 call s:X("SpecialKey","000000","","",s:termBlack,"")
 call s:X("Search","ffffff","d75f5f","bold","White","Red")
@@ -319,9 +319,11 @@ call s:X("IncSearch","87d7ff","626262","standout","Blue","Grey")
 call s:X("Directory","ffaf00","","","Yellow","")
 call s:X("Question","d75f5f","","","Red","")
 call s:X("ExtraWhitespace","262626","","standout",s:termBlack,"")
-call s:X("ErrorMsg","d75f5f","000000","standout","Red",s:termBlack)
-hi! link Error ErrorMsg
+call s:X("Error","d75f5f","000000","standout","Red",s:termBlack)
+hi! link ErrorMsg Error
 hi! link MoreMsg Special
+hi! link Structure PreProc
+hi! link Number Type
 
 "spell checking
 call s:X("SpellBad","d75f5f","","undercurl","","Red")
@@ -339,7 +341,7 @@ call s:X("DiffText","000000","c6c6c6","italic",s:termBlack,"White")
 
 "html
 hi! link htmlLink Statement
-call s:X("htmlTitle","ffffff","","underline","White","")
+hi! link htmlTitle Title
 call s:X("htmlH1","d75f5f","","standout,underline,bold","Red","")
 call s:X("htmlH2","ffd787","","standout,underline,bold","Yellow","")
 call s:X("htmlH3","87d7ff","","standout,underline,bold","Blue","")
@@ -356,6 +358,34 @@ hi! link phpBoolean Constant
 hi! link phpNull Constant
 hi! link phpArrayPair Operator
 hi! link StorageClass Type
+
+"javaScript
+hi! link javaScriptParens Delimiter
+hi! link javaScriptBraces Delimiter
+hi! link javaScriptValue Constant
+hi! link javascriptHtmlEvents javaScriptSpecial
+hi! link javascriptDomElemAttrs javaScriptSpecial
+hi! link javascriptDomElemFuncs javaScriptFunction
+
+"coffeeScript
+hi! link coffeeRegExp javaScriptRegexpString
+
+"c
+hi! link cOperator cBraces
+hi! link cCharacter String
+hi! link cBlock String
+
+"objective-c/cocoa
+hi! link objcClass Type
+hi! link cocoaClass objcClass
+hi! link objcSubclass objcClass
+hi! link objcSuperclass objcClass
+hi! link objcDirective Type
+hi! link objcStatement Constant
+hi! link cocoaFunction Function
+hi! link objcMethodName Identifier
+hi! link objcMethodArg Normal
+hi! link objcMessageName Identifier
 
 "ruby
 hi! link rubySharpBang Comment
@@ -376,30 +406,8 @@ call s:X("rubyGlobalVariable","","","bold","","")
 "call s:X("rubyRegexpSpecial","","","","","")
 "call s:X("rubyPredefinedIdentifier","","","","","")
 
-"javaScript
-hi! link javaScriptValue Constant
-hi! link javaScriptRegexpString rubyRegexp
-
-"coffeeScript
-hi! link coffeeRegExp javaScriptRegexpString
-
 "lua
 hi! link luaOperator Conditional
-
-"c
-hi! link cOperator Constant
-
-"objective-c/cocoa
-hi! link objcClass Type
-hi! link cocoaClass objcClass
-hi! link objcSubclass objcClass
-hi! link objcSuperclass objcClass
-hi! link objcDirective rubyClass
-hi! link objcStatement Constant
-hi! link cocoaFunction Function
-hi! link objcMethodName Identifier
-hi! link objcMethodArg Normal
-hi! link objcMessageName Identifier
 
 ""debugger.vim
 "call s:X("DbgCurrent","","","","","")
