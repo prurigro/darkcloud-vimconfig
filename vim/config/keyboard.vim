@@ -173,7 +173,7 @@
     nmap <script> <silent> <C-F9> :call ToggleLocationList()<CR>
 
     "bindings to trigger the filer explorer
-    nnoremap <silent><expr> `` ':VimFilerExplorer<CR>'
+    nnoremap <silent><expr> `` ':VimFilerExplorer -winwidth=30<CR>'
   "}
 
   "GVIM TOGGLES:{

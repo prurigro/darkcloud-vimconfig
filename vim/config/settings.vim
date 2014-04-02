@@ -90,11 +90,12 @@
     set guioptions-=T "remove the toolbar
     set guioptions-=m "remove the toolbar
 
-    autocmd FileType vimfiler set go-=b
-
     if &wrap
         set go-=b "disable the bottom scrollbar on launch iff text wrapping is enabled
     else
         set go+=b "enable the bottom scrollbar on launch iff text wrapping is disabled
     endif
+
+    "disable the bottom scrollbar if currently the vimfiler
+    autocmd FileType vimfiler set go-=b
 "}}}
