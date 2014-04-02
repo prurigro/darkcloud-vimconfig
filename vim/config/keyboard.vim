@@ -29,8 +29,9 @@
 "    <F1>                 | (A) -> toggle line numbers
 "    <F2>                 | (A) -> toggle row/column highlighting
 "    <F3>                 | (A) -> toggle line wrapping
-"    <F4>                 | (A) -> toggle spell check
-"    <F5>                 | (A) -> toggle all folds
+"    <F4>                 | (A) -> toggle all folds
+"    <F5>                 | (A) -> toggle spell check
+"    <F6>                 | (A) -> toggle syntax checking
 "    <F9>                 | (A) -> toggle the gundo undo history sidebar
 "    <Shift-F9>           | (A) -> toggle the tagbar sidebar
 "    <Ctrl-F9>            | (A) -> toggle the error list
@@ -149,15 +150,20 @@
     vnoremap <silent><expr> <F3> '<Esc>:set wrap! go'.'-+'[&wrap]."=b\rv"
     inoremap <silent><expr> <F3> '<C-O>:set wrap! go'.'-+'[&wrap]."=b\r"
 
-    "toggle spellcheck
-    nnoremap <silent><expr> <F4> ':set spell!<CR>'
-    vnoremap <silent><expr> <F4> '<Esc>:set spell!<CR>v'
-    inoremap <silent><expr> <F4> '<C-O>:set spell!<CR>'
-
     "toggle all folds
-    nnoremap <F5> zi
-    vnoremap <F5> <Esc>ziv
-    inoremap <F5> <C-O>zi
+    nnoremap <F4> zi
+    vnoremap <F4> <Esc>ziv
+    inoremap <F4> <C-O>zi
+
+    "toggle spellcheck
+    nnoremap <silent><expr> <F5> ':set spell!<CR>'
+    vnoremap <silent><expr> <F5> '<Esc>:set spell!<CR>v'
+    inoremap <silent><expr> <F5> '<C-O>:set spell!<CR>'
+
+    "toggle syntax checking
+    nnoremap <silent><expr> <F5> ':SyntasticToggleMode<CR>'
+    vnoremap <silent><expr> <F5> '<Esc>:SyntasticToggleMode<CR>v'
+    inoremap <silent><expr> <F5> '<C-O>:SyntasticToggleMode<CR>'
 
     "bindings to trigger the gundo undo history
     nnoremap <silent><expr> <F9> ':GundoToggle<CR>'

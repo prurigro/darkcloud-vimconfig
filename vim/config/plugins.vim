@@ -163,11 +163,10 @@
     "open automatically if vim was run without any files
     autocmd VimEnter * if !argc() | VimFiler -project | endif
 
-    "file associations
-    if has('unix')
-        call vimfiler#set_execute_file('mp4','xdg-open')
-        call vimfiler#set_execute_file('mp3','xdg-open')
-    endif
+    "filetype associations (just a sample to show how it can work)
+    "if has('unix')
+        "call vimfiler#set_execute_file('mp4','xdg-open')
+    "endif
 "}}}
 
 "NEOCOMPLCACHE AUTOCOMPLETION PLUGIN: ENABLE AND CONFIGURE BEHAVIOUR {{{
