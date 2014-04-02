@@ -25,28 +25,30 @@
 "    <Ctrl-p>             | (A) -> go to the previous open tab
 "
 "  (toggles)
+"    <Space>              | (N) -> toggle folds
 "    <F1>                 | (A) -> toggle line numbers
 "    <F2>                 | (A) -> toggle row/column highlighting
-"    <F3>                 | (A) -> toggle spell check
-"    <F4>                 | (A) -> toggle line wrapping
-"    <F9>                 | (A) -> toggle the nerdtree sidebar
+"    <F3>                 | (A) -> toggle line wrapping
+"    <F4>                 | (A) -> toggle spell check
+"    <F5>                 | (A) -> toggle all folds
+"    <F9>                 | (A) -> toggle the gundo undo history sidebar
 "    <Shift-F9>           | (A) -> toggle the tagbar sidebar
-"    <F12>                | (A) -> toggle collapsed/folded rows
-"    <Shift-F12>          | (A) -> toggle all folds
-"    <Shift-F12>          | (A) -> toggle all folds
+"    <Ctrl-F9>            | (A) -> toggle the error list
+"    ``                   | (N) -> toggle the filer explorer sidebar
 "
 "  (gvim toggles)
 "    <Ctrl-F1>            | (A) -> toggle the menu
 "    <Ctrl-F2>            | (A) -> toggle the toolbar
 "    <Ctrl-F3>            | (A) -> toggle the scrollbar
 "
-"  (spelling-and-completion)
-"    <Tab><Tab>,          | (A) -> enter this following an emme 'word' (ie: html:5)
+"  (completion)
+"    <Leader>,,           | (A) -> enter after emme 'word' (ie: html:5)
 "    \\                   | (N) -> show spelling suggestions popup for word
 "    \|                   | (N) -> add word to a local list of correct spellings
-"    <Leader><Backspace>  | (N) -> undo the most recent match selection
-"    <Tab>                | (I) -> write the part common to all suggestions
-"    <Backspace>          | (I) -> cancel the match dialog (during suggestion)
+"    <Tab>                | (I) -> (neocomp) autocomplete using common string
+"    <Leader><Tab>        | (I) -> (neocomp) autocomplete the common string
+"    <Enter>              | (I) -> (neocomp) close the suggestion popup
+"    <Leader><Backspace>  | (I) -> (neocomp) undo the most recent completion
 "
 "  (formatting)
 "    <Backspace>          | (V) -> deletes currently selected text
@@ -82,7 +84,7 @@
 "    <Shift-Left>         | (N) -> select all non-whitespace to the left
 "
 "  (vimdiff)
-"    <Leader><Space>      | (N) -> update differences
+"    <Leader>>            | (N) -> update differences
 "    >>                   | (N) -> next difference
 "    <<                   | (N) -> previous difference
 "    ><                   | (N) -> replace diff in current pane with other pane
@@ -129,6 +131,9 @@
   "}
 
   "TOGGLES:{
+    "toggle folded code at foldpoints
+    nnoremap <Space> za
+
     "unmap F1 from help then map it to toggle the display of line numbers
     nnoremap <silent><expr> <F1> ':set number!<CR>'
     vnoremap <silent><expr> <F1> '<Esc>:set number!<CR>v'
@@ -139,33 +144,36 @@
     vnoremap <silent><expr> <F2> '<Esc>:set cursorline! cursorcolumn!<CR>v'
     inoremap <silent><expr> <F2> '<C-O>:set cursorline! cursorcolumn!<CR>'
 
-    "toggle spellcheck
-    nnoremap <silent><expr> <F3> ':set spell!<CR>'
-    vnoremap <silent><expr> <F3> '<Esc>:set spell!<CR>v'
-    inoremap <silent><expr> <F3> '<C-O>:set spell!<CR>'
-
     "toggle line wrapping (and bottom bar if using the gui)
-    nnoremap <silent><expr> <F4> ':set wrap! go'.'-+'[&wrap]."=b\r"
-    vnoremap <silent><expr> <F4> '<Esc>:set wrap! go'.'-+'[&wrap]."=b\rv"
-    inoremap <silent><expr> <F4> '<C-O>:set wrap! go'.'-+'[&wrap]."=b\r"
+    nnoremap <silent><expr> <F3> ':set wrap! go'.'-+'[&wrap]."=b\r"
+    vnoremap <silent><expr> <F3> '<Esc>:set wrap! go'.'-+'[&wrap]."=b\rv"
+    inoremap <silent><expr> <F3> '<C-O>:set wrap! go'.'-+'[&wrap]."=b\r"
 
-    "bindings to trigger the nerdtree and tagbar sidebars
-    nnoremap <silent><expr> <F9> ':NERDTreeToggle<CR>'
-    vnoremap <silent><expr> <F9> '<Esc>:NERDTreeToggle<CR>'
-    inoremap <silent><expr> <F9> '<Esc>:NERDTreeToggle<CR>'
+    "toggle spellcheck
+    nnoremap <silent><expr> <F4> ':set spell!<CR>'
+    vnoremap <silent><expr> <F4> '<Esc>:set spell!<CR>v'
+    inoremap <silent><expr> <F4> '<C-O>:set spell!<CR>'
+
+    "toggle all folds
+    nnoremap <F5> zi
+    vnoremap <F5> <Esc>ziv
+    inoremap <F5> <C-O>zi
+
+    "bindings to trigger the gundo undo history
+    nnoremap <silent><expr> <F9> ':GundoToggle<CR>'
+    vnoremap <silent><expr> <F9> '<Esc>:GundoToggle<CR>v'
+    inoremap <silent><expr> <F9> '<C-O>:GundoToggle<CR>'
+
+    "bindings to trigger the tagbar list of tags
     nnoremap <silent><expr> <S-F9> ':TagbarToggle<CR>'
     vnoremap <silent><expr> <S-F9> '<Esc>:TagbarToggle<CR>v'
     inoremap <silent><expr> <S-F9> '<C-O>:TagbarToggle<CR>'
 
-    "toggle folded code at foldpoints
-    nnoremap <F12> za
-    vnoremap <F12> <Esc>zav
-    inoremap <F12> <C-O>za
+    "bindings to trigger the tagbar list of errors
+    nmap <script> <silent> <C-F9> :call ToggleLocationList()<CR>
 
-    "toggle all folds
-    nnoremap <S-F12> zi
-    vnoremap <S-F12> <Esc>ziv
-    inoremap <S-F12> <C-O>zi
+    "bindings to trigger the filer explorer
+    nnoremap <silent><expr> `` ':VimFilerExplorer<CR>'
   "}
 
   "GVIM TOGGLES:{
@@ -184,17 +192,21 @@
   "}
 
   "SPELLING AND COMPLETION:{
-    "emmet switch triggerkey from <Ctrl-Y> to <Ctrl-Z>
-    let g:user_emmet_leader_key='<Tab><Tab>'
+    "emmet switch triggerkey from <Ctrl-Y>
+    let g:user_emmet_leader_key='<Leader>,'
 
     "press backslash twice on a mispelled word for suggestions
     nnoremap \\ hei<C-X><C-S>
     nnoremap \| zg
 
-    "neocomplcache suggestions: cancel, autocomplete, scroll up and scroll down
-    inoremap <expr><Leader><Backspace> neocomplcache#undo_completion()
-    inoremap <expr><Tab> pumvisible() ? neocomplcache#complete_common_string() : "\<Tab>"
-    inoremap <expr><Backspace> pumvisible() ? neocomplcache#close_popup() : "\<Backspace>"
+    "neocomplcache: scroll through completion list
+    inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+    "neocomplcache: complete the common part of the string
+    inoremap <expr><Leader><Tab> neocomplcache#complete_common_string()
+    "neocomplcache: close popup and delete backward char
+    inoremap <expr><CR> pumvisible() ? neocomplcache#smart_close_popup() : "\<CR>"
+    "neocomplcache : undo completion
+    inoremap <expr><Leader><Backspace> "<Backspace>" . neocomplcache#undo_completion()
   "}
 
   "FORMATTING:{
@@ -244,7 +256,7 @@
 
   "VIMDIFF:{
     "map shortcuts for vimdiff
-    nnoremap <silent><expr> <Leader><Space> ':diffu<CR>'
+    nnoremap <silent><expr> <Leader>> ':diffu<CR>'
     nnoremap >> ]c
     nnoremap << [c
     nnoremap <> dp
@@ -259,8 +271,8 @@
     nnoremap y vy<Esc>
 
     "alternatives that preserve the paste buffer
-    vnoremap p "_d"0P
-    vnoremap P "_d"0P
+    vnoremap p "_dP
+    vnoremap P "_dP
     vnoremap <Leader>x "_x
     nnoremap <Leader>x "_x
     vnoremap <Leader>X "_X

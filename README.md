@@ -3,10 +3,10 @@
 ## Requirements
 
 1. Git: Required to clone and update the repository.
-3. CTags: Available @ http://ctags.sourceforge.net, this can be in $PATH or in the vim folder and is required for the tagbar plugin.
+3. CTags: Available @ http://ctags.sourceforge.net, place in $PATH or the vim folder to use the tagbar or extended C omni/auto-completion.
 4. Vim v7.4+: Everything has been written and tested using Vim 7.4.135, and I assume there could be issues with 7.3 and below.
-2. Bash (optional): Required to use the update script, which simply runs the git repo and submodule update commands.
-5. Powerline Fonts (optional): Required for the powerline lightline theme, which can be toggled in /etc/vimrc along with the gvim font
+2. Bash (optional): Required to use the update and ctags generation scripts, both of which can be run with the commands listed within.
+5. Powerline Fonts (optional): Required for an extended look/feel using lightline, otherwise it should be toggled off in the vimrc.
 
 ## Installation
 
@@ -14,15 +14,16 @@
   * ]$ git clone https://github.com/prurigro/darkcloud-vimconfig.git
   * ]$ cd darkcloud-vimconfig
   * ]$ git submodule update --init
-2. Edit the 'vimrc' file and select whether to expect powerline fonts, choose a font for gvim, and add or change any of the loaded config files to match your personal setup.
-3. There are two main ways this package can be deployed: system-wide or single-user.
+2. Edit the 'vimrc' file and select whether to use powerline fonts, choose a font for gvim and add additional config after it loads the included files.
+3. There are two main ways this package can be deployed: system-wide or single-user (vim must be configured to load from the respective location):
   * For a distro-agnostic system-wide installation in the /etc directory, copy or link: 'vimrc' to '/etc/vimrc' and the 'vim' folder to '/etc/vim'.
   * For a single-user installation in a user's home directory, copy or link: 'vimrc' to '~/.vimrc' -and- the 'vim' folder to '~/.vim'.
-4. Make sure the 'vimrc' file and 'vim' folder are at least readable to any users that will be using the config.
-5. Clone additional vim plugin repos in the 'bundle' folder to have them loaded at startup.
-6. You can add or replace config files in your 'vimrc' file to customize behaviour.
+4. Make sure the 'vimrc' file and 'vim' folder are readable by any users expecting to use them.
+5. Clone additional vim plugin repositories in the 'bundle' folder to have them loaded at startup.
+6. You can add additional config files or replace the included ones listed in the vimrc file to customize behaviour.
+7. Run the 'gen-ctags-file' script to generate a tags file for the user that runs it to facilitate omnicompletion and tagbar.
 7. Run the 'update' script in the base directory of the repo as an easy way to pull changes and update the plugins all at once.
-8. You can find a list of keybindings that were added by this config as well as a few of the ones added by plugins in 'vim/config/keyboard.vim'
+8. You can find a list of key bindings that were added by this config as well as a few of the ones added by plugins in 'vim/config/keyboard.vim'
 
 ## Features
 

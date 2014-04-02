@@ -55,29 +55,33 @@
     set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 "}}}
 
-
-"SYNTAX: INDENTING, HIGHLIGHTING, FOLDING {{{
+"FILETYPES AND SYNTAX: SETTINGS FOR FILETYPES AND ASSOCIATED SYNTAX {{{
     filetype plugin indent on
     syntax on "turn syntax highlighting on
+
+    "set matching filenames to the given file types
+    autocmd BufNewFile,BufRead *.aspx,*.asmx,*.ascx,*.master setf aspnet
+    autocmd BufNewFile,BufRead *tmux.conf,pacman.conf,yaourtrc setf sh
+    autocmd BufNewFile,BufRead cjdroute.conf,ircd.conf setf javascript
+
+    "enable spellcheck by default when using given filetypes and extensions
+    autocmd FileType mail,gitcommit,mkd,text setl spell
+
+    "enable omnicompletion for any filetype without that has syntax highlighting
+    if has("autocmd") && exists("+omnifunc")
+        autocmd VimEnter,Filetype *
+            \   if &omnifunc == "" |
+            \       setlocal omnifunc=syntaxcomplete#Complete |
+            \   endif
+    endif
+
     set formatoptions=roqnl12 "configure format options
     set foldmethod=syntax foldcolumn=1 foldlevel=3 "fold layers 3 or more deep
 
     "disable folding by default in vimdiff
     if &diff
-        au VimEnter * windo set nofoldenable
+        autocmd VimEnter * windo set nofoldenable
     endif
-"}}}
-
-"FILETYPES: SETTINGS SPECIFIC TO A FILETYPE {{{
-    au FileType mail setl spell "enable spellcheck for e-mail (mutt)
-    au FileType gitcommit setl spell "enable spellcheck in git commits
-    au FileType mkd setl spell "enable spellcheck in markdown (ie: README.md)
-    au BufNewFile,BufRead *.txt setl spell "enable spellcheck for text files (*.txt)
-    au BufNewFile,BufRead *tmux.conf setf sh "set syntax for *tmux.conf to sh (bash)
-    au BufNewFile,BufRead pacman.conf setf sh "set syntax for *tmux.conf to sh (bash)
-    au BufNewFile,BufRead yaourtrc setf sh "set syntax for *tmux.conf to sh (bash)
-    au BufNewFile,BufRead cjdroute.conf setf javascript "set syntax for *cjdroute.conf to javascript
-    au BufNewFile,BufRead ircd.conf setf javascript "set syntax for *ircd.conf to javascript
 "}}}
 
 "GVIM: GUI CONFIG OPTIONS {{{

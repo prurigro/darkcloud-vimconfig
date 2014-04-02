@@ -281,8 +281,8 @@ call s:X("StatusLineNC","ffffff","626262","","White","Grey")
 call s:X("VertSplit","626262","626262","",s:termBlack,s:termBlack)
 call s:X("WildMenu","808080","303030","","White",s:termBlack)
 
-call s:X("Folded","ffaf00","626262","bold","Red",s:termBlack)
-call s:X("FoldColumn","ffaf00","626262","bold","Red",s:termBlack)
+call s:X("Folded","87d7ff","626262","bold","Blue",s:termBlack)
+call s:X("FoldColumn","87d7ff","262626","bold","Blue",s:termBlack)
 call s:X("SignColumn","ffaf00","626262","bold","Red",s:termBlack)
 call s:X("ColorColumn","ffaf00","626262","bold","Red",s:termBlack)
 
@@ -291,7 +291,7 @@ call s:X("TabLineFill","","000000","","",s:termBlack)
 call s:X("TabLineSel","000000","ffffff","",s:termBlack,"White")
 
 call s:X("Comment","626262","","italic","Grey","")
-call s:X("Todo","ffaf00","808080","","Red",s:termBlack)
+call s:X("Todo","d75f5f","","bold","Red","")
 
 call s:X("Normal","d0d0d0","262626","","White",s:termBlack)
 call s:X("MatchParen","ffffff","262626","standout,bold",s:termBlack,"White")
@@ -314,10 +314,10 @@ call s:X("PreProc","ffd787","","","Yellow","")
 call s:X("Operator","d75f5f","","","Red","")
 call s:X("NonText","87d7ff","","","Blue","")
 call s:X("SpecialKey","000000","","",s:termBlack,"")
-call s:X("Search","ffffff","d75f5f","bold","White","Red")
-call s:X("IncSearch","87d7ff","626262","standout","Blue","Grey")
-call s:X("Directory","ffaf00","","","Yellow","")
-call s:X("Question","d75f5f","","","Red","")
+call s:X("Search","000000","87d7ff","bold",s:termBlack,"Blue")
+call s:X("IncSearch","","","standout","","")
+call s:X("Directory","87d7ff","","","Blue","")
+call s:X("Question","87d7ff","","","Blue","")
 call s:X("ExtraWhitespace","262626","","standout",s:termBlack,"")
 call s:X("Error","d75f5f","000000","standout","Red",s:termBlack)
 hi! link ErrorMsg Error
@@ -409,9 +409,15 @@ call s:X("rubyGlobalVariable","","","bold","","")
 "lua
 hi! link luaOperator Conditional
 
-""debugger.vim
-"call s:X("DbgCurrent","","","","","")
-"call s:X("DbgBreakPt","","","","","")
+"syntastic error checking
+call s:X("SyntasticError","d75f5f","","standout,bold","Red","")
+call s:X("SyntasticWarning","ffd787","","standout,bold","Yellow","")
+hi! link SyntasticErrorLine SyntasticError
+hi! link SyntasticWarningLine SyntasticWarning
+hi! link SyntasticErrorSign Error
+hi! link SyntasticWarningSign Statement
+hi! link qfSeparator Delimiter
+hi! link qfLineNr SyntasticError
 
 "vim-indent-guides
 call s:X("IndentGuidesOdd","","7c7c7c","","","Grey")
@@ -469,11 +475,4 @@ hi! link TagListFileName Directory
     let s:p.normal.error = [ [ s:red, s:base023 ] ]
     let s:p.normal.warning = [ [ s:yellow, s:base02 ] ]
     let g:lightline#colorscheme#darkcloud#palette = lightline#colorscheme#fill(s:p)
-
-    "theme config (powerline fonts)
-    if powerlinefonts == 1
-        let g:lightline = {'colorscheme': 'darkcloud', 'active': {'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'readonly', 'filename', 'modified' ] ]}, 'component': {'readonly': '%{&readonly?"":""}', 'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}','fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'},'component_visible_condition': {'readonly': '(&filetype!="help"&& &readonly)','modified': '(&filetype!="help"&&(&modified||!&modifiable))', 'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'}, 'separator': {'left': '', 'right': ''}, 'subseparator': {'left': '', 'right': ''}}
-    else
-        let g:lightline = {'colorscheme': 'darkcloud','active': {'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'readonly', 'filename', 'modified' ] ]},'component': {'readonly': '%{&readonly?"x":""}', 'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}', 'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'},'component_visible_condition': {'readonly': '(&filetype!="help"&& &readonly)','modified': '(&filetype!="help"&&(&modified||!&modifiable))', 'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'},'separator': {'left': '', 'right': ''},'subseparator': {'left': '|', 'right': '|'}}
-    endif
 "}}}
