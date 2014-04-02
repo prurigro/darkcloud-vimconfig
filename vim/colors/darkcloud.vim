@@ -312,7 +312,7 @@ call s:X("Statement","ffd787","","","Yellow","")
 call s:X("PreProc","ffd787","","","Yellow","")
 call s:X("Operator","d75f5f","","","Red","")
 call s:X("Type","87d7ff","","","Blue","")
-call s:X("NonText","ffff00","","","Yellow","")
+call s:X("NonText","87d7ff","","","Blue","")
 call s:X("SpecialKey","000000","","",s:termBlack,"")
 call s:X("Search","ffffff","d75f5f","bold","White","Red")
 call s:X("IncSearch","87d7ff","626262","standout","Blue","Grey")
@@ -341,11 +341,11 @@ call s:X("DiffText","000000","c6c6c6","italic",s:termBlack,"White")
 hi! link htmlLink Statement
 call s:X("htmlTitle","ffffff","","underline","White","")
 call s:X("htmlH1","d75f5f","","standout,underline,bold","Red","")
-call s:X("htmlH2","ffd787","","standout,underline,bold","Red","")
+call s:X("htmlH2","ffd787","","standout,underline,bold","Yellow","")
 call s:X("htmlH3","87d7ff","","standout,underline,bold","Blue","")
-call s:X("htmlH4","d75f5f","","underline,bold","Blue","")
+call s:X("htmlH4","d75f5f","","underline,bold","Red","")
 call s:X("htmlH5","ffd787","","underline,bold","Yellow","")
-call s:X("htmlH6","87d7ff","","underline,bold","Yellow","")
+call s:X("htmlH6","87d7ff","","underline,bold","Blue","")
 
 "php
 hi! link phpFunctions Function
