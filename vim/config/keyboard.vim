@@ -1,5 +1,10 @@
 "==========================="
+"                           "
 "  Keyboard Configuration:  "
+"                           "
+"  Maintainer: Prurigro     "
+"  License: MIT             "
+"                           "
 "==========================="
 "
 " Note:
@@ -161,9 +166,9 @@
     inoremap <silent><expr> <F5> '<C-O>:set spell!<CR>'
 
     "toggle syntax checking
-    nnoremap <silent><expr> <F5> ':SyntasticToggleMode<CR>'
-    vnoremap <silent><expr> <F5> '<Esc>:SyntasticToggleMode<CR>v'
-    inoremap <silent><expr> <F5> '<C-O>:SyntasticToggleMode<CR>'
+    nnoremap <silent><expr> <F6> ':SyntasticToggleMode<CR>'
+    vnoremap <silent><expr> <F6> '<Esc>:SyntasticToggleMode<CR>v'
+    inoremap <silent><expr> <F6> '<C-O>:SyntasticToggleMode<CR>'
 
     "bindings to trigger the gundo undo history
     nnoremap <silent><expr> <F9> ':GundoToggle<CR>'

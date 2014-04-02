@@ -1,5 +1,10 @@
 "==============================="
+"                               "
 "  Vim Settings Configuration:  "
+"                               "
+"  Maintainer: Prurigro         "
+"  License: MIT                 "
+"                               "
 "==============================="
 
 "COMPATIBILITY SETTINGS: DOCUMENT AND ENVIRONMENT SETTINGS {{{

@@ -1,5 +1,10 @@
 "=========================="
+"                          "
 "  Plugins Configuration:  "
+"                          "
+"  Maintainer: Prurigro    "
+"  License: MIT            "
+"                          "
 "=========================="
 
 "PATHOGEN BUNDLED EXTENSIONS PLUGIN: LOAD BUNDLED PLUGINS {{{
