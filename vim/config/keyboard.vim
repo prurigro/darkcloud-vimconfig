@@ -6,6 +6,8 @@
 "  *The default <Leader> key is: \
 "
 " Reference: (view plugin documentation for the full list of commands each offers)
+"    <Leader>q            | (N) -> toggle display of the quickfix list
+"    <Leader>l            | (N) -> toggle display of the location list
 "    cs'"                 | (N) -> change surrounding '' to "" (any delimiters work)
 "    cs"<q>               | (N) -> change surrounding "" to the tag: <q></q>
 "    cst"                 | (N) -> change any surrounding tag to ""
