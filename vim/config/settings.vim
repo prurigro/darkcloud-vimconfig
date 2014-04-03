@@ -70,7 +70,8 @@
     autocmd BufNewFile,BufRead cjdroute.conf,ircd.conf setf javascript
 
     "enable spellcheck by default when using given filetypes and extensions
-    autocmd FileType mail,gitcommit,mkd,text setl spell
+    autocmd FileType gitcommit,notes,mail,mkd,text setlocal spell
+    autocmd FileType notes,mail,mkd,text setlocal nonumber
 
     "enable omnicompletion for any filetype without that has syntax highlighting
     if has("autocmd") && exists("+omnifunc")
@@ -80,12 +81,11 @@
             \   endif
     endif
 
-    set formatoptions=roqnl12 "configure format options
+    set formatoptions=roqnl12
     set foldmethod=syntax foldcolumn=1 foldlevel=3 "fold layers 3 or more deep
 
-    "disable folding by default in vimdiff
     if &diff
-        autocmd VimEnter * windo set nofoldenable
+        autocmd VimEnter * windo setlocal nofoldenable "disable folding by default in vimdiff
     endif
 "}}}
 

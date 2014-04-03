@@ -283,8 +283,8 @@ call s:X("WildMenu","808080","303030","","White",s:termBlack)
 
 call s:X("Folded","87d7ff","626262","bold","Blue",s:termBlack)
 call s:X("FoldColumn","87d7ff","262626","bold","Blue",s:termBlack)
-call s:X("SignColumn","ffaf00","626262","bold","Red",s:termBlack)
-call s:X("ColorColumn","ffaf00","626262","bold","Red",s:termBlack)
+call s:X("SignColumn","ffaf00","262626","bold","Red",s:termBlack)
+hi! link ColorColumn SignColumn
 
 call s:X("TabLine","","000000","","",s:termBlack)
 call s:X("TabLineFill","","000000","","",s:termBlack)
@@ -320,6 +320,7 @@ call s:X("Directory","87d7ff","","","Blue","")
 call s:X("Question","87d7ff","","","Blue","")
 call s:X("ExtraWhitespace","262626","","standout",s:termBlack,"")
 call s:X("Error","d75f5f","000000","standout","Red",s:termBlack)
+hi! link WarningMsg Error
 hi! link ErrorMsg Error
 hi! link MoreMsg Special
 hi! link Structure PreProc
@@ -416,10 +417,20 @@ if !exists("g:indent_guides_auto_colors")
     let g:indent_guides_auto_colors=0
 endif
 
-"EMAIL:
+"notes
+hi! link notesTitle htmlH1
+hi! link notesName htmlH5
+hi! link notesShortHeading htmlH2
+hi! link notesInProgress htmlH3
+hi! link Underlined htmlH6
+hi! link notesListBullet FoldColumn
+hi! link notesListNumber Number
+hi! link notesVimCmd Function
+hi! link notesSingleQuoted String
+
+"email
 hi! link mailHeaderKey Identifier
 
-"PLUGIN COLOURS:
 "taglist
 hi! link TagListFileName Directory
 

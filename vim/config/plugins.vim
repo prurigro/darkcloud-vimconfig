@@ -18,8 +18,8 @@
 
 "GUNDO: CONFIGURE SIDEBAR SETTINGS {{{
     let g:gundo_right=1
-    let g:gundo_width=50
-    let g:gundo_preview_height=20
+    let g:gundo_width=35
+    let g:gundo_preview_height=10
 "}}}
 
 "LIGHTLINE: CONFIGURE THE LIGHTLINE STATUS BAR {{{
