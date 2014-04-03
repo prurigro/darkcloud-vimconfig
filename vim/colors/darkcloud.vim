@@ -416,6 +416,9 @@ if !exists("g:indent_guides_auto_colors")
     let g:indent_guides_auto_colors=0
 endif
 
+"EMAIL:
+hi! link mailHeaderKey Identifier
+
 "PLUGIN COLOURS:
 "taglist
 hi! link TagListFileName Directory
