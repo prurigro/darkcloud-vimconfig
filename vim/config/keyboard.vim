@@ -237,7 +237,7 @@
 
   "FORMATTING:{
     "have backspace delete the selected text
-    vnoremap <Backspace> x
+    vnoremap <Backspace> "_x
     nnoremap <Backspace> i<Backspace><Esc>l
 
     "formatting options to apply to the whole document

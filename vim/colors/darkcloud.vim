@@ -271,7 +271,7 @@ endif
 "example:('Line','000000','f0f0f0','italic,bold',s:termBlack  ,'White')
 
 call s:X("Visual","","262626","standout","",s:termBlack)
-call s:X("Cursor","","000000","standout,bold,underline","",s:termBlack)
+call s:X("Cursor","","262626","standout,bold,underline","",s:termBlack)
 
 call s:X("Pmenu","87d7ff","303030","","Grey","Blue")
 call s:X("PmenuSel","87d7ff","4e4e4e","bold","White","Black")
@@ -288,13 +288,13 @@ hi! link ColorColumn SignColumn
 
 call s:X("TabLine","","000000","","",s:termBlack)
 call s:X("TabLineFill","","000000","","",s:termBlack)
-call s:X("TabLineSel","000000","ffffff","",s:termBlack,"White")
+call s:X("TabLineSel","000000","d0d0d0","",s:termBlack,"White")
 
 call s:X("Comment","626262","","italic","Grey","")
 call s:X("Todo","d75f5f","","bold","Red","")
 
 call s:X("Normal","d0d0d0","262626","","White",s:termBlack)
-call s:X("MatchParen","ffffff","262626","standout,bold",s:termBlack,"White")
+call s:X("MatchParen","d0d0d0","262626","standout,bold",s:termBlack,"White")
 call s:X("CursorColumn","","303030","","",s:termBlack)
 call s:X("CursorLine","","303030","","",s:termBlack)
 call s:X("CursorLineNr","87d7ff","","bold","Blue",s:termBlack)
@@ -342,9 +342,9 @@ call s:X("DiffText","000000","c6c6c6","italic",s:termBlack,"White")
 
 "html
 call s:X("htmlTitle","ffffff","","underline,bold","White","")
-call s:X("htmlH1","d75f5f","","standout,underline,bold","Red","")
-call s:X("htmlH2","ffd787","","standout,underline,bold","Yellow","")
-call s:X("htmlH3","87d7ff","","standout,underline,bold","Blue","")
+call s:X("htmlH1","d75f5f","262626","standout,underline,bold","Red","")
+call s:X("htmlH2","ffd787","262626","standout,underline,bold","Yellow","")
+call s:X("htmlH3","87d7ff","262626","standout,underline,bold","Blue","")
 call s:X("htmlH4","d75f5f","","underline,bold","Red","")
 call s:X("htmlH5","ffd787","","underline,bold","Yellow","")
 call s:X("htmlH6","87d7ff","","underline,bold","Blue","")
@@ -402,13 +402,13 @@ hi! link rubyStringDelimiter StringDelimiter
 hi! link rubyInterpolationDelimiter Identifier
 hi! link rubyClass Type
 hi! link rubyIdentifier Identifier
+hi! link rubyPredefinedIdentifier PreProc
 call s:X("rubyGlobalVariable","","","bold","","")
 "call s:X("rubySymbol","","","","","")
 "call s:X("rubyControl","","","","","")
 "call s:X("rubyRegexpDelimiter","","","","","")
 "call s:X("rubyRegexp","","","","","")
 "call s:X("rubyRegexpSpecial","","","","","")
-"call s:X("rubyPredefinedIdentifier","","","","","")
 
 "lua
 hi! link luaOperator Conditional
@@ -421,15 +421,26 @@ if !exists("g:indent_guides_auto_colors")
 endif
 
 "notes
+call s:X("notesRule","","","bold","","")
+call s:X("WarningMsg","ffd787","2c2c2c","standout,bold","Yellow",s:termBlack)
 hi! link notesTitle htmlH1
 hi! link notesName htmlH5
 hi! link notesShortHeading htmlH2
-hi! link notesInProgress htmlH3
 hi! link Underlined htmlH6
+hi! link notesInProgress htmlH3
+hi! link notesRealURL htmlH4
+hi! link notesTextURL notesRealURL
+hi! link commentURL notesRealURL
 hi! link notesListBullet FoldColumn
-hi! link notesListNumber Number
+hi! link notesListNumber notesListBullet
 hi! link notesVimCmd Function
 hi! link notesSingleQuoted String
+hi! link notesBlockQuote Pmenu
+hi! link notesModeLine Comment
+hi! link notesCodeStart Delimiter
+hi! link notesCodeEnd notesCodeStart
+hi! link notesLastEdited Statement
+hi! link notesAtxHeading Comment
 
 "email
 hi! link mailHeaderKey Identifier
