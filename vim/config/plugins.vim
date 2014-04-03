@@ -97,7 +97,7 @@
     endfunction
 
     "status bar config with and without powerline fonts
-    if powerlinefonts == 1
+    if (powerlinefonts == 1)
         let g:lightline = {
         \   'colorscheme': 'darkcloud',
         \   'active': {
@@ -153,20 +153,44 @@
     let g:vim_markdown_initial_foldlevel=2
 "}}}
 
+"SYNTASTIC: CONFIGURE SYNTAX CHECKING {{{
+    if (autochecksyntax == 1)
+        let g:syntastic_mode_map = {'mode':'active','active_filetypes':[],'passive_filetypes':[]}
+        let g:syntastic_check_on_open=1
+    else
+        let g:syntastic_mode_map = {'mode':'passive','active_filetypes':[],'passive_filetypes':[]}
+        let g:syntastic_check_on_open=0
+    endif
+
+    let g:syntastic_always_populate_loc_list=1
+    let g:syntastic_auto_loc_list=1
+    let g:syntastic_loc_list_height=5
+"}}}
+
 "VIM FILER: SETTINGS {{{
     let g:vimfiler_as_default_explorer=1
+    let g:vimfiler_safe_mode_by_default=0
     let g:vimfiler_enable_auto_cd=1
 
+    let g:vimfiler_tree_indentation=2
+    let g:vimfiler_explorer_columns='type:time'
     let g:vimfiler_tree_closed_icon='▸'
     let g:vimfiler_tree_opened_icon='▾'
     let g:vimfiler_file_icon='-'
     let g:vimfiler_marked_file_icon='+'
 
-    "edit files by double clicking them
+    "edit files by double clicking them, and justify the cursor on the left
     autocmd FileType vimfiler nmap <buffer> <2-LeftMouse> <Plug>(vimfiler_edit_file)
+    autocmd FileType vimfiler nmap <buffer> <LeftMouse> <LeftMouse>0
+    autocmd FileType vimfiler nmap <buffer> <MiddleMouse> <LeftMouse>0
+    autocmd FileType vimfiler nmap <buffer> <RightMouse> <LeftMouse>0
+    autocmd FileType vimfiler nmap <buffer> <Right> l
+    autocmd FileType vimfiler nmap <buffer> <Left> h
+    autocmd FileType vimfiler setlocal nonumber wrap
+    autocmd FileType vimfiler setlocal nocursorcolumn
 
     "open automatically if vim was run without any files
-    autocmd VimEnter * if !argc() | VimFiler -project | endif
+    autocmd VimEnter * if !argc() | VimFiler -quit -project | endif
 
     "filetype associations (just a sample to show how it can work)
     "if has('unix')
@@ -208,11 +232,4 @@
     let g:neocomplcache_omni_patterns.java='\%(\h\w*\|)\)\.'
     let g:neocomplcache_omni_patterns.objc='\h\w\+\|\h\w*\%(\.\|->\)\h\w*'
     let g:neocomplcache_omni_patterns.objj='[\[ \.]\w\+$\|:\w*$'
-"}}}
-
-"SYNTASTIC: CONFIGURE SYNTAX CHECKING {{{
-    let g:syntastic_check_on_open=1
-    let g:syntastic_always_populate_loc_list=1
-    let g:syntastic_auto_loc_list=1
-    let g:syntastic_loc_list_height=5
 "}}}

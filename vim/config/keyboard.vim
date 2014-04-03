@@ -13,10 +13,10 @@
 " Reference: (view plugin documentation for the full list of commands each offers)
 "    <Leader>q            | (N) -> toggle display of the quickfix list
 "    <Leader>l            | (N) -> toggle display of the location list
+"    ds"                  | (N) -> delete surrounding ""
 "    cs'"                 | (N) -> change surrounding '' to "" (any delimiters work)
 "    cs"<q>               | (N) -> change surrounding "" to the tag: <q></q>
 "    cst"                 | (N) -> change any surrounding tag to ""
-"    ds"                  | (N) -> delete surrounding ""
 "
 " Mappings:
 "  (mouse)
@@ -25,22 +25,24 @@
 "    <Shift-MiddleClick>  | (A) -> unbind this from vim so xorg can paste
 "
 "  (tabs)
-"    <Ctrl-t>             | (A) -> open a new tab
 "    <Ctrl-n>             | (A) -> go to the next open tab
 "    <Ctrl-p>             | (A) -> go to the previous open tab
+"    <Ctrl-t>             | (A) -> open a new tab
+"    `<Ctrl-t>            | (N) -> create a new tab with vimfiler
 "
 "  (toggles)
+"    ``                   | (N) -> toggle the vimfiler sidebar on the left
+"    ~~                   | (N) -> toggle the vimfiler sidebar on the right
 "    <Space>              | (N) -> toggle folds
 "    <F1>                 | (A) -> toggle line numbers
-"    <F2>                 | (A) -> toggle row/column highlighting
+"    <F2>                 | (A) -> toggle row/column cursor highlighting
 "    <F3>                 | (A) -> toggle line wrapping
 "    <F4>                 | (A) -> toggle all folds
 "    <F5>                 | (A) -> toggle spell check
 "    <F6>                 | (A) -> toggle syntax checking
 "    <F9>                 | (A) -> toggle the gundo undo history sidebar
 "    <Shift-F9>           | (A) -> toggle the tagbar sidebar
-"    <Ctrl-F9>            | (A) -> toggle the error list
-"    ``                   | (N) -> toggle the filer explorer sidebar
+"    <Ctrl-F9>            | (A) -> toggle the location/error list
 "
 "  (gvim toggles)
 "    <Ctrl-F1>            | (A) -> toggle the menu
@@ -63,6 +65,7 @@
 "    <Leader><C-w>        | (N) -> remove whitespace
 "    <Leader><C-t>        | (N) -> convert tabs into spaces
 "    <Leader>\            | (N) -> remove search highlighting
+"    <Leader><Esc>        | (N) -> an alt mapping to remove search highlighting
 "    <Tab>                | (V) -> indent all the lines currently selected
 "    <Tab>                | (N) -> indent the current line
 "    <Shift-Tab>          | (V) -> unindent all the lines currently selected
@@ -75,32 +78,43 @@
 "    <Ctrl-Right>         | (N) -> move to the end of the line
 "    <Ctrl-Left>          | (N) -> move to the beginning of the non-whitespace
 "
+"    <Shift-Up>           | (N) -> move a few lines up
+"    <Shift-Down>         | (N) -> move a few lines down
+"    <Shift-Right>        | (N) -> move a few lines right
+"    <Shift-Left>         | (N) -> move a few lines left
+"
 "  (selection)
-"    <Ctrl-a>             | (V) -> select all
-"    <Ctrl-a>             | (N) -> select all
-"    <Leader>a            | (V) -> select all
-"    <Leader>a            | (N) -> select all
-"    <Shift-Up>           | (V) -> toggle selection of all text above the cursor
-"    <Shift-Up>           | (N) -> select all text above the cursor
-"    <Shift-Down>         | (V) -> toggle selection of all text below the cursor
-"    <Shift-Down>         | (N) -> select all text below the cursor
-"    <Shift-Right>        | (V) -> toggle selection of all text to the right of the cursor
-"    <Shift-Right>        | (N) -> select all text to the right of the cursor
-"    <Shift-Left>         | (V) -> toggle selection of all non-whitespace to the left
-"    <Shift-Left>         | (N) -> select all non-whitespace to the left
+"    <Ctrl-a>             | (N) -> select all text
+"    <Leader>a            | (N) -> select all text
+"    <Ctrl-a>             | (V) -> select all text
+"    <Leader>a            | (V) -> select all text
+"
+"    <Ctrl-Up>            | (V) -> select all text above
+"    <Ctrl-Down>          | (V) -> select all text below
+"    <Ctrl-Right>         | (V) -> select all text to the right
+"    <Ctrl-Left>          | (V) -> select all text to the left up to the indent
+"
+"    <Shift-Up>           | (V) -> select a few lines up
+"    <Shift-Down>         | (V) -> select a few lines down
+"    <Shift-Right>        | (V) -> select a few lines right
+"    <Shift-Left>         | (V) -> select a few lines left
 "
 "  (vimdiff)
 "    <Leader>>            | (N) -> update differences
+"    <Leader><            | (N) -> an alt mapping to update differences
 "    >>                   | (N) -> next difference
 "    <<                   | (N) -> previous difference
 "    ><                   | (N) -> replace diff in current pane with other pane
 "    <>                   | (N) -> replace diff in other pane with current pane
 "
-"  (paste)
-"    y                    | (N) -> copies the character
-"    p                    | (V) -> paste and replace the currently selected text
-"    P                    | (V) -> paste and replace the currently selected text
+"  (paste functions)
 "    <Leader>p            | (N) -> view the paste buffers and register contents
+"    <Leader>p<Direction> | (N) -> paste in the direction entered
+"    y                    | (N) -> copies the character at the cursor
+"    P                    | (V) -> save selection to the buffer and paste over
+"    p                    | (V) -> preserve the buffer pasting over selected text
+"
+"  (delete/cut functions)
 "    <Leader>d            | (V) -> delete the currently selected text
 "    <Leader>x            | (V) -> delete the currently selected text
 "    <Leader>x            | (N) -> delete the char(s) under and the cursor
@@ -130,79 +144,80 @@
   "}
 
   "TABS:{
-    "move to the next and previous tabs
-    nnoremap <silent><expr> <C-t> ':tabnew<CR>'
     nnoremap <silent><expr> <C-n> ':tabnext<CR>'
     nnoremap <silent><expr> <C-p> ':tabprev<CR>'
+    nnoremap <silent><expr> <C-t> ':tabnew<CR>'
+    nnoremap <silent><expr> `<C-t> ':VimFiler -tab -project<CR>'
   "}
 
   "TOGGLES:{
+    "bindings to trigger vimfiler
+    nnoremap <silent><expr> `` ':VimFilerExplorer -direction=topleft -winwidth=45<CR>'
+    nnoremap <silent><expr> ~~ ':VimFilerExplorer -direction=botright -winwidth=45<CR>'
+
     "toggle folded code at foldpoints
     nnoremap <Space> za
 
     "unmap F1 from help then map it to toggle the display of line numbers
-    nnoremap <silent><expr> <F1> ':set number!<CR>'
-    vnoremap <silent><expr> <F1> '<Esc>:set number!<CR>v'
+    nnoremap <silent><expr> <F1> ':set number!<CR>:echo "Line numbers toggled"<CR>'
+    xnoremap <silent><expr> <F1> '<Esc>:set number!<CR>v'
     inoremap <silent><expr> <F1> '<C-O>:set number!<CR>'
 
     "toggle the cursor line and column
-    nnoremap <silent><expr> <F2> ':set cursorline! cursorcolumn!<CR>'
-    vnoremap <silent><expr> <F2> '<Esc>:set cursorline! cursorcolumn!<CR>v'
+    nnoremap <silent><expr> <F2> ':set cursorline! cursorcolumn!<CR>:echo "Cursor crosshair toggled"<CR>'
+    xnoremap <silent><expr> <F2> '<Esc>:set cursorline! cursorcolumn!<CR>v'
     inoremap <silent><expr> <F2> '<C-O>:set cursorline! cursorcolumn!<CR>'
 
     "toggle line wrapping (and bottom bar if using the gui)
-    nnoremap <silent><expr> <F3> ':set wrap! go'.'-+'[&wrap]."=b\r"
-    vnoremap <silent><expr> <F3> '<Esc>:set wrap! go'.'-+'[&wrap]."=b\rv"
-    inoremap <silent><expr> <F3> '<C-O>:set wrap! go'.'-+'[&wrap]."=b\r"
+    nnoremap <silent><expr> <F3> ':echo "Line wrapping toggled"<CR>:set wrap!<CR>'
+    xnoremap <silent><expr> <F3> '<Esc>:set wrap!<CR>v'
+    inoremap <silent><expr> <F3> '<C-O>:set wrap!<CR>'
 
     "toggle all folds
-    nnoremap <F4> zi
-    vnoremap <F4> <Esc>ziv
+    nnoremap <F4> zi:echo "Code Folding Toggled"<CR>
+    xnoremap <F4> <Esc>ziv
     inoremap <F4> <C-O>zi
 
     "toggle spellcheck
-    nnoremap <silent><expr> <F5> ':set spell!<CR>'
-    vnoremap <silent><expr> <F5> '<Esc>:set spell!<CR>v'
+    nnoremap <silent><expr> <F5> ':set spell!<CR>:echo "Spell checking toggled"<CR>'
+    xnoremap <silent><expr> <F5> '<Esc>:set spell!<CR>v'
     inoremap <silent><expr> <F5> '<C-O>:set spell!<CR>'
 
     "toggle syntax checking
     nnoremap <silent><expr> <F6> ':SyntasticToggleMode<CR>'
-    vnoremap <silent><expr> <F6> '<Esc>:SyntasticToggleMode<CR>v'
+    xnoremap <silent><expr> <F6> '<Esc>:SyntasticToggleMode<CR>v'
     inoremap <silent><expr> <F6> '<C-O>:SyntasticToggleMode<CR>'
 
     "bindings to trigger the gundo undo history
-    nnoremap <silent><expr> <F9> ':GundoToggle<CR>'
-    vnoremap <silent><expr> <F9> '<Esc>:GundoToggle<CR>v'
+    nnoremap <silent><expr> <F9> ':GundoToggle<CR>:echo "Undo history sidebar toggled"<CR>'
+    xnoremap <silent><expr> <F9> '<Esc>:GundoToggle<CR>v'
     inoremap <silent><expr> <F9> '<C-O>:GundoToggle<CR>'
 
     "bindings to trigger the tagbar list of tags
-    nnoremap <silent><expr> <S-F9> ':TagbarToggle<CR>'
-    vnoremap <silent><expr> <S-F9> '<Esc>:TagbarToggle<CR>v'
+    nnoremap <silent><expr> <S-F9> ':TagbarToggle<CR>:echo "Code tagbar toggled"<CR>'
+    xnoremap <silent><expr> <S-F9> '<Esc>:TagbarToggle<CR>v'
     inoremap <silent><expr> <S-F9> '<C-O>:TagbarToggle<CR>'
 
     "bindings to trigger the tagbar list of errors
-    nmap <script> <silent> <C-F9> :call ToggleLocationList()<CR>
-
-    "bindings to trigger the filer explorer
-    nnoremap <silent><expr> `` ':VimFilerExplorer -winwidth=30<CR>'
+    nmap <script> <silent> <C-F9> :call ToggleLocationList()<CR>:echo "Error/Location list toggled"<CR>
   "}
 
   "GVIM TOGGLES:{
     "map toggles for the menu, toolbar and vertical scrollbar
-    nnoremap <silent><expr> <C-F1> ":if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>"
+    nnoremap <silent><expr> <C-F1> ":if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>:echo 'Menu bar toggled'<CR>"
     vnoremap <silent><expr> <C-F1> "<Esc>:if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>v"
     inoremap <silent><expr> <C-F1> "<C-O>:if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>"
 
-    nnoremap <silent><expr> <C-F2> ":if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>"
+    nnoremap <silent><expr> <C-F2> ":if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>:echo 'Toolbar toggled'<CR>"
     vnoremap <silent><expr> <C-F2> "<Esc>:if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>v"
     inoremap <silent><expr> <C-F2> "<C-O>:if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>"
 
-    nnoremap <silent><expr> <C-F3> ":if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>"
-    vnoremap <silent><expr> <C-F3> "<Esc>:if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>v"
-    inoremap <silent><expr> <C-F3> "<C-O>:if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>"
+    nnoremap <silent><expr> <C-F3> ":if &go=~#'r'<Bar>set go-=r<Bar>set go-=L<Bar>set go-=b<Bar>else<Bar>set go+=r<Bar>set go+=L<Bar>set go+=b<Bar>endif<CR>:echo 'Scrollbars toggled'<CR>"
+    vnoremap <silent><expr> <C-F3> "<Esc>:if &go=~#'r'<Bar>set go-=r<Bar>set go-=L<Bar>set go-=b<Bar>else<Bar>set go+=r<Bar>set go+=L<Bar>set go+=b<Bar>endif<CR>v"
+    inoremap <silent><expr> <C-F3> "<C-O>:if &go=~#'r'<Bar>set go-=r<Bar>set go-=L<Bar>set go-=b<Bar>else<Bar>set go+=r<Bar>set go+=L<Bar>set go+=b<Bar>endif<CR>"
   "}
 
-  "SPELLING AND COMPLETION:{
+  "COMPLETION:{
     "emmet switch triggerkey from <Ctrl-Y>
     let g:user_emmet_leader_key='<Leader>,'
 
@@ -226,10 +241,11 @@
     nnoremap <Backspace> i<Backspace><Esc>l
 
     "formatting options to apply to the whole document
-    nnoremap <Leader><C-f> mzgg=G`z<CR>
-    nnoremap <silent><expr> <Leader><C-w> ':FixWhitespace<CR>'
-    nnoremap <silent><expr> <Leader><C-t> ':retab<CR>:noh<CR>'
-    nnoremap <silent><expr> <Leader>/ ':noh<CR>'
+    nnoremap <Leader><C-f> mzgg=G`z<CR>:echo "The document has been formatted"<CR>
+    nnoremap <silent><expr> <Leader><C-w> ':FixWhitespace<CR>:echo "Trailing whitespace has been removed"<CR>'
+    nnoremap <silent><expr> <Leader><C-t> ':retab<CR>:noh<CR>:echo "Tabs have been converted to spaces"<CR>'
+    nnoremap <silent><expr> <Leader>/ ':noh<CR>:echo "Search results have been cleared"<CR>'
+    nnoremap <silent><expr> <Leader><Esc> ':noh<CR>:echo "Search results have been cleared"<CR>'
 
     "tab and untab the currently selected lines
     vnoremap <Tab> >gv
@@ -242,7 +258,13 @@
     "additional mappings for easier access
     nnoremap = +
 
-    "remap keys to scroll through text
+    "remap keys for speedier movement
+    nnoremap <S-Up> 4k
+    nnoremap <S-Down> 4j
+    nnoremap <S-Right> 6l
+    nnoremap <S-Left> 6h
+
+    "remap keys to scroll to the end in a direction
     nnoremap <C-Up> gg0
     nnoremap <C-Down> G$
     nnoremap <C-Right> $
@@ -250,24 +272,29 @@
   "}
 
   "SELECTION:{
-    "map remap keys to select text
-    vnoremap <C-a> <Esc>gg0vG$
+    "ctrl-a to select all (and an alt for screen users)
     nnoremap <C-a> gg0vG$
-    vnoremap <Leader>a <Esc>gg0vG$
-    nnoremap <Leader>a gg0vG$
-    vnoremap <S-Up> gg0
-    nnoremap <S-Up> vgg0
-    vnoremap <S-Down> G$
-    nnoremap <S-Down> vG$
-    vnoremap <S-Right> $
-    nnoremap <S-Right> v$
-    vnoremap <S-Left> ^
-    nnoremap <S-Left> v^
+    xnoremap <C-a> <Esc>gg0vG$
+    xnoremap <Leader>a <Esc>gg0vG$
+    xnoremap <Leader>a gg0vG$
+
+    "map remap keys for speedier text selection
+    xnoremap <S-Up> 4k
+    xnoremap <S-Down> 4j
+    xnoremap <S-Right> 6l
+    xnoremap <S-Left> 6h
+
+    "remap keys to select all text in one direction
+    xnoremap <C-Up> gg0
+    xnoremap <C-Down> G$
+    xnoremap <C-Right> $
+    xnoremap <C-Left> ^
   "}
 
   "VIMDIFF:{
     "map shortcuts for vimdiff
     nnoremap <silent><expr> <Leader>> ':diffu<CR>'
+    nnoremap <silent><expr> <Leader>< ':diffu<CR>'
     nnoremap >> ]c
     nnoremap << [c
     nnoremap <> dp
@@ -278,12 +305,15 @@
     "display contents of paste buffers
     nnoremap <silent><expr> <Leader>p ':reg<CR>'
 
-    "allow y to copy in normal mode
+    "allow y to copy a single character in normal mode
     nnoremap y vy<Esc>
 
-    "alternatives that preserve the paste buffer
-    vnoremap p "_dP
-    vnoremap P "_dP
+    "P puts text it replaces in the buffer and p does not
+    vnoremap P p
+    xmap p <Plug>ReplaceWithRegisterVisual
+    nmap <Leader>p <Plug>ReplaceWithRegisterOperator
+
+    "Alternatives to deletion commands that don't replace the buffer
     vnoremap <Leader>x "_x
     nnoremap <Leader>x "_x
     vnoremap <Leader>X "_X

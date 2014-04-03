@@ -266,12 +266,12 @@ else
     let s:termBlack = "Grey"
 endif
 
-"COLOR SETTINGS:
+"SYNTAX COLORS:
 "format: ('name','fg    ','bg    ','style      ',s:lowcolor-fg,'lowcolor-bg')
 "example:('Line','000000','f0f0f0','italic,bold',s:termBlack  ,'White')
 
 call s:X("Visual","","262626","standout","",s:termBlack)
-call s:X("Cursor","","262626","standout,bold,underline","",s:termBlack)
+call s:X("Cursor","","000000","standout,bold,underline","",s:termBlack)
 
 call s:X("Pmenu","87d7ff","303030","","Grey","Blue")
 call s:X("PmenuSel","87d7ff","4e4e4e","bold","White","Black")
@@ -314,8 +314,8 @@ call s:X("PreProc","ffd787","","","Yellow","")
 call s:X("Operator","d75f5f","","","Red","")
 call s:X("NonText","87d7ff","","","Blue","")
 call s:X("SpecialKey","000000","","",s:termBlack,"")
-call s:X("Search","000000","87d7ff","bold",s:termBlack,"Blue")
-call s:X("IncSearch","","","standout","","")
+call s:X("Search","87d7ff","262626","standout","Blue",s:termBlack)
+call s:X("IncSearch","87d7ff","262626","standout,bold","Blue",s:termBlack)
 call s:X("Directory","87d7ff","","","Blue","")
 call s:X("Question","87d7ff","","","Blue","")
 call s:X("ExtraWhitespace","262626","","standout",s:termBlack,"")
@@ -409,7 +409,18 @@ call s:X("rubyGlobalVariable","","","bold","","")
 "lua
 hi! link luaOperator Conditional
 
-"syntastic error checking
+"vim-indent-guides
+call s:X("IndentGuidesOdd","","7c7c7c","","","Grey")
+call s:X("IndentGuidesEven","","1c1c1c","","",s:termBlack)
+if !exists("g:indent_guides_auto_colors")
+    let g:indent_guides_auto_colors=0
+endif
+
+"PLUGIN COLOURS:
+"taglist
+hi! link TagListFileName Directory
+
+"syntastic
 call s:X("SyntasticError","d75f5f","","standout,bold","Red","")
 call s:X("SyntasticWarning","ffd787","","standout,bold","Yellow","")
 hi! link SyntasticErrorLine SyntasticError
@@ -419,16 +430,7 @@ hi! link SyntasticWarningSign Statement
 hi! link qfSeparator Delimiter
 hi! link qfLineNr SyntasticError
 
-"vim-indent-guides
-call s:X("IndentGuidesOdd","","7c7c7c","","","Grey")
-call s:X("IndentGuidesEven","","1c1c1c","","",s:termBlack)
-if !exists("g:indent_guides_auto_colors")
-    let g:indent_guides_auto_colors = 0
-endif
-
-"plugins, etc.
-hi! link TagListFileName Directory
-
+"COLOR DEFINITIONS:
 "delete functions {{{
     delf s:X
     delf s:rgb
@@ -441,7 +443,7 @@ hi! link TagListFileName Directory
     delf s:grey_number
 "}}}
 
-"lightline statusbar colours {{{
+"colour presets (used with lightline) {{{
     let s:base3 = '#eaeaea'
     let s:base23 = '#d0d0d0'
     let s:base2 = '#c6c6c6'

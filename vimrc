@@ -21,11 +21,14 @@
 "Powerline Font Support: (1:enabled, 0:disabled)
 let powerlinefonts=1
 
+"Syntax Checking Enabled: (1:enabled, 0:must be toggled on)
+let autochecksyntax=1
+
 "GVim Font Selection: (term font set by terminal)
 set guifont=Droid\ Sans\ Mono\ 12
 
 "Add Config Directory: (distro-agnostic system-wide)
-set runtimepath+=/etc/vim
+set runtimepath+=/etc/vim,/etc/vim/after
 
 "Load Settings:
 runtime config/settings.vim

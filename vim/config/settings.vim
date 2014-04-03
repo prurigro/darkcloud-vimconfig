@@ -91,16 +91,5 @@
 
 "GVIM: GUI CONFIG OPTIONS {{{
     set guicursor+=a:blinkon0 "disable the blinking cursor
-
-    set guioptions-=T "remove the toolbar
-    set guioptions-=m "remove the toolbar
-
-    if &wrap
-        set go-=b "disable the bottom scrollbar on launch iff text wrapping is enabled
-    else
-        set go+=b "enable the bottom scrollbar on launch iff text wrapping is disabled
-    endif
-
-    "disable the bottom scrollbar if currently the vimfiler
-    autocmd FileType vimfiler set go-=b
+    set guioptions=aegi
 "}}}
