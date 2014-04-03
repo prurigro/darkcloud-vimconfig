@@ -308,12 +308,12 @@ call s:X("StringDelimiter","ffff00","","","Yellow","")
 call s:X("Identifier","87d7ff","","","Blue","")
 call s:X("Type","d75f5f","","","Red","")
 call s:X("Function","87d7ff","","","Blue","")
-call s:X("Label","87d7ff","","","Blue","")
+call s:X("Label","d75f5f","","","Red","")
 call s:X("Statement","ffd787","","","Yellow","")
 call s:X("PreProc","ffd787","","","Yellow","")
 call s:X("Operator","d75f5f","","","Red","")
 call s:X("NonText","87d7ff","","","Blue","")
-call s:X("SpecialKey","000000","","",s:termBlack,"")
+call s:X("SpecialKey","626262","","",s:termBlack,"")
 call s:X("Search","87d7ff","262626","standout","Blue",s:termBlack)
 call s:X("IncSearch","87d7ff","262626","standout,bold","Blue",s:termBlack)
 call s:X("Directory","87d7ff","","","Blue","")
@@ -341,14 +341,17 @@ call s:X("DiffChange","000000","87d7ff","italic",s:termBlack,"Blue")
 call s:X("DiffText","000000","c6c6c6","italic",s:termBlack,"White")
 
 "html
-hi! link htmlLink Statement
-hi! link htmlTitle Title
+call s:X("htmlTitle","ffffff","","underline,bold","White","")
 call s:X("htmlH1","d75f5f","","standout,underline,bold","Red","")
 call s:X("htmlH2","ffd787","","standout,underline,bold","Yellow","")
 call s:X("htmlH3","87d7ff","","standout,underline,bold","Blue","")
 call s:X("htmlH4","d75f5f","","underline,bold","Red","")
 call s:X("htmlH5","ffd787","","underline,bold","Yellow","")
 call s:X("htmlH6","87d7ff","","underline,bold","Blue","")
+hi! link htmlArg Operator
+hi! link cssBraces Delimiter
+hi! link csCharacter String
+
 
 "php
 hi! link phpFunctions Function

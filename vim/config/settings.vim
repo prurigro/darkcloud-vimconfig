@@ -70,7 +70,7 @@
     autocmd BufNewFile,BufRead cjdroute.conf,ircd.conf setf javascript
 
     "enable spellcheck by default when using given filetypes and extensions
-    autocmd FileType gitcommit,notes,mail,notmuch,mkd,text setlocal spell
+    autocmd FileType gitcommit,notes,mail,notmuch,text setlocal spell
     autocmd FileType notes,mail,notmuch,mkd,text setlocal nonumber
 
     "enable omnicompletion for any filetype without that has syntax highlighting
