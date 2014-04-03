@@ -348,9 +348,10 @@ call s:X("htmlH3","87d7ff","262626","standout,underline,bold","Blue","")
 call s:X("htmlH4","d75f5f","","underline,bold","Red","")
 call s:X("htmlH5","ffd787","","underline,bold","Yellow","")
 call s:X("htmlH6","87d7ff","","underline,bold","Blue","")
-hi! link htmlArg Operator
-hi! link cssBraces Delimiter
-hi! link csCharacter String
+call s:X("htmlLink","d75f5f","","italic","Red","")
+call s:X("htmlSpecialChar","87d7ff","","italic","Blue","")
+hi! link htmlArg String
+hi! link csCharacter StringDelimiter
 
 
 "php
