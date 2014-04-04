@@ -11,12 +11,24 @@
 "  *The default <Leader> key is: \
 "
 " Reference: (view plugin documentation for the full list of commands each offers)
-"    <Leader>q            | (N) -> toggle display of the quickfix list
-"    <Leader>l            | (N) -> toggle display of the location list
+"  (tcomment _ can also be -)
+"   <Ctrl-_><Ctrl-_>      | (A) -> comment selection/create an empty comment
+"   <Ctrl-_>b             | (A) -> comment the current block(s)
+"   <Ctrl-_>r             | (A) -> comment everything on the line to the right
+"   <Ctrl-_>p             | (A) -> comment the current paragraph
+"
+"  (surround)
+"    S"                   | (V) -> surround selection with quotes
+"    S<a href="">         | (V) -> surround <a href="">selection</a>
 "    ds"                  | (N) -> delete surrounding ""
+"    dst                  | (N) -> delete surrounding tag (ie: <strong></strong>)
 "    cs'"                 | (N) -> change surrounding '' to "" (any delimiters work)
 "    cs"<q>               | (N) -> change surrounding "" to the tag: <q></q>
 "    cst"                 | (N) -> change any surrounding tag to ""
+"
+"  (vim)
+"    D                    | (N) -> delete/cut to the end of the line
+"    S                    | (N) -> delete/cut a line up to the whitespace
 "
 " Mappings:
 "  (mouse)
@@ -25,14 +37,15 @@
 "    <Shift-MiddleClick>  | (A) -> unbind this from vim so xorg can paste
 "
 "  (tabs)
-"    <Ctrl-n>             | (A) -> go to the next open tab
-"    <Ctrl-p>             | (A) -> go to the previous open tab
-"    <Ctrl-t>             | (A) -> open a new tab
-"    `<Ctrl-t>            | (N) -> create a new tab with vimfiler
+"    <Leader>9            | (A) -> go to the next open tab
+"    <Leader>0             | (A) -> go to the previous open tab
+"    <Leader>-             | (A) -> open a new tab
+"    <Leader>=             | (A) -> create a new tab with vimfiler
+"    <Leader>+             | (A) -> create a new tab with vimfiler
 "
 "  (toggles)
-"    ``                   | (N) -> toggle the vimfiler sidebar on the left
-"    ~~                   | (N) -> toggle the vimfiler sidebar on the right
+"    ``                   | (N) -> toggle the vimfiler sidebar on the right
+"    ~~                   | (N) -> toggle the vimfiler sidebar on the left
 "    <Space>              | (N) -> toggle folds
 "    <F1>                 | (A) -> toggle line numbers
 "    <F2>                 | (A) -> toggle row/column cursor highlighting
@@ -40,10 +53,10 @@
 "    <F4>                 | (A) -> toggle all folds
 "    <F5>                 | (A) -> toggle spell check
 "    <F6>                 | (A) -> toggle syntax checking
-"    <F8>                 | (A) -> enable spellcheck + toggle list of spelling errors
+"    <F8>                 | (A) -> toggle the tagbar sidebar
+"    <Ctrl-F8>            | (A) -> toggle the location list to check syntax errors
 "    <F9>                 | (A) -> toggle the gundo undo history sidebar
-"    <Shift-F9>           | (A) -> toggle the tagbar sidebar
-"    <Ctrl-F9>            | (A) -> toggle the location/error list
+"    <Ctrl-F9>            | (A) -> enable spellcheck & toggle list of spelling errors
 "
 "  (gvim toggles)
 "    <Ctrl-F1>            | (A) -> toggle the menu
@@ -62,7 +75,8 @@
 "  (formatting)
 "    <Backspace>          | (V) -> deletes currently selected text
 "    <Backspace>          | (N) -> deletes the character behind the cursor
-"    <Leader><C-f>        | (N) -> format document and return to current line
+"    <Leader><C-f>        | (V) -> format the selection and return to cursor
+"    <Leader><C-f>        | (N) -> format document and return to cursor
 "    <Leader><C-w>        | (N) -> remove whitespace
 "    <Leader><C-t>        | (N) -> convert tabs into spaces
 "    <Leader>\            | (N) -> remove search highlighting
@@ -126,6 +140,28 @@
 "    <Leader>dw           | (N) -> delete chars under and after the cursor in the word
 "    <Leader>dd           | (N) -> delete lines under and after the one below
 "
+" Filetype Specific Mappings:
+"  (gundo)
+"    <LMouse>             | (A) -> same as normal + justify one from the left
+"    <MMouse>             | (A) -> same as the left mouse
+"    <RMouse>             | (A) -> same as the left mouse
+"    <Right>              | (A) -> same as j (down)
+"    l                    | (A) -> same as j (down)
+"    <Left>               | (A) -> same as k (up)
+"    h                    | (A) -> same as k (up)
+"
+"  (vimfiler)
+"    <Shift-Return>       | (A) -> edit the selected file
+"    <LMouse><LMouse>     | (A) -> edit selected file
+"    <Right>              | (A) -> map to l, which opens a directory
+"    <Left>               | (A) -> map to h, which goes up one directory
+"    <LMouse>             | (A) -> same as normal + justify on the left
+"    <MMouse>             | (A) -> same as the left mouse
+"    <RMouse>             | (A) -> same as the left mouse
+"
+"  (vimfiler,gundo)
+"
+"
 "  Aliases:
 "    :wsudo -and- :sudow  | (C) -> :SudoWrite (write the file as root using sudo)
 "    :esudo -and- :sudoe  | (C) -> :SudoRead (read a file as root using sudo)
@@ -145,16 +181,27 @@
     "}
 
     "TABS:{
-      nnoremap <silent><expr> <C-n> ':tabnext<CR>'
-      nnoremap <silent><expr> <C-p> ':tabprev<CR>'
-      nnoremap <silent><expr> <C-t> ':tabnew<CR>'
-      nnoremap <silent><expr> `<C-t> ':VimFiler -tab -project<CR>'
+      nnoremap <silent><expr> <Leader>0 ':tabnext<CR>'
+      inoremap <silent><expr> <Leader>0 '<C-O>:tabnext<CR>'
+      xnoremap <silent><expr> <Leader>0 '<Esc>:tabnext<CR>'
+      nnoremap <silent><expr> <Leader>9 ':tabprev<CR>'
+      inoremap <silent><expr> <Leader>9 '<Esc>:tabprev<CR>'
+      xnoremap <silent><expr> <Leader>9 '<Esc>:tabprev<CR>'
+      nnoremap <silent><expr> <Leader>- ':tabnew<CR>'
+      inoremap <silent><expr> <Leader>- '<Esc>:tabnew<CR>'
+      xnoremap <silent><expr> <Leader>- '<Esc>:tabnew<CR>'
+      nnoremap <silent><expr> <leader>= ':VimFiler -tab -project<CR>'
+      inoremap <silent><expr> <leader>= '<Esc>:VimFiler -tab -project<CR>'
+      xnoremap <silent><expr> <leader>= '<Esc>:VimFiler -tab -project<CR>'
+      nnoremap <silent><expr> <leader>+ ':VimFiler -tab -project -double<CR>'
+      inoremap <silent><expr> <leader>+ '<Esc>:VimFiler -tab -project -double<CR>'
+      xnoremap <silent><expr> <leader>+ '<Esc>:VimFiler -tab -project -double<CR>'
     "}
 
     "TOGGLES:{
       "bindings to trigger vimfiler
-      nnoremap <silent><expr> `` ':VimFilerExplorer -direction=topleft -winwidth=45<CR>'
-      nnoremap <silent><expr> ~~ ':VimFilerExplorer -direction=botright -winwidth=45<CR>'
+      nnoremap <silent><expr> `` ':VimFilerExplorer -direction=botright -winwidth=45<CR>'
+      nnoremap <silent><expr> ~~ ':VimFilerExplorer -direction=topleft -winwidth=45<CR>'
 
       "toggle folded code at foldpoints
       nnoremap <Space> za
@@ -189,23 +236,23 @@
       xnoremap <silent><expr> <F6> '<Esc>:SyntasticToggleMode<CR>v'
       inoremap <silent><expr> <F6> '<C-O>:SyntasticToggleMode<CR>'
 
-      "bindings to trigger spellcheck
-      nnoremap <silent><expr> <F8> ':UpdateAndSpellCheck<CR>:call ToggleQuickfixList()<CR>'
-      xnoremap <silent><expr> <F8> '<Esc>:UpdateAndSpellCheck<CR>:call ToggleQuickfixList()<CR>'
-      inoremap <silent><expr> <F8> '<Esc>:UpdateAndSpellCheck<CR>:call ToggleQuickfixList()<CR>'
+      "bindings to trigger the tagbar list of tags
+      nnoremap <silent><expr> <F8> ':TagbarToggle<CR>:echo "Code tagbar toggled"<CR>'
+      xnoremap <silent><expr> <F8> '<Esc>:TagbarToggle<CR>v'
+      inoremap <silent><expr> <F8> '<C-O>:TagbarToggle<CR>'
+
+      "bindings to trigger the tagbar list of errors
+      nmap <script> <silent> <C-F8> :call ToggleLocationList()<CR>:echo "Error/Location list toggled"<CR>
 
       "bindings to trigger the gundo undo history
       nnoremap <silent><expr> <F9> ':GundoToggle<CR>:echo "Undo history sidebar toggled"<CR>'
       xnoremap <silent><expr> <F9> '<Esc>:GundoToggle<CR>v'
       inoremap <silent><expr> <F9> '<C-O>:GundoToggle<CR>'
 
-      "bindings to trigger the tagbar list of tags
-      nnoremap <silent><expr> <S-F9> ':TagbarToggle<CR>:echo "Code tagbar toggled"<CR>'
-      xnoremap <silent><expr> <S-F9> '<Esc>:TagbarToggle<CR>v'
-      inoremap <silent><expr> <S-F9> '<C-O>:TagbarToggle<CR>'
-
-      "bindings to trigger the tagbar list of errors
-      nmap <script> <silent> <C-F9> :call ToggleLocationList()<CR>:echo "Error/Location list toggled"<CR>
+      "bindings to trigger spellcheck
+      nnoremap <silent><expr> <C-F9> ':UpdateAndSpellCheck<CR>:call ToggleQuickfixList()<CR>'
+      xnoremap <silent><expr> <C-F9> '<Esc>:UpdateAndSpellCheck<CR>:call ToggleQuickfixList()<CR>'
+      inoremap <silent><expr> <C-F9> '<Esc>:UpdateAndSpellCheck<CR>:call ToggleQuickfixList()<CR>'
     "}
 
     "GVIM TOGGLES:{
@@ -225,7 +272,7 @@
 
     "COMPLETION:{
       "emmet switch triggerkey from <Ctrl-Y>
-      let g:user_emmet_leader_key='<Leader>,'
+      let g:user_emmet_leader_key='<C-\>'
 
       "press backslash twice on a mispelled word for suggestions
       nnoremap \\ hei<C-X><C-S>
@@ -248,6 +295,7 @@
 
       "formatting options to apply to the whole document
       nnoremap <Leader><C-f> mzgg=G`z<CR>:echo "The document has been formatted"<CR>
+      vnoremap <Leader><C-f> mz=`z<CR>:echo "The selection has been formatted"<CR>
       nnoremap <silent><expr> <Leader><C-w> ':FixWhitespace<CR>:echo "Trailing whitespace has been removed"<CR>'
       nnoremap <silent><expr> <Leader><C-t> ':retab<CR>:noh<CR>:echo "Tabs have been converted to spaces"<CR>'
       nnoremap <silent><expr> <Leader>/ ':noh<CR>:echo "Search results have been cleared"<CR>'
@@ -281,7 +329,7 @@
       "ctrl-a to select all (and an alt for screen users)
       nnoremap <C-a> gg0vG$
       xnoremap <C-a> <Esc>gg0vG$
-      xnoremap <Leader>a <Esc>gg0vG$
+      nnoremap <Leader>a <Esc>gg0vG$
       xnoremap <Leader>a gg0vG$
 
       "map remap keys for speedier text selection
@@ -317,7 +365,7 @@
       "P puts text it replaces in the buffer and p does not
       vnoremap P p
       xmap p <Plug>ReplaceWithRegisterVisual
-      nmap <Leader>p <Plug>ReplaceWithRegisterOperator
+      nmap <C-p> <Plug>ReplaceWithRegisterOperator
 
       "Alternatives to deletion commands that don't replace the buffer
       vnoremap <Leader>x "_x
@@ -330,6 +378,50 @@
       nnoremap <Leader>dd "_dd
       nnoremap <Leader>dw "_dw
     "}
+"}}}
+
+"FILETYPE SPECIFIC MAPPINGS: {{{
+    "gundo
+    autocmd FileType gundo noremap <buffer> <LeftMouse> <LeftMouse>0l
+    autocmd FileType gundo noremap <buffer> <MiddleMouse> <LeftMouse>
+    autocmd FileType gundo noremap <buffer> <RightMouse> <LeftMouse>
+    autocmd FileType gundo noremap <buffer> <Right> j
+    autocmd FileType gundo noremap <buffer> l j
+    autocmd FileType gundo noremap <buffer> <Left> k
+    autocmd FileType gundo noremap <buffer> h k
+
+    "vimfiler
+    autocmd FileType vimfiler noremap <buffer> <Right> l
+    autocmd FileType vimfiler noremap <buffer> <Left> h
+    autocmd FileType vimfiler noremap <buffer> <2-LeftMouse> <Plug>(vimfiler_edit_file)
+    autocmd FileType vimfiler noremap <buffer> <LeftMouse> <LeftMouse>0
+    autocmd FileType vimfiler noremap <buffer> <MiddleMouse> <LeftMouse>
+    autocmd FileType vimfiler noremap <buffer> <RightMouse> <LeftMouse>
+    autocmd FileType vimfiler noremap <S-CR> e
+"}}}
+
+"DISABLED MAPPINGS: {{{
+    "remove incompatible toggles from gundo and filer
+    autocmd Filetype gundo,vimfiler noremap <F1> <Nop>
+    autocmd Filetype gundo,vimfiler noremap <F2> <Nop>
+    autocmd Filetype gundo,vimfiler noremap <F3> <Nop>
+    autocmd Filetype gundo,vimfiler noremap <C-Up> <Nop>
+    autocmd Filetype gundo,vimfiler noremap <C-k> <Nop>
+    autocmd Filetype gundo,vimfiler noremap <C-Down> <Nop>
+    autocmd Filetype gundo,vimfiler noremap <C-j> <Nop>
+    autocmd Filetype gundo,vimfiler noremap <C-Right> <Nop>
+    autocmd Filetype gundo,vimfiler noremap <C-l> <Nop>
+    autocmd Filetype gundo,vimfiler noremap <C-Left> <Nop>
+    autocmd Filetype gundo,vimfiler noremap <C-h> <Nop>
+    autocmd Filetype gundo,vimfiler noremap <S-Up> <Nop>
+    autocmd Filetype gundo,vimfiler noremap <S-k> <Nop>
+    autocmd Filetype gundo,vimfiler noremap <S-Down> <Nop>
+    autocmd Filetype gundo,vimfiler noremap <S-j> <Nop>
+    autocmd Filetype gundo,vimfiler noremap <S-Right> <Nop>
+    autocmd Filetype gundo,vimfiler noremap <S-l> <Nop>
+    autocmd Filetype gundo,vimfiler noremap <S-Left> <Nop>
+    autocmd Filetype gundo,vimfiler noremap <S-h> <Nop>
+
 "}}}
 
 "ALIASES: COMMAND SHORTCUTS {{{

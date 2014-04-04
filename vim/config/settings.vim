@@ -30,10 +30,9 @@
     set number "enable line numbers
     set nowrap "disable line wrapping
     set cursorline cursorcolumn "enable row/column highlighting
-    set selection=exclusive "when highlighting, don't select the position under the cursor
     set visualbell "notify visually instead of with an audible bell
     set splitright "add new tiles on the right (and not left) when added
-    set scrolloff=1 sidescrolloff=1 "start scrolling if the cursor is one position away from the edge
+    set scrolloff=0 sidescrolloff=0 "start scrolling if the cursor is one position away from the edge
     set list listchars=tab:>-,trail:- "display tabs as: >--- and trailing spaces as: -
     set autochdir "current dir is file dir
     set history=250 "undo history

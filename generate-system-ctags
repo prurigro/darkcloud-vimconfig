@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-[[ `type -P ctags` ]] && ctags -R -f ~/.vim/tags /usr/include /usr/local/include || echo "Can't find the ctags binary in $PATH"

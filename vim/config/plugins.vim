@@ -8,18 +8,27 @@
 "=========================="
 
 "PATHOGEN BUNDLED EXTENSIONS PLUGIN: LOAD BUNDLED PLUGINS {{{
-    execute pathogen#infect()
+    execute pathogen#infect('bundle/{}', 'bundle.user/{}')
 "}}}
 
 "EMMET: CONFIGURE WHEN ZENCODING IS ENABLED {{{
     let g:user_emmet_install_global=0
+    let g:use_emmet_complete_tag=1
+    let g:user_emmet_mode='a'
+
     autocmd FileType html,css,php,aspx EmmetInstall
+
+    if filereadable("~/.vim/snippets.json")
+        let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.vim/snippets.json')), "\n"))
+    endif
 "}}}
 
 "GUNDO: CONFIGURE SIDEBAR SETTINGS {{{
     let g:gundo_right=1
     let g:gundo_width=35
     let g:gundo_preview_height=10
+
+    autocmd FileType gundo setlocal nocursorcolumn
 "}}}
 
 "LIGHTLINE: CONFIGURE THE LIGHTLINE STATUS BAR {{{
@@ -97,7 +106,7 @@
     endfunction
 
     "status bar config with and without powerline fonts
-    if (powerlinefonts == 1)
+    if (g:powerlinefonts == 1)
         let g:lightline = {
         \   'colorscheme': 'darkcloud',
         \   'active': {
@@ -154,7 +163,7 @@
 "}}}
 
 "SYNTASTIC: CONFIGURE SYNTAX CHECKING {{{
-    if (autochecksyntax == 1)
+    if (g:autostartchecker == 1)
         let g:syntastic_mode_map = {'mode':'active','active_filetypes':[],'passive_filetypes':[]}
         let g:syntastic_check_on_open=1
     else
@@ -180,22 +189,16 @@
     let g:vimfiler_marked_file_icon='+'
 
     "edit files by double clicking them, and justify the cursor on the left
-    autocmd FileType vimfiler nmap <buffer> <2-LeftMouse> <Plug>(vimfiler_edit_file)
-    autocmd FileType vimfiler nmap <buffer> <LeftMouse> <LeftMouse>0
-    autocmd FileType vimfiler nmap <buffer> <MiddleMouse> <LeftMouse>0
-    autocmd FileType vimfiler nmap <buffer> <RightMouse> <LeftMouse>0
-    autocmd FileType vimfiler nmap <buffer> <Right> l
-    autocmd FileType vimfiler nmap <buffer> <Left> h
     autocmd FileType vimfiler setlocal nonumber wrap
     autocmd FileType vimfiler setlocal nocursorcolumn
 
     "open automatically if vim was run without any files
     autocmd VimEnter * if !argc() | VimFiler -quit -project | endif
 
-    "filetype associations (just a sample to show how it can work)
-    "if has('unix')
-        "call vimfiler#set_execute_file('mp4','xdg-open')
-    "endif
+    "load the list of file extensions and handlers if it exists
+    if filereadable(glob("~/.vim/filetypes.vim"))
+        source ~/.vim/filetypes.vim
+    endif
 "}}}
 
 "NEOCOMPLCACHE AUTOCOMPLETION PLUGIN: ENABLE AND CONFIGURE BEHAVIOUR {{{

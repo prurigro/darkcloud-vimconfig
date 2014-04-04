@@ -1,44 +1,50 @@
-"==============="
-"               "
-"  Vim Config:  "
-"               "
-"==============="
+"========================================"
+"                                        "
+"  Darkcloud Vim Config:                 "
+"  vimrc                                 "
+"                                        "
+"  Maintainer: Prurigro                  "
+"  License: MIT                          "
+"                                        "
+"========================================"
 "
-" Notes:
-"  Tmux requires the '-2' flag to be set when
-"  launched for vim to use more than just the
-"  set of terminal colours.
-"
-"  The ctags package should be downloaded from
-"  http://ctags.sourceforge.net and installed
-"  to $PATH
-"
-"  To use lightline with powerline fonts, set
-"  powerlinefonts=1 below, and ensure guifont is
-"  set to a powerline patched font. For example:
-"  guifont=Droid\ Sans\ Mono\ for\ Powerline\ 12
 
-"Powerline Font Support: (1:enabled, 0:disabled)
-let powerlinefonts=1
+"USER CONFIG SETTINGS: {{{
+    "Darkcloud Vim Folder:
+    let s:darkcloudpath="/etc/darkcloud-vimconfig"
 
-"Syntax Checking Enabled: (1:enabled, 0:must be toggled on)
-let autochecksyntax=1
+    "Start With Syntax Checking: (1:start toggled on, 0:start toggled off)
+    let g:autostartchecker=1
 
-"GVim Font Selection: (term font set by terminal)
-set guifont=Droid\ Sans\ Mono\ 12
+    "Powerline Font Support: (1:enabled, 0:disabled)
+    let g:powerlinefonts=1
 
-"Add Config Directory: (distro-agnostic system-wide)
-set runtimepath+=/etc/vim,/etc/vim/after
+    "GVim Font Selection: (term font set by terminal)
+    set guifont=Droid\ Sans\ Mono\ 12
+"}}}
 
-"Load Settings:
-runtime config/settings.vim
+"LOAD DARKCLOUD CONFIG AND THEME FILES: {{{
+    "Add Config Directory: (distro-agnostic system-wide)
+    let &runtimepath=printf('%s,%s/vim,%s/vim/after',&runtimepath,s:darkcloudpath,s:darkcloudpath)
 
-"Load Plugins:
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-runtime config/plugins.vim
+    "Load Settings:
+    runtime config/settings.vim
 
-"Configure Keymappings:
-runtime config/keyboard.vim
+    "Load Plugins:
+    runtime bundle/vim-pathogen/autoload/pathogen.vim
 
-"Load Theme:
-colorscheme darkcloud
+    "Load Plugin Configuration:
+    runtime config/plugins.vim
+
+    "Load Keymappings:
+    runtime config/keyboard.vim
+
+    "Load Colour Scheme:
+    colorscheme darkcloud
+"}}}
+
+"LOAD USER CONFIG FILE: {{{
+    if filereadable($VIMRUNTIME."/vimrc.user")
+        runtime vimrc.user
+    endif
+"}}}

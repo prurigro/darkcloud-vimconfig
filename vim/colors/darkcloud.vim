@@ -8,13 +8,14 @@
 "========================"
 "
 " Acknowledgements:
+"
 "  I found the jellybeans theme part way through creating
 "  this one and liked how it scripted compatibility between
 "  cterm and gui, so I stripped its colours and ported
 "  my own in, using jellybeans as a functional template.
 "
 "  As referenced in the original jellybean theme, the set
-"  of color approximation functions were creaed by Henry
+"  of color approximation functions were created by Henry
 "  So, Jr. and David Liang
 "
 
@@ -32,7 +33,7 @@ endif
 
 let colors_name = "darkcloud"
 
-"color approximation funcionality{{{
+"color approximation functionality {{{
     "approximate the grey index from a given grey level
     fun! s:grey_number(x)
         if &t_Co == 88
@@ -266,59 +267,84 @@ else
     let s:termBlack = "Grey"
 endif
 
+"SPELL CHECKING UNDERLINE: (blue, yellow, none, none)
+hi SpellBad   guisp=#87d7ff gui=undercurl guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE term=bold,underline cterm=bold,underline
+hi SpellCap   guisp=#ffd787 gui=undercurl guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE term=underline cterm=underline
+hi SpellRare  guisp=NONE gui=NONE guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE term=NONE cterm=NONE
+hi SpellLocal guisp=NONE gui=NONE guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE term=NONE cterm=NONE
+
 "SYNTAX COLORS:
+
+"format:
 "format: ('name','fg    ','bg    ','style      ',s:lowcolor-fg,'lowcolor-bg')
 "example:('Line','000000','f0f0f0','italic,bold',s:termBlack  ,'White')
 
-call s:X("Visual","","262626","standout","",s:termBlack)
-call s:X("Cursor","","262626","standout,underline","",s:termBlack)
-hi! link MatchParen Cursor
+"core style
+call s:X("Normal","eaeaea","262626","","White",s:termBlack)
+hi Normal ctermfg=254 ctermbg=235
 
+call s:X("Cursor","","262626","standout,underline,bold",s:termBlack,"White")
+call s:X("CursorColumn","","303030","","",s:termBlack)
+hi CursorColumn ctermbg=236
+call s:X("CursorLine","","303030","","",s:termBlack)
+hi CursorLine ctermbg=236
+call s:X("CursorLineNr","87d7ff","303030","bold","Blue",s:termBlack)
+hi CursorLineNr ctermbg=236
+call s:X("LineNr","4e4e4e","","bold","White",s:termBlack)
+hi LineNr ctermfg=239
+
+call s:X("Visual","","262626","standout","",s:termBlack)
+call s:X("MatchParen","ffffff","","bold,underline","","")
+
+"whitespace
+call s:X("TabLine","","000000","","",s:termBlack)
+call s:X("TabLineFill","","000000","","",s:termBlack)
+call s:X("TabLineSel","000000","d0d0d0","",s:termBlack,"White")
+call s:X("ExtraWhitespace","262626","","standout",s:termBlack,"")
+
+"menu call
 call s:X("Pmenu","87d7ff","303030","","Grey","Blue")
 call s:X("PmenuSel","87d7ff","4e4e4e","bold","White","Black")
 
+"search
+call s:X("Search","87d7ff","262626","standout","Blue",s:termBlack)
+call s:X("IncSearch","87d7ff","262626","standout,bold","Blue",s:termBlack)
+
+"status line
 call s:X("StatusLine","000000","d75f5f","bold",s:termBlack,"Red")
 call s:X("StatusLineNC","ffffff","626262","","White","Grey")
 call s:X("VertSplit","626262","626262","",s:termBlack,s:termBlack)
 call s:X("WildMenu","808080","303030","","White",s:termBlack)
 
-call s:X("Folded","87d7ff","626262","bold","Blue",s:termBlack)
-call s:X("FoldColumn","87d7ff","262626","bold","Blue",s:termBlack)
-call s:X("SignColumn","ffaf00","262626","bold","Red",s:termBlack)
+"folding
+call s:X("Folded","87d7ff","4e4e4e","bold","Blue",s:termBlack)
+call s:X("FoldColumn","87d7ff","","bold","Blue","")
+call s:X("SignColumn","ffaf00","","bold","Red","")
 hi! link ColorColumn SignColumn
 
-call s:X("TabLine","","000000","","",s:termBlack)
-call s:X("TabLineFill","","000000","","",s:termBlack)
-call s:X("TabLineSel","000000","d0d0d0","",s:termBlack,"White")
-
-call s:X("Comment","626262","","italic","Grey","")
-call s:X("Todo","d75f5f","","bold","Red","")
-
-call s:X("Normal","eaeaea","262626","","White",s:termBlack)
-call s:X("CursorColumn","","303030","","",s:termBlack)
-call s:X("CursorLine","","303030","","",s:termBlack)
-call s:X("CursorLineNr","87d7ff","","bold","Blue",s:termBlack)
-call s:X("LineNr","ffaf00","","","Yellow",s:termBlack)
+"syntax style
 call s:X("Title","d75f5f","","underline","Red","")
+call s:X("Comment","6c6c6c","","italic","Grey","")
 call s:X("Constant","87d7ff","","bold","Blue","")
-call s:X("Special","ffaf00","","","Yellow","")
+call s:X("Special","ffd787","","bold","Yellow","")
 call s:X("Delimiter","ffffff","","","White","")
 call s:X("String","ffffff","","italic","White","")
 call s:X("StringDelimiter","d0d0d0","","","White","")
-call s:X("Identifier","87d7ff","","","Blue","")
+call s:X("Identifier","87d7ff","","bold","Blue","")
 call s:X("Type","d75f5f","","bold","Red","")
 call s:X("Function","87d7ff","","","Blue","")
 call s:X("Label","d75f5f","","","Red","")
 call s:X("Statement","ffd787","","","Yellow","")
 call s:X("PreProc","ffd787","","","Yellow","")
+call s:X("Keyword","ffd787","","bold","Yellow","")
 call s:X("Operator","d75f5f","","","Red","")
 call s:X("NonText","87d7ff","","","Blue","")
 call s:X("SpecialKey","626262","","",s:termBlack,"")
-call s:X("Search","87d7ff","262626","standout","Blue",s:termBlack)
-call s:X("IncSearch","87d7ff","262626","standout,bold","Blue",s:termBlack)
 call s:X("Directory","87d7ff","","","Blue","")
 call s:X("Question","87d7ff","","","Blue","")
-call s:X("ExtraWhitespace","262626","","standout",s:termBlack,"")
+call s:X("Todo","d75f5f","","bold","Red","")
+
+"errors
 call s:X("Error","d75f5f","000000","standout","Red",s:termBlack)
 hi! link WarningMsg Error
 hi! link ErrorMsg Error
@@ -326,13 +352,7 @@ hi! link MoreMsg Special
 hi! link Structure PreProc
 hi! link Number Type
 
-"spell checking
-call s:X("SpellBad","d75f5f","","undercurl","","Red")
-call s:X("SpellCap","87d7ff","","undercurl","","Blue")
-call s:X("SpellLocal","ffd787","","undercurl","","Yellow")
-call s:X("SpellRare","ffffff","","italic","White","")
-
-"diff
+"vimdiff
 hi! link diffRemoved Constant
 hi! link diffAdded String
 call s:X("DiffAdd","000000","ffd787","italic",s:termBlack,"Yellow")
@@ -340,11 +360,14 @@ call s:X("DiffDelete","000000","d75f5f","italic",s:termBlack,"Red")
 call s:X("DiffChange","000000","87d7ff","italic",s:termBlack,"Blue")
 call s:X("DiffText","000000","c6c6c6","italic",s:termBlack,"White")
 
+"git
+hi! link gitconfigAssignment Label
+
 "html
 call s:X("htmlTitle","ffffff","","underline,bold","White","")
-call s:X("htmlH1","d75f5f","262626","underline,bold","Red","")
-call s:X("htmlH2","ffd787","262626","underline,bold","Yellow","")
-call s:X("htmlH3","87d7ff","262626","underline,bold","Blue","")
+call s:X("htmlH1","d75f5f","","underline,bold","Red","")
+call s:X("htmlH2","ffd787","","underline,bold","Yellow","")
+call s:X("htmlH3","87d7ff","","underline,bold","Blue","")
 call s:X("htmlH4","d75f5f","","underline","Red","")
 call s:X("htmlH5","ffd787","","underline","Yellow","")
 call s:X("htmlH6","87d7ff","","underline","Blue","")
@@ -415,12 +438,14 @@ call s:X("rubyGlobalVariable","","","bold","","")
 "lua
 hi! link luaOperator Conditional
 
-"vim-indent-guides
+"vim config/vimscript
 call s:X("IndentGuidesOdd","","7c7c7c","","","Grey")
 call s:X("IndentGuidesEven","","1c1c1c","","",s:termBlack)
 if !exists("g:indent_guides_auto_colors")
     let g:indent_guides_auto_colors=0
 endif
+call s:X("vimOperParen","87d7ff","","","Blue","")
+
 
 "notes
 call s:X("notesRule","","","bold","","")
