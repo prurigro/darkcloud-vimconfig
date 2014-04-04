@@ -40,6 +40,7 @@
 "    <F4>                 | (A) -> toggle all folds
 "    <F5>                 | (A) -> toggle spell check
 "    <F6>                 | (A) -> toggle syntax checking
+"    <F8>                 | (A) -> enable spellcheck + toggle list of spelling errors
 "    <F9>                 | (A) -> toggle the gundo undo history sidebar
 "    <Shift-F9>           | (A) -> toggle the tagbar sidebar
 "    <Ctrl-F9>            | (A) -> toggle the location/error list
@@ -131,199 +132,204 @@
 "
 
 "MAPPINGS: GENERAL KEYBINDINGS AND REBINDINGS {{{
-  "MOUSE:{
-    "hold shift to enable middle-click paste
-    noremap <S-Insert> <MiddleMouse>
-    noremap! <S-Insert> <MiddleMouse>
+    "MOUSE:{
+      "hold shift to enable middle-click paste
+      noremap <S-Insert> <MiddleMouse>
+      noremap! <S-Insert> <MiddleMouse>
 
-    "hold ctrl to scroll left/right instead of up/down
-    noremap <C-ScrollWheelUp> 3zl
-    noremap <C-ScrollWheelDown> 3zh
-    inoremap <C-ScrollWheelUp> <C-O>3zl
-    inoremap <C-ScrollWheelDown> <C-O>3zh
-  "}
+      "hold ctrl to scroll left/right instead of up/down
+      noremap <C-ScrollWheelUp> 3zl
+      noremap <C-ScrollWheelDown> 3zh
+      inoremap <C-ScrollWheelUp> <C-O>3zl
+      inoremap <C-ScrollWheelDown> <C-O>3zh
+    "}
 
-  "TABS:{
-    nnoremap <silent><expr> <C-n> ':tabnext<CR>'
-    nnoremap <silent><expr> <C-p> ':tabprev<CR>'
-    nnoremap <silent><expr> <C-t> ':tabnew<CR>'
-    nnoremap <silent><expr> `<C-t> ':VimFiler -tab -project<CR>'
-  "}
+    "TABS:{
+      nnoremap <silent><expr> <C-n> ':tabnext<CR>'
+      nnoremap <silent><expr> <C-p> ':tabprev<CR>'
+      nnoremap <silent><expr> <C-t> ':tabnew<CR>'
+      nnoremap <silent><expr> `<C-t> ':VimFiler -tab -project<CR>'
+    "}
 
-  "TOGGLES:{
-    "bindings to trigger vimfiler
-    nnoremap <silent><expr> `` ':VimFilerExplorer -direction=topleft -winwidth=45<CR>'
-    nnoremap <silent><expr> ~~ ':VimFilerExplorer -direction=botright -winwidth=45<CR>'
+    "TOGGLES:{
+      "bindings to trigger vimfiler
+      nnoremap <silent><expr> `` ':VimFilerExplorer -direction=topleft -winwidth=45<CR>'
+      nnoremap <silent><expr> ~~ ':VimFilerExplorer -direction=botright -winwidth=45<CR>'
 
-    "toggle folded code at foldpoints
-    nnoremap <Space> za
+      "toggle folded code at foldpoints
+      nnoremap <Space> za
 
-    "unmap F1 from help then map it to toggle the display of line numbers
-    nnoremap <silent><expr> <F1> ':set number!<CR>:echo "Line numbers toggled"<CR>'
-    xnoremap <silent><expr> <F1> '<Esc>:set number!<CR>v'
-    inoremap <silent><expr> <F1> '<C-O>:set number!<CR>'
+      "unmap F1 from help then map it to toggle the display of line numbers
+      nnoremap <silent><expr> <F1> ':set number!<CR>:echo "Line numbers toggled"<CR>'
+      xnoremap <silent><expr> <F1> '<Esc>:set number!<CR>v'
+      inoremap <silent><expr> <F1> '<C-O>:set number!<CR>'
 
-    "toggle the cursor line and column
-    nnoremap <silent><expr> <F2> ':set cursorline! cursorcolumn!<CR>:echo "Cursor crosshair toggled"<CR>'
-    xnoremap <silent><expr> <F2> '<Esc>:set cursorline! cursorcolumn!<CR>v'
-    inoremap <silent><expr> <F2> '<C-O>:set cursorline! cursorcolumn!<CR>'
+      "toggle the cursor line and column
+      nnoremap <silent><expr> <F2> ':set cursorline! cursorcolumn!<CR>:echo "Cursor crosshair toggled"<CR>'
+      xnoremap <silent><expr> <F2> '<Esc>:set cursorline! cursorcolumn!<CR>v'
+      inoremap <silent><expr> <F2> '<C-O>:set cursorline! cursorcolumn!<CR>'
 
-    "toggle line wrapping (and bottom bar if using the gui)
-    nnoremap <silent><expr> <F3> ':echo "Line wrapping toggled"<CR>:set wrap!<CR>'
-    xnoremap <silent><expr> <F3> '<Esc>:set wrap!<CR>v'
-    inoremap <silent><expr> <F3> '<C-O>:set wrap!<CR>'
+      "toggle line wrapping (and bottom bar if using the gui)
+      nnoremap <silent><expr> <F3> ':echo "Line wrapping toggled"<CR>:set wrap!<CR>'
+      xnoremap <silent><expr> <F3> '<Esc>:set wrap!<CR>v'
+      inoremap <silent><expr> <F3> '<C-O>:set wrap!<CR>'
 
-    "toggle all folds
-    nnoremap <F4> zi:echo "Code Folding Toggled"<CR>
-    xnoremap <F4> <Esc>ziv
-    inoremap <F4> <C-O>zi
+      "toggle all folds
+      nnoremap <F4> zi:echo "Code Folding Toggled"<CR>
+      xnoremap <F4> <Esc>ziv
+      inoremap <F4> <C-O>zi
 
-    "toggle spellcheck
-    nnoremap <silent><expr> <F5> ':set spell!<CR>:echo "Spell checking toggled"<CR>'
-    xnoremap <silent><expr> <F5> '<Esc>:set spell!<CR>v'
-    inoremap <silent><expr> <F5> '<C-O>:set spell!<CR>'
+      "toggle spellcheck
+      nnoremap <silent><expr> <F5> ':set spell!<CR>:echo "Spell checking toggled"<CR>'
+      xnoremap <silent><expr> <F5> '<Esc>:set spell!<CR>v'
+      inoremap <silent><expr> <F5> '<C-O>:set spell!<CR>'
 
-    "toggle syntax checking
-    nnoremap <silent><expr> <F6> ':SyntasticToggleMode<CR>'
-    xnoremap <silent><expr> <F6> '<Esc>:SyntasticToggleMode<CR>v'
-    inoremap <silent><expr> <F6> '<C-O>:SyntasticToggleMode<CR>'
+      "toggle syntax checking
+      nnoremap <silent><expr> <F6> ':SyntasticToggleMode<CR>'
+      xnoremap <silent><expr> <F6> '<Esc>:SyntasticToggleMode<CR>v'
+      inoremap <silent><expr> <F6> '<C-O>:SyntasticToggleMode<CR>'
 
-    "bindings to trigger the gundo undo history
-    nnoremap <silent><expr> <F9> ':GundoToggle<CR>:echo "Undo history sidebar toggled"<CR>'
-    xnoremap <silent><expr> <F9> '<Esc>:GundoToggle<CR>v'
-    inoremap <silent><expr> <F9> '<C-O>:GundoToggle<CR>'
+      "bindings to trigger spellcheck
+      nnoremap <silent><expr> <F8> ':UpdateAndSpellCheck<CR>:call ToggleQuickfixList()<CR>'
+      xnoremap <silent><expr> <F8> '<Esc>:UpdateAndSpellCheck<CR>:call ToggleQuickfixList()<CR>'
+      inoremap <silent><expr> <F8> '<Esc>:UpdateAndSpellCheck<CR>:call ToggleQuickfixList()<CR>'
 
-    "bindings to trigger the tagbar list of tags
-    nnoremap <silent><expr> <S-F9> ':TagbarToggle<CR>:echo "Code tagbar toggled"<CR>'
-    xnoremap <silent><expr> <S-F9> '<Esc>:TagbarToggle<CR>v'
-    inoremap <silent><expr> <S-F9> '<C-O>:TagbarToggle<CR>'
+      "bindings to trigger the gundo undo history
+      nnoremap <silent><expr> <F9> ':GundoToggle<CR>:echo "Undo history sidebar toggled"<CR>'
+      xnoremap <silent><expr> <F9> '<Esc>:GundoToggle<CR>v'
+      inoremap <silent><expr> <F9> '<C-O>:GundoToggle<CR>'
 
-    "bindings to trigger the tagbar list of errors
-    nmap <script> <silent> <C-F9> :call ToggleLocationList()<CR>:echo "Error/Location list toggled"<CR>
-  "}
+      "bindings to trigger the tagbar list of tags
+      nnoremap <silent><expr> <S-F9> ':TagbarToggle<CR>:echo "Code tagbar toggled"<CR>'
+      xnoremap <silent><expr> <S-F9> '<Esc>:TagbarToggle<CR>v'
+      inoremap <silent><expr> <S-F9> '<C-O>:TagbarToggle<CR>'
 
-  "GVIM TOGGLES:{
-    "map toggles for the menu, toolbar and vertical scrollbar
-    nnoremap <silent><expr> <C-F1> ":if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>:echo 'Menu bar toggled'<CR>"
-    vnoremap <silent><expr> <C-F1> "<Esc>:if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>v"
-    inoremap <silent><expr> <C-F1> "<C-O>:if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>"
+      "bindings to trigger the tagbar list of errors
+      nmap <script> <silent> <C-F9> :call ToggleLocationList()<CR>:echo "Error/Location list toggled"<CR>
+    "}
 
-    nnoremap <silent><expr> <C-F2> ":if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>:echo 'Toolbar toggled'<CR>"
-    vnoremap <silent><expr> <C-F2> "<Esc>:if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>v"
-    inoremap <silent><expr> <C-F2> "<C-O>:if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>"
+    "GVIM TOGGLES:{
+      "map toggles for the menu, toolbar and vertical scrollbar
+      nnoremap <silent><expr> <C-F1> ":if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>:echo 'Menu bar toggled'<CR>"
+      vnoremap <silent><expr> <C-F1> "<Esc>:if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>v"
+      inoremap <silent><expr> <C-F1> "<C-O>:if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>"
 
-    nnoremap <silent><expr> <C-F3> ":if &go=~#'r'<Bar>set go-=r<Bar>set go-=L<Bar>set go-=b<Bar>else<Bar>set go+=r<Bar>set go+=L<Bar>set go+=b<Bar>endif<CR>:echo 'Scrollbars toggled'<CR>"
-    vnoremap <silent><expr> <C-F3> "<Esc>:if &go=~#'r'<Bar>set go-=r<Bar>set go-=L<Bar>set go-=b<Bar>else<Bar>set go+=r<Bar>set go+=L<Bar>set go+=b<Bar>endif<CR>v"
-    inoremap <silent><expr> <C-F3> "<C-O>:if &go=~#'r'<Bar>set go-=r<Bar>set go-=L<Bar>set go-=b<Bar>else<Bar>set go+=r<Bar>set go+=L<Bar>set go+=b<Bar>endif<CR>"
-  "}
+      nnoremap <silent><expr> <C-F2> ":if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>:echo 'Toolbar toggled'<CR>"
+      vnoremap <silent><expr> <C-F2> "<Esc>:if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>v"
+      inoremap <silent><expr> <C-F2> "<C-O>:if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>"
 
-  "COMPLETION:{
-    "emmet switch triggerkey from <Ctrl-Y>
-    let g:user_emmet_leader_key='<Leader>,'
+      nnoremap <silent><expr> <C-F3> ":if &go=~#'r'<Bar>set go-=r<Bar>set go-=L<Bar>set go-=b<Bar>else<Bar>set go+=r<Bar>set go+=L<Bar>set go+=b<Bar>endif<CR>:echo 'Scrollbars toggled'<CR>"
+      vnoremap <silent><expr> <C-F3> "<Esc>:if &go=~#'r'<Bar>set go-=r<Bar>set go-=L<Bar>set go-=b<Bar>else<Bar>set go+=r<Bar>set go+=L<Bar>set go+=b<Bar>endif<CR>v"
+      inoremap <silent><expr> <C-F3> "<C-O>:if &go=~#'r'<Bar>set go-=r<Bar>set go-=L<Bar>set go-=b<Bar>else<Bar>set go+=r<Bar>set go+=L<Bar>set go+=b<Bar>endif<CR>"
+    "}
 
-    "press backslash twice on a mispelled word for suggestions
-    nnoremap \\ hei<C-X><C-S>
-    nnoremap \| zg
+    "COMPLETION:{
+      "emmet switch triggerkey from <Ctrl-Y>
+      let g:user_emmet_leader_key='<Leader>,'
 
-    "neocomplcache: scroll through completion list
-    inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-    "neocomplcache: complete the common part of the string
-    inoremap <expr><Leader><Tab> neocomplcache#complete_common_string()
-    "neocomplcache: close popup and delete backward char
-    inoremap <expr><CR> pumvisible() ? neocomplcache#smart_close_popup() : "\<CR>"
-    "neocomplcache : undo completion
-    inoremap <expr><Leader><Backspace> "<Backspace>" . neocomplcache#undo_completion()
-  "}
+      "press backslash twice on a mispelled word for suggestions
+      nnoremap \\ hei<C-X><C-S>
+      nnoremap \| zg
 
-  "FORMATTING:{
-    "have backspace delete the selected text
-    vnoremap <Backspace> "_x
-    nnoremap <Backspace> i<Backspace><Esc>l
+      "neocomplcache: scroll through completion list
+      inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+      "neocomplcache: complete the common part of the string
+      inoremap <expr><Leader><Tab> neocomplcache#complete_common_string()
+      "neocomplcache: close popup and delete backward char
+      inoremap <expr><CR> pumvisible() ? neocomplcache#smart_close_popup() : "\<CR>"
+      "neocomplcache : undo completion
+      inoremap <expr><Leader><Backspace> "<Backspace>" . neocomplcache#undo_completion()
+    "}
 
-    "formatting options to apply to the whole document
-    nnoremap <Leader><C-f> mzgg=G`z<CR>:echo "The document has been formatted"<CR>
-    nnoremap <silent><expr> <Leader><C-w> ':FixWhitespace<CR>:echo "Trailing whitespace has been removed"<CR>'
-    nnoremap <silent><expr> <Leader><C-t> ':retab<CR>:noh<CR>:echo "Tabs have been converted to spaces"<CR>'
-    nnoremap <silent><expr> <Leader>/ ':noh<CR>:echo "Search results have been cleared"<CR>'
-    nnoremap <silent><expr> <Leader><Esc> ':noh<CR>:echo "Search results have been cleared"<CR>'
+    "FORMATTING:{
+      "have backspace delete the selected text
+      vnoremap <Backspace> "_x
+      nnoremap <Backspace> i<Backspace><Esc>l
 
-    "tab and untab the currently selected lines
-    vnoremap <Tab> >gv
-    nnoremap <Tab> v>gv<Esc>
-    vnoremap <S-Tab> <gv
-    nnoremap <S-Tab> v<gv<Esc>
-  "}
+      "formatting options to apply to the whole document
+      nnoremap <Leader><C-f> mzgg=G`z<CR>:echo "The document has been formatted"<CR>
+      nnoremap <silent><expr> <Leader><C-w> ':FixWhitespace<CR>:echo "Trailing whitespace has been removed"<CR>'
+      nnoremap <silent><expr> <Leader><C-t> ':retab<CR>:noh<CR>:echo "Tabs have been converted to spaces"<CR>'
+      nnoremap <silent><expr> <Leader>/ ':noh<CR>:echo "Search results have been cleared"<CR>'
+      nnoremap <silent><expr> <Leader><Esc> ':noh<CR>:echo "Search results have been cleared"<CR>'
 
-  "MOVEMENT:{
-    "additional mappings for easier access
-    nnoremap = +
+      "tab and untab the currently selected lines
+      vnoremap <Tab> >gv
+      nnoremap <Tab> v>gv<Esc>
+      vnoremap <S-Tab> <gv
+      nnoremap <S-Tab> v<gv<Esc>
+    "}
 
-    "remap keys for speedier movement
-    nnoremap <S-Up> 4k
-    nnoremap <S-Down> 4j
-    nnoremap <S-Right> 6l
-    nnoremap <S-Left> 6h
+    "MOVEMENT:{
+      "additional mappings for easier access
+      nnoremap = +
 
-    "remap keys to scroll to the end in a direction
-    nnoremap <C-Up> gg0
-    nnoremap <C-Down> G$
-    nnoremap <C-Right> $
-    nnoremap <C-Left> ^
-  "}
+      "remap keys for speedier movement
+      nnoremap <S-Up> 4k
+      nnoremap <S-Down> 4j
+      nnoremap <S-Right> 6l
+      nnoremap <S-Left> 6h
 
-  "SELECTION:{
-    "ctrl-a to select all (and an alt for screen users)
-    nnoremap <C-a> gg0vG$
-    xnoremap <C-a> <Esc>gg0vG$
-    xnoremap <Leader>a <Esc>gg0vG$
-    xnoremap <Leader>a gg0vG$
+      "remap keys to scroll to the end in a direction
+      nnoremap <C-Up> gg0
+      nnoremap <C-Down> G$
+      nnoremap <C-Right> $
+      nnoremap <C-Left> ^
+    "}
 
-    "map remap keys for speedier text selection
-    xnoremap <S-Up> 4k
-    xnoremap <S-Down> 4j
-    xnoremap <S-Right> 6l
-    xnoremap <S-Left> 6h
+    "SELECTION:{
+      "ctrl-a to select all (and an alt for screen users)
+      nnoremap <C-a> gg0vG$
+      xnoremap <C-a> <Esc>gg0vG$
+      xnoremap <Leader>a <Esc>gg0vG$
+      xnoremap <Leader>a gg0vG$
 
-    "remap keys to select all text in one direction
-    xnoremap <C-Up> gg0
-    xnoremap <C-Down> G$
-    xnoremap <C-Right> $
-    xnoremap <C-Left> ^
-  "}
+      "map remap keys for speedier text selection
+      xnoremap <S-Up> 4k
+      xnoremap <S-Down> 4j
+      xnoremap <S-Right> 6l
+      xnoremap <S-Left> 6h
 
-  "VIMDIFF:{
-    "map shortcuts for vimdiff
-    nnoremap <silent><expr> <Leader>> ':diffu<CR>'
-    nnoremap <silent><expr> <Leader>< ':diffu<CR>'
-    nnoremap >> ]c
-    nnoremap << [c
-    nnoremap <> dp
-    nnoremap >< do
-  "}
+      "remap keys to select all text in one direction
+      xnoremap <C-Up> gg0
+      xnoremap <C-Down> G$
+      xnoremap <C-Right> $
+      xnoremap <C-Left> ^
+    "}
 
-  "PASTE:{
-    "display contents of paste buffers
-    nnoremap <silent><expr> <Leader>p ':reg<CR>'
+    "VIMDIFF:{
+      "map shortcuts for vimdiff
+      nnoremap <silent><expr> <Leader>> ':diffu<CR>'
+      nnoremap <silent><expr> <Leader>< ':diffu<CR>'
+      nnoremap >> ]c
+      nnoremap << [c
+      nnoremap <> dp
+      nnoremap >< do
+    "}
 
-    "allow y to copy a single character in normal mode
-    nnoremap y vy<Esc>
+    "PASTE:{
+      "display contents of paste buffers
+      nnoremap <silent><expr> <Leader>p ':reg<CR>'
 
-    "P puts text it replaces in the buffer and p does not
-    vnoremap P p
-    xmap p <Plug>ReplaceWithRegisterVisual
-    nmap <Leader>p <Plug>ReplaceWithRegisterOperator
+      "allow y to copy a single character in normal mode
+      nnoremap y vy<Esc>
 
-    "Alternatives to deletion commands that don't replace the buffer
-    vnoremap <Leader>x "_x
-    nnoremap <Leader>x "_x
-    vnoremap <Leader>X "_X
-    nnoremap <Leader>X "_X
-    vnoremap <Leader>D "_D
-    nnoremap <Leader>D "_D
-    vnoremap <Leader>d "_d
-    nnoremap <Leader>dd "_dd
-    nnoremap <Leader>dw "_dw
-  "}
+      "P puts text it replaces in the buffer and p does not
+      vnoremap P p
+      xmap p <Plug>ReplaceWithRegisterVisual
+      nmap <Leader>p <Plug>ReplaceWithRegisterOperator
+
+      "Alternatives to deletion commands that don't replace the buffer
+      vnoremap <Leader>x "_x
+      nnoremap <Leader>x "_x
+      vnoremap <Leader>X "_X
+      nnoremap <Leader>X "_X
+      vnoremap <Leader>D "_D
+      nnoremap <Leader>D "_D
+      vnoremap <Leader>d "_d
+      nnoremap <Leader>dd "_dd
+      nnoremap <Leader>dw "_dw
+    "}
 "}}}
 
 "ALIASES: COMMAND SHORTCUTS {{{

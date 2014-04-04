@@ -58,3 +58,6 @@
 [submodule "vim/bundle/ReplaceWithRegister"]
 	path = vim/bundle/ReplaceWithRegister
 	url = https://github.com/vim-scripts/ReplaceWithRegister.git
+[submodule "vim/bundle/SpellCheck"]
+	path = vim/bundle/SpellCheck
+	url = https://github.com/vim-scripts/SpellCheck.git
