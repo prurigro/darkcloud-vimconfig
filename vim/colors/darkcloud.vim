@@ -293,7 +293,7 @@ call s:X("TabLineSel","000000","d0d0d0","",s:termBlack,"White")
 call s:X("Comment","626262","","italic","Grey","")
 call s:X("Todo","d75f5f","","bold","Red","")
 
-call s:X("Normal","d0d0d0","262626","","White",s:termBlack)
+call s:X("Normal","eaeaea","262626","","White",s:termBlack)
 call s:X("MatchParen","d0d0d0","262626","standout,bold",s:termBlack,"White")
 call s:X("CursorColumn","","303030","","",s:termBlack)
 call s:X("CursorLine","","303030","","",s:termBlack)
