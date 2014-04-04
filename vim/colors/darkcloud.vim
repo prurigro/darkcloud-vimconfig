@@ -424,13 +424,14 @@ endif
 "notes
 call s:X("notesRule","","","bold","","")
 call s:X("WarningMsg","ffd787","2c2c2c","standout,bold","Yellow",s:termBlack)
-hi! link notesTitle htmlH1
+hi! link notesTitle htmlH4
 hi! link notesName htmlH5
 hi! link notesShortHeading htmlH2
 hi! link Underlined htmlH6
 hi! link notesInProgress htmlH3
 hi! link notesRealURL htmlH4
 hi! link notesTextURL notesRealURL
+hi! link notesSubtleURL notesRealURL
 hi! link commentURL notesRealURL
 hi! link notesListBullet FoldColumn
 hi! link notesListNumber notesListBullet
@@ -445,6 +446,13 @@ hi! link notesAtxHeading Comment
 
 "email
 hi! link mailHeaderKey Identifier
+
+"quicktask
+hi! link quicktaskDatestamp Identifier
+hi! link quicktaskTimestamp Identifier
+hi! link quicktaskSection Todo
+call s:X("quicktaskTimeNote","ffd787","","bold","Yellow","")
+call s:X("quicktaskTask","ffffff","","bold","White","")
 
 "taglist
 hi! link TagListFileName Directory
