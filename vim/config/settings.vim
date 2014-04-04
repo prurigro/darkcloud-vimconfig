@@ -30,10 +30,11 @@
     set number "enable line numbers
     set nowrap "disable line wrapping
     set cursorline cursorcolumn "enable row/column highlighting
+    set selection=exclusive "when highlighting, don't select the position under the cursor
     set visualbell "notify visually instead of with an audible bell
     set splitright "add new tiles on the right (and not left) when added
     set scrolloff=1 sidescrolloff=1 "start scrolling if the cursor is one position away from the edge
-    set list listchars=tab:>-,trail:- "display tabs as >--- and trailing spaces as -
+    set list listchars=tab:>-,trail:- "display tabs as: >--- and trailing spaces as: -
     set autochdir "current dir is file dir
     set history=250 "undo history
     set timeoutlen=1000 ttimeoutlen=0 "shorten the timeout length of escapes
@@ -45,7 +46,7 @@
     set smarttab expandtab autoindent tabstop=4 shiftwidth=4 "configure tabs
     set laststatus=2 showcmd statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v] "statusline init and config
     set hlsearch incsearch ignorecase smartcase "configure search
-    let &showbreak="+++ " "when linewrap is enabled, show wrapped lines with +++
+    let &showbreak="+ " "when linewrap is enabled, show wrapped lines with +++
 
     "load the system version of matchit if another hasn't already been
     if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
@@ -64,14 +65,20 @@
     filetype plugin indent on
     syntax on "turn syntax highlighting on
 
-    "set matching filenames to the given file types
+    "set matching filenames to matching filenames
     autocmd BufNewFile,BufRead *.aspx,*.asmx,*.ascx,*.master setf aspnet
     autocmd BufNewFile,BufRead *tmux.conf,pacman.conf,yaourtrc setf sh
     autocmd BufNewFile,BufRead cjdroute.conf,ircd.conf setf javascript
 
-    "enable spellcheck by default when using given filetypes and extensions
+    "override options for specific filetypes
     autocmd FileType gitcommit,notes,mail,notmuch,text setlocal spell
     autocmd FileType notes,mail,notmuch,mkd,text setlocal nonumber
+    autocmd FileType mail,notmuch,text setlocal wrap
+
+    "disable folding by default in vimdiff
+    if &diff
+        autocmd VimEnter * windo setlocal nofoldenable
+    endif
 
     "enable omnicompletion for any filetype without that has syntax highlighting
     if has("autocmd") && exists("+omnifunc")
@@ -83,10 +90,6 @@
 
     set formatoptions=roqnl12
     set foldmethod=syntax foldcolumn=1 foldlevel=3 "fold layers 3 or more deep
-
-    if &diff
-        autocmd VimEnter * windo setlocal nofoldenable "disable folding by default in vimdiff
-    endif
 "}}}
 
 "GVIM: GUI CONFIG OPTIONS {{{
