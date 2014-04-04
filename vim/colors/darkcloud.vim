@@ -271,7 +271,8 @@ endif
 "example:('Line','000000','f0f0f0','italic,bold',s:termBlack  ,'White')
 
 call s:X("Visual","","262626","standout","",s:termBlack)
-call s:X("Cursor","","262626","standout,bold,underline","",s:termBlack)
+call s:X("Cursor","","262626","standout,underline","",s:termBlack)
+hi! link MatchParen Cursor
 
 call s:X("Pmenu","87d7ff","303030","","Grey","Blue")
 call s:X("PmenuSel","87d7ff","4e4e4e","bold","White","Black")
@@ -294,7 +295,6 @@ call s:X("Comment","626262","","italic","Grey","")
 call s:X("Todo","d75f5f","","bold","Red","")
 
 call s:X("Normal","eaeaea","262626","","White",s:termBlack)
-call s:X("MatchParen","d0d0d0","262626","standout,bold",s:termBlack,"White")
 call s:X("CursorColumn","","303030","","",s:termBlack)
 call s:X("CursorLine","","303030","","",s:termBlack)
 call s:X("CursorLineNr","87d7ff","","bold","Blue",s:termBlack)
