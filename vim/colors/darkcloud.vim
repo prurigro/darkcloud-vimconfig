@@ -304,9 +304,9 @@ call s:X("Constant","87d7ff","","bold","Blue","")
 call s:X("Special","ffaf00","","","Yellow","")
 call s:X("Delimiter","ffffff","","","White","")
 call s:X("String","ffffff","","italic","White","")
-call s:X("StringDelimiter","ffff00","","","Yellow","")
+call s:X("StringDelimiter","d0d0d0","","","White","")
 call s:X("Identifier","87d7ff","","","Blue","")
-call s:X("Type","d75f5f","","","Red","")
+call s:X("Type","d75f5f","","bold","Red","")
 call s:X("Function","87d7ff","","","Blue","")
 call s:X("Label","d75f5f","","","Red","")
 call s:X("Statement","ffd787","","","Yellow","")
@@ -342,17 +342,18 @@ call s:X("DiffText","000000","c6c6c6","italic",s:termBlack,"White")
 
 "html
 call s:X("htmlTitle","ffffff","","underline,bold","White","")
-call s:X("htmlH1","d75f5f","262626","standout,underline,bold","Red","")
-call s:X("htmlH2","ffd787","262626","standout,underline,bold","Yellow","")
-call s:X("htmlH3","87d7ff","262626","standout,underline,bold","Blue","")
-call s:X("htmlH4","d75f5f","","underline,bold","Red","")
-call s:X("htmlH5","ffd787","","underline,bold","Yellow","")
-call s:X("htmlH6","87d7ff","","underline,bold","Blue","")
-call s:X("htmlLink","d75f5f","","italic","Red","")
-call s:X("htmlSpecialChar","87d7ff","","italic","Blue","")
-hi! link htmlArg String
-hi! link csCharacter StringDelimiter
-
+call s:X("htmlH1","d75f5f","262626","underline,bold","Red","")
+call s:X("htmlH2","ffd787","262626","underline,bold","Yellow","")
+call s:X("htmlH3","87d7ff","262626","underline,bold","Blue","")
+call s:X("htmlH4","d75f5f","","underline","Red","")
+call s:X("htmlH5","ffd787","","underline","Yellow","")
+call s:X("htmlH6","87d7ff","","underline","Blue","")
+call s:X("htmlSpecialChar","","","italic","","")
+call s:X("htmlArg","d75f5f","","bold","Red","")
+call s:X("htmlTagName","ffd787","","bold","Yellow","")
+call s:X("htmlTag","87d7ff","","bold","Blue","")
+call s:X("htmlLink","87d7ff","","underline","Blue","")
+hi! link commentURL htmlLink
 
 "php
 hi! link phpFunctions Function
@@ -424,15 +425,14 @@ endif
 "notes
 call s:X("notesRule","","","bold","","")
 call s:X("WarningMsg","ffd787","2c2c2c","standout,bold","Yellow",s:termBlack)
-hi! link notesTitle htmlH4
-hi! link notesName htmlH5
-hi! link notesShortHeading htmlH2
-hi! link Underlined htmlH6
-hi! link notesInProgress htmlH3
-hi! link notesRealURL htmlH4
+call s:X("notesTitle","d75f5f","","underline,bold","Red","")
+call s:X("notesName","ffd787","","underline,bold","Yellow","")
+call s:X("notesShortHeading","ffd787","262626","standout,underline,bold","Yellow","")
+call s:X("Underlined","87d7ff","","underline,bold","Blue","")
+call s:X("notesInProgress","87d7ff","262626","standout,underline,bold","Blue","")
+call s:X("notesRealURL","d75f5f","","underline,bold","Red","")
 hi! link notesTextURL notesRealURL
 hi! link notesSubtleURL notesRealURL
-hi! link commentURL notesRealURL
 hi! link notesListBullet FoldColumn
 hi! link notesListNumber notesListBullet
 hi! link notesVimCmd Function
