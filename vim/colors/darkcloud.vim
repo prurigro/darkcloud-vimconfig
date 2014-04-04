@@ -352,8 +352,8 @@ call s:X("htmlSpecialChar","","","italic","","")
 call s:X("htmlArg","d75f5f","","bold","Red","")
 call s:X("htmlTagName","ffd787","","bold","Yellow","")
 call s:X("htmlTag","87d7ff","","bold","Blue","")
-call s:X("commentURL","87d7ff","","underline","White","")
-call s:X("htmlLink","","","underline","","")
+call s:X("commentURL","ffd787","","italic,underline","Yellow","")
+call s:X("htmlLink","ffd787","","underline","Yellow","")
 
 "php
 hi! link phpFunctions Function
