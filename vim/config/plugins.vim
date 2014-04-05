@@ -16,7 +16,7 @@
     let g:use_emmet_complete_tag=1
     let g:user_emmet_mode='a'
 
-    autocmd FileType html,css,php,aspx EmmetInstall
+    autocmd FileType css,json,htm,html,php,aspx EmmetInstall
 
     if filereadable("~/.vim/snippets.json")
         let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.vim/snippets.json')), "\n"))
@@ -105,7 +105,11 @@
         call lightline#update()
     endfunction
 
-    "status bar config with and without powerline fonts
+    "status bar config with and without powerline fonts (defaults to off)
+    if !exists("g:powerlinefonts")
+        let g:powerlinefonts=0
+    endif
+
     if (g:powerlinefonts == 1)
         let g:lightline = {
         \   'colorscheme': 'darkcloud',
@@ -163,6 +167,10 @@
 "}}}
 
 "SYNTASTIC: CONFIGURE SYNTAX CHECKING {{{
+    if !exists("g:autostartchecker")
+        let g:autostartchecker=1
+    endif
+
     if (g:autostartchecker == 1)
         let g:syntastic_mode_map = {'mode':'active','active_filetypes':[],'passive_filetypes':[]}
         let g:syntastic_check_on_open=1

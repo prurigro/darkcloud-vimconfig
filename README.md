@@ -2,11 +2,11 @@
 
 ## Requirements ##
 
-1. Git: Required to clone and update the repository, and pull the plugins as submodules.
-3. CTags: Available @ <http://ctags.sourceforge.net>, place in __$PATH__ or the vim folder to use the tagbar or extended C omni/auto-completion.
-4. Vim v7.4+: Everything has been written and tested using Vim 7.4.135, and I assume there could be issues with 7.3 and below.
-2. Bash (optional): Required to use the update and ctags generation scripts, both of which can be run with the commands listed within.
-5. Powerline Fonts (optional): Required for an extended look/feel using lightline, otherwise it should be toggled off in the vimrc.
+1. **Git**: Required to clone and update the repository, and pull the plugins as submodules.
+3. **CTags**: Available @ <http://ctags.sourceforge.net>, place in __$PATH__ or the vim folder to use the tagbar or extended C omni/auto-completion.
+4. **Vim** v7.4+: Everything has been written and tested using Vim 7.4.135, and I assume there could be issues with 7.3 and below.
+2. **Bash** (__optional__): Required to use the update and ctags generation scripts, both of which can be run with the commands listed within.
+5. **Powerline Fonts** (__optional__): Required for an extended look/feel using lightline, otherwise it should be toggled off in the vimrc.
 
 ## Features ##
 
@@ -19,17 +19,19 @@
 
 1. Clone the darkcloud-vimconfig repo and use the __update__ script to install the plugins:
 
-    `git clone https://github.com/prurigro/darkcloud-vimconfig.git`
-
-    `sh darkcloud-vimconfig/update`
-
+  * `git clone https://github.com/prurigro/darkcloud-vimconfig.git`
+  * `sh darkcloud-vimconfig/update`
   * Note: The __update__ script requires bash, but you can enter the __darkcloud-vimconfig/__ folder and run: `git submodule update --init` to install the plugins manually if it's not available.
+
 2. Open vim and run: `:version` to find the values for "user vimrc file" for a single-user install and "system vimrc file" for a system-wide install, then copy the vimrc file from `darkcloud-vimconfig/` to one of these locations.
-3. Open the vimrc you just installed and edit the variables in the "USER CONFIG SETTINGS" section:
-  * **s:darkcloudpath**: Set to the location of the darkcloud-vimconfig folder. (default: __/etc/darkcloud-vimconfig__)
-  * **g:autostartchecker**: 1 = Check syntax once an appropriate file is loaded | 0 = Check syntax only after syntax checking is toggled on (default: 1)
-  * **g:powerlinefonts**: 1 = Render the statusline using characters available with powerline-patched fonts | 0 = Render the statusbar with less attractive but more compatible characters available in all fonts (default: 1)
-  * **guifont**: Set to the name of the font you would like to use with gVim followed by the size, making sure to escape spaces and that a powerline-compatible font is selected if the above option is set to 1. (default: Droid\ Sans\ Mono\ 12)
+
+3. Open the vimrc you just installed and either edit the variables in the "__USER CONFIG SETTINGS__" section, or (preferably) copy them to __vim/vimrc.user__ and edit them there:
+
+  * **s:darkcloudpath**: Set to the location of the darkcloud-vimconfig folder. (__default__: __/etc/darkcloud-vimconfig__)
+  * **g:autostartchecker**: 1 = Check syntax once an appropriate file is loaded | 0 = Check syntax only after syntax checking is toggled on (__default__: 1)
+  * **g:powerlinefonts**: 1 = Render the statusline using characters available with powerline-patched fonts | 0 = Render the statusbar with less attractive but more compatible characters available in all fonts (__default__: 0)
+  * **guifont**: Set to the name of the font you would like to use with gVim followed by the size, making sure to escape spaces and that a powerline-compatible font is selected if the above option is set to 1. (__default__: Droid\ Sans\ Mono\ 12)
+
 4. Install ctags (http://ctags.sourceforge.net) to your system using a package and ensure it can be accessed in __$PATH__, or install support for vim exclusively by copying the ctags binary to the __darkcloud-vimconfig/vim__ folder.
 
 ## Configuration ##
@@ -44,8 +46,9 @@
 
 ## Notes ##
 
-* Runtimepath: To find the runtimepath locations currently set, run the following in vim: `:verbose set runtimepath`.
-* Key Bindings: You can find a list of the bindings added by darkcloud-vimconfig, as well as a few of the ones added by plugins in __vim/config/keyboard.vim__.
+* **Runtimepath**: To find the runtimepath locations currently set, run the following in vim: `:verbose set runtimepath`.
+* **Reference**: Type `??`, `?>` and '?<' to toggle sidebars with different reference topics.
+* **Unique Key Bindings**: You can find a list of the bindings added by darkcloud-vimconfig, as well as a few of the ones added by plugins in __vim/config/keyboard.vim__.
 
 ## Credits ##
 

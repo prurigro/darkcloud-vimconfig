@@ -38,12 +38,15 @@
 "
 "  (tabs)
 "    <Leader>9            | (A) -> go to the next open tab
-"    <Leader>0             | (A) -> go to the previous open tab
-"    <Leader>-             | (A) -> open a new tab
-"    <Leader>=             | (A) -> create a new tab with vimfiler
-"    <Leader>+             | (A) -> create a new tab with vimfiler
+"    <Leader>0            | (A) -> go to the previous open tab
+"    <Leader>-            | (A) -> open a new tab
+"    <Leader>=            | (A) -> create a new tab with vimfiler
+"    <Leader>+            | (A) -> create a new tab with vimfiler
 "
 "  (toggles)
+"    ??                   | (N) -> toggle the quick reference sidebar
+"    ?>                   | (N) -> toggle command reference sidebar
+"    ?<                   | (N) -> toggle normal mode key bindings reference sidebar
 "    ``                   | (N) -> toggle the vimfiler sidebar on the right
 "    ~~                   | (N) -> toggle the vimfiler sidebar on the left
 "    <Space>              | (N) -> toggle folds
@@ -150,17 +153,26 @@
 "    <Left>               | (A) -> same as k (up)
 "    h                    | (A) -> same as k (up)
 "
+"  (help)
+"    q                    | (N) -> close the dialog
+"
 "  (vimfiler)
-"    <Shift-Return>       | (A) -> edit the selected file
-"    <LMouse><LMouse>     | (A) -> edit selected file
-"    <Right>              | (A) -> map to l, which opens a directory
-"    <Left>               | (A) -> map to h, which goes up one directory
-"    <LMouse>             | (A) -> same as normal + justify on the left
-"    <MMouse>             | (A) -> same as the left mouse
-"    <RMouse>             | (A) -> same as the left mouse
+"    <LMouse><LMouse>     | (N) -> edit selected file
+"    <LMouse>             | (N) -> same as normal + justify on the left
+"    <MMouse>             | (N) -> same as the left mouse
+"    <RMouse>             | (N) -> same as the left mouse
+"    <Right>              | (N) -> map to l, which opens a directory
+"    <Left>               | (N) -> map to h, which goes up one directory
+"    '                    | (N) -> edit the selected file
 "
-"  (vimfiler,gundo)
-"
+"  (gundo)
+"    <LeftMouse>          | (N) -> same as normal + justify on the left
+"    <MiddleMouse>        | (N) -> same as the left mouse
+"    <RightMouse>         | (N) -> same as the left mouse
+"    <Right>              | (N) -> same as down
+"    l                    | (N) -> same as j
+"    <Left>               | (N) -> same as Up
+"    h                    | (N) -> same as k
 "
 "  Aliases:
 "    :wsudo -and- :sudow  | (C) -> :SudoWrite (write the file as root using sudo)
@@ -202,6 +214,10 @@
       "bindings to trigger vimfiler
       nnoremap <silent><expr> `` ':VimFilerExplorer -direction=botright -winwidth=45<CR>'
       nnoremap <silent><expr> ~~ ':VimFilerExplorer -direction=topleft -winwidth=45<CR>'
+
+      nnoremap <silent><expr> ?? ':h quickref<CR>'
+      nnoremap <silent><expr> ?> ':exusage<CR>'
+      nnoremap <silent><expr> ?< ':viusage<CR>'
 
       "toggle folded code at foldpoints
       nnoremap <Space> za
@@ -381,23 +397,29 @@
 "}}}
 
 "FILETYPE SPECIFIC MAPPINGS: {{{
-    "gundo
-    autocmd FileType gundo noremap <buffer> <LeftMouse> <LeftMouse>0l
-    autocmd FileType gundo noremap <buffer> <MiddleMouse> <LeftMouse>
-    autocmd FileType gundo noremap <buffer> <RightMouse> <LeftMouse>
-    autocmd FileType gundo noremap <buffer> <Right> j
-    autocmd FileType gundo noremap <buffer> l j
-    autocmd FileType gundo noremap <buffer> <Left> k
-    autocmd FileType gundo noremap <buffer> h k
+    "help
+    autocmd FileType help nnoremap <buffer> <silent><expr> q ':q<CR>'
+    autocmd FileType help nnoremap <buffer> <silent><expr> ?? ':q<CR>'
+    autocmd FileType help nnoremap <buffer> <silent><expr> ?> ':q<CR>'
+    autocmd FileType help nnoremap <buffer> <silent><expr> ?< ':q<CR>'
 
     "vimfiler
-    autocmd FileType vimfiler noremap <buffer> <Right> l
-    autocmd FileType vimfiler noremap <buffer> <Left> h
-    autocmd FileType vimfiler noremap <buffer> <2-LeftMouse> <Plug>(vimfiler_edit_file)
-    autocmd FileType vimfiler noremap <buffer> <LeftMouse> <LeftMouse>0
-    autocmd FileType vimfiler noremap <buffer> <MiddleMouse> <LeftMouse>
-    autocmd FileType vimfiler noremap <buffer> <RightMouse> <LeftMouse>
-    autocmd FileType vimfiler noremap <S-CR> e
+    autocmd FileType vimfiler nmap <buffer> <2-LeftMouse> <Plug>(vimfiler_edit_file)
+    autocmd FileType vimfiler nmap <buffer> <LeftMouse> <LeftMouse>0
+    autocmd FileType vimfiler nmap <buffer> <MiddleMouse> <LeftMouse>
+    autocmd FileType vimfiler nmap <buffer> <RightMouse> <LeftMouse>
+    autocmd FileType vimfiler nmap <Right> l
+    autocmd FileType vimfiler nmap <Left> h
+    autocmd FileType vimfiler nmap ' e
+
+    "gundo
+    autocmd FileType gundo nmap <buffer> <LeftMouse> <LeftMouse>0l
+    autocmd FileType gundo nmap <buffer> <MiddleMouse> <LeftMouse>
+    autocmd FileType gundo nmap <buffer> <RightMouse> <LeftMouse>
+    autocmd FileType gundo nmap <Right> <Down>
+    autocmd FileType gundo nmap l j
+    autocmd FileType gundo nmap <Left> <Up>
+    autocmd FileType gundo nmap h k
 "}}}
 
 "DISABLED MAPPINGS: {{{
@@ -421,7 +443,6 @@
     autocmd Filetype gundo,vimfiler noremap <S-l> <Nop>
     autocmd Filetype gundo,vimfiler noremap <S-Left> <Nop>
     autocmd Filetype gundo,vimfiler noremap <S-h> <Nop>
-
 "}}}
 
 "ALIASES: COMMAND SHORTCUTS {{{
