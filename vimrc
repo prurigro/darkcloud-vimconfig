@@ -7,7 +7,6 @@
 "  License: MIT                          "
 "                                        "
 "========================================"
-"
 
 "USER CONFIG SETTINGS: {{{
     "Darkcloud Vim Folder:
@@ -44,7 +43,5 @@
 "}}}
 
 "LOAD USER CONFIG FILE: {{{
-    if filereadable($VIMRUNTIME."/vimrc.user")
-        runtime vimrc.user
-    endif
+    runtime vimrc.user
 "}}}
