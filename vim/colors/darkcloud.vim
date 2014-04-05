@@ -400,9 +400,12 @@ hi! link javascriptDomElemFuncs javaScriptFunction
 hi! link coffeeRegExp javaScriptRegexpString
 
 "c
+call s:X("cBraces","ffd787","","","Yellow","")
+hi! link cBlock cBraces
 hi! link cOperator cBraces
 hi! link cCharacter String
 hi! link cBlock String
+hi! link cNumbersCom Number
 
 "objective-c/cocoa
 hi! link objcClass Type
