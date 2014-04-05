@@ -5,6 +5,10 @@ cd "${0%/*}"
 git pull origin
 git submodule update --init --recursive
 
+if [ $(cat .git/modules/vim/bundle/vim-coloresque/HEAD | grep -c 0c21b1469993e610600e88e734ffe90b9c10a514) = 1 ]; then
+    git checkout -- vim/bundle/vim-coloresque
+    git rm --cached vim/bundle/vim-coloresque
+fi
 
 [[ -f .gitmodules ]] && for each in vim/bundle/*; do
     if [ -d "$each" ]; then
