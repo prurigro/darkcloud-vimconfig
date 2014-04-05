@@ -1,9 +1,6 @@
 [submodule "vim/bundle/SudoEdit.vim"]
 	path = vim/bundle/SudoEdit.vim
 	url = https://github.com/vim-scripts/SudoEdit.vim.git
-[submodule "vim/bundle/html5.vim"]
-	path = vim/bundle/html5.vim
-	url = https://github.com/othree/html5.vim.git
 [submodule "vim/bundle/vim-trailing-whitespace"]
 	path = vim/bundle/vim-trailing-whitespace
 	url = https://github.com/bronson/vim-trailing-whitespace.git
