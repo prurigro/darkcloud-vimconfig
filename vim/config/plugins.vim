@@ -11,7 +11,12 @@
     execute pathogen#infect('bundle/{}', 'bundle.user/{}')
 "}}}
 
-"EMMET: CONFIGURE WHEN ZENCODING IS ENABLED {{{
+"BREEZE: HTML TAG HIGHLIGHTING AND NAVIGATION {{{
+    let g:breeze_active_filetypes="*.html,*.htm,*.xhtml,*.xml,*.php,*.aspx"
+    let g:breeze_shade_color = "String"
+"}}}
+
+"EMMET: ZENCODING FEATURES {{{
     let g:user_emmet_install_global=0
     let g:use_emmet_complete_tag=1
     let g:user_emmet_mode='a'
@@ -23,7 +28,7 @@
     endif
 "}}}
 
-"GUNDO: CONFIGURE SIDEBAR SETTINGS {{{
+"GUNDO: UNDO SIDEBAR {{{
     let g:gundo_right=1
     let g:gundo_width=35
     let g:gundo_preview_height=10
@@ -31,7 +36,7 @@
     autocmd FileType gundo setlocal nocursorcolumn
 "}}}
 
-"LIGHTLINE: CONFIGURE THE LIGHTLINE STATUS BAR {{{
+"LIGHTLINE: STATUS BAR {{{
     let g:unite_force_overwrite_statusline = 0
     let g:vimfiler_force_overwrite_statusline = 0
 
@@ -161,12 +166,12 @@
     endif
 "}}}
 
-"MARKDOWN VIM MODE: SETTINGS {{{
+"MARKDOWN VIM MODE: MARKDOWN IMPROVEMENTS {{{
     let g:vim_markdown_folding_disabled=0
     let g:vim_markdown_initial_foldlevel=2
 "}}}
 
-"SYNTASTIC: CONFIGURE SYNTAX CHECKING {{{
+"SYNTASTIC: SYNTAX CHECKING {{{
     if !exists("g:autostartchecker")
         let g:autostartchecker=1
     endif
@@ -184,7 +189,7 @@
     let g:syntastic_loc_list_height=5
 "}}}
 
-"VIM FILER: SETTINGS {{{
+"VIM FILER: FILE MANAGER {{{
     let g:vimfiler_as_default_explorer=1
     let g:vimfiler_safe_mode_by_default=0
     let g:vimfiler_enable_auto_cd=1
@@ -209,7 +214,7 @@
     endif
 "}}}
 
-"NEOCOMPLCACHE AUTOCOMPLETION PLUGIN: ENABLE AND CONFIGURE BEHAVIOUR {{{
+"NEOCOMPLCACHE AUTOCOMPLETION PLUGIN: AUTO COMPLETION {{{
     let g:neocomplcache_enable_at_startup=1
     let g:neocomplcache_enable_smart_case=1
     let g:neocomplcache_min_syntax_length=3

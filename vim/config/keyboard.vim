@@ -192,6 +192,15 @@
 "    <Left>               | (N) -> same as Up
 "    h                    | (N) -> same as k
 "
+"  (breeze->html compat)
+"    _                    | (N) -> move to the next sibling tag
+"    +                    | (N) -> move to the previous sibling tag
+"    <Leader>-            | (N) -> move to the first sibling tag
+"    <Leader>=            | (N) -> move to the last sibling tag
+"    <Leader>_            | (N) -> move to the first child tag
+"    <Leader>+            | (N) -> move to the last child tag
+"    <Leader><Backspace>  | (N) -> move to the parent tag
+"
 "  Aliases:
 "    :wsudo -and- :sudow  | (C) -> :SudoWrite (write the file as root using sudo)
 "    :esudo -and- :sudoe  | (C) -> :SudoRead (read a file as root using sudo)
@@ -460,6 +469,15 @@
     autocmd FileType gundo nmap l j
     autocmd FileType gundo nmap <Left> <Up>
     autocmd FileType gundo nmap h k
+
+    "breeze compatible formats
+    autocmd BufNewFile,BufRead *.html,*.htm,*.xhtml,*.xml,*.php,*.aspx nmap <buffer> <silent><expr> _ ':BreezePrevSibling<CR>'
+    autocmd BufNewFile,BufRead *.html,*.htm,*.xhtml,*.xml,*.php,*.aspx nmap <buffer> <silent><expr> + ':BreezeNextSibling<CR>'
+    autocmd BufNewFile,BufRead *.html,*.htm,*.xhtml,*.xml,*.php,*.aspx nmap <buffer> <silent><expr> <Leader>- ':BreezeFirstSibling<CR>'
+    autocmd BufNewFile,BufRead *.html,*.htm,*.xhtml,*.xml,*.php,*.aspx nmap <buffer> <silent><expr> <Leader>= ':BreezeLastSibling<CR>'
+    autocmd BufNewFile,BufRead *.html,*.htm,*.xhtml,*.xml,*.php,*.aspx nmap <buffer> <silent><expr> <Leader>_ ':BreezeFirstChild<CR>'
+    autocmd BufNewFile,BufRead *.html,*.htm,*.xhtml,*.xml,*.php,*.aspx nmap <buffer> <silent><expr> <Leader>+ ':BreezeLastChild<CR>'
+    autocmd BufNewFile,BufRead *.html,*.htm,*.xhtml,*.xml,*.php,*.aspx nmap <buffer> <silent><expr> <Leader><Backspace> ':BreezeParent<CR>'
 "}}}
 
 "DISABLED MAPPINGS: {{{

@@ -88,3 +88,6 @@
 [submodule "vim/bundle/vim-c-cr"]
 	path = vim/bundle/vim-c-cr
 	url = https://github.com/jtmkrueger/vim-c-cr.git
+[submodule "vim/bundle/breeze.vim"]
+	path = vim/bundle/breeze.vim
+	url = https://github.com/gcmt/breeze.vim.git
