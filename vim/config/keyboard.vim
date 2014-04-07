@@ -62,6 +62,7 @@
 "    <F4>                 | (A) -> toggle all folds
 "    <F5>                 | (A) -> toggle spell check
 "    <F6>                 | (A) -> toggle syntax checking
+"    <F7>                 | (A) -> toggle version control differences
 "    <F8>                 | (A) -> toggle the tagbar sidebar
 "    <Ctrl-F8>            | (A) -> toggle the location list to check syntax errors
 "    <F9>                 | (A) -> toggle the gundo undo history sidebar
@@ -121,8 +122,8 @@
 "    <Alt+h>              | (N) -> move a line up a half page
 "    <Alt+l>              | (N) -> move a line down a half page
 "
-"    >>                   | (N) -> next difference (vimdiff/gitgutter)
-"    <<                   | (N) -> previous difference (vimdiff/gitgutter)
+"    >>                   | (N) -> next difference (vimdiff/signify)
+"    <<                   | (N) -> previous difference (vimdiff/signify)
 "
 "  (selection)
 "    <Ctrl-a>             | (N) -> select all text
@@ -279,6 +280,9 @@
         xnoremap <silent><expr> <F6> '<Esc>:SyntasticToggleMode<CR>v'
         inoremap <silent><expr> <F6> '<C-O>:SyntasticToggleMode<CR>'
 
+        "toggle signify
+        let g:signify_mapping_toggle = '<F7>'
+
         "bindings to trigger the tagbar list of tags
         nnoremap <silent><expr> <F8> ':TagbarToggle<CR>:echo "Code tagbar toggled"<CR>'
         xnoremap <silent><expr> <F8> '<Esc>:TagbarToggle<CR>v'
@@ -383,7 +387,11 @@
         nmap <A-h> <Plug>MoveLineHalfPageUp
         nmap <A-l> <Plug>MoveLineHalfPageDown
 
-        "move to next/previous difference (vimdiff/gitgutter)
+        "map signify to ]c and [c
+        let g:signify_mapping_next_hunk = ']c'
+        let g:signify_mapping_prev_hunk = '[c'
+
+        "move to next/previous difference (vimdiff/signify)
         nmap >> ]c
         nmap << [c
     "}

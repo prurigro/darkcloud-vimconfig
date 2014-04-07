@@ -360,12 +360,11 @@ call s:X("DiffDelete","#000000","#d75f5f","italic",s:termBlack,"Red")
 call s:X("DiffChange","#000000","#87d7ff","italic",s:termBlack,"Blue")
 call s:X("DiffText","#000000","#c6c6c6","italic",s:termBlack,"White")
 
-"git
+"version control
+call s:X("SignifySignAdd","#ffd787","","bold","","Yellow")
+call s:X("SignifySignDelete","#d75f5f","","bold","","Red")
+call s:X("SignifySignChange","#87d7ff","","bold","","Blue")
 hi! link gitconfigAssignment Label
-call s:X("GitGutterAdd","#ffd787","","bold","","Yellow")
-call s:X("GitGutterDelete","#d75f5f","","bold","","Red")
-call s:X("GitGutterChange","#87d7ff","","bold","","Blue")
-hi! link GitGutterChangeDelete GitGutterChange
 
 "html
 call s:X("htmlTitle","#ffffff","","underline,bold","White","")

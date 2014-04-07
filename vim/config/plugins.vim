@@ -16,7 +16,7 @@
     let g:breeze_shade_color = "String"
 "}}}
 
-"EMMET: ZENCODING FEATURES {{{
+"EMMET: {{{
     let g:user_emmet_install_global=0
     let g:use_emmet_complete_tag=1
     let g:user_emmet_mode='a'
@@ -28,12 +28,11 @@
     endif
 "}}}
 
-"GITGUTTER: {{{
-    let g:gitgutter_sign_added='++'
-    let g:gitgutter_sign_removed='--'
-    let g:gitgutter_sign_modified='~~'
-    let g:gitgutter_sign_modified_removed='~-'
-    let g:gitgutter_escape_grep=1
+"SIGNIFY: {{{
+    let g:signify_sign_add = '+'
+    let g:signify_sign_change = '!'
+    let g:signify_sign_delete = '-'
+    let g:signify_sign_delete_first_line = '~'
 "}}}
 
 "GUNDO: {{{
