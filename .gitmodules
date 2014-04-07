@@ -79,3 +79,6 @@
 [submodule "vim/bundle/vim-neco-calc"]
 	path = vim/bundle/vim-neco-calc
 	url = https://github.com/hrsh7th/vim-neco-calc.git
+[submodule "vim/bundle/vim-fixkey"]
+	path = vim/bundle/vim-fixkey
+	url = https://github.com/drmikehenry/vim-fixkey.git
