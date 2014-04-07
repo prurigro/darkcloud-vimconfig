@@ -534,7 +534,7 @@ hi! link qfLineNr SyntasticError
     let s:p.inactive.left =  [ [ s:base02, s:base0 ], [ s:base00, s:darkblue ] ]
     let s:p.insert.left = [ [ s:base023, s:red ], [ s:base3, s:base01 ] ]
     let s:p.replace.left = [ [ s:base023, s:orange ], [ s:base3, s:base01 ] ]
-    let s:p.visual.left = [ [ s:base023, s:green ], [ s:base3, s:base01 ] ]
+    let s:p.visual.left = [ [ s:base023, s:yellow ], [ s:base3, s:base01 ] ]
     let s:p.normal.middle = [ [ s:base1, s:base02 ] ]
     let s:p.inactive.abmiddle = [ [ s:base0, s:base02 ] ]
     let s:p.tabline.left = [ [ s:base2, s:base01 ] ]
