@@ -1,12 +1,12 @@
-"========================================"
-"                                        "
-"  Darkcloud Vim Config:                 "
-"  vimrc                                 "
-"                                        "
-"  Maintainer: Prurigro                  "
-"  License: MIT                          "
-"                                        "
-"========================================"
+"========================="
+"                         "
+"  Darkcloud Vim Config:  "
+"  vimrc                  "
+"                         "
+"  Maintainer: Prurigro   "
+"  License: MIT           "
+"                         "
+"========================="
 
 "USER CONFIG SETTINGS: {{{
     "Darkcloud Vim Folder:
