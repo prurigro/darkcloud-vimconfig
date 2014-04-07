@@ -94,6 +94,6 @@
 [submodule "vim/bundle/vim-expand-region"]
 	path = vim/bundle/vim-expand-region
 	url = https://github.com/terryma/vim-expand-region.git
-[submodule "vim/bundle/vim-gitgutter"]
-	path = vim/bundle/vim-gitgutter
-	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "vim/bundle/vim-signify"]
+	path = vim/bundle/vim-signify
+	url = https://github.com/mhinz/vim-signify
