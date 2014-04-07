@@ -237,15 +237,17 @@ let colors_name = "darkcloud"
                 exec "hi ".a:group." ctermfg=NONE ctermbg=".a:lcbg
             endif
         else
-            let l:fge = empty(a:fg)
-            let l:bge = empty(a:bg)
+            let l:fgs = substitute(a:fg, '^#', '', '')
+            let l:bgs = substitute(a:bg, '^#', '', '')
+            let l:fge = empty(l:fgs)
+            let l:bge = empty(l:bgs)
 
             if !l:fge && !l:bge
-                exec "hi ".a:group." guifg=#".a:fg." guibg=#".a:bg." ctermfg=".s:rgb(a:fg)." ctermbg=".s:rgb(a:bg)
+                exec "hi ".a:group." guifg=#".l:fgs." guibg=#".l:bgs." ctermfg=".s:rgb(l:fgs)." ctermbg=".s:rgb(l:bgs)
             elseif !l:fge && l:bge
-                exec "hi ".a:group." guifg=#".a:fg." guibg=NONE ctermfg=".s:rgb(a:fg)." ctermbg=NONE"
+                exec "hi ".a:group." guifg=#".l:fgs." guibg=NONE ctermfg=".s:rgb(l:fgs)." ctermbg=NONE"
             elseif l:fge && !l:bge
-                exec "hi ".a:group." guifg=NONE guibg=#".a:bg." ctermfg=NONE ctermbg=".s:rgb(a:bg)
+                exec "hi ".a:group." guifg=NONE guibg=#".l:bgs." ctermfg=NONE ctermbg=".s:rgb(l:bgs)
             endif
         endif
 
@@ -280,72 +282,72 @@ hi SpellLocal guisp=NONE gui=NONE guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NON
 "example:('Line','000000','f0f0f0','italic,bold',s:termBlack  ,'White')
 
 "core style
-call s:X("Normal","eaeaea","262626","","White",s:termBlack)
+call s:X("Normal","#eaeaea","#262626","","White",s:termBlack)
 hi Normal ctermfg=254 ctermbg=235
 
-call s:X("Cursor","","262626","standout,underline,bold",s:termBlack,"White")
-call s:X("CursorColumn","","303030","","",s:termBlack)
+call s:X("Cursor","","#262626","standout,underline,bold",s:termBlack,"White")
+call s:X("CursorColumn","","#303030","","",s:termBlack)
 hi CursorColumn ctermbg=236
-call s:X("CursorLine","","303030","","",s:termBlack)
+call s:X("CursorLine","","#303030","","",s:termBlack)
 hi CursorLine ctermbg=236
-call s:X("CursorLineNr","87d7ff","303030","bold","Blue",s:termBlack)
+call s:X("CursorLineNr","#87d7ff","#303030","bold","Blue",s:termBlack)
 hi CursorLineNr ctermbg=236
-call s:X("LineNr","4e4e4e","","bold","White",s:termBlack)
+call s:X("LineNr","#4e4e4e","","bold","White",s:termBlack)
 hi LineNr ctermfg=239
 
-call s:X("Visual","","262626","standout","",s:termBlack)
-call s:X("MatchParen","ffffff","","bold,underline","","")
+call s:X("Visual","","#262626","standout","",s:termBlack)
+call s:X("MatchParen","#ffffff","","bold,underline","","")
 
 "whitespace
-call s:X("TabLine","","000000","","",s:termBlack)
-call s:X("TabLineFill","","000000","","",s:termBlack)
-call s:X("TabLineSel","000000","d0d0d0","",s:termBlack,"White")
-call s:X("ExtraWhitespace","262626","","standout",s:termBlack,"")
+call s:X("TabLine","","#000000","","",s:termBlack)
+call s:X("TabLineFill","","#000000","","",s:termBlack)
+call s:X("TabLineSel","#000000","#d0d0d0","",s:termBlack,"White")
+call s:X("ExtraWhitespace","#262626","","standout",s:termBlack,"")
 
 "menu call
-call s:X("Pmenu","87d7ff","303030","","Grey","Blue")
-call s:X("PmenuSel","87d7ff","4e4e4e","bold","White","Black")
+call s:X("Pmenu","#87d7ff","#303030","","Grey","Blue")
+call s:X("PmenuSel","#87d7ff","#4e4e4e","bold","White","Black")
 
 "search
-call s:X("Search","87d7ff","262626","standout","Blue",s:termBlack)
-call s:X("IncSearch","87d7ff","262626","standout,bold","Blue",s:termBlack)
+call s:X("Search","#87d7ff","#262626","standout","Blue",s:termBlack)
+call s:X("IncSearch","#87d7ff","#262626","standout,bold","Blue",s:termBlack)
 
 "status line
-call s:X("StatusLine","000000","d75f5f","bold",s:termBlack,"Red")
-call s:X("StatusLineNC","ffffff","626262","","White","Grey")
-call s:X("VertSplit","626262","626262","",s:termBlack,s:termBlack)
-call s:X("WildMenu","808080","303030","","White",s:termBlack)
+call s:X("StatusLine","#000000","#d75f5f","bold",s:termBlack,"Red")
+call s:X("StatusLineNC","#ffffff","#626262","","White","Grey")
+call s:X("VertSplit","#626262","#626262","",s:termBlack,s:termBlack)
+call s:X("WildMenu","#808080","#303030","","White",s:termBlack)
 
 "folding
-call s:X("Folded","87d7ff","4e4e4e","bold","Blue",s:termBlack)
-call s:X("FoldColumn","87d7ff","","bold","Blue","")
-call s:X("SignColumn","ffaf00","","bold","Red","")
+call s:X("Folded","#87d7ff","#4e4e4e","bold","Blue",s:termBlack)
+call s:X("FoldColumn","#87d7ff","","bold","Blue","")
+call s:X("SignColumn","#ffaf00","","bold","Red","")
 hi! link ColorColumn SignColumn
 
 "syntax style
-call s:X("Title","d75f5f","","underline","Red","")
-call s:X("Comment","6c6c6c","","italic","Grey","")
-call s:X("Constant","87d7ff","","bold","Blue","")
-call s:X("Special","ffd787","","bold","Yellow","")
-call s:X("Delimiter","ffffff","","","White","")
-call s:X("String","ffffff","","italic","White","")
-call s:X("StringDelimiter","d0d0d0","","","White","")
-call s:X("Identifier","87d7ff","","bold","Blue","")
-call s:X("Type","d75f5f","","bold","Red","")
-call s:X("Function","87d7ff","","","Blue","")
-call s:X("Label","d75f5f","","","Red","")
-call s:X("Statement","ffd787","","","Yellow","")
-call s:X("PreProc","ffd787","","","Yellow","")
-call s:X("Keyword","ffd787","","bold","Yellow","")
-call s:X("Operator","d75f5f","","","Red","")
-call s:X("NonText","87d7ff","","","Blue","")
-call s:X("SpecialKey","626262","","",s:termBlack,"")
-call s:X("Directory","87d7ff","","","Blue","")
-call s:X("Question","87d7ff","","","Blue","")
-call s:X("Todo","d75f5f","","bold","Red","")
+call s:X("Title","#d75f5f","","underline","Red","")
+call s:X("Comment","#6c6c6c","","italic","Grey","")
+call s:X("Constant","#87d7ff","","bold","Blue","")
+call s:X("Special","#ffd787","","bold","Yellow","")
+call s:X("Delimiter","#ffffff","","","White","")
+call s:X("String","#ffffff","","italic","White","")
+call s:X("StringDelimiter","#d0d0d0","","","White","")
+call s:X("Identifier","#87d7ff","","bold","Blue","")
+call s:X("Type","#d75f5f","","bold","Red","")
+call s:X("Function","#87d7ff","","","Blue","")
+call s:X("Label","#d75f5f","","","Red","")
+call s:X("Statement","#ffd787","","","Yellow","")
+call s:X("PreProc","#ffd787","","","Yellow","")
+call s:X("Keyword","#ffd787","","bold","Yellow","")
+call s:X("Operator","#d75f5f","","","Red","")
+call s:X("NonText","#87d7ff","","","Blue","")
+call s:X("SpecialKey","#626262","","",s:termBlack,"")
+call s:X("Directory","#87d7ff","","","Blue","")
+call s:X("Question","#87d7ff","","","Blue","")
+call s:X("Todo","#d75f5f","","bold","Red","")
 
 "errors
-call s:X("Error","d75f5f","000000","standout","Red",s:termBlack)
+call s:X("Error","#d75f5f","#000000","standout","Red",s:termBlack)
 hi! link WarningMsg Error
 hi! link ErrorMsg Error
 hi! link MoreMsg Special
@@ -353,30 +355,32 @@ hi! link Structure PreProc
 hi! link Number Type
 
 "vimdiff
-hi! link diffRemoved Constant
-hi! link diffAdded String
-call s:X("DiffAdd","000000","ffd787","italic",s:termBlack,"Yellow")
-call s:X("DiffDelete","000000","d75f5f","italic",s:termBlack,"Red")
-call s:X("DiffChange","000000","87d7ff","italic",s:termBlack,"Blue")
-call s:X("DiffText","000000","c6c6c6","italic",s:termBlack,"White")
+call s:X("DiffAdd","#000000","#ffd787","italic",s:termBlack,"Yellow")
+call s:X("DiffDelete","#000000","#d75f5f","italic",s:termBlack,"Red")
+call s:X("DiffChange","#000000","#87d7ff","italic",s:termBlack,"Blue")
+call s:X("DiffText","#000000","#c6c6c6","italic",s:termBlack,"White")
 
 "git
 hi! link gitconfigAssignment Label
+call s:X("GitGutterAdd","#ffd787","","bold","","Yellow")
+call s:X("GitGutterDelete","#d75f5f","","bold","","Red")
+call s:X("GitGutterChange","#87d7ff","","bold","","Blue")
+call s:X("GitGutterChangeDelete","#87d7ff","","bold","","Blue")
 
 "html
-call s:X("htmlTitle","ffffff","","underline,bold","White","")
-call s:X("htmlH1","d75f5f","","underline,bold","Red","")
-call s:X("htmlH2","ffd787","","underline,bold","Yellow","")
-call s:X("htmlH3","87d7ff","","underline,bold","Blue","")
-call s:X("htmlH4","d75f5f","","underline","Red","")
-call s:X("htmlH5","ffd787","","underline","Yellow","")
-call s:X("htmlH6","87d7ff","","underline","Blue","")
+call s:X("htmlTitle","#ffffff","","underline,bold","White","")
+call s:X("htmlH1","#d75f5f","","underline,bold","Red","")
+call s:X("htmlH2","#ffd787","","underline,bold","Yellow","")
+call s:X("htmlH3","#87d7ff","","underline,bold","Blue","")
+call s:X("htmlH4","#d75f5f","","underline","Red","")
+call s:X("htmlH5","#ffd787","","underline","Yellow","")
+call s:X("htmlH6","#87d7ff","","underline","Blue","")
 call s:X("htmlSpecialChar","","","italic","","")
-call s:X("htmlArg","d75f5f","","bold","Red","")
-call s:X("htmlTagName","ffd787","","bold","Yellow","")
-call s:X("htmlTag","87d7ff","","bold","Blue","")
-call s:X("commentURL","ffd787","","italic,underline","Yellow","")
-call s:X("htmlLink","ffd787","","underline","Yellow","")
+call s:X("htmlArg","#d75f5f","","bold","Red","")
+call s:X("htmlTagName","#ffd787","","bold","Yellow","")
+call s:X("htmlTag","#87d7ff","","bold","Blue","")
+call s:X("commentURL","#ffd787","","italic,underline","Yellow","")
+call s:X("htmlLink","#ffd787","","underline","Yellow","")
 
 "php
 hi! link phpFunctions Function
@@ -400,7 +404,7 @@ hi! link javascriptDomElemFuncs javaScriptFunction
 hi! link coffeeRegExp javaScriptRegexpString
 
 "c
-call s:X("cBraces","ffd787","","","Yellow","")
+call s:X("cBraces","#ffd787","","","Yellow","")
 hi! link cBlock cBraces
 hi! link cOperator cBraces
 hi! link cCharacter String
@@ -442,23 +446,22 @@ call s:X("rubyGlobalVariable","","","bold","","")
 hi! link luaOperator Conditional
 
 "vim config/vimscript
-call s:X("IndentGuidesOdd","","7c7c7c","","","Grey")
-call s:X("IndentGuidesEven","","1c1c1c","","",s:termBlack)
+call s:X("IndentGuidesOdd","","#7c7c7c","","","Grey")
+call s:X("IndentGuidesEven","","#1c1c1c","","",s:termBlack)
 if !exists("g:indent_guides_auto_colors")
     let g:indent_guides_auto_colors=0
 endif
-call s:X("vimOperParen","87d7ff","","","Blue","")
-
+call s:X("vimOperParen","#87d7ff","","","Blue","")
 
 "notes
 call s:X("notesRule","","","bold","","")
-call s:X("WarningMsg","ffd787","2c2c2c","standout,bold","Yellow",s:termBlack)
-call s:X("notesTitle","d75f5f","","underline,bold","Red","")
-call s:X("notesName","ffd787","","underline,bold","Yellow","")
-call s:X("notesShortHeading","ffd787","262626","standout,underline,bold","Yellow","")
-call s:X("Underlined","87d7ff","","underline,bold","Blue","")
-call s:X("notesInProgress","87d7ff","262626","standout,underline,bold","Blue","")
-call s:X("notesRealURL","d75f5f","","underline,bold","Red","")
+call s:X("WarningMsg","#ffd787","#2c2c2c","standout,bold","Yellow",s:termBlack)
+call s:X("notesTitle","#d75f5f","","underline,bold","Red","")
+call s:X("notesName","#ffd787","","underline,bold","Yellow","")
+call s:X("notesShortHeading","#ffd787","#262626","standout,underline,bold","Yellow","")
+call s:X("Underlined","#87d7ff","","underline,bold","Blue","")
+call s:X("notesInProgress","#87d7ff","#262626","standout,underline,bold","Blue","")
+call s:X("notesRealURL","#d75f5f","","underline,bold","Red","")
 hi! link notesTextURL notesRealURL
 hi! link notesSubtleURL notesRealURL
 hi! link notesListBullet FoldColumn
@@ -479,15 +482,15 @@ hi! link mailHeaderKey Identifier
 hi! link quicktaskDatestamp Identifier
 hi! link quicktaskTimestamp Identifier
 hi! link quicktaskSection Todo
-call s:X("quicktaskTimeNote","ffd787","","bold","Yellow","")
-call s:X("quicktaskTask","ffffff","","bold","White","")
+call s:X("quicktaskTimeNote","#ffd787","","bold","Yellow","")
+call s:X("quicktaskTask","#ffffff","","bold","White","")
 
 "taglist
 hi! link TagListFileName Directory
 
 "syntastic
-call s:X("SyntasticError","d75f5f","","standout,bold","Red","")
-call s:X("SyntasticWarning","ffd787","","standout,bold","Yellow","")
+call s:X("SyntasticError","#d75f5f","","standout,bold","Red","")
+call s:X("SyntasticWarning","#ffd787","","standout,bold","Yellow","")
 hi! link SyntasticErrorLine SyntasticError
 hi! link SyntasticWarningLine SyntasticWarning
 hi! link SyntasticErrorSign Error

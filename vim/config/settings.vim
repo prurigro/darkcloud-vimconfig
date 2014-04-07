@@ -70,16 +70,20 @@
     autocmd BufNewFile,BufRead *tmux.conf,pacman.conf,yaourtrc setf sh
     autocmd BufNewFile,BufRead cjdroute.conf,ircd.conf setf javascript
 
-    "override options for specific filetypes
+    "misc filtype specific settings
     autocmd FileType gitcommit,notes,mail,notmuch,text setlocal spell
     autocmd FileType notes,mail,notmuch,mkd,text setlocal nonumber
     autocmd FileType mail,notmuch,text setlocal wrap
-    autocmd FileType help* wincmd L "help windows always open vertically
 
-    "disable folding by default in vimdiff
-    if &diff
-        autocmd VimEnter * windo setlocal nofoldenable
-    endif
+    "help specific settings
+    autocmd FileType help* wincmd L "help windows always open vertically
+    autocmd FileType help* vertical res 80
+    autocmd FileType help* setlocal nowrap nocursorline nocursorcolumn "help windows don't wrap
+
+    "set vimdiff settings
+    setlocal diffopt=foldcolumn:0,filler
+    autocmd VimEnter,FilterWritePre * if &diff|setlocal nofoldenable|endif
+    autocmd VimEnter,FilterWritePre * if &diff|wincmd L|endif
 
     "enable omnicompletion for any filetype without that has syntax highlighting
     if has("autocmd") && exists("+omnifunc")

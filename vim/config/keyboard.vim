@@ -18,6 +18,8 @@
 "   <Ctrl-_>p             | (A) -> comment the current paragraph
 "   <Ctrl-enter>          | (I) -> add a close bracket following an open one
 "   <Ctrl-c>              | (I) -> add a close bracket following an open one
+"   +                     | (V) -> increase the selected region
+"   _                     | (V) -> decrease the selected region
 "
 "  (surround)
 "    S"                   | (V) -> surround selection with quotes
@@ -119,6 +121,9 @@
 "    <Alt+h>              | (N) -> move a line up a half page
 "    <Alt+l>              | (N) -> move a line down a half page
 "
+"    >>                   | (N) -> next difference (vimdiff/gitgutter)
+"    <<                   | (N) -> previous difference (vimdiff/gitgutter)
+"
 "  (selection)
 "    <Ctrl-a>             | (N) -> select all text
 "    <Leader>a            | (N) -> select all text
@@ -134,14 +139,6 @@
 "    <Shift-Down>         | (V) -> select a few lines down
 "    <Shift-Right>        | (V) -> select a few lines right
 "    <Shift-Left>         | (V) -> select a few lines left
-"
-"  (vimdiff)
-"    <Leader>>            | (N) -> update differences
-"    <Leader><            | (N) -> an alt mapping to update differences
-"    >>                   | (N) -> next difference
-"    <<                   | (N) -> previous difference
-"    ><                   | (N) -> replace diff in current pane with other pane
-"    <>                   | (N) -> replace diff in other pane with current pane
 "
 "  (paste functions)
 "    <Leader>p            | (N) -> view the paste buffers and register contents
@@ -162,14 +159,10 @@
 "    <Leader>dd           | (N) -> delete lines under and after the one below
 "
 " Filetype Specific Mappings:
-"  (gundo)
-"    <LMouse>             | (A) -> same as normal + justify one from the left
-"    <MMouse>             | (A) -> same as the left mouse
-"    <RMouse>             | (A) -> same as the left mouse
-"    <Right>              | (A) -> same as j (down)
-"    l                    | (A) -> same as j (down)
-"    <Left>               | (A) -> same as k (up)
-"    h                    | (A) -> same as k (up)
+"  (vimdiff)
+"    <Leader><>           | (N) -> update differences
+"    <Leader>>            | (N) -> replace diff in other pane with current pane
+"    <Leader><            | (N) -> replace diff in current pane with other pane
 "
 "  (help)
 "    q                    | (N) -> close the dialog
@@ -182,6 +175,7 @@
 "    <Right>              | (N) -> map to l, which opens a directory
 "    <Left>               | (N) -> map to h, which goes up one directory
 "    '                    | (N) -> edit the selected file
+"    n                    | (N) -> start editing a new file
 "
 "  (gundo)
 "    <LeftMouse>          | (N) -> same as normal + justify on the left
@@ -388,6 +382,10 @@
         vmap <A-l> <Plug>MoveBlockHalfPageDown
         nmap <A-h> <Plug>MoveLineHalfPageUp
         nmap <A-l> <Plug>MoveLineHalfPageDown
+
+        "move to next/previous difference (vimdiff/gitgutter)
+        nmap >> ]c
+        nmap << [c
     "}
 
     "SELECTION:{
@@ -408,16 +406,6 @@
         xnoremap <C-Down> G$
         xnoremap <C-Right> $
         xnoremap <C-Left> ^
-    "}
-
-    "VIMDIFF:{
-        "map shortcuts for vimdiff
-        nnoremap <silent><expr> <Leader>> ':diffu<CR>'
-        nnoremap <silent><expr> <Leader>< ':diffu<CR>'
-        nnoremap >> ]c
-        nnoremap << [c
-        nnoremap <> dp
-        nnoremap >< do
     "}
 
     "PASTE:{
@@ -446,6 +434,13 @@
 "}}}
 
 "FILETYPE SPECIFIC MAPPINGS: {{{
+    "vimdiff
+    autocmd FilterWritePre * if &diff|nnoremap <silent><expr> <Leader><> ':diffu<CR>'|endif
+    autocmd FilterWritePre * if &diff|nnoremap <Leader>> dp|endif
+    autocmd FilterWritePre * if &diff|nnoremap <Leader>< do|endif
+    autocmd FilterWritePre * if &diff|cabbrev q qall|endif
+    autocmd FilterWritePre * if &diff|cabbrev q! qall!|endif
+
     "help
     autocmd FileType help nnoremap <buffer> <silent><expr> q ':q<CR>'
     autocmd FileType help nnoremap <buffer> <silent><expr> ?? ':q<CR>'
@@ -460,6 +455,7 @@
     autocmd FileType vimfiler nmap <Right> l
     autocmd FileType vimfiler nmap <Left> h
     autocmd FileType vimfiler nmap ' e
+    autocmd FileType vimfiler nmap n q
 
     "gundo
     autocmd FileType gundo nmap <buffer> <LeftMouse> <LeftMouse>0l
@@ -481,9 +477,9 @@
 "}}}
 
 "DISABLED MAPPINGS: {{{
-    "remove incompatible toggles from gundo and filer
+    "remove incompatible toggles from specific filetypes
     autocmd Filetype gundo,vimfiler noremap <F1> <Nop>
-    autocmd Filetype gundo,vimfiler noremap <F2> <Nop>
+    autocmd Filetype gundo,vimfiler,help noremap <F2> <Nop>
     autocmd Filetype gundo,vimfiler noremap <F3> <Nop>
     autocmd Filetype gundo,vimfiler noremap <C-Up> <Nop>
     autocmd Filetype gundo,vimfiler noremap <C-k> <Nop>

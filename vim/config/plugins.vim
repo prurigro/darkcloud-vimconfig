@@ -7,11 +7,11 @@
 "                          "
 "=========================="
 
-"PATHOGEN BUNDLED EXTENSIONS PLUGIN: LOAD BUNDLED PLUGINS {{{
+"PATHOGEN BUNDLED EXTENSIONS PLUGIN: {{{
     execute pathogen#infect('bundle/{}', 'bundle.user/{}')
 "}}}
 
-"BREEZE: HTML TAG HIGHLIGHTING AND NAVIGATION {{{
+"BREEZE: {{{
     let g:breeze_active_filetypes="*.html,*.htm,*.xhtml,*.xml,*.php,*.aspx"
     let g:breeze_shade_color = "String"
 "}}}
@@ -28,7 +28,12 @@
     endif
 "}}}
 
-"GUNDO: UNDO SIDEBAR {{{
+"GITGUTTER: {{{
+    let g:gitgutter_sign_removed = '-'
+    let g:gitgutter_sign_modified_removed = '~-'
+"}}}
+
+"GUNDO: {{{
     let g:gundo_right=1
     let g:gundo_width=35
     let g:gundo_preview_height=10
@@ -36,7 +41,7 @@
     autocmd FileType gundo setlocal nocursorcolumn
 "}}}
 
-"LIGHTLINE: STATUS BAR {{{
+"LIGHTLINE: {{{
     let g:unite_force_overwrite_statusline = 0
     let g:vimfiler_force_overwrite_statusline = 0
 
@@ -166,12 +171,12 @@
     endif
 "}}}
 
-"MARKDOWN VIM MODE: MARKDOWN IMPROVEMENTS {{{
+"MARKDOWN VIM MODE: {{{
     let g:vim_markdown_folding_disabled=0
     let g:vim_markdown_initial_foldlevel=2
 "}}}
 
-"SYNTASTIC: SYNTAX CHECKING {{{
+"SYNTASTIC: {{{
     if !exists("g:autostartchecker")
         let g:autostartchecker=1
     endif
@@ -189,7 +194,7 @@
     let g:syntastic_loc_list_height=5
 "}}}
 
-"VIM FILER: FILE MANAGER {{{
+"VIM FILER: {{{
     let g:vimfiler_as_default_explorer=1
     let g:vimfiler_safe_mode_by_default=0
     let g:vimfiler_enable_auto_cd=1
@@ -202,8 +207,7 @@
     let g:vimfiler_marked_file_icon='+'
 
     "edit files by double clicking them, and justify the cursor on the left
-    autocmd FileType vimfiler setlocal nonumber wrap
-    autocmd FileType vimfiler setlocal nocursorcolumn
+    autocmd FileType vimfiler setlocal nonumber nocursorcolumn
 
     "open automatically if vim was run without any files
     autocmd VimEnter * if !argc() | VimFiler -quit -project | endif
@@ -214,7 +218,7 @@
     endif
 "}}}
 
-"NEOCOMPLCACHE AUTOCOMPLETION PLUGIN: AUTO COMPLETION {{{
+"NEOCOMPLCACHE AUTOCOMPLETION PLUGIN: {{{
     let g:neocomplcache_enable_at_startup=1
     let g:neocomplcache_enable_smart_case=1
     let g:neocomplcache_min_syntax_length=3
