@@ -321,7 +321,7 @@ call s:X("WildMenu","#808080","#303030","","White",s:termBlack)
 "folding
 call s:X("Folded","#87d7ff","#4e4e4e","bold","Blue",s:termBlack)
 call s:X("FoldColumn","#87d7ff","","bold","Blue","")
-call s:X("SignColumn","#ffaf00","","bold","Red","")
+call s:X("SignColumn","#ffd787","","bold","Red","")
 hi! link ColorColumn SignColumn
 
 "syntax style
@@ -365,7 +365,7 @@ hi! link gitconfigAssignment Label
 call s:X("GitGutterAdd","#ffd787","","bold","","Yellow")
 call s:X("GitGutterDelete","#d75f5f","","bold","","Red")
 call s:X("GitGutterChange","#87d7ff","","bold","","Blue")
-call s:X("GitGutterChangeDelete","#87d7ff","","bold","","Blue")
+hi! link GitGutterChangeDelete GitGutterChange
 
 "html
 call s:X("htmlTitle","#ffffff","","underline,bold","White","")
