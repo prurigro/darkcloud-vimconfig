@@ -83,7 +83,7 @@
     "set vimdiff settings
     setlocal diffopt=foldcolumn:0,filler
     autocmd VimEnter,FilterWritePre * if &diff|setlocal nofoldenable|endif
-    autocmd VimEnter,FilterWritePre * if &diff|wincmd L|endif
+    autocmd VimEnter * if &diff|wincmd H|endif
 
     "enable omnicompletion for any filetype without that has syntax highlighting
     if has("autocmd") && exists("+omnifunc")
