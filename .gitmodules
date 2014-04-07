@@ -85,3 +85,6 @@
 [submodule "vim/bundle/vim-move"]
 	path = vim/bundle/vim-move
 	url = https://github.com/matze/vim-move.git
+[submodule "vim/bundle/vim-c-cr"]
+	path = vim/bundle/vim-c-cr
+	url = https://github.com/jtmkrueger/vim-c-cr.git
