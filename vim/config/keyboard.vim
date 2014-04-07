@@ -16,6 +16,8 @@
 "   <Ctrl-_>b             | (A) -> comment the current block(s)
 "   <Ctrl-_>r             | (A) -> comment everything on the line to the right
 "   <Ctrl-_>p             | (A) -> comment the current paragraph
+"   <Ctrl-enter>          | (I) -> add a close bracket following an open one
+"   <Ctrl-c>              | (I) -> add a close bracket following an open one
 "
 "  (surround)
 "    S"                   | (V) -> surround selection with quotes
