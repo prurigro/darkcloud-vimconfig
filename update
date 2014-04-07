@@ -1,18 +1,27 @@
 #!/usr/bin/env bash
 
+# work from the base directory of the repository
 cd "${0%/*}"
 
+# create the user vimrc file in the directory if it doesn't already exist
 if [ ! -e vim/vimrc.user ]; then [[ -w vim ]] && touch vim/vimrc.user; fi
 
+# update the repository and submodules
 git pull origin
 git submodule update --init --recursive
 
+# delete any submodule no longer in the repository
 [[ -f .gitmodules ]] && for each in vim/bundle/*; do
     if [ -d "$each" ]; then
         if [ -f "${each}/.git" ]; then
             FILE=$(echo $each | grep -o -e "[^\/]*$")
-           [[ `cat .gitmodules | grep "path = " |  grep -o -e "[^\/]*$" | grep -c "${FILE}"` = 0 ]] && (rm -rf "${each}" && echo "Deleted: ${each}" || (echo -e "\033[01;31mWARNING\033[00m: '${each}' was removed upstream but couldn't be deleted here.\n\nPlease delete ${each} manually."; exit 1))
+            [[ `cat .gitmodules | grep "path = " |  grep -o -e "[^\/]*$" | grep -c "${FILE}"` = 0 ]] && (rm -rf "${each}" && echo "Deleted: ${each}" || (echo -e "\033[01;31mWARNING\033[00m: '${each}' was removed upstream but couldn't be deleted here.\n\nPlease delete ${each} manually."; exit 1))
         fi
     fi
 done
+
+# update the help text for any new/changed pathogen plugin
+[[ `type -P vim` ]] && vim -c "Helptags|qa!" &>/dev/null 2>&1
+
+# exit cleanly
 exit 0
