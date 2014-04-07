@@ -2,11 +2,12 @@
 
 ## Requirements ##
 
-1. **Git**: Required to clone and update the repository, and pull the plugins as submodules.
-3. **CTags**: Available @ <http://ctags.sourceforge.net>, place in __$PATH__ or the vim folder to use the tagbar or extended C omni/auto-completion.
-4. **Vim** v7.4+: Everything has been written and tested using Vim 7.4.135, and I assume there could be issues with 7.3 and below.
-2. **Bash** (__optional__): Required to use the update and ctags generation scripts, both of which can be run with the commands listed within.
-5. **Powerline Fonts** (__optional__): Required for an extended look/feel using lightline, otherwise it should be toggled off in the vimrc.
+1. **Vim** v7.4+: Everything has been written and tested using Vim 7.4.135, and I assume there could be issues with 7.3 and below.
+2. **Git** (__optional__): Required to clone and update the repository, and pull the plugins as submodules.
+3. **CTags** (__optional__): Available @ <http://ctags.sourceforge.net>, place in __$PATH__ or the vim folder to use the tagbar or extended C omni/auto-completion.
+4. **Grep and Find** (__optional__): Have grep, fgrep, egrep and agrep ([windows binaries](http://gnuwin32.sourceforge.net/packages/grep.htm)), and find and xargs ([windows binaries](http://gnuwin32.sourceforge.net/packages/findutils.htm)) in $PATH or the vim folder to use the Grep plugin commands.
+6. **Powerline Fonts** (__optional__): Required for an extended look/feel using lightline, otherwise it should be toggled off in the vimrc.
+5. **Bash** (__optional__): Required to use the update and ctags generation scripts, both of which can be run with the commands listed within.
 
 ## Features ##
 
