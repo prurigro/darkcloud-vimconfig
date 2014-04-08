@@ -174,8 +174,6 @@
 "    <F8>                 | (A) -> show heading TOC instead of the taglist
 "
 "  (markdown toc)
-"    q                    | (A) -> close the toc
-"    <F8>                 | (A) -> close the toc
 "    <Space>              | (A) -> select heading but remain in toc
 "    <LClick><LClick>     | (A) -> select heading to edit
 "    <Left>               | (A) -> up
@@ -463,10 +461,10 @@
 
 "FILETYPE SPECIFIC MAPPINGS: {{{
     "vimdiff
-    autocmd FilterWritePre * if &diff|nnoremap <silent><expr> <Leader><> ':diffu<CR>'|endif
-    autocmd FilterWritePre * if &diff|nnoremap <silent><expr> <Leader>>< ':diffu<CR>'|endif
-    autocmd FilterWritePre * if &diff|nnoremap <Leader>> dp|endif
-    autocmd FilterWritePre * if &diff|nnoremap <Leader>< do|endif
+    autocmd FilterWritePre * if &diff|nnoremap <buffer> <silent><expr> <Leader><> ':diffu<CR>'|endif
+    autocmd FilterWritePre * if &diff|nnoremap <buffer> <silent><expr> <Leader>>< ':diffu<CR>'|endif
+    autocmd FilterWritePre * if &diff|nnoremap <buffer> <Leader>> dp|endif
+    autocmd FilterWritePre * if &diff|nnoremap <buffer> <Leader>< do|endif
     autocmd FilterWritePre * if &diff|cabbrev q qall|endif
     autocmd FilterWritePre * if &diff|cabbrev q! qall!|endif
 
@@ -477,10 +475,9 @@
     autocmd FileType help nnoremap <buffer> <silent><expr> ?< ':q<CR>'
 
     "markdown launch table of contents instead of the tagbar
-    autocmd FileType mkd noremap <buffer> <silent><expr> <F8> ':Toc<CR><C-w>L'
+    autocmd FileType mkd noremap <buffer> <silent><expr> <F8> ':Toch<CR>'
 
     "markdown table of contents
-    autocmd FileType qf noremap <buffer> <silent><expr> q ':q<CR>'
     autocmd FileType qf noremap <buffer> <silent><expr> <F8> ':q<CR>'
     autocmd FileType qf noremap <buffer> <Space> <CR><C-w>p
     autocmd FileType qf noremap <buffer> <2-LeftMouse> <CR>
@@ -491,10 +488,10 @@
 
     "vimfiler
     autocmd FileType vimfiler nmap <buffer> <2-LeftMouse> <Plug>(vimfiler_edit_file)
-    autocmd FileType vimfiler nmap <Right> l
-    autocmd FileType vimfiler nmap <Left> h
-    autocmd FileType vimfiler nmap ' e
-    autocmd FileType vimfiler nmap n q
+    autocmd FileType vimfiler nmap <buffer> <Right> l
+    autocmd FileType vimfiler nmap <buffer> <Left> h
+    autocmd FileType vimfiler nmap <buffer> ' e
+    autocmd FileType vimfiler nmap <buffer> n q
 
     "markdown toc and vimfiler
     autocmd FileType qf,vimfiler nmap <buffer> <LeftMouse> <LeftMouse>0
@@ -505,10 +502,10 @@
     autocmd FileType gundo nmap <buffer> <LeftMouse> <LeftMouse>0l
     autocmd FileType gundo nmap <buffer> <MiddleMouse> <LeftMouse>
     autocmd FileType gundo nmap <buffer> <RightMouse> <LeftMouse>
-    autocmd FileType gundo nmap <Right> <Down>
-    autocmd FileType gundo nmap l j
-    autocmd FileType gundo nmap <Left> <Up>
-    autocmd FileType gundo nmap h k
+    autocmd FileType gundo nmap <buffer> <Right> <Down>
+    autocmd FileType gundo nmap <buffer> l j
+    autocmd FileType gundo nmap <buffer> <Left> <Up>
+    autocmd FileType gundo nmap <buffer> h k
 
     "breeze compatible formats
     autocmd BufNewFile,BufRead *.html,*.htm,*.xhtml,*.xml,*.php,*.aspx nmap <buffer> <silent><expr> _ ':BreezePrevSibling<CR>'
@@ -522,25 +519,26 @@
 
 "DISABLED MAPPINGS: {{{
     "remove incompatible toggles from specific filetypes
-    autocmd Filetype qf,gundo,vimfiler noremap <F1> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler,help noremap <F2> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <F3> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <C-Up> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <C-k> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <C-Down> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <C-j> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <C-Right> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <C-l> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <C-Left> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <C-h> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <S-Up> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <S-k> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <S-Down> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <S-j> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <S-Right> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <S-l> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <S-Left> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <S-h> <Nop>
+    autocmd Filetype qf,gundo,vimfiler noremap <buffer> <F1> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler,tagbar,help noremap <buffer> <F2> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler,tagbar noremap <buffer> <F3> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler,tagbar,help noremap <buffer> <F4> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <C-Up> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <C-k> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <C-Down> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <C-j> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <C-Right> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <C-l> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <C-Left> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <C-h> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <S-Up> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <S-k> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <S-Down> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <S-j> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <S-Right> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <S-l> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <S-Left> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <S-h> <Nop>
 "}}}
 
 "ALIASES: COMMAND SHORTCUTS {{{

@@ -6,7 +6,7 @@
 2. **Git** (__optional__): Required to clone and update the repository, and pull the plugins as submodules.
 3. **CTags** (__optional__): Available @ <http://ctags.sourceforge.net>, place in __$PATH__ or the vim folder to use the tagbar or extended C omni/auto-completion.
 4. **Grep and Find** (__optional__): Have grep, fgrep, egrep and agrep ([windows binaries](http://gnuwin32.sourceforge.net/packages/grep.htm)), and find and xargs ([windows binaries](http://gnuwin32.sourceforge.net/packages/findutils.htm)) in $PATH or the vim folder to use the Grep plugin commands.
-6. **Powerline Fonts** (__optional__): Required for an extended look/feel using lightline, otherwise it should be toggled off in the vimrc.
+6. **Powerline Fonts** (__optional__): Required for a better looking lightline statusbar and should be disabled if they're not available ([powerline-patched fonts](https://github.com/Lokaltog/powerline-fonts)).
 5. **Bash** (__optional__): Required to use the update and ctags generation scripts, both of which can be run with the commands listed within.
 
 ## Features ##
@@ -22,18 +22,27 @@
 
   * `git clone https://github.com/prurigro/darkcloud-vimconfig.git`
   * `sh darkcloud-vimconfig/update`
-  * Note: The __update__ script requires bash, but you can enter the __darkcloud-vimconfig/__ folder and run: `git submodule update --init` to install the plugins manually if it's not available.
+  * Note: The __update__ script requires bash, but if it's not available you can enter the __darkcloud-vimconfig/__ folder and run: `git submodule update --init` to install the plugins manually, then create __vim/vimrc.user__ and remember to run: `:Helptags` once everything else is running.
 
-2. Open vim and run: `:version` to find the values for "user vimrc file" for a single-user install and "system vimrc file" for a system-wide install, then copy the vimrc file from `darkcloud-vimconfig/` to one of these locations.
+2. If you don't know where vim expects to find your vimrc, start vim and run: `:version` to find the values "user vimrc file" (for a single-user install) and "system vimrc file" (for a system-wide install). T
 
-3. Open the vimrc you just installed and either edit the variables in the "__USER CONFIG SETTINGS__" section, or (preferably) copy them to __vim/vimrc.user__ and edit them there:
+3. Copy or symlink the vimrc file from `darkcloud-vimconfig/vimrc` to one of the locations vim expects to find it, based on whether you want a local or system-wide install, then choose one of the following:
 
-  * **s:darkcloudpath**: Set to the location of the darkcloud-vimconfig folder. (__default__: __/etc/darkcloud-vimconfig__)
+  * Edit the __g:darkcloudpath__ variable in the vimrc file iteself, pointing it to the location you're keeping the __darkcloud-vimconfig__ repo folder.
+  * Create a file @ __~/.vim/darkcloud-path.vim__ and in it put the following: `let g:darkcloudpath="/etc/darkcloud-vimconfig"`, but replacing __"/etc/darkcloud-vimconfig"__ with the path to the __darkcloud-vimconfig__ repo folder.
+  * Place __darkcloud-vimconfig__ in the default location @ __/etc/darkcloud-vimconfig__.
+  * Create your own vimrc and have that set the __g:darkcloudpath__ variable before sourcing the included vimrc.
+  * Come up with some other solution that fits your setup better than these. :)
+
+4. Open the vimrc you just installed and either edit the variables in the "__USER CONFIG SETTINGS__" section, or (preferably) copy them to __vim/vimrc.user__ and edit them there:
+
+  * **g:darkcloudpath**: Set to the location of the darkcloud-vimconfig folder. (__default__: __/etc/darkcloud-vimconfig__)
   * **g:autostartchecker**: 1 = Check syntax once an appropriate file is loaded | 0 = Check syntax only after syntax checking is toggled on (__default__: 1)
+  * **g:autostarttagbar**: 1 = Have the tagbar load automatically when a compatible format is run | 0 = The tagbar will stay hidden until triggered on demand with its toggle
   * **g:powerlinefonts**: 1 = Render the statusline using characters available with powerline-patched fonts | 0 = Render the statusbar with less attractive but more compatible characters available in all fonts (__default__: 0)
   * **guifont**: Set to the name of the font you would like to use with gVim followed by the size, making sure to escape spaces and that a powerline-compatible font is selected if the above option is set to 1. (__default__: Droid\ Sans\ Mono\ 12)
 
-4. Install ctags (http://ctags.sourceforge.net) to your system using a package and ensure it can be accessed in __$PATH__, or install support for vim exclusively by copying the ctags binary to the __darkcloud-vimconfig/vim__ folder.
+5. Install ctags (http://ctags.sourceforge.net) to your system using a package and ensure it can be accessed in __$PATH__, or install support for vim exclusively by copying the ctags binary to the __darkcloud-vimconfig/vim__ folder.
 
 ## Configuration ##
 
@@ -41,15 +50,14 @@
 * **Custom Plugins**: Pathogen compatible plugins can be cloned or extracted to "darkcloud-vimconfig/vim/bundle.user/", or a folder named "bundle" or "bundle.user" in any of the folders in the runtimepath.
 * **Custom Snippets**: To add or override Emmet snippets, create __~/.vim/snippets.json__ and add your own definitions using json like shown in the [Emmet Documentation](http://docs.emmet.io/customization/snippets/).
 * **File Associations**: To use the file manager in vim to run files with external programs, create "~/.vim/filetypes.vim" and on each line, write an association between a file extension and the program to launch files of that type that looks like: `call vimfiler#set_execute_file('mp4','xdg-open')`.
-* **Update Script**: (requires: bash+git) Update the project and its submodules using the same "update" script in the root of darkcloud-vimconfig as the one used to download the plugins.
+* **Update Script**: (requires: bash+git) Use this to update the project and submodules, as well as handle any required maintenance, generate docs from the pathogen plugins and create missing config scripts with preset values.
 * **Generate System Tags**: (requires: bash+ctags) Generate a list of ctags for your system libraries in __/usr/include__ and __/usr/local/include__ as well as any folders passed as arguments by running the __gentags__ script.
-* **Fix TMux Keys**: (requires: tmux): Add the following settings to tmux to ensure the colour scheme gets loaded and all the keyboard combinations work: `set -g default-terminal "screen-256color` and `set-window-option -g xterm-keys on`
 
 ## Notes ##
 
 * **Runtimepath**: To find the runtimepath locations currently set, run the following in vim: `:verbose set runtimepath`.
-* **Reference**: Type `??`, `?>` and '?<' to toggle sidebars with different reference topics.
-* **Unique Key Bindings**: You can find a list of the bindings added by darkcloud-vimconfig, as well as a few of the ones added by plugins in __vim/config/keyboard.vim__.
+* **Key Bindings**: You can find a list of the bindings added by darkcloud-vimconfig, as well as a few of the ones added by plugins in __vim/config/keyboard.vim__.
+* **Vim Quick Reference**: Type __??__, __?>__ and __?<__ to toggle sidebars with three styles of quick reference material different reference topics.
 
 ## Credits ##
 

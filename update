@@ -4,7 +4,14 @@
 cd "${0%/*}"
 
 # create the user vimrc file in the directory if it doesn't already exist
-if [ ! -e vim/vimrc.user ]; then [[ -w vim ]] && touch vim/vimrc.user; fi
+if [ ! -e vim/vimrc.user ]; then
+    if [ -d vim ] && [ -w vim ]; then
+        echo -e '"Syntax Checking Autostart: (1:start toggled on | 0: start toggled off)\nlet g:autostartchecker=1\n' >> vim/vimrc.user
+        echo -e '"Vim Starts With The Tagbar Open: (1:start open | 0:start closed)\nlet g:autostarttagbar=1\n' >> vim/vimrc.user
+        echo -e '"Powerline Font Support: (1:enabled | 0:disabled)\nlet g:powerlinefonts=1\n' >> vim/vimrc.user
+        echo -e '"GVim Font Selection: (term font set by terminal)\nset guifont=Droid\ Sans\ Mono\ 12' >> vim/vimrc.user
+    fi
+fi
 
 # update the repository and submodules
 git pull origin
