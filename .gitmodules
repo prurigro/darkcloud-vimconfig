@@ -97,3 +97,6 @@
 [submodule "vim/bundle/vim-signify"]
 	path = vim/bundle/vim-signify
 	url = https://github.com/mhinz/vim-signify
+[submodule "vim/bundle/vim-repeat"]
+	path = vim/bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
