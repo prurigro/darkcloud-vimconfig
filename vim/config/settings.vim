@@ -46,6 +46,9 @@
     set smarttab expandtab autoindent tabstop=4 shiftwidth=4 "configure tabs
     set laststatus=2 showcmd statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v] "statusline init and config
     set hlsearch incsearch ignorecase smartcase "configure search
+    set diffopt=foldcolumn:0,filler "vimdiff default settings
+    set formatoptions=roqnl12 "how automatic formatting is to be done
+    set foldmethod=syntax foldcolumn=1 foldlevel=3 "fold layers 3 or more deep
     let &showbreak="+ " "when linewrap is enabled, show wrapped lines with +++
 
     "load the system version of matchit if another hasn't already been
@@ -74,14 +77,12 @@
     autocmd FileType gitcommit,notes,mail,notmuch,text setlocal spell
     autocmd FileType notes,mail,notmuch,mkd,text setlocal nonumber
     autocmd FileType mail,notmuch,text setlocal wrap
-
-    "help specific settings
     autocmd FileType help* wincmd L "help windows always open vertically
-    autocmd FileType help* vertical res 80
-    autocmd FileType help* setlocal nowrap nocursorline nocursorcolumn "help windows don't wrap
+    autocmd FileType help* vertical resize 80 "set the window size to 80 cols
+    autocmd FileType help* setlocal nocursorline "remove the horizontal cursor line
+    autocmd BufEnter,FileType qf,help* setlocal nowrap nocursorcolumn "disable text wrapping and the vertical cursor line
 
-    "set vimdiff settings
-    setlocal diffopt=foldcolumn:0,filler
+    "settings for buffers in diff mode
     autocmd VimEnter,FilterWritePre * if &diff|setlocal nofoldenable|endif
     autocmd VimEnter * if &diff|wincmd H|endif
 
@@ -92,9 +93,6 @@
             \       setlocal omnifunc=syntaxcomplete#Complete |
             \   endif
     endif
-
-    set formatoptions=roqnl12
-    set foldmethod=syntax foldcolumn=1 foldlevel=3 "fold layers 3 or more deep
 "}}}
 
 "GVIM: GUI CONFIG OPTIONS {{{

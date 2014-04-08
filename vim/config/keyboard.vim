@@ -40,7 +40,7 @@
 "    <Ctrl-ScrollDown>    | (A) -> scroll left a few characters at a time
 "    <Alt-ScrollUp>       | (A) -> scroll right one character at a time
 "    <Alt-ScrollDown>     | (A) -> scroll left one character at a time
-"    <Shift-MiddleClick>  | (A) -> unbind this from vim so xorg can paste
+"    <Shift-MClick>       | (A) -> unbind this from vim so xorg can paste
 "
 "  (tabs)
 "    <Leader>9            | (A) -> go to the next open tab
@@ -170,20 +170,35 @@
 "  (help)
 "    q                    | (N) -> close the dialog
 "
+"  (markdown)
+"    <F8>                 | (A) -> show heading TOC instead of the taglist
+"
+"  (markdown toc)
+"    q                    | (A) -> close the toc
+"    <F8>                 | (A) -> close the toc
+"    <Space>              | (A) -> select heading but remain in toc
+"    <LClick><LClick>     | (A) -> select heading to edit
+"    <Left>               | (A) -> up
+"    <Right>              | (A) -> down
+"    h                    | (A) -> j
+"    l                    | (A) -> k
+"
 "  (vimfiler)
-"    <LMouse><LMouse>     | (N) -> edit selected file
-"    <LMouse>             | (N) -> same as normal + justify on the left
-"    <MMouse>             | (N) -> same as the left mouse
-"    <RMouse>             | (N) -> same as the left mouse
+"    <LClick><LClick>     | (N) -> edit selected file
 "    <Right>              | (N) -> map to l, which opens a directory
 "    <Left>               | (N) -> map to h, which goes up one directory
 "    '                    | (N) -> edit the selected file
 "    n                    | (N) -> start editing a new file
 "
+"  (markdown toc + vimfiler)
+"    <LClick>             | (N) -> left click + left justify the cursor
+"    <MClick>             | (N) -> same as the left click
+"    <RClick>             | (N) -> same as the left click
+"
 "  (gundo)
-"    <LeftMouse>          | (N) -> same as normal + justify on the left
-"    <MiddleMouse>        | (N) -> same as the left mouse
-"    <RightMouse>         | (N) -> same as the left mouse
+"    <LeftClick>          | (N) -> same as normal + justify on the left
+"    <MiddleClick>        | (N) -> same as the left mouse
+"    <RightClick>         | (N) -> same as the left mouse
 "    <Right>              | (N) -> same as down
 "    l                    | (N) -> same as j
 "    <Left>               | (N) -> same as Up
@@ -461,15 +476,30 @@
     autocmd FileType help nnoremap <buffer> <silent><expr> ?> ':q<CR>'
     autocmd FileType help nnoremap <buffer> <silent><expr> ?< ':q<CR>'
 
+    "markdown launch table of contents instead of the tagbar
+    autocmd FileType mkd noremap <buffer> <silent><expr> <F8> ':Toc<CR><C-w>L'
+
+    "markdown table of contents
+    autocmd FileType qf noremap <buffer> <silent><expr> q ':q<CR>'
+    autocmd FileType qf noremap <buffer> <silent><expr> <F8> ':q<CR>'
+    autocmd FileType qf noremap <buffer> <Space> <CR><C-w>p
+    autocmd FileType qf noremap <buffer> <2-LeftMouse> <CR>
+    autocmd FileType qf noremap <buffer> <Left> <Up>
+    autocmd FileType qf noremap <buffer> <Right> <Down>
+    autocmd FileType qf noremap <buffer> h j
+    autocmd FileType qf noremap <buffer> l k
+
     "vimfiler
     autocmd FileType vimfiler nmap <buffer> <2-LeftMouse> <Plug>(vimfiler_edit_file)
-    autocmd FileType vimfiler nmap <buffer> <LeftMouse> <LeftMouse>0
-    autocmd FileType vimfiler nmap <buffer> <MiddleMouse> <LeftMouse>
-    autocmd FileType vimfiler nmap <buffer> <RightMouse> <LeftMouse>
     autocmd FileType vimfiler nmap <Right> l
     autocmd FileType vimfiler nmap <Left> h
     autocmd FileType vimfiler nmap ' e
     autocmd FileType vimfiler nmap n q
+
+    "markdown toc and vimfiler
+    autocmd FileType qf,vimfiler nmap <buffer> <LeftMouse> <LeftMouse>0
+    autocmd FileType qf,vimfiler nmap <buffer> <MiddleMouse> <LeftMouse>
+    autocmd FileType qf,vimfiler nmap <buffer> <RightMouse> <LeftMouse>
 
     "gundo
     autocmd FileType gundo nmap <buffer> <LeftMouse> <LeftMouse>0l
@@ -492,25 +522,25 @@
 
 "DISABLED MAPPINGS: {{{
     "remove incompatible toggles from specific filetypes
-    autocmd Filetype gundo,vimfiler noremap <F1> <Nop>
-    autocmd Filetype gundo,vimfiler,help noremap <F2> <Nop>
-    autocmd Filetype gundo,vimfiler noremap <F3> <Nop>
-    autocmd Filetype gundo,vimfiler noremap <C-Up> <Nop>
-    autocmd Filetype gundo,vimfiler noremap <C-k> <Nop>
-    autocmd Filetype gundo,vimfiler noremap <C-Down> <Nop>
-    autocmd Filetype gundo,vimfiler noremap <C-j> <Nop>
-    autocmd Filetype gundo,vimfiler noremap <C-Right> <Nop>
-    autocmd Filetype gundo,vimfiler noremap <C-l> <Nop>
-    autocmd Filetype gundo,vimfiler noremap <C-Left> <Nop>
-    autocmd Filetype gundo,vimfiler noremap <C-h> <Nop>
-    autocmd Filetype gundo,vimfiler noremap <S-Up> <Nop>
-    autocmd Filetype gundo,vimfiler noremap <S-k> <Nop>
-    autocmd Filetype gundo,vimfiler noremap <S-Down> <Nop>
-    autocmd Filetype gundo,vimfiler noremap <S-j> <Nop>
-    autocmd Filetype gundo,vimfiler noremap <S-Right> <Nop>
-    autocmd Filetype gundo,vimfiler noremap <S-l> <Nop>
-    autocmd Filetype gundo,vimfiler noremap <S-Left> <Nop>
-    autocmd Filetype gundo,vimfiler noremap <S-h> <Nop>
+    autocmd Filetype qf,gundo,vimfiler noremap <F1> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler,help noremap <F2> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <F3> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <C-Up> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <C-k> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <C-Down> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <C-j> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <C-Right> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <C-l> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <C-Left> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <C-h> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <S-Up> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <S-k> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <S-Down> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <S-j> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <S-Right> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <S-l> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <S-Left> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler noremap <S-h> <Nop>
 "}}}
 
 "ALIASES: COMMAND SHORTCUTS {{{
