@@ -270,7 +270,7 @@
         \       'syntastic': 'error',
         \   },
         \   'separator': {'left': '', 'right': ''},
-        \   'subseparator': {'left': '|', 'right': '|'}
+        \   'subseparator': {'left': '|', 'right': '|'},
         \   'component': {
         \       'tagbar': '%{tagbar#currenttag("[%s]", "", "f")}',
         \   },
