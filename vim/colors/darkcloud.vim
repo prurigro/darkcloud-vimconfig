@@ -364,6 +364,9 @@ call s:X("DiffText","#000000","#c6c6c6","italic",s:termBlack,"White")
 call s:X("SignifySignAdd","#ffd787","","bold","","Yellow")
 call s:X("SignifySignDelete","#d75f5f","","bold","","Red")
 call s:X("SignifySignChange","#87d7ff","","bold","","Blue")
+hi! link SignifyLineAdd DiffAdd
+hi! link SignifyLineDelete DiffDelete
+hi! link SignifyLineChange DiffChange
 hi! link gitconfigAssignment Label
 
 "html

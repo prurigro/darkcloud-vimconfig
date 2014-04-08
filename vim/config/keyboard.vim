@@ -63,6 +63,7 @@
 "    <F5>                 | (A) -> toggle spell check
 "    <F6>                 | (A) -> toggle syntax checking
 "    <F7>                 | (A) -> toggle version control differences
+"    <Ctrl-F7>            | (A) -> toggle version control difference line highlight
 "    <F8>                 | (A) -> toggle the tagbar sidebar
 "    <Ctrl-F8>            | (A) -> toggle the location list to check syntax errors
 "    <F9>                 | (A) -> toggle the gundo undo history sidebar
@@ -162,8 +163,9 @@
 " Filetype Specific Mappings:
 "  (vimdiff)
 "    <Leader><>           | (N) -> update differences
+"    <Leader>><           | (N) -> update differences
 "    <Leader>>            | (N) -> replace diff in other pane with current pane
-"    <Leader><            | (N) -> replace diff in current pane with other pane
+"    <Leader<<            | (N) -> replace diff in current pane with other pane
 "
 "  (help)
 "    q                    | (N) -> close the dialog
@@ -251,27 +253,27 @@
         nnoremap <Space> za
 
         "unmap F1 from help then map it to toggle the display of line numbers
-        nnoremap <silent><expr> <F1> ':set number!<CR>:echo "Line numbers toggled"<CR>'
+        nnoremap <silent><expr> <F1> ':set number!<CR>:echo "line numbers toggled"<CR>'
         xnoremap <silent><expr> <F1> '<Esc>:set number!<CR>v'
         inoremap <silent><expr> <F1> '<C-O>:set number!<CR>'
 
         "toggle the cursor line and column
-        nnoremap <silent><expr> <F2> ':set cursorline! cursorcolumn!<CR>:echo "Cursor crosshair toggled"<CR>'
+        nnoremap <silent><expr> <F2> ':set cursorline! cursorcolumn!<CR>:echo "cursor crosshair toggled"<CR>'
         xnoremap <silent><expr> <F2> '<Esc>:set cursorline! cursorcolumn!<CR>v'
         inoremap <silent><expr> <F2> '<C-O>:set cursorline! cursorcolumn!<CR>'
 
         "toggle line wrapping (and bottom bar if using the gui)
-        nnoremap <silent><expr> <F3> ':echo "Line wrapping toggled"<CR>:set wrap!<CR>'
+        nnoremap <silent><expr> <F3> ':echo "line wrapping toggled"<CR>:set wrap!<CR>'
         xnoremap <silent><expr> <F3> '<Esc>:set wrap!<CR>v'
         inoremap <silent><expr> <F3> '<C-O>:set wrap!<CR>'
 
         "toggle all folds
-        nnoremap <F4> zi:echo "Code Folding Toggled"<CR>
+        nnoremap <F4> zi:echo "code folding toggled"<CR>
         xnoremap <F4> <Esc>ziv
         inoremap <F4> <C-O>zi
 
         "toggle spellcheck
-        nnoremap <silent><expr> <F5> ':set spell!<CR>:echo "Spell checking toggled"<CR>'
+        nnoremap <silent><expr> <F5> ':set spell!<CR>:echo "spell checking toggled"<CR>'
         xnoremap <silent><expr> <F5> '<Esc>:set spell!<CR>v'
         inoremap <silent><expr> <F5> '<C-O>:set spell!<CR>'
 
@@ -280,19 +282,22 @@
         xnoremap <silent><expr> <F6> '<Esc>:SyntasticToggleMode<CR>v'
         inoremap <silent><expr> <F6> '<C-O>:SyntasticToggleMode<CR>'
 
-        "toggle signify
+        "toggle signify and signify highlight
         let g:signify_mapping_toggle = '<F7>'
+        nnoremap <silent><expr> <C-F7> ':SignifyToggleHighlight<CR>:echo "toggled version control differences line highlight"<CR>'
+        xnoremap <silent><expr> <C-F7> '<Esc>:SignifyToggleHighlight<CR>v'
+        inoremap <silent><expr> <C-F7> '<C-O>:SignifyToggleHighlight<CR>'
 
         "bindings to trigger the tagbar list of tags
-        nnoremap <silent><expr> <F8> ':TagbarToggle<CR>:echo "Code tagbar toggled"<CR>'
+        nnoremap <silent><expr> <F8> ':TagbarToggle<CR>:echo "code tagbar toggled"<CR>'
         xnoremap <silent><expr> <F8> '<Esc>:TagbarToggle<CR>v'
         inoremap <silent><expr> <F8> '<C-O>:TagbarToggle<CR>'
 
         "bindings to trigger the tagbar list of errors
-        nmap <script> <silent> <C-F8> :call ToggleLocationList()<CR>:echo "Error/Location list toggled"<CR>
+        nmap <script> <silent> <C-F8> :call ToggleLocationList()<CR>:echo "error/location list toggled"<CR>
 
         "bindings to trigger the gundo undo history
-        nnoremap <silent><expr> <F9> ':GundoToggle<CR>:echo "Undo history sidebar toggled"<CR>'
+        nnoremap <silent><expr> <F9> ':GundoToggle<CR>:echo "undo history sidebar toggled"<CR>'
         xnoremap <silent><expr> <F9> '<Esc>:GundoToggle<CR>v'
         inoremap <silent><expr> <F9> '<C-O>:GundoToggle<CR>'
 
@@ -444,6 +449,7 @@
 "FILETYPE SPECIFIC MAPPINGS: {{{
     "vimdiff
     autocmd FilterWritePre * if &diff|nnoremap <silent><expr> <Leader><> ':diffu<CR>'|endif
+    autocmd FilterWritePre * if &diff|nnoremap <silent><expr> <Leader>>< ':diffu<CR>'|endif
     autocmd FilterWritePre * if &diff|nnoremap <Leader>> dp|endif
     autocmd FilterWritePre * if &diff|nnoremap <Leader>< do|endif
     autocmd FilterWritePre * if &diff|cabbrev q qall|endif
