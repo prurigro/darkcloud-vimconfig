@@ -106,7 +106,7 @@
 "TAGBAR: {{{
     "tagbar sidebar autostart default: 1
     if !exists("g:autostarttagbar")
-        let g:autostarttagbar=1
+        let g:autostarttagbar=0
     endif
 
     if (g:autostarttagbar == 1)

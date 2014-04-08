@@ -32,7 +32,7 @@
     let g:autostartchecker=1
 
     "Vim Starts With The Tagbar Open: (1:start open | 0:start closed)
-    let g:autostarttagbar=1
+    let g:autostarttagbar=0
 
     "Powerline Font Support: (1:enabled | 0:disabled)
     let g:powerlinefonts=1
