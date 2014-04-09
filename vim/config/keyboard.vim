@@ -207,8 +207,6 @@
 "    <MClick>             | (A) -> same as the left click
 "    <RClick>             | (A) -> same as the left click
 "    <LClick><LClick>     | (A) -> select heading to edit
-"    <F8>                 | (A) -> close the dialog
-"    q                    | (A) -> close the dialog
 "    <Space>              | (A) -> select heading but remain in toc
 "    <Left>               | (A) -> up
 "    <Right>              | (A) -> down
@@ -495,7 +493,7 @@
     autocmd BufNewFile,BufRead *.html,*.htm,*.xhtml,*.xml,*.php,*.aspx nmap <buffer> <silent><expr> <Leader><Backspace> ':BreezeParent<CR>'
 
     "extradite
-    autocmd FileType extradite map <buffer> <silent><expr> <C-F7> ':q<CR>'
+    autocmd FileType diff,extradite map <buffer> <silent><expr> <C-F7> ':Extradite<CR>'
     autocmd FileType extradite map <buffer> <Right> <Down>
     autocmd FileType extradite map <buffer> l j
     autocmd FileType extradite map <buffer> <Left> <Up>
@@ -524,8 +522,6 @@
     autocmd FileType qf map <buffer> <MiddleMouse> <LeftMouse>
     autocmd FileType qf map <buffer> <RightMouse> <LeftMouse>
     autocmd FileType qf map <buffer> <2-LeftMouse> <CR>
-    autocmd FileType qf noremap <buffer> <silent><expr> <F8> ':q<CR>'
-    autocmd FileType qf map <buffer> <silent><expr> q ':q<CR>'
     autocmd FileType qf map <buffer> <Space> <CR><C-w>p
     autocmd FileType qf map <buffer> <Left> <Up>
     autocmd FileType qf map <buffer> <Right> <Down>
@@ -559,9 +555,9 @@
     autocmd Filetype qf,ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <F4> <Nop>
     autocmd Filetype qf,ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <F6> <Nop>
     autocmd Filetype qf,ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <F7> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <C-F7> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler,tagbar,help noremap <buffer> <C-F7> <Nop>
     autocmd Filetype ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <F8> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <C-F8> <Nop>
+    autocmd Filetype ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <C-F8> <Nop>
     autocmd Filetype qf,ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <F9> <Nop>
     autocmd Filetype qf,ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <C-F9> <Nop>
     autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <C-Up> <Nop>
