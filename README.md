@@ -31,6 +31,7 @@
   * Come up with some other solution that fits your setup better than these. :)
 4. Open the vimrc you just installed and either edit the variables in the "__USER CONFIG SETTINGS__" section, or (preferably) copy them to __vim/vimrc.user__ and edit them there:
   * **g:darkcloudpath**: Set to the location of the darkcloud-vimconfig folder. (__default__: __/etc/darkcloud-vimconfig__)
+  * **g:autostartfiler**: 1 = Start the filer file manager when vim is run and the buffer is empty | 0 = Do nothing when vim is run and the buffer is empty (__default__: 1)
   * **g:autostartchecker**: 1 = Check syntax once an appropriate file is loaded | 0 = Check syntax only after syntax checking is toggled on (__default__: 1)
   * **g:autostarttagbar**: 1 = Have the tagbar load automatically when a compatible format is run | 0 = The tagbar will stay hidden until triggered on demand with its toggle (__default__: 0)
   * **g:powerlinefonts**: 1 = Render the statusline using characters available with powerline-patched fonts | 0 = Render the statusbar with less attractive but more compatible characters available in all fonts (__default__: 0)
