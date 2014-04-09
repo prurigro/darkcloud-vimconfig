@@ -14,17 +14,21 @@
     set encoding=utf-8 "set encoding
     set fileformats=unix,dos,mac "set compatible line endings in order of preference
     set backspace=indent,eol,start "enables backspacing
-    set mouse=a "enables extended mouse capabilities
     set clipboard=unnamedplus "enable copy/paste support between vim and the environment's clipboard
-
     set lazyredraw "only redraw what needs to be redrawn
     set ttyfast "assume a fast connection to the terminal for better rendering
+
+    set mouse=a "enables mouse functionality with extended capabilities
+    if has("mouse_sgr")
+        set ttymouse=sgr "use mouse handling that emits sgr-style reporting if it's available
+    else
+        set ttymouse=xterm2 "fall back to xterm2-style reporting if sgr isn't available
+    endif
 
     if $TERM =~ '^linux'
         set t_Co=8 "use 8 colours when a vterm is detected
     elseif !has("gui_running")
         set t_Co=256 "assume 256 colours when any other terminal is detected
-        set ttymouse=xterm2 "sets the type of mouse to one we can expect in most gui envs
     endif
 "}}}
 
