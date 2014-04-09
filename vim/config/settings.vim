@@ -70,7 +70,7 @@
 
     "set matching filenames to matching filenames
     autocmd BufNewFile,BufRead *.aspx,*.asmx,*.ascx,*.master setf aspnet
-    autocmd BufNewFile,BufRead *tmux.conf,pacman.conf,yaourtrc setf sh
+    autocmd BufNewFile,BufRead pacman.conf,yaourtrc setf sh
     autocmd BufNewFile,BufRead cjdroute.conf,ircd.conf setf javascript
 
     "misc filtype specific settings
