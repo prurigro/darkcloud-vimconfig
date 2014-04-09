@@ -35,7 +35,7 @@
     let g:autostarttagbar=0
 
     "Powerline Font Support: (1:enabled | 0:disabled)
-    let g:powerlinefonts=0
+    let g:powerlinefonts=1
 
     "GVim Font Selection: (term font set by terminal)
     set guifont=Droid\ Sans\ Mono\ 12

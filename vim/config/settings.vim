@@ -49,7 +49,7 @@
     set diffopt=foldcolumn:0,filler "vimdiff default settings
     set formatoptions=roqnl12 "how automatic formatting is to be done
     set foldmethod=syntax foldcolumn=1 foldlevel=3 "fold layers 3 or more deep
-    let &showbreak="+ " "when linewrap is enabled, show wrapped lines with +++
+    let &showbreak="  " "when linewrap is enabled, show wrapped lines with +++
 
     "load the system version of matchit if another hasn't already been
     if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
