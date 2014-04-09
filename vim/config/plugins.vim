@@ -114,8 +114,9 @@
     endif
 
     let g:tagbar_sort=0
+    let g:tagbar_compact=1
     let g:tagbar_singleclick=1
-    let g:tagbar_width=27
+    let g:tagbar_width=35
 "}}}
 
 "VIM FILER: {{{
@@ -209,7 +210,7 @@
 
     let g:tagbar_status_func = 'TagbarStatusFunc'
     function! TagbarStatusFunc(current, sort, fname, ...) abort
-        let g:lightline.fname = a:fname
+        let g:lightline.fname = 'tags' "a:fname
         return lightline#statusline(0)
     endfunction
 

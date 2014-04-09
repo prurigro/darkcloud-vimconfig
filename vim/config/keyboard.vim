@@ -325,7 +325,7 @@
         inoremap <expr><silent> <C-F7> '<Esc>:Extradite<CR>:wincmd x<CR>:wincmd j<CR>:resize 10<CR>'
 
         "bindings to trigger the tagbar list of tags
-        nnoremap <silent><expr> <F8> ':TagbarToggle<CR>:echo "code tagbar toggled"<CR>'
+        nnoremap <silent><expr> <F8> ':TagbarToggle<CR>:echo "tagbar toggled"<CR>'
         xnoremap <silent><expr> <F8> '<Esc>:TagbarToggle<CR>v'
         inoremap <silent><expr> <F8> '<C-O>:TagbarToggle<CR>'
 
