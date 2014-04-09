@@ -12,6 +12,11 @@
 " Note:
 "  *The default <Leader> key is: \
 "
+"  Aliases:
+"  :GitLog & :gitlog      | (C) -> show a navigatable log of commit history
+"  :wsudo & :sudow        | (C) -> write the file as root using sudo
+"  :esudo & :sudoe        | (C) -> read a file as root using sudo
+"
 " Reference: (view plugin documentation for the full list of commands each offers)
 "  (tcomment _ can also be -)
 "   <Ctrl-_><Ctrl-_>      | (A) -> comment selection/create an empty comment
@@ -65,7 +70,7 @@
 "    <F5>                 | (A) -> toggle spell check
 "    <F6>                 | (A) -> toggle syntax checking
 "    <F7>                 | (A) -> toggle version control differences
-"    <Ctrl-F7>            | (A) -> toggle version control difference line highlight
+"    <Ctrl-F7>            | (A) -> toggle version control commit history
 "    <F8>                 | (A) -> toggle the tagbar sidebar
 "    <Ctrl-F8>            | (A) -> toggle the location list to check syntax errors
 "    <F9>                 | (A) -> toggle the gundo undo history sidebar
@@ -163,47 +168,6 @@
 "    <Leader>dd           | (N) -> delete lines under and after the one below
 "
 " Filetype Specific Mappings:
-"  (vimdiff)
-"    <Leader><>           | (N) -> update differences
-"    <Leader>><           | (N) -> update differences
-"    <Leader>>            | (N) -> replace diff in other pane with current pane
-"    <Leader<<            | (N) -> replace diff in current pane with other pane
-"
-"  (help)
-"    q                    | (N) -> close the dialog
-"
-"  (markdown)
-"    <F8>                 | (A) -> show heading TOC instead of the taglist
-"
-"  (markdown toc)
-"    <Space>              | (A) -> select heading but remain in toc
-"    <LClick><LClick>     | (A) -> select heading to edit
-"    <Left>               | (A) -> up
-"    <Right>              | (A) -> down
-"    h                    | (A) -> j
-"    l                    | (A) -> k
-"
-"  (vimfiler)
-"    <LClick><LClick>     | (N) -> edit selected file
-"    <Right>              | (N) -> map to l, which opens a directory
-"    <Left>               | (N) -> map to h, which goes up one directory
-"    '                    | (N) -> edit the selected file
-"    n                    | (N) -> start editing a new file
-"
-"  (markdown toc + vimfiler)
-"    <LClick>             | (N) -> left click + left justify the cursor
-"    <MClick>             | (N) -> same as the left click
-"    <RClick>             | (N) -> same as the left click
-"
-"  (gundo)
-"    <LeftClick>          | (N) -> same as normal + justify on the left
-"    <MiddleClick>        | (N) -> same as the left mouse
-"    <RightClick>         | (N) -> same as the left mouse
-"    <Right>              | (N) -> same as down
-"    l                    | (N) -> same as j
-"    <Left>               | (N) -> same as Up
-"    h                    | (N) -> same as k
-"
 "  (breeze->html compat)
 "    _                    | (N) -> move to the next sibling tag
 "    +                    | (N) -> move to the previous sibling tag
@@ -213,10 +177,69 @@
 "    <Leader>+            | (N) -> move to the last child tag
 "    <Leader><Backspace>  | (N) -> move to the parent tag
 "
-"  Aliases:
-"    :wsudo -and- :sudow  | (C) -> :SudoWrite (write the file as root using sudo)
-"    :esudo -and- :sudoe  | (C) -> :SudoRead (read a file as root using sudo)
+"  (extradite)
+"    <C-F7>               | (A) -> close the dialog
+"    <Right>              | (A) -> same as down
+"    l                    | (A) -> same as j
+"    <Left>               | (A) -> same as Up
+"    h                    | (A) -> same as k
 "
+"  (gundo)
+"    <LeftClick>          | (A) -> same as normal + justify on the left
+"    <MiddleClick>        | (A) -> same as the left mouse
+"    <RightClick>         | (A) -> same as the left mouse
+"    <Right>              | (A) -> same as down
+"    l                    | (A) -> same as j
+"    <Left>               | (A) -> same as Up
+"    h                    | (A) -> same as k
+"
+"  (help)
+"    q                    | (A) -> close the dialog
+"    ??                   | (A) -> close the dialog
+"    ?>                   | (A) -> close the dialog
+"    ?<                   | (A) -> close the dialog
+"
+"  (markdown)
+"    <F8>                 | (A) -> show heading TOC instead of the taglist
+"
+"  (markdown toc)
+"    <LClick>             | (A) -> left click + left justify the cursor
+"    <MClick>             | (A) -> same as the left click
+"    <RClick>             | (A) -> same as the left click
+"    <LClick><LClick>     | (A) -> select heading to edit
+"    <F8>                 | (A) -> close the dialog
+"    q                    | (A) -> close the dialog
+"    <Space>              | (A) -> select heading but remain in toc
+"    <Left>               | (A) -> up
+"    <Right>              | (A) -> down
+"    h                    | (A) -> j
+"    l                    | (A) -> k
+"
+"  (vimdiff)
+"    <Leader><>           | (N) -> update differences
+"    <Leader>><           | (N) -> update differences
+"    <Leader>>            | (N) -> replace diff in other pane with current pane
+"    <Leader<<            | (N) -> replace diff in current pane with other pane
+"
+"  (vimfiler)
+"    <LClick>             | (A) -> left click + left justify the cursor
+"    <MClick>             | (A) -> same as the left click
+"    <RClick>             | (A) -> same as the left click
+"    <LClick><LClick>     | (A) -> edit selected file
+"    <Right>              | (A) -> map to l, which opens a directory
+"    <Left>               | (A) -> map to h, which goes up one directory
+"    '                    | (A) -> edit the selected file
+"    n                    | (A) -> start editing a new file
+"
+
+"ALIASES: COMMAND SHORTCUTS {{{
+    cabbrev <expr><silent> GitLog ':Extradite<CR>:wincmd x<CR>:wincmd j<CR>:resize 10<CR>'
+    cabbrev <expr><silent> gitlog ':Extradite<CR>:wincmd x<CR>:wincmd j<CR>:resize 10<CR>'
+    cabbrev sudow SudoWrite
+    cabbrev wsudo SudoWrite
+    cabbrev sudoe SudoRead
+    cabbrev esudo SudoRead
+"}}}
 
 "MAPPINGS: GENERAL KEYBINDINGS AND REBINDINGS {{{
     "MOUSE:{
@@ -299,9 +322,9 @@
 
         "toggle signify and signify highlight
         let g:signify_mapping_toggle = '<F7>'
-        nnoremap <silent><expr> <C-F7> ':SignifyToggleHighlight<CR>:echo "toggled version control differences line highlight"<CR>'
-        xnoremap <silent><expr> <C-F7> '<Esc>:SignifyToggleHighlight<CR>v'
-        inoremap <silent><expr> <C-F7> '<C-O>:SignifyToggleHighlight<CR>'
+        nnoremap <expr><silent> <C-F7> ':Extradite<CR>:wincmd x<CR>:wincmd j<CR>:resize 10<CR>'
+        xnoremap <expr><silent> <C-F7> '<Esc>:Extradite<CR>:wincmd x<CR>:wincmd j<CR>:resize 10<CR>'
+        inoremap <expr><silent> <C-F7> '<Esc>:Extradite<CR>:wincmd x<CR>:wincmd j<CR>:resize 10<CR>'
 
         "bindings to trigger the tagbar list of tags
         nnoremap <silent><expr> <F8> ':TagbarToggle<CR>:echo "code tagbar toggled"<CR>'
@@ -462,53 +485,6 @@
 "}}}
 
 "FILETYPE SPECIFIC MAPPINGS: {{{
-    "vimdiff
-    autocmd FilterWritePre * if &diff|nnoremap <buffer> <silent><expr> <Leader><> ':diffu<CR>'|endif
-    autocmd FilterWritePre * if &diff|nnoremap <buffer> <silent><expr> <Leader>>< ':diffu<CR>'|endif
-    autocmd FilterWritePre * if &diff|nnoremap <buffer> <Leader>> dp|endif
-    autocmd FilterWritePre * if &diff|nnoremap <buffer> <Leader>< do|endif
-    autocmd FilterWritePre * if &diff|cabbrev q qall|endif
-    autocmd FilterWritePre * if &diff|cabbrev q! qall!|endif
-
-    "help
-    autocmd FileType help nnoremap <buffer> <silent><expr> q ':q<CR>'
-    autocmd FileType help nnoremap <buffer> <silent><expr> ?? ':q<CR>'
-    autocmd FileType help nnoremap <buffer> <silent><expr> ?> ':q<CR>'
-    autocmd FileType help nnoremap <buffer> <silent><expr> ?< ':q<CR>'
-
-    "markdown launch table of contents instead of the tagbar
-    autocmd FileType mkd noremap <buffer> <silent><expr> <F8> ':Toch<CR>'
-
-    "markdown table of contents
-    autocmd FileType qf noremap <buffer> <silent><expr> <F8> ':q<CR>'
-    autocmd FileType qf noremap <buffer> <Space> <CR><C-w>p
-    autocmd FileType qf noremap <buffer> <2-LeftMouse> <CR>
-    autocmd FileType qf noremap <buffer> <Left> <Up>
-    autocmd FileType qf noremap <buffer> <Right> <Down>
-    autocmd FileType qf noremap <buffer> h j
-    autocmd FileType qf noremap <buffer> l k
-
-    "vimfiler
-    autocmd FileType vimfiler nmap <buffer> <2-LeftMouse> <Plug>(vimfiler_edit_file)
-    autocmd FileType vimfiler nmap <buffer> <Right> l
-    autocmd FileType vimfiler nmap <buffer> <Left> h
-    autocmd FileType vimfiler nmap <buffer> ' e
-    autocmd FileType vimfiler nmap <buffer> n q
-
-    "markdown toc and vimfiler
-    autocmd FileType qf,vimfiler nmap <buffer> <LeftMouse> <LeftMouse>0
-    autocmd FileType qf,vimfiler nmap <buffer> <MiddleMouse> <LeftMouse>
-    autocmd FileType qf,vimfiler nmap <buffer> <RightMouse> <LeftMouse>
-
-    "gundo
-    autocmd FileType gundo nmap <buffer> <LeftMouse> <LeftMouse>0l
-    autocmd FileType gundo nmap <buffer> <MiddleMouse> <LeftMouse>
-    autocmd FileType gundo nmap <buffer> <RightMouse> <LeftMouse>
-    autocmd FileType gundo nmap <buffer> <Right> <Down>
-    autocmd FileType gundo nmap <buffer> l j
-    autocmd FileType gundo nmap <buffer> <Left> <Up>
-    autocmd FileType gundo nmap <buffer> h k
-
     "breeze compatible formats
     autocmd BufNewFile,BufRead *.html,*.htm,*.xhtml,*.xml,*.php,*.aspx nmap <buffer> <silent><expr> _ ':BreezePrevSibling<CR>'
     autocmd BufNewFile,BufRead *.html,*.htm,*.xhtml,*.xml,*.php,*.aspx nmap <buffer> <silent><expr> + ':BreezeNextSibling<CR>'
@@ -517,35 +493,91 @@
     autocmd BufNewFile,BufRead *.html,*.htm,*.xhtml,*.xml,*.php,*.aspx nmap <buffer> <silent><expr> <Leader>_ ':BreezeFirstChild<CR>'
     autocmd BufNewFile,BufRead *.html,*.htm,*.xhtml,*.xml,*.php,*.aspx nmap <buffer> <silent><expr> <Leader>+ ':BreezeLastChild<CR>'
     autocmd BufNewFile,BufRead *.html,*.htm,*.xhtml,*.xml,*.php,*.aspx nmap <buffer> <silent><expr> <Leader><Backspace> ':BreezeParent<CR>'
+
+    "extradite
+    autocmd FileType extradite map <buffer> <silent><expr> <C-F7> ':q<CR>'
+    autocmd FileType extradite map <buffer> <Right> <Down>
+    autocmd FileType extradite map <buffer> l j
+    autocmd FileType extradite map <buffer> <Left> <Up>
+    autocmd FileType extradite map <buffer> h k
+
+    "gundo
+    autocmd FileType gundo map <buffer> <LeftMouse> <LeftMouse>0l
+    autocmd FileType gundo map <buffer> <MiddleMouse> <LeftMouse>
+    autocmd FileType gundo map <buffer> <RightMouse> <LeftMouse>
+    autocmd FileType gundo map <buffer> <Right> <Down>
+    autocmd FileType gundo map <buffer> l j
+    autocmd FileType gundo map <buffer> <Left> <Up>
+    autocmd FileType gundo map <buffer> h k
+
+    "help
+    autocmd FileType help map <buffer> <silent><expr> q ':q<CR>'
+    autocmd FileType help map <buffer> <silent><expr> ?? ':q<CR>'
+    autocmd FileType help map <buffer> <silent><expr> ?> ':q<CR>'
+    autocmd FileType help map <buffer> <silent><expr> ?< ':q<CR>'
+
+    "markdown: launch table of contents instead of the tagbar
+    autocmd FileType mkd map <buffer> <silent><expr> <F8> ':Toch<CR>'
+
+    "markdown table of contents
+    autocmd FileType qf map <buffer> <LeftMouse> <LeftMouse>0
+    autocmd FileType qf map <buffer> <MiddleMouse> <LeftMouse>
+    autocmd FileType qf map <buffer> <RightMouse> <LeftMouse>
+    autocmd FileType qf map <buffer> <2-LeftMouse> <CR>
+    autocmd FileType qf map <buffer> <silent><expr> <F8> ':q<CR>'
+    autocmd FileType qf map <buffer> <silent><expr> q ':q<CR>'
+    autocmd FileType qf map <buffer> <Space> <CR><C-w>p
+    autocmd FileType qf map <buffer> <Left> <Up>
+    autocmd FileType qf map <buffer> <Right> <Down>
+    autocmd FileType qf map <buffer> h j
+    autocmd FileType qf map <buffer> l k
+
+    "vimdiff
+    autocmd FilterWritePre * if &diff|nnoremap <buffer> <silent><expr> <Leader><> ':diffu<CR>'|endif
+    autocmd FilterWritePre * if &diff|nnoremap <buffer> <silent><expr> <Leader>>< ':diffu<CR>'|endif
+    autocmd FilterWritePre * if &diff|nnoremap <buffer> <Leader>> dp|endif
+    autocmd FilterWritePre * if &diff|nnoremap <buffer> <Leader>< do|endif
+    autocmd FilterWritePre * if &diff|cabbrev q qall|endif
+    autocmd FilterWritePre * if &diff|cabbrev q! qall!|endif
+
+    "vimfiler
+    autocmd FileType vimfiler map <buffer> <LeftMouse> <LeftMouse>0
+    autocmd FileType vimfiler map <buffer> <MiddleMouse> <LeftMouse>
+    autocmd FileType vimfiler map <buffer> <RightMouse> <LeftMouse>
+    autocmd FileType vimfiler map <buffer> <2-LeftMouse> <Plug>(vimfiler_edit_file)
+    autocmd FileType vimfiler map <buffer> <Right> l
+    autocmd FileType vimfiler map <buffer> <Left> h
+    autocmd FileType vimfiler map <buffer> ' e
+    autocmd FileType vimfiler map <buffer> n q
 "}}}
 
 "DISABLED MAPPINGS: {{{
-    "remove incompatible toggles from specific filetypes
-    autocmd Filetype qf,gundo,vimfiler noremap <buffer> <F1> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler,tagbar,help noremap <buffer> <F2> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler,tagbar noremap <buffer> <F3> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler,tagbar,help noremap <buffer> <F4> <Nop>
+    "remove incompatible toggles from specific file types
+    autocmd Filetype qf,gundo,vimfiler,extradite noremap <buffer> <F1> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <F2> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler,extradite,tagbar noremap <buffer> <F3> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <F4> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <F6> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <F7> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <C-F7> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <F8> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <C-F8> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <F9> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <C-F9> <Nop>
     autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <C-Up> <Nop>
     autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <C-k> <Nop>
     autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <C-Down> <Nop>
     autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <C-j> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <C-Right> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <C-l> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <C-Left> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <C-h> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler,extradite noremap <buffer> <C-Right> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler,extradite noremap <buffer> <C-l> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler,extradite noremap <buffer> <C-Left> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler,extradite noremap <buffer> <C-h> <Nop>
     autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <S-Up> <Nop>
     autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <S-k> <Nop>
     autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <S-Down> <Nop>
     autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <S-j> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <S-Right> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <S-l> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <S-Left> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <S-h> <Nop>
-"}}}
-
-"ALIASES: COMMAND SHORTCUTS {{{
-    cabbrev sudow SudoWrite
-    cabbrev wsudo SudoWrite
-    cabbrev sudoe SudoRead
-    cabbrev esudo SudoRead
+    autocmd Filetype qf,ggundo,vimfiler,extradite noremap <buffer> <S-Right> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler,extradite noremap <buffer> <S-l> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler,extradite noremap <buffer> <S-Left> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler,extradite noremap <buffer> <S-h> <Nop>
 "}}}

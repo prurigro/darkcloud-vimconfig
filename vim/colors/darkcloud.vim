@@ -298,7 +298,7 @@ call s:X("LineNr","#4e4e4e","","bold","White",s:termBlack)
 hi LineNr ctermfg=239
 
 call s:X("Visual","","#262626","standout","",s:termBlack)
-call s:X("MatchParen","#ffffff","","bold,underline","","")
+call s:X("MatchParen","","#303030","bold,underline","","")
 
 "whitespace
 call s:X("TabLine","","#000000","","",s:termBlack)
@@ -370,6 +370,7 @@ hi! link SignifyLineAdd DiffAdd
 hi! link SignifyLineDelete DiffDelete
 hi! link SignifyLineChange DiffChange
 hi! link gitconfigAssignment Label
+hi! link ExtraditeLogName Type
 
 "html
 call s:X("htmlTitle","#ffffff","","underline,bold","White","")

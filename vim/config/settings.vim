@@ -84,6 +84,7 @@
     autocmd FileType help* vertical resize 80 "set the window size to 80 cols
     autocmd FileType help* setlocal nocursorline "remove the horizontal cursor line
     autocmd BufEnter,FileType qf,help* setlocal nowrap nocursorcolumn "disable text wrapping and the vertical cursor line
+    autocmd BufEnter,FileType extradite setlocal number
 
     "settings for buffers in diff mode
     autocmd VimEnter,FilterWritePre * if &diff|setlocal nofoldenable|endif
