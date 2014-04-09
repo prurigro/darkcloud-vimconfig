@@ -55,9 +55,6 @@
 [submodule "vim/bundle/SpellCheck"]
 	path = vim/bundle/SpellCheck
 	url = https://github.com/vim-scripts/SpellCheck.git
-[submodule "vim/bundle/vim-coloresque"]
-	path = vim/bundle/vim-coloresque
-	url = https://github.com/Marslo/vim-coloresque.git
 [submodule "vim/bundle/tcomment_vim"]
 	path = vim/bundle/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
