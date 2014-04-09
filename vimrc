@@ -1,12 +1,13 @@
-"========================="
-"                         "
-"  Darkcloud Vim Config:  "
-"  vimrc                  "
-"                         "
-"  Maintainer: Prurigro   "
-"  License: MIT           "
-"                         "
-"========================="
+"============================================================"
+"                                                            "
+"  Darkcloud Vim Config: vimrc                               "
+"                                                            "
+"  Maintainer: Prurigro (prurigro-at-gmail-dot-com)          "
+"  Website: https://github.com/prurigro/darkcloud-vimconfig  "
+"                                                            "
+"  License: MIT                                              "
+"                                                            "
+"============================================================"
 
 "DARKCLOUD VIM CONFIG FOLDER PATH: {{{
     " If you want to use darkcloud-vimconfig as a package without symlinking
@@ -28,6 +29,9 @@
     " it created, then toggle these settings there to override these and no
     " avoid conflicting with updates.
 
+    "Filer File Manager On Empty Buffers: (1:empty buffer loads filer | 0:buffer remains empty)
+    let g:autostartfiler=1
+
     "Syntax Checking Autostart: (1:start toggled on | 0: start toggled off)
     let g:autostartchecker=1
 
@@ -35,7 +39,7 @@
     let g:autostarttagbar=0
 
     "Powerline Font Support: (1:enabled | 0:disabled)
-    let g:powerlinefonts=1
+    let g:powerlinefonts=0
 
     "GVim Font Selection: (term font set by terminal)
     set guifont=Droid\ Sans\ Mono\ 12
@@ -51,16 +55,15 @@
     "Load Plugins:
     runtime bundle/vim-pathogen/autoload/pathogen.vim
 
-    "Load Plugin Configuration:
-    runtime config/plugins.vim
-
     "Load Keymappings:
     runtime config/keyboard.vim
 
+    "Load User Config:
+    runtime vimrc.user
+
+    "Load Plugin Configuration:
+    runtime config/plugins.vim
+
     "Load Colour Scheme:
     colorscheme darkcloud
-"}}}
-
-"LOAD USER CONFIG FILE: {{{
-    runtime vimrc.user
 "}}}

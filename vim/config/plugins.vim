@@ -1,11 +1,13 @@
-"=========================="
-"                          "
-"  Plugins Configuration:  "
-"                          "
-"  Maintainer: Prurigro    "
-"  License: MIT            "
-"                          "
-"=========================="
+"============================================================"
+"                                                            "
+"  Darkcloud Vim Config: plugin settings                     "
+"                                                            "
+"  Maintainer: Prurigro (prurigro-at-gmail-dot-com)          "
+"  Website: https://github.com/prurigro/darkcloud-vimconfig  "
+"                                                            "
+"  License: MIT                                              "
+"                                                            "
+"============================================================"
 
 "PATHOGEN BUNDLED EXTENSIONS PLUGIN: {{{
     execute pathogen#infect('bundle/{}', 'bundle.user/{}')
@@ -85,11 +87,10 @@
 "}}}
 
 "SYNTASTIC: {{{
-    "syntax checker autostart default: 1
+    "autostart syntax checking when vim opens to a compatible filetype (default: 1)
     if !exists("g:autostartchecker")
         let g:autostartchecker=1
     endif
-
     if (g:autostartchecker == 1)
         let g:syntastic_mode_map = {'mode':'active','active_filetypes':[],'passive_filetypes':[]}
         let g:syntastic_check_on_open=1
@@ -104,11 +105,10 @@
 "}}}
 
 "TAGBAR: {{{
-    "tagbar sidebar autostart default: 1
+    "autostart tagbar when vim opens to a compatible filetype (default: 0)
     if !exists("g:autostarttagbar")
         let g:autostarttagbar=0
     endif
-
     if (g:autostarttagbar == 1)
         autocmd VimEnter * nested :call tagbar#autoopen(1)
     endif
@@ -119,6 +119,14 @@
 "}}}
 
 "VIM FILER: {{{
+    "autostart filer when vim opens to an empty buffer (default: 1)
+    if !exists("g:autostartfiler")
+        let g:autostartfiler=1
+    endif
+    if (g:autostartfiler == 1)
+        autocmd VimEnter * if !argc() | VimFiler -quit -project | endif
+    endif
+
     let g:vimfiler_as_default_explorer=1
     let g:vimfiler_safe_mode_by_default=0
     let g:vimfiler_enable_auto_cd=1
@@ -132,9 +140,6 @@
 
     "edit files by double clicking them, and justify the cursor on the left
     autocmd FileType vimfiler setlocal nonumber nocursorcolumn
-
-    "open automatically if vim was run without any files
-    autocmd VimEnter * if !argc() | VimFiler -quit -project | endif
 
     "load the list of file extensions and handlers if it exists
     if filereadable(glob("~/.vim/filetypes.vim"))
@@ -216,11 +221,10 @@
         call lightline#update()
     endfunction
 
-    "status bar config with and without powerline fonts (defaults to off)
+    "status bar config with and without powerline fonts (default: 0)
     if !exists("g:powerlinefonts")
         let g:powerlinefonts=0
     endif
-
     if (g:powerlinefonts == 1)
         let g:lightline = {
         \   'colorscheme': 'darkcloud',

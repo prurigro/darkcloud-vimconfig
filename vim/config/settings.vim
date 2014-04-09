@@ -1,11 +1,13 @@
-"==============================="
-"                               "
-"  Vim Settings Configuration:  "
-"                               "
-"  Maintainer: Prurigro         "
-"  License: MIT                 "
-"                               "
-"==============================="
+"============================================================"
+"                                                            "
+"  Darkcloud Vim Config: main settings                       "
+"                                                            "
+"  Maintainer: Prurigro (prurigro-at-gmail-dot-com)          "
+"  Website: https://github.com/prurigro/darkcloud-vimconfig  "
+"                                                            "
+"  License: MIT                                              "
+"                                                            "
+"============================================================"
 
 "COMPATIBILITY SETTINGS: DOCUMENT AND ENVIRONMENT SETTINGS {{{
     set nocompatible "enable vim specific capabilities
