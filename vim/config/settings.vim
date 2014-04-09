@@ -76,6 +76,7 @@
 
     "set matching filenames to matching filenames
     autocmd BufNewFile,BufRead *.aspx,*.asmx,*.ascx,*.master setf aspnet
+    autocmd BufNewFile,BufRead *.muttrc setf muttrc
     autocmd BufNewFile,BufRead pacman.conf,yaourtrc setf sh
     autocmd BufNewFile,BufRead cjdroute.conf,ircd.conf setf javascript
 
