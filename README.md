@@ -19,29 +19,22 @@
 ## Installation ##
 
 1. Clone the darkcloud-vimconfig repo and use the __update__ script to install the plugins:
-
   * `git clone https://github.com/prurigro/darkcloud-vimconfig.git`
   * `sh darkcloud-vimconfig/update`
   * Note: The __update__ script requires bash, but if it's not available you can enter the __darkcloud-vimconfig/__ folder and run: `git submodule update --init` to install the plugins manually, then create __vim/vimrc.user__ and remember to run: `:Helptags` once everything else is running.
-
 2. If you don't know where vim expects to find your vimrc, start vim and run: `:version` to find the values "user vimrc file" (for a single-user install) and "system vimrc file" (for a system-wide install). T
-
 3. Copy or symlink the vimrc file from `darkcloud-vimconfig/vimrc` to one of the locations vim expects to find it, based on whether you want a local or system-wide install, then choose one of the following:
-
   * Edit the __g:darkcloudpath__ variable in the vimrc file iteself, pointing it to the location you're keeping the __darkcloud-vimconfig__ repo folder.
   * Create a file @ __~/.vim/darkcloud-path.vim__ and in it put the following: `let g:darkcloudpath="/etc/darkcloud-vimconfig"`, but replacing __"/etc/darkcloud-vimconfig"__ with the path to the __darkcloud-vimconfig__ repo folder.
   * Place __darkcloud-vimconfig__ in the default location @ __/etc/darkcloud-vimconfig__.
   * Create your own vimrc and have that set the __g:darkcloudpath__ variable before sourcing the included vimrc.
   * Come up with some other solution that fits your setup better than these. :)
-
 4. Open the vimrc you just installed and either edit the variables in the "__USER CONFIG SETTINGS__" section, or (preferably) copy them to __vim/vimrc.user__ and edit them there:
-
   * **g:darkcloudpath**: Set to the location of the darkcloud-vimconfig folder. (__default__: __/etc/darkcloud-vimconfig__)
   * **g:autostartchecker**: 1 = Check syntax once an appropriate file is loaded | 0 = Check syntax only after syntax checking is toggled on (__default__: 1)
   * **g:autostarttagbar**: 1 = Have the tagbar load automatically when a compatible format is run | 0 = The tagbar will stay hidden until triggered on demand with its toggle (__default__: 0)
   * **g:powerlinefonts**: 1 = Render the statusline using characters available with powerline-patched fonts | 0 = Render the statusbar with less attractive but more compatible characters available in all fonts (__default__: 0)
   * **guifont**: Set to the name of the font you would like to use with gVim followed by the size, making sure to escape spaces and that a powerline-compatible font is selected if the above option is set to 1. (__default__: Droid\ Sans\ Mono\ 12)
-
 5. Install ctags (http://ctags.sourceforge.net) to your system using a package and ensure it can be accessed in __$PATH__, or install support for vim exclusively by copying the ctags binary to the __darkcloud-vimconfig/vim__ folder.
 
 ## Configuration ##
