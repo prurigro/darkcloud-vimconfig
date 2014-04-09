@@ -16,7 +16,7 @@
 * Key bindings and aliases to make useful features more accessible and provide a smoother work flow while attempting to vim's default behaviour while adding behaviour.
 * A selection of plugins chosen either because they improve vim's support for common filetypes, or because they provide value-added features that aren't bloated and manage to make vim more useful as a text editor.
 
-->![Darkcloud Vim Distribution Theme](http://i.imgur.com/jP0EqeN.png)<-
+![Darkcloud Vim Distribution Theme](http://i.imgur.com/jP0EqeN.png)
 
 ## Installation ##
 
