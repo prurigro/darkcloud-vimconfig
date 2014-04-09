@@ -113,8 +113,6 @@
 "
 "    <Shift-Up>           | (N) -> move a few lines up
 "    <Shift-Down>         | (N) -> move a few lines down
-"    <Shift-Right>        | (N) -> move a few lines right
-"    <Shift-Left>         | (N) -> move a few lines left
 "
 "    <Alt+Up>             | (V) -> move a block up one line
 "    <Alt+Down>           | (V) -> move a block down one line
@@ -406,8 +404,6 @@
         "remap keys for speedier movement
         nnoremap <S-Up> 4k
         nnoremap <S-Down> 4j
-        nnoremap <S-Right> 6l
-        nnoremap <S-Left> 6h
 
         "remap keys to scroll to the end in a direction
         nnoremap <C-Up> gg0
