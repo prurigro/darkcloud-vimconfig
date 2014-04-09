@@ -524,7 +524,7 @@
     autocmd FileType qf map <buffer> <MiddleMouse> <LeftMouse>
     autocmd FileType qf map <buffer> <RightMouse> <LeftMouse>
     autocmd FileType qf map <buffer> <2-LeftMouse> <CR>
-    autocmd FileType qf map <buffer> <silent><expr> <F8> ':q<CR>'
+    autocmd FileType qf noremap <buffer> <silent><expr> <F8> ':q<CR>'
     autocmd FileType qf map <buffer> <silent><expr> q ':q<CR>'
     autocmd FileType qf map <buffer> <Space> <CR><C-w>p
     autocmd FileType qf map <buffer> <Left> <Up>
@@ -560,7 +560,7 @@
     autocmd Filetype qf,ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <F6> <Nop>
     autocmd Filetype qf,ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <F7> <Nop>
     autocmd Filetype qf,ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <C-F7> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <F8> <Nop>
+    autocmd Filetype ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <F8> <Nop>
     autocmd Filetype qf,ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <C-F8> <Nop>
     autocmd Filetype qf,ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <F9> <Nop>
     autocmd Filetype qf,ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <C-F9> <Nop>
