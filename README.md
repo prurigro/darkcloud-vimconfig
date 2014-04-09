@@ -50,7 +50,7 @@
 
 * **Runtimepath**: To find the runtimepath locations currently set, run the following in vim: `:verbose set runtimepath`.
 * **Key Bindings**: You can find a list of the bindings added by darkcloud-vimconfig, as well as a few of the ones added by plugins in __vim/config/keyboard.vim__.
-* **Vim Quick Reference**: Type __??__, __?>__ and __?<__ to toggle sidebars with three styles of quick reference material different reference topics.
+* **Vim Quick Reference**: Type __??__, __?>__ and __?<__ to toggle sidebars with three styles of quick reference material on different reference topics.
 
 ## Credits ##
 
