@@ -149,6 +149,9 @@
 "    <Shift-Right>        | (V) -> select a few lines right
 "    <Shift-Left>         | (V) -> select a few lines left
 "
+"    <C-LeftMouse>        | (N) -> select the current line in visual mode
+"    <C-LeftMouse>        | (I) -> select the current line in visual mode
+"
 "  (paste functions)
 "    <Leader>p            | (N) -> view the paste buffers and register contents
 "    <Leader>p<Direction> | (N) -> paste in the direction entered
@@ -455,6 +458,9 @@
         xnoremap <C-Down> G$
         xnoremap <C-Right> $
         xnoremap <C-Left> ^
+
+        nnoremap <C-LeftMouse> <LeftMouse>V
+        inoremap <C-LeftMouse> <Esc><LeftMouse>V
     "}
 
     "PASTE:{
