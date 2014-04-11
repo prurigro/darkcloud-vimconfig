@@ -416,6 +416,9 @@ hi! link cCharacter String
 hi! link cBlock String
 hi! link cNumbersCom Number
 
+"dosini
+hi! link dosiniLabel Function
+
 "objective-c/cocoa
 hi! link objcClass Type
 hi! link cocoaClass objcClass
