@@ -43,11 +43,19 @@
 "
 " Mappings:
 "  (mouse)
+"    <C-LeftMouse>        | (N) -> select the current line in normal mode
+"    <C-LeftMouse>        | (I) -> select the current line in input mode
+"
 "    <Ctrl-ScrollUp>      | (A) -> scroll right a few characters at a time
 "    <Ctrl-ScrollDown>    | (A) -> scroll left a few characters at a time
+"
 "    <Alt-ScrollUp>       | (A) -> scroll right one character at a time
 "    <Alt-ScrollDown>     | (A) -> scroll left one character at a time
 "    <Shift-MClick>       | (A) -> unbind this from vim so xorg can paste
+"
+"    <A-LeftMouse>        | (N) -> select the current paragraph in normal mode
+"    <A-LeftMouse>        | (V) -> select the current paragraph in visual mode
+"    <A-LeftMouse>        | (I) -> select the current paragraph in input mode
 "
 "  (tabs)
 "    <Leader>9            | (A) -> go to the next open tab
@@ -146,13 +154,6 @@
 "    <Shift-Down>         | (V) -> select a few lines down
 "    <Shift-Right>        | (V) -> select a few lines right
 "    <Shift-Left>         | (V) -> select a few lines left
-"
-"    <C-LeftMouse>        | (N) -> select the current line in normal mode
-"    <C-LeftMouse>        | (I) -> select the current line in input mode
-"
-"    <A-LeftMouse>        | (N) -> select the current paragraph in normal mode
-"    <A-LeftMouse>        | (V) -> select the current paragraph in visual mode
-"    <A-LeftMouse>        | (I) -> select the current paragraph in input mode
 "
 "  (paste functions)
 "    <Leader>p            | (N) -> view the paste buffers and register contents
@@ -261,6 +262,15 @@
         noremap <A-ScrollWheelDown> zh
         inoremap <A-ScrollWheelUp> <C-O>zl
         inoremap <A-ScrollWheelDown> <C-O>zh
+
+        "hold ctrl while clicking to select the current line
+        nnoremap <C-LeftMouse> <LeftMouse>V
+        inoremap <C-LeftMouse> <Esc><LeftMouse>V
+
+        "hold alt while clicking to select the current paragraph
+        nnoremap <A-LeftMouse> <LeftMouse>vip
+        xnoremap <A-LeftMouse> <Esc><LeftMouse>vip
+        inoremap <A-LeftMouse> <LeftMouse>vip
     "}
 
     "TABS:{
@@ -458,13 +468,6 @@
         xnoremap <C-Down> G$
         xnoremap <C-Right> $
         xnoremap <C-Left> ^
-
-        nnoremap <C-LeftMouse> <LeftMouse>V
-        inoremap <C-LeftMouse> <Esc><LeftMouse>V
-
-        nnoremap <A-LeftMouse> <LeftMouse>vip
-        xnoremap <A-LeftMouse> <Esc><LeftMouse>vip
-        inoremap <A-LeftMouse> <LeftMouse>vip
     "}
 
     "PASTE:{
