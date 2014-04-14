@@ -43,6 +43,9 @@
 "
 " Mappings:
 "  (mouse)
+"    <MiddleMouse         | (N) -> enter input mode where you click
+"    <C-MiddleMouse>      | (N) -> paste text from current buffer at cursor
+"
 "    <C-LeftMouse>        | (N) -> select the current line in normal mode
 "    <C-LeftMouse>        | (I) -> select the current line in input mode
 "
@@ -247,9 +250,9 @@
 
 "MAPPINGS: GENERAL KEYBINDINGS AND REBINDINGS {{{
     "MOUSE:{
-        "hold shift to enable middle-click paste
-        noremap <S-Insert> <MiddleMouse>
-        noremap! <S-Insert> <MiddleMouse>
+        "midle click enters input mode
+        nnoremap <MiddleMouse> <LeftMouse>i
+        nnoremap <C-MiddleMouse> <LeftMouse>p
 
         "hold ctrl to scroll left/right instead of up/down
         noremap <C-ScrollWheelUp> 4zl
