@@ -43,11 +43,12 @@
 "
 " Mappings:
 "  (mouse)
-"    <MiddleMouse         | (N) -> enter input mode where you click
-"    <C-MiddleMouse>      | (N) -> paste text from current buffer at cursor
+"    <MiddleClick>        | (N) -> select text between the mouse and cursor
+"    <A-MiddleClick>      | (N) -> enter input mode where you click
+"    <C-MiddleClick>      | (N) -> paste text from current buffer at cursor
 "
-"    <C-LeftMouse>        | (N) -> select the current line in normal mode
-"    <C-LeftMouse>        | (I) -> select the current line in input mode
+"    <C-LeftClick>        | (N) -> select the current line in normal mode
+"    <C-LeftClick>        | (I) -> select the current line in input mode
 "
 "    <Ctrl-ScrollUp>      | (A) -> scroll right a few characters at a time
 "    <Ctrl-ScrollDown>    | (A) -> scroll left a few characters at a time
@@ -251,7 +252,8 @@
 "MAPPINGS: GENERAL KEYBINDINGS AND REBINDINGS {{{
     "MOUSE:{
         "midle click enters input mode
-        nnoremap <MiddleMouse> <LeftMouse>i
+        nnoremap <MiddleMouse> <RightMouse>
+        nnoremap <A-MiddleMouse> <LeftMouse>i
         nnoremap <C-MiddleMouse> <LeftMouse>p
 
         "hold ctrl to scroll left/right instead of up/down
