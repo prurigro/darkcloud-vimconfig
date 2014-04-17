@@ -114,8 +114,11 @@
     if !exists("g:autostarttagbar")
         let g:autostarttagbar=0
     endif
-    if (g:autostarttagbar == 1)
-        autocmd VimEnter * nested :call tagbar#autoopen(1)
+
+    if !&diff
+        if (g:autostarttagbar == 1)
+            autocmd VimEnter * nested :call tagbar#autoopen(1)
+        endif
     endif
 
     let g:tagbar_sort=0

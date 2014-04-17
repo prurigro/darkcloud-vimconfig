@@ -527,10 +527,12 @@
     autocmd FileType gundo map <buffer> h k
 
     "help
-    autocmd FileType help map <buffer> <silent><expr> q ':q<CR>'
-    autocmd FileType help map <buffer> <silent><expr> ?? ':q<CR>'
-    autocmd FileType help map <buffer> <silent><expr> ?> ':q<CR>'
-    autocmd FileType help map <buffer> <silent><expr> ?< ':q<CR>'
+    if !&diff
+        autocmd FileType help map <buffer> <silent><expr> q ':q<CR>'
+        autocmd FileType help map <buffer> <silent><expr> ?? ':q<CR>'
+        autocmd FileType help map <buffer> <silent><expr> ?> ':q<CR>'
+        autocmd FileType help map <buffer> <silent><expr> ?< ':q<CR>'
+    endif
 
     "markdown: launch table of contents instead of the tagbar
     autocmd FileType mkd map <buffer> <silent><expr> <F8> ':Toch<CR>'
