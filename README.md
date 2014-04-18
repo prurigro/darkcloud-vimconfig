@@ -2,12 +2,12 @@
 
 ## Requirements ##
 
-1. **Vim** v7.4+: Everything has been written and tested using Vim 7.4.135, and I assume there could be issues with 7.3 and below.
-2. **Git** (__optional__): Required to clone and update the repository, and pull the plugins as submodules.
-3. **CTags** (__optional__): Available @ <http://ctags.sourceforge.net>, place in __$PATH__ or the vim folder to use the tagbar or extended C omni/auto-completion.
-4. **Grep and Find** (__optional__): Have grep, fgrep, egrep and agrep ([windows binaries](http://gnuwin32.sourceforge.net/packages/grep.htm)), and find and xargs ([windows binaries](http://gnuwin32.sourceforge.net/packages/findutils.htm)) in $PATH or the vim folder to use the Grep plugin commands.
-6. **Powerline Fonts** (__optional__): Required for a better looking lightline statusbar and should be disabled if they're not available ([powerline-patched fonts](https://github.com/Lokaltog/powerline-fonts)).
-5. **Bash** (__optional__): Required to use the update and ctags generation scripts, both of which can be run with the commands listed within.
+1. **Vim** _version_ >= _7.4_: It might work on earlier versions but all development and testing has been done here.
+2. **Git** (_optional_): Required to clone and update the repository, and pull the plugins as submodules.
+3. **CTags** (_optional_): Required to generate tags needed by the tagbar plugin, as well as to have tags provided by auto-completion ([ctags website](http://ctags.sourceforge.net)).
+4. **Grep and Find** (_optional_): Have grep, fgrep, egrep and agrep ([windows binaries](http://gnuwin32.sourceforge.net/packages/grep.htm)), and find and xargs ([windows binaries](http://gnuwin32.sourceforge.net/packages/findutils.htm)) in $PATH or the vim folder to use the Grep plugin commands.
+6. **Powerline Fonts** (_optional_): Needed to enable the fancier looking status line ([powerline-patched fonts](https://github.com/Lokaltog/powerline-fonts)).
+5. **Bash** (_optional_): Used in the _update_ and _gentags_ scripts.
 
 ## Features ##
 
@@ -20,40 +20,101 @@
 
 ## Installation ##
 
-1. Clone the darkcloud-vimconfig repo and use the __update__ script to install the plugins:
+1. Clone the darkcloud-vimconfig repo and use the _update_ script to install the plugins:
   * `git clone https://github.com/prurigro/darkcloud-vimconfig.git`
   * `sh darkcloud-vimconfig/update`
-  * Note: The __update__ script requires bash, but if it's not available you can enter the __darkcloud-vimconfig/__ folder and run: `git submodule update --init` to install the plugins manually, then create __vim/vimrc.user__ and remember to run: `:Helptags` once everything else is running.
+  * **Note**: The _update_ script requires bash, but if it's not available you can enter the _darkcloud-vimconfig/_ folder and run: `git submodule update --init` to install the plugins manually, then create _vim/vimrc.user_ and remember to run: `:Helptags` once everything else is running.
 2. If you don't know where vim expects to find your vimrc, start vim and run: `:version` to find the values "user vimrc file" (for a single-user install) and "system vimrc file" (for a system-wide install). T
 3. Copy or symlink the vimrc file from `darkcloud-vimconfig/vimrc` to one of the locations vim expects to find it, based on whether you want a local or system-wide install, then choose one of the following:
-  * Edit the __g:darkcloudpath__ variable in the vimrc file iteself, pointing it to the location you're keeping the __darkcloud-vimconfig__ repo folder.
-  * Create a file @ __~/.vim/darkcloud-path.vim__ and in it put the following: `let g:darkcloudpath="/etc/darkcloud-vimconfig"`, but replacing __"/etc/darkcloud-vimconfig"__ with the path to the __darkcloud-vimconfig__ repo folder.
-  * Place __darkcloud-vimconfig__ in the default location @ __/etc/darkcloud-vimconfig__.
-  * Create your own vimrc and have that set the __g:darkcloudpath__ variable before sourcing the included vimrc.
+  * Edit the _g:darkcloudpath_ variable in the vimrc file iteself, pointing it to the location you're keeping the _darkcloud-vimconfig_ repo folder.
+  * Create a file @ _~/.vim/darkcloud-path.vim_ and in it put the following: `let g:darkcloudpath="/etc/darkcloud-vimconfig"`, but replacing _"/etc/darkcloud-vimconfig"_ with the path to the _darkcloud-vimconfig_ repo folder.
+  * Place _darkcloud-vimconfig_ in the default location @ _/etc/darkcloud-vimconfig_.
+  * Create your own vimrc and have that set the _g:darkcloudpath_ variable before sourcing the included vimrc.
   * Come up with some other solution that fits your setup better than these. :)
-4. Open the vimrc you just installed and either edit the variables in the "__USER CONFIG SETTINGS__" section, or (preferably) copy them to __vim/vimrc.user__ and edit them there:
-  * **g:darkcloudpath**: Set to the location of the darkcloud-vimconfig folder. (__default__: __/etc/darkcloud-vimconfig__)
-  * **g:autostartfiler**: 1 = Start the filer file manager when vim is run and the buffer is empty | 0 = Do nothing when vim is run and the buffer is empty (__default__: 1)
-  * **g:autostartchecker**: 1 = Check syntax once an appropriate file is loaded | 0 = Check syntax only after syntax checking is toggled on (__default__: 1)
-  * **g:autostarttagbar**: 1 = Have the tagbar load automatically when a compatible format is run | 0 = The tagbar will stay hidden until triggered on demand with its toggle (__default__: 0)
-  * **g:powerlinefonts**: 1 = Render the statusline using characters available with powerline-patched fonts | 0 = Render the statusbar with less attractive but more compatible characters available in all fonts (__default__: 0)
-  * **guifont**: Set to the name of the font you would like to use with gVim followed by the size, making sure to escape spaces and that a powerline-compatible font is selected if the above option is set to 1. (__default__: Droid\ Sans\ Mono\ 12)
-5. Install ctags (http://ctags.sourceforge.net) to your system using a package and ensure it can be accessed in __$PATH__, or install support for vim exclusively by copying the ctags binary to the __darkcloud-vimconfig/vim__ folder.
+4. Open the vimrc you just installed and either edit the variables in the "_USER CONFIG SETTINGS_" section, or (preferably) copy them to _vim/vimrc.user_ and edit them there:
+  * **g:darkcloudpath**: Set to the location of the darkcloud-vimconfig folder. (_default_: _/etc/darkcloud-vimconfig_)
+  * **g:autostartfiler**: 1 = Start the filer file manager when vim is run and the buffer is empty | 0 = Do nothing when vim is run and the buffer is empty (_default_: 1)
+  * **g:autostartchecker**: 1 = Check syntax once an appropriate file is loaded | 0 = Check syntax only after syntax checking is toggled on (_default_: 0)
+  * **g:autostarttagbar**: 1 = Have the tagbar load automatically when a compatible format is run | 0 = The tagbar will stay hidden until triggered on demand with its toggle (_default_: 0)
+  * **g:powerlinefonts**: 1 = Render the statusline using characters available with powerline-patched fonts | 0 = Render the statusbar with less attractive but more compatible characters available in all fonts (_default_: 0)
+  * **guifont**: Set to the name of the font you would like to use with gVim followed by the size, making sure to escape spaces and that a powerline-compatible font is selected if the above option is set to 1. (_default_: Droid\ Sans\ Mono\ 12)
+5. Install ctags (http://ctags.sourceforge.net) to your system using a package and ensure it can be accessed in _$PATH_, or install support for vim exclusively by copying the ctags binary to the _darkcloud-vimconfig/vim_ folder.
 
 ## Configuration ##
 
-* **Custom Configuration**: Settings with priority over those set by darkcloud-vimconfig can be added to a file named __vimrc.user__, located in __darkcloud-vimconfig/vim/__ or any of the folders in the runtimepath.
+* **Custom Configuration**: Settings with priority over those set by darkcloud-vimconfig can be added to a file named _vimrc.user_, located in _darkcloud-vimconfig/vim/_ or any of the folders in the runtimepath.
 * **Custom Plugins**: Pathogen compatible plugins can be cloned or extracted to "darkcloud-vimconfig/vim/bundle.user/", or a folder named "bundle" or "bundle.user" in any of the folders in the runtimepath.
-* **Custom Snippets**: To add or override Emmet snippets, create __~/.vim/snippets.json__ and add your own definitions using json like shown in the [Emmet Documentation](http://docs.emmet.io/customization/snippets/).
+* **Custom Snippets**: To add or override Emmet snippets, create _~/.vim/snippets.json_ and add your own definitions using json like shown in the [Emmet Documentation](http://docs.emmet.io/customization/snippets/).
 * **File Associations**: To use the file manager in vim to run files with external programs, create "~/.vim/filetypes.vim" and on each line, write an association between a file extension and the program to launch files of that type that looks like: `call vimfiler#set_execute_file('mp4','xdg-open')`.
 * **Update Script**: (requires: bash+git) Use this to update the project and submodules, as well as handle any required maintenance, generate docs from the pathogen plugins and create missing config scripts with preset values.
-* **Generate System Tags**: (requires: bash+ctags) Generate a list of ctags for your system libraries in __/usr/include__ and __/usr/local/include__ as well as any folders passed as arguments by running the __gentags__ script.
+* **Generate System Tags**: (requires: bash+ctags) Generate a list of ctags for your system libraries in _/usr/include_ and _/usr/local/include_ as well as any folders passed as arguments by running the _gentags_ script.
+
+## Mappings ##
+
+### Mouse ###
+
+| Binding               | Mode |                                           Action |
+|:----------------------|:----:|-------------------------------------------------:|
+| Shift-MiddleClick     | ALL  | Unbind this from vim so xorg can use it to paste |
+| Ctrl-ScrollUp         | ALL  |          Scroll right a few characters at a time |
+| Ctrl-ScrollDown       | ALL  |           Scroll left a few characters at a time |
+| Alt-ScrollUp          | ALL  |             Scroll right one character at a time |
+| Alt-ScrollDown        | ALL  |              Scroll left one character at a time |
+| MiddleClick           | ALL  | Behaves like right-click (selects to the cursor) |
+| Ctrl-RightClick       | ALL  |     Copy selection or character under the cursor |
+| Ctrl-MiddleClick      | ALL  |     Copy selection or character under the cursor |
+| Alt-RightClick        | ALL  |      Cut selection or character under the cursor |
+| Alt-MiddleClick       | ALL  |      Cut selection or character under the cursor |
+| Ctrl-Alt-RightClick   | ALL  |                  Paste at the cursor (not mouse) |
+| Ctrl-Alt-MiddleClick  | ALL  |                  Paste at the cursor (not mouse) |
+| Ctrl-LeftClick        | ALL  |                    Select the word being clicked |
+| Alt-LeftClick         | ALL  |                    Select the line being clicked |
+| Ctrl-Alt-LeftClick    | ALL  |               Select the paragraph being clicked |
+
+### Keyboard ###
+
+**Todo**: For now, check comments at the top of *[vim/config/keyboard.vim](https://github.com/prurigro/darkcloud-vimconfig/blob/master/vim/config/keyboard.vim)* for a list.
+
+## Plugins ##
+
+* [aspnet.vim--Abshire](https://github.com/vim-scripts/aspnet.vim--Abshire.git): Syntax highlighting for ASP.NET (asp, aspx etc).
+* [breeze.vim](https://github.com/gcmt/breeze.vim.git): Provides tag matching and navigation shortcuts for HTML.
+* [c.vim](http://www.vim.org/scripts/script.php?script_id=3064): C Syntax Extensions for better highlighting.
+* [emmet-vim](https://github.com/mattn/emmet-vim.git): Support for expanding abbreviations.
+  * [webapi-vim](https://github.com/mattn/webapi-vim.git) A web library used by emmet to provide support for custom snippets.
+* [grep](https://github.com/yegappan/grep.git): Provides the ability to perform various match-based searches using grep.
+* [gundo.vim](https://github.com/sjl/gundo.vim.git): Sidebar to visualize your undo tree and browse the differences of each change.
+* [lightline.vim](https://github.com/itchyny/lightline.vim) A light and configurable statusline/tabline for Vim.
+* [neocomplcache.vim](https://github.com/Shougo/neocomplcache.vim.git) The '*ultimate*' auto-completion system for Vim.
+* [ReplaceWithRegister](https://github.com/vim-scripts/ReplaceWithRegister.git) Replace text with the contents of a register (for paste+replace without writing over the buffer).
+* [SpellCheck](https://github.com/vim-scripts/SpellCheck.git) Provides a list of spelling mistakes in the bottom bar that can be clicked to find them in the document.
+* [SudoEdit.vim](https://github.com/vim-scripts/SudoEdit.vim.git) Read and write files without the necessary permissions through the use of sudo.
+* [syntastic](https://github.com/scrooloose/syntastic.git) Uses system compilers and parsers to check syntax either on-the-fly or after saving a compatible document.
+* [tagbar](https://github.com/majutsushi/tagbar.git) Uses ctags to generate a sidebar of the tags for the current file.
+* [tcomment_vim](https://github.com/tomtom/tcomment_vim.git) File-type sensible comments that can be easily toggled on and off for blocks of text.
+* [vim-extradite](https://github.com/int3/vim-extradite.git) A git commit browser extending vim-fugitive that displays differences and optionally loads old revisions.
+* [vimfiler.vim](https://github.com/Shougo/vimfiler.vim.git) A curses-style file manager for vim that runs on it's own or in a sidebar and can associate handlers for file types.
+  * [unite.vim](https://github.com/Shougo/unite.vim.git) A library used by Vim Filer to help build its user interface.
+* [vim-fixkey](https://github.com/drmikehenry/vim-fixkey.git) A set of keyboard mappings that override differences in different environments that might normally break consistency or compatibility.
+* [vim-fugitive](https://github.com/tpope/vim-fugitive.git) A wrapper integrating git into vim in such a way as to provide features neither of them could offer on their own.
+* [vim-jquery](https://github.com/phongnh/vim-jquery.git) An extension adding highlighting for jquery to javascript syntax.
+* [vim-markdown](https://github.com/plasticboy/vim-markdown.git) Syntax highlighting, matching rules and mappings for the original Markdown and extensions.
+* [vim-move](https://github.com/matze/vim-move.git) Provides a few convenient ways to move selected text.
+* [vim-neco-calc](https://github.com/hrsh7th/vim-neco-calc.git) A calculator plugin extending neocomplcache.vim for the on-the-fly auto-completion of simple math equations.
+* [vim-pathogen](https://github.com/tpope/vim-pathogen.git) A plugin to load other plugins while keeping them isolated in their own directory structure rather than all dumped together.
+* [vim-polyglot](https://github.com/sheerun/vim-polyglot.git) A meta-package of what it attempts to ensure are the best syntax plugins for each file type.
+* [vim-signify](https://github.com/mhinz/vim-signify) When a version controlled file is changed, this displays a column showing where and how, and allows for navigation to and between differences.
+* [vim-surround](https://github.com/tpope/vim-surround.git) Provides functionality to exchange surrounding delimiters and xml-style tags with another, or simply remove them.
+  * [vim-repeat](https://github.com/tpope/vim-repeat.git) A library used by vim-surround to allow its delimiter-switching functions to be repeated with the `.` command.
+* [vim-systemd-syntax](https://github.com/Matt-Stevens/vim-systemd-syntax.git) A syntax plugin providing support for systemd unit files.
+* [vim-togglelist](https://github.com/milkypostman/vim-togglelist.git) Supplies toggle functions for the *location* and *error* lists, which are used by a number of plugins and normally require separate open and close commands.
+* [vim-trailing-whitespace](https://github.com/bronson/vim-trailing-whitespace.git) Highlights and allows for the easy removal of trailing whitespace in documents.
 
 ## Notes ##
 
 * **Runtimepath**: To find the runtimepath locations currently set, run the following in vim: `:verbose set runtimepath`.
-* **Key Bindings**: You can find a list of the bindings added by darkcloud-vimconfig, as well as a few of the ones added by plugins in __vim/config/keyboard.vim__.
-* **Vim Quick Reference**: Type __??__, __?>__ and __?<__ to toggle sidebars with three styles of quick reference material on different reference topics.
+* **Key Bindings**: You can find a list of the bindings added by darkcloud-vimconfig, as well as a few of the ones added by plugins in _vim/config/keyboard.vim_.
+* **Vim Quick Reference**: Type _??_, _?>_ and _?<_ to toggle sidebars with three styles of quick reference material on different reference topics.
 
 ## Credits ##
 

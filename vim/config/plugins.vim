@@ -87,9 +87,9 @@
 "}}}
 
 "SYNTASTIC: {{{
-    "autostart syntax checking when vim opens to a compatible filetype (default: 1)
+    "autostart syntax checking when vim opens to a compatible filetype (default: 0)
     if !exists("g:autostartchecker")
-        let g:autostartchecker=1
+        let g:autostartchecker=0
     endif
 
     if &diff

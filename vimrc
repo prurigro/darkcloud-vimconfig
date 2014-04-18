@@ -33,7 +33,7 @@
     let g:autostartfiler=1
 
     "Syntax Checking Autostart: (1:start toggled on | 0: start toggled off)
-    let g:autostartchecker=1
+    let g:autostartchecker=0
 
     "Vim Starts With The Tagbar Open: (1:start open | 0:start closed)
     let g:autostarttagbar=0

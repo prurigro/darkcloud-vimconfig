@@ -13,231 +13,228 @@
 "  *The default <Leader> key is: \
 "
 "  Aliases:
-"  :GitLog & :gitlog      | (C) -> show a navigatable log of commit history
-"  :wsudo & :sudow        | (C) -> write the file as root using sudo
-"  :esudo & :sudoe        | (C) -> read a file as root using sudo
+"  :GitLog & :gitlog        | (C) -> show a navigatable log of commit history
+"  :wsudo & :sudow          | (C) -> write the file as root using sudo
+"  :esudo & :sudoe          | (C) -> read a file as root using sudo
 "
 " Reference: (view plugin documentation for the full list of commands each offers)
 "  (tcomment _ can also be -)
-"   <Ctrl-_><Ctrl-_>      | (A) -> comment selection/create an empty comment
-"   <Ctrl-_>b             | (A) -> comment the current block(s)
-"   <Ctrl-_>r             | (A) -> comment everything on the line to the right
-"   <Ctrl-_>p             | (A) -> comment the current paragraph
-"   <Ctrl-enter>          | (I) -> add a close bracket following an open one
-"   <Ctrl-c>              | (I) -> add a close bracket following an open one
-"   +                     | (V) -> increase the selected region
-"   _                     | (V) -> decrease the selected region
+"   <Ctrl-_><Ctrl-_>        | (A) -> comment selection/create an empty comment
+"   gc                      | (A) -> comment selection/create an empty comment
+"   <Ctrl-_>b               | (A) -> comment the current block(s)
+"   <Ctrl-_>r               | (A) -> comment everything on the line to the right
+"   <Ctrl-_>p               | (A) -> comment the current paragraph
+"   +                       | (V) -> increase the selected region
+"   _                       | (V) -> decrease the selected region
 "
 "  (surround)
-"    S"                   | (V) -> surround selection with quotes
-"    S<a href="">         | (V) -> surround <a href="">selection</a>
-"    ds"                  | (N) -> delete surrounding ""
-"    dst                  | (N) -> delete surrounding tag (ie: <strong></strong>)
-"    cs'"                 | (N) -> change surrounding '' to "" (any delimiters work)
-"    cs"<q>               | (N) -> change surrounding "" to the tag: <q></q>
-"    cst"                 | (N) -> change any surrounding tag to ""
-"
-"  (vim)
-"    D                    | (N) -> delete/cut to the end of the line
-"    S                    | (N) -> delete/cut a line up to the whitespace
+"    S"                     | (V) -> surround selection with quotes
+"    S<a href="">           | (V) -> surround <a href="">selection</a>
+"    ds"                    | (N) -> delete surrounding ""
+"    dst                    | (N) -> delete surrounding tag (ie: <strong></strong>)
+"    cs'"                   | (N) -> change surrounding '' to "" (any delimiters work)
+"    cs"<q>                 | (N) -> change surrounding "" to the tag: <q></q>
+"    cst"                   | (N) -> change any surrounding tag to ""
 "
 " Mappings:
 "  (mouse)
-"    <MiddleClick>        | (N) -> select text between the mouse and cursor
-"    <A-MiddleClick>      | (N) -> enter input mode where you click
-"    <C-MiddleClick>      | (N) -> paste text from current buffer at cursor
+"    <Shift-MiddleClick>    | (A) -> unbind this from vim so xorg can paste
 "
-"    <C-LeftClick>        | (N) -> select the current line in normal mode
-"    <C-LeftClick>        | (I) -> select the current line in input mode
+"    <Ctrl-ScrollUp>        | (A) -> scroll right a few characters at a time
+"    <Ctrl-ScrollDown>      | (A) -> scroll left a few characters at a time
+"    <Alt-ScrollUp>         | (A) -> scroll right one character at a time
+"    <Alt-ScrollDown>       | (A) -> scroll left one character at a time
 "
-"    <Ctrl-ScrollUp>      | (A) -> scroll right a few characters at a time
-"    <Ctrl-ScrollDown>    | (A) -> scroll left a few characters at a time
+"    <MiddleClick>          | (A) -> behaves like right-click (selects to the cursor)
 "
-"    <Alt-ScrollUp>       | (A) -> scroll right one character at a time
-"    <Alt-ScrollDown>     | (A) -> scroll left one character at a time
-"    <Shift-MClick>       | (A) -> unbind this from vim so xorg can paste
+"    <Ctrl-RightClick>      | (A) -> copy selection or character under the cursor
+"    <Ctrl-MiddleClick>     | (A) -> copy selection or character under the cursor
+"    <Alt-RightClick>       | (A) -> cut selection or character under the cursor
+"    <Alt-MiddleClick>      | (A) -> cut selection or character under the cursor
+"    <Ctrl-Alt-RightClick>  | (A) -> paste at the cursor (not mouse)
+"    <Ctrl-Alt-MiddleClick> | (A) -> paste at the cursor (not mouse)
 "
-"    <A-LeftMouse>        | (N) -> select the current paragraph in normal mode
-"    <A-LeftMouse>        | (V) -> select the current paragraph in visual mode
-"    <A-LeftMouse>        | (I) -> select the current paragraph in input mode
+"    <Ctrl-LeftClick>       | (A) -> select the word being clicked
+"    <Alt-LeftClick>        | (A) -> select the line being clicked
+"    <Ctrl-Alt-LeftClick>   | (A) -> select the paragraph being clicked
 "
 "  (tabs)
-"    <Leader>9            | (A) -> go to the next open tab
-"    <Leader>0            | (A) -> go to the previous open tab
-"    <Leader>-            | (A) -> open a new tab
-"    <Leader>=            | (A) -> create a new tab with vimfiler
-"    <Leader>+            | (A) -> create a new tab with vimfiler
+"    <Leader>9              | (A) -> go to the next open tab
+"    <Leader>0              | (A) -> go to the previous open tab
+"    <Leader>-              | (A) -> open a new tab
+"    <Leader>=              | (A) -> create a new tab with vimfiler
+"    <Leader>+              | (A) -> create a new tab with vimfiler
 "
 "  (toggles)
-"    ??                   | (N) -> toggle the quick reference sidebar
-"    ?>                   | (N) -> toggle command reference sidebar
-"    ?<                   | (N) -> toggle normal mode key bindings reference sidebar
-"    ``                   | (N) -> toggle the vimfiler sidebar on the right
-"    ~~                   | (N) -> toggle the vimfiler sidebar on the left
-"    <Space>              | (N) -> toggle folds
-"    <F1>                 | (A) -> toggle line numbers
-"    <F2>                 | (A) -> toggle row/column cursor highlighting
-"    <F3>                 | (A) -> toggle line wrapping
-"    <F4>                 | (A) -> toggle all folds
-"    <F5>                 | (A) -> toggle spell check
-"    <F6>                 | (A) -> toggle syntax checking
-"    <F7>                 | (A) -> toggle version control differences
-"    <Ctrl-F7>            | (A) -> toggle version control commit history
-"    <F8>                 | (A) -> toggle the tagbar sidebar
-"    <Ctrl-F8>            | (A) -> toggle the location list to check syntax errors
-"    <F9>                 | (A) -> toggle the gundo undo history sidebar
-"    <Ctrl-F9>            | (A) -> enable spellcheck & toggle list of spelling errors
+"    ??                     | (N) -> toggle the quick reference sidebar
+"    ?>                     | (N) -> toggle command reference sidebar
+"    ?<                     | (N) -> toggle normal mode key bindings reference sidebar
+"    ``                     | (N) -> toggle the vimfiler sidebar on the right
+"    ~~                     | (N) -> toggle the vimfiler sidebar on the left
+"    <Space>                | (N) -> toggle folds
+"    <F1>                   | (A) -> toggle line numbers
+"    <F2>                   | (A) -> toggle row/column cursor highlighting
+"    <F3>                   | (A) -> toggle line wrapping
+"    <F4>                   | (A) -> toggle all folds
+"    <F5>                   | (A) -> toggle spell check
+"    <F6>                   | (A) -> toggle syntax checking
+"    <F7>                   | (A) -> toggle version control differences
+"    <Ctrl-F7>              | (A) -> toggle version control commit history
+"    <F8>                   | (A) -> toggle the tagbar sidebar
+"    <Ctrl-F8>              | (A) -> toggle the location list to check syntax errors
+"    <F9>                   | (A) -> toggle the gundo undo history sidebar
+"    <Ctrl-F9>              | (A) -> enable spellcheck & toggle list of spelling errors
 "
 "  (gvim toggles)
-"    <Ctrl-F1>            | (A) -> toggle the menu
-"    <Ctrl-F2>            | (A) -> toggle the toolbar
-"    <Ctrl-F3>            | (A) -> toggle the scrollbar
+"    <Ctrl-F1>              | (A) -> toggle the menu
+"    <Ctrl-F2>              | (A) -> toggle the toolbar
+"    <Ctrl-F3>              | (A) -> toggle the scrollbar
 "
 "  (completion)
-"    <Leader>,,           | (A) -> enter after emme 'word' (ie: html:5)
-"    \\                   | (N) -> show spelling suggestions popup for word
-"    \|                   | (N) -> add word to a local list of correct spellings
-"    <Tab>                | (I) -> (neocomp) autocomplete using common string
-"    <Leader><Tab>        | (I) -> (neocomp) autocomplete the common string
-"    <Enter>              | (I) -> (neocomp) close the suggestion popup
-"    <Leader><Backspace>  | (I) -> (neocomp) undo the most recent completion
+"    <Leader>,,             | (A) -> enter after emme 'word' (ie: html:5)
+"    \\                     | (N) -> show spelling suggestions popup for word
+"    \|                     | (N) -> add word to a local list of correct spellings
+"    <Tab>                  | (I) -> (neocomp) autocomplete using common string
+"    <Leader><Tab>          | (I) -> (neocomp) autocomplete the common string
+"    <Enter>                | (I) -> (neocomp) close the suggestion popup
+"    <Leader><Backspace>    | (I) -> (neocomp) undo the most recent completion
 "
 "  (formatting)
-"    <Backspace>          | (V) -> deletes currently selected text
-"    <Backspace>          | (N) -> deletes the character behind the cursor
-"    <Leader><C-f>        | (V) -> format the selection and return to cursor
-"    <Leader><C-f>        | (N) -> format document and return to cursor
-"    <Leader><C-w>        | (N) -> remove whitespace
-"    <Leader><C-t>        | (N) -> convert tabs into spaces
-"    <Leader>\            | (N) -> remove search highlighting
-"    <Leader><Esc>        | (N) -> an alt mapping to remove search highlighting
-"    <Tab>                | (V) -> indent all the lines currently selected
-"    <Tab>                | (N) -> indent the current line
-"    <Shift-Tab>          | (V) -> unindent all the lines currently selected
-"    <Shift-Tab>          | (N) -> unindent the current line
+"    <Backspace>            | (V) -> deletes currently selected text
+"    <Backspace>            | (N) -> deletes the character behind the cursor
+"    <Leader><C-f>          | (V) -> format the selection and return to cursor
+"    <Leader><C-f>          | (N) -> format document and return to cursor
+"    <Leader><C-w>          | (N) -> remove whitespace
+"    <Leader><C-t>          | (N) -> convert tabs into spaces
+"    <Leader>\              | (N) -> remove search highlighting
+"    <Leader><Esc>          | (N) -> an alt mapping to remove search highlighting
+"    <Tab>                  | (V) -> indent all the lines currently selected
+"    <Tab>                  | (N) -> indent the current line
+"    <Shift-Tab>            | (V) -> unindent all the lines currently selected
+"    <Shift-Tab>            | (N) -> unindent the current line
 "
 "  (movement)
-"    =                    | (N) -> move to the first character on the next line
-"    <Ctrl-Up>            | (N) -> move to the beginning of the document
-"    <Ctrl-Down>          | (N) -> move to the end of the document
-"    <Ctrl-Right>         | (N) -> move to the end of the line
-"    <Ctrl-Left>          | (N) -> move to the beginning of the non-whitespace
+"    =                      | (N) -> move to the first character on the next line
+"    <Ctrl-Up>              | (N) -> move to the beginning of the document
+"    <Ctrl-Down>            | (N) -> move to the end of the document
+"    <Ctrl-Right>           | (N) -> move to the end of the line
+"    <Ctrl-Left>            | (N) -> move to the beginning of the non-whitespace
 "
-"    <Shift-Up>           | (N) -> move a few lines up
-"    <Shift-Down>         | (N) -> move a few lines down
+"    <Shift-Up>             | (N) -> move a few lines up
+"    <Shift-Down>           | (N) -> move a few lines down
 "
-"    <Alt+Up>             | (V) -> move a block up one line
-"    <Alt+Down>           | (V) -> move a block down one line
-"    <Alt+Up>             | (N) -> move a line up one line
-"    <Alt+Down>           | (N) -> move a line down one line
+"    <Alt+Up>               | (V) -> move a block up one line
+"    <Alt+Down>             | (V) -> move a block down one line
+"    <Alt+Up>               | (N) -> move a line up one line
+"    <Alt+Down>             | (N) -> move a line down one line
 "
-"    <Alt+Left>           | (V) -> move a block up a half page
-"    <Alt+Right>          | (V) -> move a block down a half page
-"    <Alt+Left>           | (N) -> move a line up a half page
-"    <Alt+Right>          | (N) -> move a line down a half page
-"    <Alt+h>              | (V) -> move a block up a half page
-"    <Alt+l>              | (V) -> move a block down a half page
-"    <Alt+h>              | (N) -> move a line up a half page
-"    <Alt+l>              | (N) -> move a line down a half page
+"    <Alt+Left>             | (V) -> move a block up a half page
+"    <Alt+Right>            | (V) -> move a block down a half page
+"    <Alt+Left>             | (N) -> move a line up a half page
+"    <Alt+Right>            | (N) -> move a line down a half page
+"    <Alt+h>                | (V) -> move a block up a half page
+"    <Alt+l>                | (V) -> move a block down a half page
+"    <Alt+h>                | (N) -> move a line up a half page
+"    <Alt+l>                | (N) -> move a line down a half page
 "
-"    >>                   | (N) -> next difference (vimdiff/signify)
-"    <<                   | (N) -> previous difference (vimdiff/signify)
+"    >>                     | (N) -> next difference (vimdiff/signify)
+"    <<                     | (N) -> previous difference (vimdiff/signify)
 "
 "  (selection)
-"    <Ctrl-a>             | (N) -> select all text
-"    <Leader>a            | (N) -> select all text
-"    <Ctrl-a>             | (V) -> select all text
-"    <Leader>a            | (V) -> select all text
+"    <Ctrl-a>               | (N) -> select all text
+"    <Leader>a              | (N) -> select all text
+"    <Ctrl-a>               | (V) -> select all text
+"    <Leader>a              | (V) -> select all text
 "
-"    <Ctrl-Up>            | (V) -> select all text above
-"    <Ctrl-Down>          | (V) -> select all text below
-"    <Ctrl-Right>         | (V) -> select all text to the right
-"    <Ctrl-Left>          | (V) -> select all text to the left up to the indent
+"    <Ctrl-Up>              | (V) -> select all text above
+"    <Ctrl-Down>            | (V) -> select all text below
+"    <Ctrl-Right>           | (V) -> select all text to the right
+"    <Ctrl-Left>            | (V) -> select all text to the left up to the indent
 "
-"    <Shift-Up>           | (V) -> select a few lines up
-"    <Shift-Down>         | (V) -> select a few lines down
-"    <Shift-Right>        | (V) -> select a few lines right
-"    <Shift-Left>         | (V) -> select a few lines left
+"    <Shift-Up>             | (V) -> select a few lines up
+"    <Shift-Down>           | (V) -> select a few lines down
+"    <Shift-Right>          | (V) -> select a few lines right
+"    <Shift-Left>           | (V) -> select a few lines left
 "
 "  (paste functions)
-"    <Leader>p            | (N) -> view the paste buffers and register contents
-"    <Leader>p<Direction> | (N) -> paste in the direction entered
-"    y                    | (N) -> copies the character at the cursor
-"    P                    | (V) -> save selection to the buffer and paste over
-"    p                    | (V) -> preserve the buffer pasting over selected text
+"    <Leader>p              | (N) -> view the paste buffers and register contents
+"    <Leader>p<Direction>   | (N) -> paste in the direction entered
+"    y                      | (N) -> copies the character at the cursor
+"    P                      | (V) -> save selection to the buffer and paste over
+"    p                      | (V) -> preserve the buffer pasting over selected text
 "
 "  (delete/cut functions)
-"    <Leader>d            | (V) -> delete the currently selected text
-"    <Leader>x            | (V) -> delete the currently selected text
-"    <Leader>x            | (N) -> delete the char(s) under and the cursor
-"    <Leader>X            | (V) -> delete the currently selected lines
-"    <Leader>X            | (N) -> delete the char(s) before the cursor
-"    <Leader>D            | (V) -> delete the currently selected lines
-"    <Leader>D            | (N) -> delete chars under and after the cursor on the line
-"    <Leader>dw           | (N) -> delete chars under and after the cursor in the word
-"    <Leader>dd           | (N) -> delete lines under and after the one below
+"    <Leader>d              | (V) -> delete the currently selected text
+"    <Leader>x              | (V) -> delete the currently selected text
+"    <Leader>x              | (N) -> delete the char(s) under and the cursor
+"    <Leader>X              | (V) -> delete the currently selected lines
+"    <Leader>X              | (N) -> delete the char(s) before the cursor
+"    <Leader>D              | (V) -> delete the currently selected lines
+"    <Leader>D              | (N) -> delete chars under and after the cursor on the line
+"    <Leader>dw             | (N) -> delete chars under and after the cursor in the word
+"    <Leader>dd             | (N) -> delete lines under and after the one below
 "
 " Filetype Specific Mappings:
 "  (breeze->html compat)
-"    _                    | (N) -> move to the next sibling tag
-"    +                    | (N) -> move to the previous sibling tag
-"    <Leader>-            | (N) -> move to the first sibling tag
-"    <Leader>=            | (N) -> move to the last sibling tag
-"    <Leader>_            | (N) -> move to the first child tag
-"    <Leader>+            | (N) -> move to the last child tag
-"    <Leader><Backspace>  | (N) -> move to the parent tag
+"    _                      | (N) -> move to the next sibling tag
+"    +                      | (N) -> move to the previous sibling tag
+"    <Leader>-              | (N) -> move to the first sibling tag
+"    <Leader>=              | (N) -> move to the last sibling tag
+"    <Leader>_              | (N) -> move to the first child tag
+"    <Leader>+              | (N) -> move to the last child tag
+"    <Leader><Backspace>    | (N) -> move to the parent tag
 "
 "  (extradite)
-"    <C-F7>               | (A) -> close the dialog
-"    <Right>              | (A) -> same as down
-"    l                    | (A) -> same as j
-"    <Left>               | (A) -> same as Up
-"    h                    | (A) -> same as k
+"    <C-F7>                 | (A) -> close the dialog
+"    <Right>                | (A) -> same as down
+"    l                      | (A) -> same as j
+"    <Left>                 | (A) -> same as Up
+"    h                      | (A) -> same as k
 "
 "  (gundo)
-"    <LeftClick>          | (A) -> same as normal + justify on the left
-"    <MiddleClick>        | (A) -> same as the left mouse
-"    <RightClick>         | (A) -> same as the left mouse
-"    <Right>              | (A) -> same as down
-"    l                    | (A) -> same as j
-"    <Left>               | (A) -> same as Up
-"    h                    | (A) -> same as k
+"    <LeftClick>            | (A) -> same as normal + justify on the left
+"    <MiddleClick>          | (A) -> same as the left mouse
+"    <RightClick>           | (A) -> same as the left mouse
+"    <Right>                | (A) -> same as down
+"    l                      | (A) -> same as j
+"    <Left>                 | (A) -> same as Up
+"    h                      | (A) -> same as k
 "
 "  (help)
-"    q                    | (A) -> close the dialog
-"    ??                   | (A) -> close the dialog
-"    ?>                   | (A) -> close the dialog
-"    ?<                   | (A) -> close the dialog
+"    q                      | (A) -> close the dialog
+"    ??                     | (A) -> close the dialog
+"    ?>                     | (A) -> close the dialog
+"    ?<                     | (A) -> close the dialog
 "
 "  (markdown)
-"    <F8>                 | (A) -> show heading TOC instead of the taglist
+"    <F8>                   | (A) -> show heading TOC instead of the taglist
 "
 "  (markdown toc)
-"    <LClick>             | (A) -> left click + left justify the cursor
-"    <MClick>             | (A) -> same as the left click
-"    <RClick>             | (A) -> same as the left click
-"    <LClick><LClick>     | (A) -> select heading to edit
-"    <Space>              | (A) -> select heading but remain in toc
-"    <Left>               | (A) -> up
-"    <Right>              | (A) -> down
-"    h                    | (A) -> j
-"    l                    | (A) -> k
+"    <LClick>               | (A) -> left click + left justify the cursor
+"    <MClick>               | (A) -> same as the left click
+"    <RClick>               | (A) -> same as the left click
+"    <LClick><LClick>       | (A) -> select heading to edit
+"    <Space>                | (A) -> select heading but remain in toc
+"    <Left>                 | (A) -> up
+"    <Right>                | (A) -> down
+"    h                      | (A) -> j
+"    l                      | (A) -> k
 "
 "  (vimdiff)
-"    <Leader><>           | (N) -> update differences
-"    <Leader>><           | (N) -> update differences
-"    <Leader>>            | (N) -> replace diff in other pane with current pane
-"    <Leader<<            | (N) -> replace diff in current pane with other pane
+"    <Leader><>             | (N) -> update differences
+"    <Leader>><             | (N) -> update differences
+"    <Leader>>              | (N) -> replace diff in other pane with current pane
+"    <Leader<<              | (N) -> replace diff in current pane with other pane
 "
 "  (vimfiler)
-"    <LClick>             | (A) -> left click + left justify the cursor
-"    <MClick>             | (A) -> same as the left click
-"    <RClick>             | (A) -> same as the left click
-"    <LClick><LClick>     | (A) -> edit selected file
-"    <Right>              | (A) -> map to l, which opens a directory
-"    <Left>               | (A) -> map to h, which goes up one directory
-"    '                    | (A) -> edit the selected file
-"    n                    | (A) -> start editing a new file
+"    <LClick>               | (A) -> left click + left justify the cursor
+"    <MClick>               | (A) -> same as the left click
+"    <RClick>               | (A) -> same as the left click
+"    <LClick><LClick>       | (A) -> edit selected file
+"    <Right>                | (A) -> map to l, which opens a directory
+"    <Left>                 | (A) -> map to h, which goes up one directory
+"    '                      | (A) -> edit the selected file
+"    n                      | (A) -> start editing a new file
 "
 
 "ALIASES: COMMAND SHORTCUTS {{{
@@ -251,10 +248,9 @@
 
 "MAPPINGS: GENERAL KEYBINDINGS AND REBINDINGS {{{
     "MOUSE:{
-        "midle click enters input mode
-        nnoremap <MiddleMouse> <RightMouse>
-        nnoremap <A-MiddleMouse> <LeftMouse>i
-        nnoremap <C-MiddleMouse> <LeftMouse>p
+        "configure middle click to paste from X
+        noremap <S-Insert> <MiddleMouse>
+        noremap! <S-Insert> <MiddleMouse>
 
         "hold ctrl to scroll left/right instead of up/down
         noremap <C-ScrollWheelUp> 4zl
@@ -268,14 +264,47 @@
         inoremap <A-ScrollWheelUp> <C-O>zl
         inoremap <A-ScrollWheelDown> <C-O>zh
 
-        "hold ctrl while clicking to select the current line
-        nnoremap <C-LeftMouse> <LeftMouse>V
-        inoremap <C-LeftMouse> <Esc><LeftMouse>V
+        "middle click behaves like right and selects from cursor
+        noremap <MiddleMouse> <RightMouse>
 
-        "hold alt while clicking to select the current paragraph
-        nnoremap <A-LeftMouse> <LeftMouse>vip
-        xnoremap <A-LeftMouse> <Esc><LeftMouse>vip
-        inoremap <A-LeftMouse> <LeftMouse>vip
+        "ctrl+middle/right = copy line in normal and selection in visual
+        nnoremap <C-RightMouse> <LeftMouse>Vy
+        nnoremap <C-MiddleMouse> <LeftMouse>Vy
+        vnoremap <C-RightMouse> y
+        vnoremap <C-MiddleMouse> y
+        inoremap <C-RightMouse> <Esc>p
+        inoremap <C-MiddleMouse> <Esc>p
+
+        "ctrl+alt+middle/right = paste
+        nnoremap <A-RightMouse> x
+        nnoremap <A-MiddleMouse> x
+        xnoremap <A-RightMouse> x
+        xnoremap <A-MiddleMouse> x
+        inoremap <A-RightMouse> <C-O>x
+        inoremap <A-MiddleMouse> <C-O>x
+
+        "ctrl+alt+middle/right = paste
+        nnoremap <C-A-RightMouse> p
+        nnoremap <C-A-MiddleMouse> p
+        xnoremap <C-A-RightMouse> p
+        xnoremap <C-A-MiddleMouse> p
+        inoremap <C-A-RightMouse> <C-O>p
+        inoremap <C-A-MiddleMouse> <C-O>p
+
+        "ctrl+left = word
+        nnoremap <C-LeftMouse> <LeftMouse>bvw
+        xnoremap <C-LeftMouse> <Esc><LeftMouse>bvw
+        inoremap <C-LeftMouse> <Esc><LeftMouse>bvw
+
+        "alt+left = line
+        nnoremap <A-LeftMouse> <LeftMouse>V
+        xnoremap <A-LeftMouse> <Esc><LeftMouse>V
+        inoremap <A-LeftMouse> <Esc><LeftMouse>V
+
+        "ctrl-alt+left = paragraph
+        nnoremap <C-A-LeftMouse> <LeftMouse>vip
+        xnoremap <C-A-LeftMouse> <Esc><LeftMouse>vip
+        inoremap <C-A-LeftMouse> <Esc><LeftMouse>vip
     "}
 
     "TABS:{
