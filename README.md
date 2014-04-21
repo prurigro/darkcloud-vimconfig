@@ -31,8 +31,6 @@
   * Place _darkcloud-vimconfig_ in the default location @ _/etc/darkcloud-vimconfig_.
   * Create your own vimrc and have that set the _g:darkcloudpath_ variable before sourcing the included vimrc.
   * Come up with some other solution that fits your setup better than these. :)
-4. If you aren't installing the project @ _/etc/darkcloud-vimconfig_, create _~/.vim/darkcloud-path.vim_ and add a line that looks like: _let g:darkcloudpath="/etc/darkcloud-vimconfig"_, but with the path pointing to the location you're installing to.
-5. Install ctags (http://ctags.sourceforge.net) to your system using a package and ensure it can be accessed in _$PATH_, or install support for vim exclusively by copying the ctags binary to the _darkcloud-vimconfig/vim_ folder.
 
 ## Configuration ##
 
