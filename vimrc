@@ -24,27 +24,6 @@
     endif
 "}}}
 
-"USER CONFIG SETTINGS: {{{
-    " If vim/vimrc.user doesn't already exist, run the 'update' script to have
-    " it created, then toggle these settings there to override these and no
-    " avoid conflicting with updates.
-
-    "Filer File Manager On Empty Buffers: (1:empty buffer loads filer | 0:buffer remains empty)
-    let g:autostartfiler=1
-
-    "Syntax Checking Autostart: (1:start toggled on | 0: start toggled off)
-    let g:autostartchecker=0
-
-    "Vim Starts With The Tagbar Open: (1:start open | 0:start closed)
-    let g:autostarttagbar=0
-
-    "Powerline Font Support: (1:enabled | 0:disabled)
-    let g:powerlinefonts=0
-
-    "GVim Font Selection: (term font set by terminal)
-    set guifont=Droid\ Sans\ Mono\ 12
-"}}}
-
 "LOAD DARKCLOUD CONFIG AND THEME FILES: {{{
     "Add Config Directory: (distro-agnostic system-wide)
     let &runtimepath=printf('%s,%s/vim,%s/vim/after',&runtimepath,g:darkcloudpath,g:darkcloudpath)

@@ -94,3 +94,6 @@
 [submodule "vim/bundle/aftersyntaxc.vim"]
 	path = vim/bundle/aftersyntaxc.vim
 	url = https://github.com/vim-scripts/aftersyntaxc.vim
+[submodule "vim/bundle/autoswap.vim"]
+	path = vim/bundle/autoswap.vim
+	url = https://github.com/vim-scripts/autoswap.vim.git

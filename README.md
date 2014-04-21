@@ -31,18 +31,17 @@
   * Place _darkcloud-vimconfig_ in the default location @ _/etc/darkcloud-vimconfig_.
   * Create your own vimrc and have that set the _g:darkcloudpath_ variable before sourcing the included vimrc.
   * Come up with some other solution that fits your setup better than these. :)
-4. Open the vimrc you just installed and either edit the variables in the "_USER CONFIG SETTINGS_" section, or (preferably) copy them to _vim/vimrc.user_ and edit them there:
-  * **g:darkcloudpath**: Set to the location of the darkcloud-vimconfig folder. (_default_: _/etc/darkcloud-vimconfig_)
-  * **g:autostartfiler**: 1 = Start the filer file manager when vim is run and the buffer is empty | 0 = Do nothing when vim is run and the buffer is empty (_default_: 1)
-  * **g:autostartchecker**: 1 = Check syntax once an appropriate file is loaded | 0 = Check syntax only after syntax checking is toggled on (_default_: 0)
-  * **g:autostarttagbar**: 1 = Have the tagbar load automatically when a compatible format is run | 0 = The tagbar will stay hidden until triggered on demand with its toggle (_default_: 0)
-  * **g:powerlinefonts**: 1 = Render the statusline using characters available with powerline-patched fonts | 0 = Render the statusbar with less attractive but more compatible characters available in all fonts (_default_: 0)
-  * **guifont**: Set to the name of the font you would like to use with gVim followed by the size, making sure to escape spaces and that a powerline-compatible font is selected if the above option is set to 1. (_default_: Droid\ Sans\ Mono\ 12)
+4. If you aren't installing the project @ _/etc/darkcloud-vimconfig_, create _~/.vim/darkcloud-path.vim_ and add a line that looks like: _let g:darkcloudpath="/etc/darkcloud-vimconfig"_, but with the path pointing to the location you're installing to.
 5. Install ctags (http://ctags.sourceforge.net) to your system using a package and ensure it can be accessed in _$PATH_, or install support for vim exclusively by copying the ctags binary to the _darkcloud-vimconfig/vim_ folder.
 
 ## Configuration ##
 
-* **Custom Configuration**: Settings with priority over those set by darkcloud-vimconfig can be added to a file named _vimrc.user_, located in _darkcloud-vimconfig/vim/_ or any of the folders in the runtimepath.
+* **Configure Variables**: The following variables can be added to _vim/vimrc.user_ and have their values set to the values you require:
+  * **g:autostartfiler**: 1 = Start the filer file manager when vim is run and the buffer is empty | 0 = Do nothing when vim is run and the buffer is empty (_default_: 1)
+  * **g:autostartchecker**: 1 = Check syntax once an appropriate file is loaded | 0 = Check syntax only after syntax checking is toggled on (_default_: 0)
+  * **g:autostarttagbar**: 1 = Have the tagbar load automatically when a compatible format is run | 0 = The tagbar will stay hidden until triggered on demand with its toggle (_default_: 0)
+  * **g:powerlinefonts**: 1 = Render the statusline using characters available with powerline-patched fonts | 0 = Render the statusbar with less attractive but more compatible characters available in all fonts (_default_: 0)
+* **Custom Settings**: Settings with priority over those set by darkcloud-vimconfig can be added to a file named _vimrc.user_, located in _darkcloud-vimconfig/vim/_ or any of the folders in the runtimepath.
 * **Custom Plugins**: Pathogen compatible plugins can be cloned or extracted to "darkcloud-vimconfig/vim/bundle.user/", or a folder named "bundle" or "bundle.user" in any of the folders in the runtimepath.
 * **Custom Snippets**: To add or override Emmet snippets, create _~/.vim/snippets.json_ and add your own definitions using json like shown in the [Emmet Documentation](http://docs.emmet.io/customization/snippets/).
 * **File Associations**: To use the file manager in vim to run files with external programs, create "~/.vim/filetypes.vim" and on each line, write an association between a file extension and the program to launch files of that type that looks like: `call vimfiler#set_execute_file('mp4','xdg-open')`.
@@ -79,6 +78,7 @@
 
 * [aftersyntaxc.vim](https://github.com/vim-scripts/aftersyntaxc.vim): C Syntax Extensions for better highlighting.
 * [aspnet.vim--Abshire](https://github.com/vim-scripts/aspnet.vim--Abshire.git): Syntax highlighting for ASP.NET (asp, aspx etc).
+* [autoswap.vim](https://github.com/vim-scripts/autoswap.vim): Switch to open editor window instead of asking what to do with swapfile.
 * [breeze.vim](https://github.com/gcmt/breeze.vim.git): Provides tag matching and navigation shortcuts for HTML.
 * [emmet-vim](https://github.com/mattn/emmet-vim.git): Support for expanding abbreviations.
   * [webapi-vim](https://github.com/mattn/webapi-vim.git) A web library used by emmet to provide support for custom snippets.
