@@ -88,3 +88,6 @@
 [submodule "vim/bundle/vim-extradite"]
 	path = vim/bundle/vim-extradite
 	url = https://github.com/int3/vim-extradite.git
+[submodule "vim/bundle/systemd-vim-syntax"]
+	path = vim/bundle/systemd-vim-syntax
+	url = https://github.com/kurayama/systemd-vim-syntax.git
