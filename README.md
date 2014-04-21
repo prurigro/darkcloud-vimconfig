@@ -77,9 +77,9 @@
 
 ## Plugins ##
 
+* [aftersyntaxc.vim](https://github.com/vim-scripts/aftersyntaxc.vim): C Syntax Extensions for better highlighting.
 * [aspnet.vim--Abshire](https://github.com/vim-scripts/aspnet.vim--Abshire.git): Syntax highlighting for ASP.NET (asp, aspx etc).
 * [breeze.vim](https://github.com/gcmt/breeze.vim.git): Provides tag matching and navigation shortcuts for HTML.
-* [c.vim](http://www.vim.org/scripts/script.php?script_id=3064): C Syntax Extensions for better highlighting.
 * [emmet-vim](https://github.com/mattn/emmet-vim.git): Support for expanding abbreviations.
   * [webapi-vim](https://github.com/mattn/webapi-vim.git) A web library used by emmet to provide support for custom snippets.
 * [grep](https://github.com/yegappan/grep.git): Provides the ability to perform various match-based searches using grep.
@@ -106,7 +106,7 @@
 * [vim-signify](https://github.com/mhinz/vim-signify) When a version controlled file is changed, this displays a column showing where and how, and allows for navigation to and between differences.
 * [vim-surround](https://github.com/tpope/vim-surround.git) Provides functionality to exchange surrounding delimiters and xml-style tags with another, or simply remove them.
   * [vim-repeat](https://github.com/tpope/vim-repeat.git) A library used by vim-surround to allow its delimiter-switching functions to be repeated with the `.` command.
-* [vim-systemd-syntax](https://github.com/Matt-Stevens/vim-systemd-syntax.git) A syntax plugin providing support for systemd unit files.
+* [systemd-vim-syntax](https://github.com/kurayama/systemd-vim-syntax) A syntax plugin providing support for systemd unit files.
 * [vim-togglelist](https://github.com/milkypostman/vim-togglelist.git) Supplies toggle functions for the *location* and *error* lists, which are used by a number of plugins and normally require separate open and close commands.
 * [vim-trailing-whitespace](https://github.com/bronson/vim-trailing-whitespace.git) Highlights and allows for the easy removal of trailing whitespace in documents.
 

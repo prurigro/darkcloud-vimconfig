@@ -91,3 +91,6 @@
 [submodule "vim/bundle/systemd-vim-syntax"]
 	path = vim/bundle/systemd-vim-syntax
 	url = https://github.com/kurayama/systemd-vim-syntax.git
+[submodule "vim/bundle/aftersyntaxc.vim"]
+	path = vim/bundle/aftersyntaxc.vim
+	url = https://github.com/vim-scripts/aftersyntaxc.vim
