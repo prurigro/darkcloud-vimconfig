@@ -332,7 +332,7 @@ call s:X("Comment","#6c6c6c","","italic","Grey","")
 call s:X("Constant","#87d7ff","","bold","Blue","")
 call s:X("Special","#ffd787","","bold","Yellow","")
 call s:X("Delimiter","#ffffff","","","White","")
-call s:X("String","#ffffff","","italic","White","")
+call s:X("String","#ffffff","","bold","White","")
 call s:X("StringDelimiter","#d0d0d0","","","White","")
 call s:X("Identifier","#87d7ff","","bold","Blue","")
 call s:X("Type","#d75f5f","","bold","Red","")
@@ -460,6 +460,30 @@ if !exists("g:indent_guides_auto_colors")
     let g:indent_guides_auto_colors=0
 endif
 call s:X("vimOperParen","#87d7ff","","","Blue","")
+
+"systemd unit files
+hi! link sdKey Identifier
+hi! link sdFilename String
+hi! link sdFileList sdFilename
+hi! link sdExecFile sdFilename
+hi! link sdExecArgs sdExecFile
+hi! link sdDocURI sdFilename
+hi! link sdValue PreProc
+hi! link sdServiceBlock sdValue
+hi! link sdSocketBlock Operator
+hi! link sdUnitBlock Comment
+hi! link sdBindIPv6 sdValue
+hi! link sdIPTOS Label
+hi! link sdTCPCongest Label
+hi! link sdIOSchedClass sdValue
+hi! link sdIOSchedPrio sdValue
+hi! link sdCPUSchedPol sdValue
+hi! link sdBool sdValue
+hi! link sdDatasize sdValue
+hi! link sdSymbol sdValue
+hi! link sdOtherSignal sdValue
+hi! link sdDevAllow Keyword
+hi! link sdCapability sdDevAllow
 
 "notes
 call s:X("notesRule","","","bold","","")
