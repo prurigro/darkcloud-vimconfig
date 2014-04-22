@@ -85,6 +85,7 @@
 * [lightline.vim](https://github.com/itchyny/lightline.vim) A light and configurable statusline/tabline for Vim.
 * [neocomplcache.vim](https://github.com/Shougo/neocomplcache.vim.git) The '*ultimate*' auto-completion system for Vim.
 * [ReplaceWithRegister](https://github.com/vim-scripts/ReplaceWithRegister.git) Replace text with the contents of a register (for paste+replace without writing over the buffer).
+* [rust.vim](https://github.com/wting/rust.vim) Vim support for Rust file detection and syntax highlighting.
 * [SpellCheck](https://github.com/vim-scripts/SpellCheck.git) Provides a list of spelling mistakes in the bottom bar that can be clicked to find them in the document.
 * [SudoEdit.vim](https://github.com/vim-scripts/SudoEdit.vim.git) Read and write files without the necessary permissions through the use of sudo.
 * [syntastic](https://github.com/scrooloose/syntastic.git) Uses system compilers and parsers to check syntax either on-the-fly or after saving a compatible document.

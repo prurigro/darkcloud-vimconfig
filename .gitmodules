@@ -97,3 +97,6 @@
 [submodule "vim/bundle/autoswap.vim"]
 	path = vim/bundle/autoswap.vim
 	url = https://github.com/vim-scripts/autoswap.vim.git
+[submodule "vim/bundle/rust.vim"]
+	path = vim/bundle/rust.vim
+	url = https://github.com/wting/rust.vim.git
