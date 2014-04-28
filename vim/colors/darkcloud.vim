@@ -365,7 +365,7 @@ call s:X("DiffText","#000000","#c6c6c6","italic",s:termBlack,"White")
 "version control
 call s:X("SignifySignAdd","#ffd787","","bold","","Yellow")
 call s:X("SignifySignDelete","#d75f5f","","bold","","Red")
-call s:X("SignifySignChange","#87d7ff","","bold","","Blue")
+call s:X("SignifySignChange","#ffd787","","bold","","Yellow")
 hi! link SignifyLineAdd DiffAdd
 hi! link SignifyLineDelete DiffDelete
 hi! link SignifyLineChange DiffChange
