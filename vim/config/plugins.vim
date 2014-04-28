@@ -14,7 +14,7 @@
 "}}}
 
 "BREEZE: {{{
-    let g:breeze_active_filetypes="*.html,*.htm,*.xhtml,*.xml,*.php,*.aspx"
+    let g:breeze_active_filetypes="*.html,*.htm,*.xhtml,*.xml,*.php"
     let g:breeze_shade_color = "String"
 "}}}
 
