@@ -104,7 +104,6 @@
 "
 "  (formatting)
 "    <Backspace>            | (V) -> deletes currently selected text
-"    <Backspace>            | (N) -> deletes the character behind the cursor
 "    <Leader><C-f>          | (V) -> format the selection and return to cursor
 "    <Leader><C-f>          | (N) -> format document and return to cursor
 "    <Leader><C-w>          | (N) -> remove whitespace
@@ -451,7 +450,6 @@
     "FORMATTING:{
         "have backspace delete the selected text
         vnoremap <Backspace> "_x
-        nnoremap <Backspace> i<Backspace><Esc>l
 
         "formatting options to apply to the whole document
         nnoremap <Leader><C-f> mzgg=G`z<CR>:echo "The document has been formatted"<CR>
