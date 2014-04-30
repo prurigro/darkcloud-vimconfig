@@ -14,6 +14,9 @@
 "
 "  Aliases:
 "  :GitLog & :gitlog        | (C) -> show a navigatable log of commit history
+"  :GitDiff & :gitdiff      | (C) -> current file and last commit in vimdiff
+"  :GitStatus & :gitstatus  | (C) -> shows the output of git status
+"  :GitCommit & :gitcommit  | (C) -> commits changes to the current file
 "  :wsudo & :sudow          | (C) -> write the file as root using sudo
 "  :esudo & :sudoe          | (C) -> read a file as root using sudo
 "
@@ -156,23 +159,36 @@
 "    <Shift-Right>          | (V) -> select a few lines right
 "    <Shift-Left>           | (V) -> select a few lines left
 "
-"  (paste functions)
+"  (copy/paste and undo/redo)
 "    <Leader>p              | (N) -> view the paste buffers and register contents
-"    <Leader>p<Direction>   | (N) -> paste in the direction entered
 "    y                      | (N) -> copies the character at the cursor
 "    P                      | (V) -> save selection to the buffer and paste over
 "    p                      | (V) -> preserve the buffer pasting over selected text
+"    <Ctrl-p>Direction      | (N) -> paste in the direction entered
 "
-"  (delete/cut functions)
-"    <Leader>d              | (V) -> delete the currently selected text
-"    <Leader>x              | (V) -> delete the currently selected text
-"    <Leader>x              | (N) -> delete the char(s) under and the cursor
-"    <Leader>X              | (V) -> delete the currently selected lines
-"    <Leader>X              | (N) -> delete the char(s) before the cursor
-"    <Leader>D              | (V) -> delete the currently selected lines
-"    <Leader>D              | (N) -> delete chars under and after the cursor on the line
-"    <Leader>dw             | (N) -> delete chars under and after the cursor in the word
-"    <Leader>dd             | (N) -> delete lines under and after the one below
+"    (delete/cut functions)
+"      <Leader>x            | (N) -> delete the char(s) under and the cursor
+"      <Leader>x            | (V) -> delete the currently selected text
+"      <Leader>X            | (N) -> delete the char(s) before the cursor
+"      <Leader>X            | (V) -> delete the currently selected lines
+"      <Leader>D            | (N) -> delete chars under and after the cursor on the line
+"      <Leader>D            | (V) -> delete the currently selected lines
+"      <Leader>dw           | (N) -> delete chars under and after the cursor in the word
+"      <Leader>dd           | (N) -> delete lines under and after the one below
+"      <Leader>d            | (V) -> delete the currently selected text
+"
+"    (typical copy and paste shortcuts)
+"      <Ctrl-v>             | (N) -> paste from buffer
+"      <Ctrl-v>             | (V) -> paste buffer in place of selection
+"      <Ctrl-v>             | (I) -> paste from buffer then return to input
+"      <Ctrl-c>             | (N) -> copy character
+"      <Ctrl-c>             | (V) -> copy selection
+"      <Ctrl-x>             | (N) -> cut character
+"      <Ctrl-x>             | (V) -> cut selection
+"
+"    (remap dangerous functions that skip undo)
+"      <Ctrl-u>             | (I) -> undo-able equivalent
+"      <Ctrl-w>             | (I) -> undo-able equivalent
 "
 " Filetype Specific Mappings:
 "  (breeze->html compat)
@@ -240,6 +256,13 @@
 "ALIASES: COMMAND SHORTCUTS {{{
     cabbrev <expr><silent> GitLog ':Extradite<CR>:wincmd x<CR>:wincmd j<CR>:resize 10<CR>'
     cabbrev <expr><silent> gitlog ':Extradite<CR>:wincmd x<CR>:wincmd j<CR>:resize 10<CR>'
+    cabbrev <expr><silent> GitDiff ':Gdiff<CR>'
+    cabbrev <expr><silent> gitdiff ':Gdiff<CR>'
+    cabbrev <expr><silent> GitStatus ':Gstatus<CR>'
+    cabbrev <expr><silent> gitstatus ':Gstatus<CR>'
+    cabbrev <expr><silent> GitCommit ':Gcommit<CR>'
+    cabbrev <expr><silent> gitcommit ':Gcommit<CR>'
+
     cabbrev sudow SudoWrite
     cabbrev wsudo SudoWrite
     cabbrev sudoe SudoRead
@@ -339,43 +362,43 @@
 
         "unmap F1 from help then map it to toggle the display of line numbers
         nnoremap <silent><expr> <F1> ':set number!<CR>:echo "line numbers toggled"<CR>'
-        xnoremap <silent><expr> <F1> '<Esc>:set number!<CR>v'
+        xnoremap <silent><expr> <F1> '<Esc>:set number!<CR>gv'
         inoremap <silent><expr> <F1> '<C-O>:set number!<CR>'
 
         "toggle the cursor line and column
         nnoremap <silent><expr> <F2> ':set cursorline! cursorcolumn!<CR>:echo "cursor crosshair toggled"<CR>'
-        xnoremap <silent><expr> <F2> '<Esc>:set cursorline! cursorcolumn!<CR>v'
+        xnoremap <silent><expr> <F2> '<Esc>:set cursorline! cursorcolumn!<CR>gv'
         inoremap <silent><expr> <F2> '<C-O>:set cursorline! cursorcolumn!<CR>'
 
         "toggle line wrapping (and bottom bar if using the gui)
         nnoremap <silent><expr> <F3> ':echo "line wrapping toggled"<CR>:set wrap!<CR>'
-        xnoremap <silent><expr> <F3> '<Esc>:set wrap!<CR>v'
+        xnoremap <silent><expr> <F3> '<Esc>:set wrap!<CR>gv'
         inoremap <silent><expr> <F3> '<C-O>:set wrap!<CR>'
 
         "toggle all folds
         nnoremap <F4> zi:echo "code folding toggled"<CR>
-        xnoremap <F4> <Esc>ziv
+        xnoremap <F4> <Esc>zigv
         inoremap <F4> <C-O>zi
 
         "toggle spellcheck
         nnoremap <silent><expr> <F5> ':set spell!<CR>:echo "spell checking toggled"<CR>'
-        xnoremap <silent><expr> <F5> '<Esc>:set spell!<CR>v'
+        xnoremap <silent><expr> <F5> '<Esc>:set spell!<CR>gv'
         inoremap <silent><expr> <F5> '<C-O>:set spell!<CR>'
 
         "toggle syntax checking
         nnoremap <silent><expr> <F6> ':SyntasticToggleMode<CR>'
-        xnoremap <silent><expr> <F6> '<Esc>:SyntasticToggleMode<CR>v'
+        xnoremap <silent><expr> <F6> '<Esc>:SyntasticToggleMode<CR>gv'
         inoremap <silent><expr> <F6> '<C-O>:SyntasticToggleMode<CR>'
 
         "toggle signify and signify highlight
         let g:signify_mapping_toggle = '<F7>'
         nnoremap <expr><silent> <C-F7> ':Extradite<CR>:wincmd x<CR>:wincmd j<CR>:resize 10<CR>'
-        xnoremap <expr><silent> <C-F7> '<Esc>:Extradite<CR>:wincmd x<CR>:wincmd j<CR>:resize 10<CR>'
+        xnoremap <expr><silent> <C-F7> '<Esc>:Extradite<CR>:wincmd x<CR>:wincmd j<CR>:resize 10<CR>gv'
         inoremap <expr><silent> <C-F7> '<Esc>:Extradite<CR>:wincmd x<CR>:wincmd j<CR>:resize 10<CR>'
 
         "bindings to trigger the tagbar list of tags
         nnoremap <silent><expr> <F8> ':TagbarToggle<CR>:echo "tagbar toggled"<CR>'
-        xnoremap <silent><expr> <F8> '<Esc>:TagbarToggle<CR>v'
+        xnoremap <silent><expr> <F8> '<Esc>:TagbarToggle<CR>gv'
         inoremap <silent><expr> <F8> '<C-O>:TagbarToggle<CR>'
 
         "bindings to trigger the tagbar list of errors
@@ -395,15 +418,15 @@
     "GVIM TOGGLES:{
         "map toggles for the menu, toolbar and vertical scrollbar
         nnoremap <silent><expr> <C-F1> ":if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>:echo 'Menu bar toggled'<CR>"
-        vnoremap <silent><expr> <C-F1> "<Esc>:if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>v"
+        vnoremap <silent><expr> <C-F1> "<Esc>:if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>gv"
         inoremap <silent><expr> <C-F1> "<C-O>:if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>"
 
         nnoremap <silent><expr> <C-F2> ":if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>:echo 'Toolbar toggled'<CR>"
-        vnoremap <silent><expr> <C-F2> "<Esc>:if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>v"
+        vnoremap <silent><expr> <C-F2> "<Esc>:if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>gv"
         inoremap <silent><expr> <C-F2> "<C-O>:if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>"
 
         nnoremap <silent><expr> <C-F3> ":if &go=~#'r'<Bar>set go-=r<Bar>set go-=L<Bar>set go-=b<Bar>else<Bar>set go+=r<Bar>set go+=L<Bar>set go+=b<Bar>endif<CR>:echo 'Scrollbars toggled'<CR>"
-        vnoremap <silent><expr> <C-F3> "<Esc>:if &go=~#'r'<Bar>set go-=r<Bar>set go-=L<Bar>set go-=b<Bar>else<Bar>set go+=r<Bar>set go+=L<Bar>set go+=b<Bar>endif<CR>v"
+        vnoremap <silent><expr> <C-F3> "<Esc>:if &go=~#'r'<Bar>set go-=r<Bar>set go-=L<Bar>set go-=b<Bar>else<Bar>set go+=r<Bar>set go+=L<Bar>set go+=b<Bar>endif<CR>gv"
         inoremap <silent><expr> <C-F3> "<C-O>:if &go=~#'r'<Bar>set go-=r<Bar>set go-=L<Bar>set go-=b<Bar>else<Bar>set go+=r<Bar>set go+=L<Bar>set go+=b<Bar>endif<CR>"
     "}
 
@@ -504,28 +527,40 @@
         xnoremap <C-Left> ^
     "}
 
-    "PASTE:{
+    "COPY PASTE AND UNDO REDO:{
         "display contents of paste buffers
         nnoremap <silent><expr> <Leader>p ':reg<CR>'
 
         "allow y to copy a single character in normal mode
         nnoremap y vy<Esc>
 
-        "P puts text it replaces in the buffer and p does not
+        "P pastes and replaces the buffer, p pastes and keeps it
         vnoremap P p
         xmap p <Plug>ReplaceWithRegisterVisual
-        nmap <C-p> <Plug>ReplaceWithRegisterOperator
 
-        "Alternatives to deletion commands that don't replace the buffer
-        vnoremap <Leader>x "_x
+        "Alternatives to cut/deletion commands that don't replace the buffer
         nnoremap <Leader>x "_x
-        vnoremap <Leader>X "_X
+        vnoremap <Leader>x "_x
         nnoremap <Leader>X "_X
-        vnoremap <Leader>D "_D
+        vnoremap <Leader>X "_X
         nnoremap <Leader>D "_D
-        vnoremap <Leader>d "_d
-        nnoremap <Leader>dd "_dd
+        vnoremap <Leader>D "_D
+        nnoremap <Leader>dd "_dd hello and good day
         nnoremap <Leader>dw "_dw
+        vnoremap <Leader>d "_d
+
+        "map copy/paste shortcuts to more typical ones
+        nnoremap <C-v> p
+        xmap <C-v> <Plug>ReplaceWithRegisterVisual
+        inoremap <C-v> <C-O>p
+        nnoremap <C-c> y
+        vnoremap <C-c> y
+        nnoremap <C-x> x
+        vnoremap <C-x> x
+
+        "remap ctrl-u and ctrl-w to safer alternatives
+        inoremap <C-u> <C-g>u<c-u>
+        inoremap <C-w> <C-g>u<c-w>
     "}
 "}}}
 
