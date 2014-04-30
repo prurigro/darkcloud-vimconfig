@@ -393,7 +393,7 @@
         "toggle signify and signify highlight
         let g:signify_mapping_toggle = '<F7>'
         nnoremap <expr><silent> <C-F7> ':Extradite<CR>:wincmd x<CR>:wincmd j<CR>:resize 10<CR>'
-        xnoremap <expr><silent> <C-F7> '<Esc>:Extradite<CR>:wincmd x<CR>:wincmd j<CR>:resize 10<CR>gv'
+        xnoremap <expr><silent> <C-F7> '<Esc>:Extradite<CR>:wincmd x<CR>:wincmd j<CR>:resize 10<CR>v'
         inoremap <expr><silent> <C-F7> '<Esc>:Extradite<CR>:wincmd x<CR>:wincmd j<CR>:resize 10<CR>'
 
         "bindings to trigger the tagbar list of tags
