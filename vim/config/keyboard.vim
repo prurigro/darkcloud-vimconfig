@@ -66,7 +66,7 @@
 "    <Leader>0              | (A) -> go to the previous open tab
 "    <Leader>-              | (A) -> open a new tab
 "    <Leader>=              | (A) -> create a new tab with vimfiler
-"    <Leader>+              | (A) -> create a new tab with vimfiler
+"    <Leader>+              | (A) -> create a new tab with a double pane vimfiler
 "
 "  (toggles)
 "    ??                     | (N) -> toggle the quick reference sidebar
