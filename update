@@ -5,19 +5,24 @@ cd "${0%/*}"
 
 # create the user vimrc file in the directory if it doesn't already exist
 if [ ! -e vim/vimrc.user ]; then
+    echo "Creating user configuration file 'vim/vimrc.user'..."
     if [ -d vim ] && [ -w vim ]; then
         echo -e '"Syntax Checking Autostart: (1:start toggled on | 0: start toggled off)\nlet g:autostartchecker=1\n' >> vim/vimrc.user
-        echo -e '"Vim Starts With The Tagbar Open: (1:start open | 0:start closed)\nlet g:autostarttagbar=1\n' >> vim/vimrc.user
+        echo -e '"Vim Starts With The Tagbar Open: (1:start open | 0:start closed)\nlet g:autostarttagbar=0\n' >> vim/vimrc.user
         echo -e '"Powerline Font Support: (1:enabled | 0:disabled)\nlet g:powerlinefonts=1\n' >> vim/vimrc.user
         echo -e '"GVim Font Selection: (term font set by terminal)\nset guifont=Droid\ Sans\ Mono\ 12' >> vim/vimrc.user
     fi
+    echo
 fi
 
-# update the repository and submodules
+echo "Updating darkcloud-vimconfig..."
 git pull origin
+
+echo -e "\nUpdating plugin submodules..."
 git submodule update --init --recursive
 
-# delete any submodule no longer in the repository
+# delete submodules in vim/bundle that were removed up stream
+echo -e "\nConfiguring plugin submodules..."
 [[ -f .gitmodules ]] && for each in vim/bundle/*; do
     if [ -d "$each" ]; then
         if [ -f "${each}/.git" ]; then
@@ -26,9 +31,32 @@ git submodule update --init --recursive
         fi
     fi
 done
+echo
 
-# update the help text for any new/changed pathogen plugin
+# update git-based plugins in vim/bundle.user if any exist
+if [ ! $(find vim/bundle.user | grep ".git/config" | wc -l) = 0 ]; then
+    echo "Updating custom plugins in 'vim/bundle.user':"
+    pushd vim/bundle.user > /dev/null 2>&1
+        for each in *; do
+            if [ -d "$each" ]; then
+                pushd "$each" > /dev/null 2>&1
+                    if [ -d .git  ]; then
+                        echo -e "\nUpdating git repo: ${each}..."
+                        git pull
+                    elif [ -f .git ]; then
+                        echo -e "\nUpdating git submodule: ${each}..."
+                        git pull origin master
+                    fi
+                popd > /dev/null 2>&1
+            fi
+        done
+    popd > /dev/null 2>&1
+    echo
+fi
+
+echo "Generating updated helpdocs for installed plugins..."
 [[ `type -P vim` ]] && vim -c "Helptags|qa!" &>/dev/null 2>&1
+echo
 
-# exit cleanly
+echo "Successfully completed!"
 exit 0
