@@ -80,6 +80,7 @@
 * [breeze.vim](https://github.com/gcmt/breeze.vim.git): Provides tag matching and navigation shortcuts for HTML.
 * [emmet-vim](https://github.com/mattn/emmet-vim.git): Support for expanding abbreviations.
   * [webapi-vim](https://github.com/mattn/webapi-vim.git) A web library used by emmet to provide support for custom snippets.
+* [goyo.vim](https://github.com/junegunn/goyo.vim) Distraction-free writing in Vim
 * [grep](https://github.com/yegappan/grep.git): Provides the ability to perform various match-based searches using grep.
 * [gundo.vim](https://github.com/sjl/gundo.vim.git): Sidebar to visualize your undo tree and browse the differences of each change.
 * [lightline.vim](https://github.com/itchyny/lightline.vim) A light and configurable statusline/tabline for Vim.
