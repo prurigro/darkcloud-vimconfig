@@ -29,6 +29,7 @@
 "   <Ctrl-_>p               | (A) -> comment the current paragraph
 "   +                       | (V) -> increase the selected region
 "   _                       | (V) -> decrease the selected region
+"   <Leader><Space>         | (N) -> center content and hide everything else
 "
 "  (surround)
 "    S"                     | (V) -> surround selection with quotes

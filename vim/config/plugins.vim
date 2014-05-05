@@ -30,6 +30,18 @@
     endif
 "}}}
 
+"GOYO: {{{
+    nnoremap <Leader><Space> :Goyo<CR>
+    autocmd VimEnter,Filetype *
+        \   let g:goyo_width = &textwidth |
+        \   if (g:goyo_width == 0) |
+        \       let g:goyo_width = max(map(getline(1,'$'), 'len(v:val)')) |
+        \       if (g:goyo_width < 78) |
+        \           let g:goyo_width = 78 |
+        \       endif |
+        \   endif
+"}}}
+
 "GUNDO: {{{
     let g:gundo_right=1
     let g:gundo_width=35
