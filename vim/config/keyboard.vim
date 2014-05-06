@@ -95,7 +95,7 @@
 "    <Ctrl-F3>              | (A) -> toggle the scrollbar
 "
 "  (completion)
-"    <Leader>,,             | (A) -> enter after emme 'word' (ie: html:5)
+"    <Ctrl-\>,              | (A) -> enter after emmet 'word' (ie: html:5)
 "    \\                     | (N) -> show spelling suggestions popup for word
 "    \|                     | (N) -> add word to a local list of correct spellings
 "    <Tab>                  | (I) -> (neocomp) autocomplete using common string
