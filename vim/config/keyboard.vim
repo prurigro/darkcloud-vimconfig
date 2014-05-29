@@ -105,6 +105,7 @@
 "
 "  (formatting)
 "    <Backspace>            | (V) -> deletes currently selected text
+"    <Leader><C-a>          | (N) -> format document using :Autoformat
 "    <Leader><C-f>          | (V) -> format the selection and return to cursor
 "    <Leader><C-f>          | (N) -> format document and return to cursor
 "    <Leader><C-w>          | (N) -> remove whitespace
@@ -453,6 +454,7 @@
         vnoremap <Backspace> "_x
 
         "formatting options to apply to the whole document
+        noremap <Leader><C-a> :Autoformat<CR><CR>:echo "The selection has been formatted with :Autoformat"<CR>
         nnoremap <Leader><C-f> mzgg=G`z<CR>:echo "The document has been formatted"<CR>
         vnoremap <Leader><C-f> mz=`z<CR>:echo "The selection has been formatted"<CR>
         nnoremap <silent><expr> <Leader><C-w> ':FixWhitespace<CR>:echo "Trailing whitespace has been removed"<CR>'

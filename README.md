@@ -2,19 +2,28 @@
 
 ## Requirements ##
 
-1. **Vim** _version_ >= _7.4_: It might work on earlier versions but all development and testing has been done here.
-2. **Git** (_optional_): Required to clone and update the repository, and pull the plugins as submodules.
-3. **CTags** (_optional_): Required to generate tags needed by the tagbar plugin, as well as to have tags provided by auto-completion ([ctags website](http://ctags.sourceforge.net)).
-4. **Grep and Find** (_optional_): Have grep, fgrep, egrep and agrep ([windows binaries](http://gnuwin32.sourceforge.net/packages/grep.htm)), and find and xargs ([windows binaries](http://gnuwin32.sourceforge.net/packages/findutils.htm)) in $PATH or the vim folder to use the Grep plugin commands.
-6. **Powerline Fonts** (_optional_): Needed to enable the fancier looking status line ([powerline-patched fonts](https://github.com/Lokaltog/powerline-fonts)).
-5. **Bash** (_optional_): Used in the _update_ and _gentags_ scripts.
+* **Vim**: The latest [vim](http://www.vim.org) should be installed to use this distribution (versions 7.3 and below aren't tested or guaranteed to work).
+* **Bash**: Required by the _update_ and _gentags_ scripts.
+* **Git**: Required by the _update_ script and git-related plugins.
+* **Grep and Find**: Required by the _grep_ plugin.
+* **CTags**: Required by the _tagbar_ and _neocomplcache_ plugins as well as the _gentags_ script ([ctags website](http://ctags.sourceforge.net)).
 
-## Features ##
+## Optional Requirements ##
 
-* A custom theme that includes an original colour scheme and an ever growing collection of explicit syntax colour overrides.
-* A complete default configuration that attempts to provide a useful, easy to use and modern vim experience without becoming bloated.
-* Key bindings and aliases to make useful features more accessible and provide a smoother work flow while attempting to vim's default behaviour while adding behaviour.
-* A selection of plugins chosen either because they improve vim's support for common filetypes, or because they provide value-added features that aren't bloated and manage to make vim more useful as a text editor.
+* **Powerline Fonts**: Required to enable the fancier looking status line ([powerline-fonts repo](https://github.com/Lokaltog/powerline-fonts)).
+* **Artistic Style**: Required by the _autoformat_ plugin to format C, C++, C++/CLI, C#, and Java source ([astyle website](http://astyle.sourceforge.net)).
+* **autopep8**: Required by the _autoformat_ plugin to format Python using the PEP 8 style guide ([autopep8 repo](https://github.com/hhatto/autopep8)).
+* **JS Beautifier**: Required by the _autoformat_ plugin to format Javascript source and HTML ([js-beautify repo](https://github.com/Chiel92/vim-autoformat)).
+* **Tidy**: Required by the _autoformat_ plugin to format XHTML and XML ([tidy website](http://tidy.sourceforge.net)).
+* **Compilers and Runtimes**: The syntastic plugin can use the compiler or runtime for most languages to provide real-time syntax checking.
+
+## Distribution Features ##
+
+* **Default Configuration**: A complete set of defaults, focusing on the most modern settings that still provide a compatible experience.
+* **Custom theme**: An original colour scheme with explicit values set to optimize the look of individual filetypes.
+* **Key Bindings/Aliases**: A set of bindings and aliases defined to group similar features and provide numerous (and sometimes more familiar) ways to access options.
+* **Plugins**: A set of plugins have been included and configured to provide support for most normally-unsupported filetypes, and a set of features useful when using Vim as an editor.
+* **Custom Configuration**: A second vimrc and bundle folder are included that aren't maintained as part of the repo, making custom plugins and configuration easy to add.
 
 ![Darkcloud Vim Distribution Theme](http://i.imgur.com/jP0EqeN.png)
 
@@ -30,7 +39,6 @@
   * Create a file @ _~/.vim/darkcloud-path.vim_ and in it put the following: `let g:darkcloudpath="/etc/darkcloud-vimconfig"`, but replacing _"/etc/darkcloud-vimconfig"_ with the path to the _darkcloud-vimconfig_ repo folder.
   * Place _darkcloud-vimconfig_ in the default location @ _/etc/darkcloud-vimconfig_.
   * Create your own vimrc and have that set the _g:darkcloudpath_ variable before sourcing the included vimrc.
-  * Come up with some other solution that fits your setup better than these. :)
 
 ## Configuration ##
 
@@ -76,6 +84,7 @@
 
 * [aftersyntaxc.vim](https://github.com/vim-scripts/aftersyntaxc.vim): C Syntax Extensions for better highlighting.
 * [aspnet.vim--Abshire](https://github.com/vim-scripts/aspnet.vim--Abshire.git): Syntax highlighting for ASP.NET (asp, aspx etc).
+* [auto-autoformat](https://github.com/Chiel92/vim-autoformat): Provides easy code formatting in Vim by integrating existing code formatters.
 * [autoswap.vim](https://github.com/vim-scripts/autoswap.vim): Switch to open editor window instead of asking what to do with swapfile.
 * [breeze.vim](https://github.com/gcmt/breeze.vim.git): Provides tag matching and navigation shortcuts for HTML.
 * [emmet-vim](https://github.com/mattn/emmet-vim.git): Support for expanding abbreviations.
