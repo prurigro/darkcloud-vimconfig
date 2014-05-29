@@ -304,7 +304,6 @@ call s:X("MatchParen","","#303030","bold,underline","","")
 call s:X("TabLine","","#000000","","",s:termBlack)
 call s:X("TabLineFill","","#000000","","",s:termBlack)
 call s:X("TabLineSel","#000000","#d0d0d0","",s:termBlack,"White")
-call s:X("ExtraWhitespace","#262626","","standout",s:termBlack,"")
 
 "menu call
 call s:X("Pmenu","#87d7ff","#303030","","Grey","Blue")

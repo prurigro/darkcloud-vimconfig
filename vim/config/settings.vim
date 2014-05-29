@@ -102,6 +102,9 @@
             \       setlocal omnifunc=syntaxcomplete#Complete |
             \   endif
     endif
+
+    "disable the whitespace plugin for vimfiler
+    autocmd BufEnter,FileType vimfiler hi ExtraWhitespace ctermbg=NONE guibg=NONE
 "}}}
 
 "GVIM: GUI CONFIG OPTIONS {{{

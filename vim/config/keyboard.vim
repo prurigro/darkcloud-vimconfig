@@ -350,8 +350,8 @@
 
     "TOGGLES:{
         "bindings to trigger vimfiler
-        nnoremap <silent><expr> `` ':VimFilerExplorer -direction=botright -winwidth=45<CR>'
-        nnoremap <silent><expr> ~~ ':VimFilerExplorer -direction=topleft -winwidth=45<CR>'
+        nnoremap <silent><expr> `` ':VimFiler -split -simple -toggle -no-quit -direction=botright -winwidth=45<CR>'
+        nnoremap <silent><expr> ~~ ':VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
 
         nnoremap <silent><expr> ?? ':h quickref<CR>'
         nnoremap <silent><expr> ?> ':exusage<CR>'
