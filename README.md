@@ -82,8 +82,6 @@
 
 ## Plugins ##
 
-* [aftersyntaxc.vim](https://github.com/vim-scripts/aftersyntaxc.vim): C Syntax Extensions for better highlighting.
-* [aspnet.vim--Abshire](https://github.com/vim-scripts/aspnet.vim--Abshire.git): Syntax highlighting for ASP.NET (asp, aspx etc).
 * [auto-autoformat](https://github.com/Chiel92/vim-autoformat): Provides easy code formatting in Vim by integrating existing code formatters.
 * [autoswap.vim](https://github.com/vim-scripts/autoswap.vim): Switch to open editor window instead of asking what to do with swapfile.
 * [breeze.vim](https://github.com/gcmt/breeze.vim.git): Provides tag matching and navigation shortcuts for HTML.
@@ -95,7 +93,6 @@
 * [lightline.vim](https://github.com/itchyny/lightline.vim) A light and configurable statusline/tabline for Vim.
 * [neocomplcache.vim](https://github.com/Shougo/neocomplcache.vim.git) The '*ultimate*' auto-completion system for Vim.
 * [ReplaceWithRegister](https://github.com/vim-scripts/ReplaceWithRegister.git) Replace text with the contents of a register (for paste+replace without writing over the buffer).
-* [rust.vim](https://github.com/wting/rust.vim) Vim support for Rust file detection and syntax highlighting.
 * [SpellCheck](https://github.com/vim-scripts/SpellCheck.git) Provides a list of spelling mistakes in the bottom bar that can be clicked to find them in the document.
 * [SudoEdit.vim](https://github.com/vim-scripts/SudoEdit.vim.git) Read and write files without the necessary permissions through the use of sudo.
 * [syntastic](https://github.com/scrooloose/syntastic.git) Uses system compilers and parsers to check syntax either on-the-fly or after saving a compatible document.
@@ -106,16 +103,13 @@
   * [unite.vim](https://github.com/Shougo/unite.vim.git) A library used by Vim Filer to help build its user interface.
 * [vim-fixkey](https://github.com/drmikehenry/vim-fixkey.git) A set of keyboard mappings that override differences in different environments that might normally break consistency or compatibility.
 * [vim-fugitive](https://github.com/tpope/vim-fugitive.git) A wrapper integrating git into vim in such a way as to provide features neither of them could offer on their own.
-* [vim-jquery](https://github.com/phongnh/vim-jquery.git) An extension adding highlighting for jquery to javascript syntax.
-* [vim-markdown](https://github.com/plasticboy/vim-markdown.git) Syntax highlighting, matching rules and mappings for the original Markdown and extensions.
 * [vim-move](https://github.com/matze/vim-move.git) Provides a few convenient ways to move selected text.
 * [vim-neco-calc](https://github.com/hrsh7th/vim-neco-calc.git) A calculator plugin extending neocomplcache.vim for the on-the-fly auto-completion of simple math equations.
 * [vim-pathogen](https://github.com/tpope/vim-pathogen.git) A plugin to load other plugins while keeping them isolated in their own directory structure rather than all dumped together.
-* [vim-polyglot](https://github.com/sheerun/vim-polyglot.git) A meta-package of what it attempts to ensure are the best syntax plugins for each file type.
+* [vim-polyglot](https://github.com/prurigro/vim-polyglot.git) The darkcloud-vimconfig fork of a meta-package that attempts to provide the best syntax plugins for each file type.
 * [vim-signify](https://github.com/mhinz/vim-signify) When a version controlled file is changed, this displays a column showing where and how, and allows for navigation to and between differences.
 * [vim-surround](https://github.com/tpope/vim-surround.git) Provides functionality to exchange surrounding delimiters and xml-style tags with another, or simply remove them.
   * [vim-repeat](https://github.com/tpope/vim-repeat.git) A library used by vim-surround to allow its delimiter-switching functions to be repeated with the `.` command.
-* [systemd-vim-syntax](https://github.com/kurayama/systemd-vim-syntax) A syntax plugin providing support for systemd unit files.
 * [vim-togglelist](https://github.com/milkypostman/vim-togglelist.git) Supplies toggle functions for the *location* and *error* lists, which are used by a number of plugins and normally require separate open and close commands.
 * [vim-trailing-whitespace](https://github.com/bronson/vim-trailing-whitespace.git) Highlights and allows for the easy removal of trailing whitespace in documents.
 

@@ -7,15 +7,9 @@
 [submodule "vim/bundle/vim-pathogen"]
 	path = vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-[submodule "vim/bundle/aspnet.vim--Abshire"]
-	path = vim/bundle/aspnet.vim--Abshire
-	url = https://github.com/vim-scripts/aspnet.vim--Abshire.git
 [submodule "vim/bundle/lightline.vim"]
 	path = vim/bundle/lightline.vim
 	url = https://github.com/itchyny/lightline.vim
-[submodule "vim/bundle/vim-jquery"]
-	path = vim/bundle/vim-jquery
-	url = https://github.com/phongnh/vim-jquery.git
 [submodule "vim/bundle/vim-surround"]
 	path = vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
@@ -28,9 +22,6 @@
 [submodule "vim/bundle/emmet-vim"]
 	path = vim/bundle/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
-[submodule "vim/bundle/vim-markdown"]
-	path = vim/bundle/vim-markdown
-	url = https://github.com/plasticboy/vim-markdown.git
 [submodule "vim/bundle/vim-togglelist"]
 	path = vim/bundle/vim-togglelist
 	url = https://github.com/milkypostman/vim-togglelist.git
@@ -58,9 +49,6 @@
 [submodule "vim/bundle/webapi-vim"]
 	path = vim/bundle/webapi-vim
 	url = https://github.com/mattn/webapi-vim.git
-[submodule "vim/bundle/vim-polyglot"]
-	path = vim/bundle/vim-polyglot
-	url = https://github.com/sheerun/vim-polyglot.git
 [submodule "vim/bundle/vim-fugitive"]
 	path = vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
@@ -88,21 +76,15 @@
 [submodule "vim/bundle/vim-extradite"]
 	path = vim/bundle/vim-extradite
 	url = https://github.com/int3/vim-extradite.git
-[submodule "vim/bundle/systemd-vim-syntax"]
-	path = vim/bundle/systemd-vim-syntax
-	url = https://github.com/kurayama/systemd-vim-syntax.git
-[submodule "vim/bundle/aftersyntaxc.vim"]
-	path = vim/bundle/aftersyntaxc.vim
-	url = https://github.com/vim-scripts/aftersyntaxc.vim
 [submodule "vim/bundle/autoswap.vim"]
 	path = vim/bundle/autoswap.vim
 	url = https://github.com/vim-scripts/autoswap.vim.git
-[submodule "vim/bundle/rust.vim"]
-	path = vim/bundle/rust.vim
-	url = https://github.com/wting/rust.vim.git
 [submodule "vim/bundle/goyo.vim"]
 	path = vim/bundle/goyo.vim
 	url = https://github.com/junegunn/goyo.vim.git
 [submodule "vim/bundle/vim-autoformat"]
 	path = vim/bundle/vim-autoformat
 	url = https://github.com/Chiel92/vim-autoformat.git
+[submodule "vim/bundle/vim-polyglot-darkcloud"]
+	path = vim/bundle/vim-polyglot-darkcloud
+	url = https://github.com/prurigro/vim-polyglot.git
