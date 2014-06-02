@@ -13,6 +13,12 @@
     execute pathogen#infect('bundle/{}', 'bundle.user/{}')
 "}}}
 
+"SYNTAX PLUGINS: {{{
+    let g:vim_json_warnings=0
+    let g:vim_markdown_folding_disabled=0
+    let g:vim_markdown_initial_foldlevel=2
+"}}}
+
 "BREEZE: {{{
     let g:breeze_active_filetypes="*.html,*.htm,*.xhtml,*.xml,*.php"
     let g:breeze_shade_color = "String"
@@ -48,11 +54,6 @@
     let g:gundo_preview_height=10
 
     autocmd FileType gundo setlocal nocursorcolumn
-"}}}
-
-"MARKDOWN VIM MODE: {{{
-    let g:vim_markdown_folding_disabled=0
-    let g:vim_markdown_initial_foldlevel=2
 "}}}
 
 "NEOCOMPLCACHE AUTOCOMPLETION PLUGIN: {{{

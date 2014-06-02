@@ -404,6 +404,10 @@ hi! link javascriptHtmlEvents javaScriptSpecial
 hi! link javascriptDomElemAttrs javaScriptSpecial
 hi! link javascriptDomElemFuncs javaScriptFunction
 
+autocmd BufEnter,FileType json hi! link Label Constant
+autocmd BufEnter,FileType json hi! link Number Todo
+autocmd BufEnter,FileType json hi! link String Statement
+
 "coffeeScript
 hi! link coffeeRegExp javaScriptRegexpString
 

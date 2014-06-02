@@ -79,7 +79,7 @@
     autocmd BufNewFile,BufRead *.muttrc setf muttrc
     autocmd BufNewFile,BufRead pacman.conf,yaourtrc setf sh
     autocmd BufNewFile,BufRead archversion.conf setf archversion
-    autocmd BufNewFile,BufRead cjdroute.conf,ircd.conf setf javascript
+    autocmd BufNewFile,BufRead cjdroute.conf,ircd.conf setf json
 
     "misc filtype specific settings
     autocmd FileType gitcommit,notes,mail,notmuch,text setlocal spell
