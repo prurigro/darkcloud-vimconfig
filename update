@@ -28,7 +28,7 @@ echo -e "\nConfiguring plugin submodules..."
     if [ -d "$each" ]; then
         if [ -f "${each}/.git" ]; then
             FILE=$(echo $each | grep -o -e "[^\/]*$")
-            [[ `cat .gitmodules | grep "path = " |  grep -o -e "[^\/]*$" | grep -c "${FILE}"` = 0 ]] && (rm -rf "${each}" && echo "Deleted: ${each}" || (echo -e "\033[01;31mWARNING\033[00m: '${each}' was removed upstream but couldn't be deleted here.\n\nPlease delete ${each} manually."; exit 1))
+            [[ `cat .gitmodules | grep "path = " |  grep -o -e "[^\/]*$" | grep -c -e "${FILE}$"` = 0 ]] && (rm -rf "${each}" && echo "Deleted: ${each}" || (echo -e "\033[01;31mWARNING\033[00m: '${each}' was removed upstream but couldn't be deleted here.\n\nPlease delete ${each} manually."; exit 1))
         fi
     fi
 done
