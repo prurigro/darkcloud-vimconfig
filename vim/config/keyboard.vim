@@ -63,11 +63,11 @@
 "    <Ctrl-Alt-LeftClick>   | (A) -> select the paragraph being clicked
 "
 "  (tabs)
-"    <Leader>9              | (A) -> go to the next open tab
-"    <Leader>0              | (A) -> go to the previous open tab
-"    <Leader>-              | (A) -> open a new tab
-"    <Leader>=              | (A) -> create a new tab with vimfiler
-"    <Leader>+              | (A) -> create a new tab with a double pane vimfiler
+"    <Alt-n>                | (N) -> go to the next open tab
+"    <Alt-p>                | (N) -> go to the previous open tab
+"    <Alt-t>                | (N) -> open a new tab
+"    <Alt-f>                | (N) -> create a new tab with vimfiler
+"    <Alt-d>                | (N) -> create a new tab with a double pane vimfiler
 "
 "  (toggles)
 "    ??                     | (N) -> toggle the quick reference sidebar
@@ -332,21 +332,11 @@
     "}
 
     "TABS:{
-        nnoremap <silent><expr> <Leader>0 ':tabnext<CR>'
-        inoremap <silent><expr> <Leader>0 '<C-O>:tabnext<CR>'
-        xnoremap <silent><expr> <Leader>0 '<Esc>:tabnext<CR>'
-        nnoremap <silent><expr> <Leader>9 ':tabprev<CR>'
-        inoremap <silent><expr> <Leader>9 '<Esc>:tabprev<CR>'
-        xnoremap <silent><expr> <Leader>9 '<Esc>:tabprev<CR>'
-        nnoremap <silent><expr> <Leader>- ':tabnew<CR>'
-        inoremap <silent><expr> <Leader>- '<Esc>:tabnew<CR>'
-        xnoremap <silent><expr> <Leader>- '<Esc>:tabnew<CR>'
-        nnoremap <silent><expr> <leader>= ':VimFiler -tab -project<CR>'
-        inoremap <silent><expr> <leader>= '<Esc>:VimFiler -tab -project<CR>'
-        xnoremap <silent><expr> <leader>= '<Esc>:VimFiler -tab -project<CR>'
-        nnoremap <silent><expr> <leader>+ ':VimFiler -tab -project -double<CR>'
-        inoremap <silent><expr> <leader>+ '<Esc>:VimFiler -tab -project -double<CR>'
-        xnoremap <silent><expr> <leader>+ '<Esc>:VimFiler -tab -project -double<CR>'
+        nnoremap <silent><expr> <A-n> ':tabnext<CR>'
+        nnoremap <silent><expr> <A-p> ':tabprev<CR>'
+        nnoremap <silent><expr> <A-t> ':tabnew<CR>'
+        nnoremap <silent><expr> <A-f> ':VimFiler -tab -project<CR>'
+        nnoremap <silent><expr> <A-d> ':VimFiler -tab -project -double<CR>'
     "}
 
     "TOGGLES:{
