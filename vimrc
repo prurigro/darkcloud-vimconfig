@@ -37,6 +37,9 @@
     "Load Keymappings:
     runtime config/keyboard.vim
 
+    "Load After Config:
+    runtime config/after.vim
+
     "Load User Config:
     runtime vimrc.user
 
@@ -45,7 +48,4 @@
 
     "Load Colour Scheme:
     colorscheme darkcloud
-
-    "Load After Config:
-    runtime config/after.vim
 "}}}
