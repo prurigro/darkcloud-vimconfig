@@ -4,13 +4,16 @@
 cd "${0%/*}"
 
 # create the user vimrc file in the directory if it doesn't already exist
+[[ ! -d vim ]] && install -d vim
 if [ ! -e vim/vimrc.user ]; then
     echo "Creating user configuration file 'vim/vimrc.user'..."
-    if [ -d vim ] && [ -w vim ]; then
-        echo -e '"Syntax Checking Autostart: (1:start toggled on | 0: start toggled off)\nlet g:autostartchecker=1\n' >> vim/vimrc.user
-        echo -e '"Vim Starts With The Tagbar Open: (1:start open | 0:start closed)\nlet g:autostarttagbar=0\n' >> vim/vimrc.user
-        echo -e '"Powerline Font Support: (1:enabled | 0:disabled)\nlet g:powerlinefonts=1\n' >> vim/vimrc.user
-        echo -e '"GVim Font Selection: (term font set by terminal)\nset guifont=Droid\ Sans\ Mono\ 12' >> vim/vimrc.user
+    if [ -w vim ]; then
+        echo -e '"Disable Linebreaks: (*1:force disabled globally | 0: disabled by default)\n"let g:disablelinebreaks=0\n' >> vim/vimrc.user
+        echo -e '"Autostart Filer: (*1:filer loads in new empty buffers | 0: filer must be triggered)\n"let g:autostartfiler=0\n' >> vim/vimrc.user
+        echo -e '"Syntax Autostart: (1:start toggled on | *0: start toggled off)\n"let g:autostartchecker=1\n' >> vim/vimrc.user
+        echo -e '"Tagbar Autostart: (1:start open | *0:start closed)\n"let g:autostarttagbar=1\n' >> vim/vimrc.user
+        echo -e '"Powerline Fonts: (1:enabled | *0:disabled)\n"let g:powerlinefonts=1 "(set powerline font for gvim and terminal when enabled)\n' >> vim/vimrc.user
+        echo -e '"GVim Font Selection: (Escaping spaces and use powerline if appropriate)\nset guifont=Monospace\ 12' >> vim/vimrc.user
     fi
     echo
 fi

@@ -43,6 +43,7 @@
 ## Configuration ##
 
 * **Configure Variables**: The following variables can be added to _vim/vimrc.user_ and have their values set to the values you require:
+  * **g:disablelinebreaks**: 1 = Override filetype plugins so linebreaks never occur | 0 = Linebreaks are disabled by default, but filetype plugins can override this setting (_default_: 1)
   * **g:autostartfiler**: 1 = Start the filer file manager when vim is run and the buffer is empty | 0 = Do nothing when vim is run and the buffer is empty (_default_: 1)
   * **g:autostartchecker**: 1 = Check syntax once an appropriate file is loaded | 0 = Check syntax only after syntax checking is toggled on (_default_: 0)
   * **g:autostarttagbar**: 1 = Have the tagbar load automatically when a compatible format is run | 0 = The tagbar will stay hidden until triggered on demand with its toggle (_default_: 0)
@@ -125,4 +126,5 @@
 * Many other authors have their work contained in this repo, most of which are self contained in the vim/bundle directory. I also used the Vim jellybean theme as a basis for the Darkcloud theme, which is maintained by NanoTech <http://nanotech.nanotechcorp.net/>
 
 ## License ##
+
 All projects cloned in the vim/bundle folder are separate and have their own licenses. Everything else is released under the MIT license.

@@ -2,7 +2,7 @@
 "                                                            "
 "  Darkcloud Vim Config: plugin settings                     "
 "                                                            "
-"  Maintainer: Prurigro (prurigro-at-gmail-dot-com)          "
+"  Maintainer: Kevin MacMartin (prurigro@gmail.com)          "
 "  Website: https://github.com/prurigro/darkcloud-vimconfig  "
 "                                                            "
 "  License: MIT                                              "
@@ -148,9 +148,7 @@
 
 "VIM FILER: {{{
     "autostart filer when vim opens to an empty buffer (default: 1)
-    if !exists("g:autostartfiler")
-        let g:autostartfiler=1
-    endif
+    if !exists("g:autostartfiler")|let g:autostartfiler=1|endif
     if (g:autostartfiler == 1)
         autocmd VimEnter * if !argc() | VimFiler -quit -project | endif
     endif

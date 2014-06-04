@@ -2,7 +2,7 @@
 "                                                            "
 "  Darkcloud Vim Config: vimrc                               "
 "                                                            "
-"  Maintainer: Prurigro (prurigro-at-gmail-dot-com)          "
+"  Maintainer: Kevin MacMartin (prurigro@gmail.com)          "
 "  Website: https://github.com/prurigro/darkcloud-vimconfig  "
 "                                                            "
 "  License: MIT                                              "
@@ -45,4 +45,7 @@
 
     "Load Colour Scheme:
     colorscheme darkcloud
+
+    "Load After Config:
+    runtime config/after.vim
 "}}}

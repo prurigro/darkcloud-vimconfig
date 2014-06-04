@@ -2,7 +2,7 @@
 "                                                            "
 "  Darkcloud Vim Config: theme
 "                                                            "
-"  Maintainer: Prurigro (prurigro-at-gmail-dot-com)          "
+"  Maintainer: Kevin MacMartin (prurigro@gmail.com)          "
 "  Website: https://github.com/prurigro/darkcloud-vimconfig  "
 "                                                            "
 "  License: MIT                                              "
