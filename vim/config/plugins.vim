@@ -16,8 +16,6 @@
 "SYNTAX PLUGINS: {{{
     let g:vim_json_warnings=0
     let g:vim_json_syntax_conceal=0
-    let g:vim_markdown_folding_disabled=0
-    let g:vim_markdown_initial_foldlevel=2
 "}}}
 
 "BREEZE: {{{
@@ -55,6 +53,20 @@
     let g:gundo_preview_height=10
 
     autocmd FileType gundo setlocal nocursorcolumn
+"}}}
+
+"MARKDOWN: {{{
+    let g:vim_markdown_folding_disabled=0
+    let g:vim_markdown_initial_foldlevel=2
+
+    "Remove default mappings then set them to fix issues with vimdiff
+    let g:vim_markdown_no_default_key_mappings=1
+    nmap ]] <Plug>(Markdown_MoveToNextHeader)
+    nmap [[ <Plug>(Markdown_MoveToPreviousHeader)
+    nmap ][ <Plug>(Markdown_MoveToNextSiblingHeader)
+    nmap [] <Plug>(Markdown_MoveToPreviousSiblingHeader)
+    nmap ]c <Plug>(Markdown_MoveToCurHeader)
+    nmap ]u <Plug>(Markdown_MoveToParentHeader)
 "}}}
 
 "NEOCOMPLCACHE AUTOCOMPLETION PLUGIN: {{{

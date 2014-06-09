@@ -67,12 +67,13 @@
     filetype plugin indent on
     syntax on
 
-    "set matching filenames to matching filenames
-    autocmd BufNewFile,BufRead *.aspx,*.asmx,*.ascx,*.master setf aspnet
-    autocmd BufNewFile,BufRead *.muttrc setf muttrc
-    autocmd BufNewFile,BufRead pacman.conf,yaourtrc setf sh
-    autocmd BufNewFile,BufRead archversion.conf setf archversion
-    autocmd BufNewFile,BufRead cjdroute.conf,cjdmaid.conf setf json
+    "set given filenames to various filetypes
+    au BufNewFile,BufRead *.aspx,*.asmx,*.ascx,*.master setf aspnet
+    au BufNewFile,BufRead *.gradle setf groovy
+    au BufNewFile,BufRead *.muttrc setf muttrc
+    au BufNewFile,BufRead pacman.conf,yaourtrc setf sh
+    au BufNewFile,BufRead archversion.conf setf archversion
+    au BufNewFile,BufRead cjdroute.conf,cjdmaid.conf setf json
 "}}}
 
 "GVIM: GUI CONFIG OPTIONS {{{
