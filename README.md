@@ -61,21 +61,23 @@
 
 | Binding               | Mode |                                           Action |
 |:----------------------|:----:|-------------------------------------------------:|
-| Shift-MiddleClick     | ALL  | Unbind this from vim so xorg can use it to paste |
 | Ctrl-ScrollUp         | ALL  |          Scroll right a few characters at a time |
 | Ctrl-ScrollDown       | ALL  |           Scroll left a few characters at a time |
 | Alt-ScrollUp          | ALL  |             Scroll right one character at a time |
 | Alt-ScrollDown        | ALL  |              Scroll left one character at a time |
-| MiddleClick           | ALL  | Behaves like right-click (selects to the cursor) |
+|                       |      |                                                  |
+| MiddleClick           | ALL  |          Select between the cursor and the mouse |
+| Ctrl-LeftClick        | ALL  |          Select between the cursor and the mouse |
+| Alt-LeftClick         | ALL  |                     Select the line at the mouse |
+| Ctrl-Alt-LeftClick    | ALL  |                Select the paragraph at the mouse |
+|                       |      |                                                  |
 | Ctrl-RightClick       | ALL  |     Copy selection or character under the cursor |
 | Ctrl-MiddleClick      | ALL  |     Copy selection or character under the cursor |
 | Alt-RightClick        | ALL  |      Cut selection or character under the cursor |
 | Alt-MiddleClick       | ALL  |      Cut selection or character under the cursor |
-| Ctrl-Alt-RightClick   | ALL  |                  Paste at the cursor (not mouse) |
-| Ctrl-Alt-MiddleClick  | ALL  |                  Paste at the cursor (not mouse) |
-| Ctrl-LeftClick        | ALL  |                    Select the word being clicked |
-| Alt-LeftClick         | ALL  |                    Select the line being clicked |
-| Ctrl-Alt-LeftClick    | ALL  |               Select the paragraph being clicked |
+| Ctrl-Alt-RightClick   | ALL  |                              Paste at the cursor |
+| Ctrl-Alt-MiddleClick  | ALL  |                              Paste at the cursor |
+| Shift-MiddleClick     | ALL  |            Paste the contents of the xorg buffer |
 
 ### Keyboard ###
 

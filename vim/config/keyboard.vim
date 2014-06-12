@@ -42,25 +42,26 @@
 "
 " Mappings:
 "  (mouse)
-"    <Shift-MiddleClick>      | (A) -> unbind this from vim so xorg can paste
+"    <Ctrl-ScrollUp>          | (A) -> scroll right quickly
+"    <Ctrl-ScrollDown>        | (A) -> scroll left quickly
+"    <Alt-ScrollUp>           | (A) -> scroll right slowly
+"    <Alt-ScrollDown>         | (A) -> scroll left slowly
 "
-"    <Ctrl-ScrollUp>          | (A) -> scroll right a few characters at a time
-"    <Ctrl-ScrollDown>        | (A) -> scroll left a few characters at a time
-"    <Alt-ScrollUp>           | (A) -> scroll right one character at a time
-"    <Alt-ScrollDown>         | (A) -> scroll left one character at a time
-"
-"    <MiddleClick>            | (A) -> behaves like right-click (selects to the cursor)
+"    <MiddleClick>            | (A) -> selects from the cursor
+"    <Ctrl-LeftClick>         | (A) -> selects from the cursor
+"    <Alt-LeftClick>          | (A) -> select the line being clicked
+"    <Ctrl-Alt-LeftClick>     | (A) -> select the paragraph being clicked
 "
 "    <Ctrl-RightClick>        | (A) -> copy selection or character under the cursor
 "    <Ctrl-MiddleClick>       | (A) -> copy selection or character under the cursor
+"
 "    <Alt-RightClick>         | (A) -> cut selection or character under the cursor
 "    <Alt-MiddleClick>        | (A) -> cut selection or character under the cursor
+"
 "    <Ctrl-Alt-RightClick>    | (A) -> paste at the cursor (not mouse)
 "    <Ctrl-Alt-MiddleClick>   | (A) -> paste at the cursor (not mouse)
 "
-"    <Ctrl-LeftClick>         | (A) -> select the word being clicked
-"    <Alt-LeftClick>          | (A) -> select the line being clicked
-"    <Ctrl-Alt-LeftClick>     | (A) -> select the paragraph being clicked
+"    <Shift-MiddleClick>      | (A) -> paste from xorg paste buffer
 "
 "  (tabs)
 "    <Alt-n>                  | (N) -> go to the next open tab
@@ -279,63 +280,67 @@
 
 "MAPPINGS: GENERAL KEYBINDINGS AND REBINDINGS {{{
     "MOUSE:{
-        "configure middle click to paste from X
-        noremap <S-Insert> <MiddleMouse>
-        noremap! <S-Insert> <MiddleMouse>
-
         "hold ctrl to scroll left/right instead of up/down
-        noremap <C-ScrollWheelUp> 4zl
-        noremap <C-ScrollWheelDown> 4zh
+        nnoremap <C-ScrollWheelUp> 4zl
+        xnoremap <C-ScrollWheelUp> 4zl
         inoremap <C-ScrollWheelUp> <C-O>4zl
+        nnoremap <C-ScrollWheelDown> 4zh
+        xnoremap <C-ScrollWheelDown> 4zh
         inoremap <C-ScrollWheelDown> <C-O>4zh
 
         "hold alt to scroll left/right more precisely
-        noremap <A-ScrollWheelUp> zl
-        noremap <A-ScrollWheelDown> zh
+        nnoremap <A-ScrollWheelUp> zl
+        xnoremap <A-ScrollWheelUp> zl
         inoremap <A-ScrollWheelUp> <C-O>zl
+        nnoremap <A-ScrollWheelDown> zh
+        xnoremap <A-ScrollWheelDown> zh
         inoremap <A-ScrollWheelDown> <C-O>zh
 
-        "middle click behaves like right and selects from cursor
-        noremap <MiddleMouse> <RightMouse>
-
-        "ctrl+middle/right = copy line in normal and selection in visual
-        nnoremap <C-RightMouse> <LeftMouse>Vy
-        nnoremap <C-MiddleMouse> <LeftMouse>Vy
-        vnoremap <C-RightMouse> y
-        vnoremap <C-MiddleMouse> y
-        inoremap <C-RightMouse> <Esc>p
-        inoremap <C-MiddleMouse> <Esc>p
-
-        "ctrl+alt+middle/right = paste
-        nnoremap <A-RightMouse> x
-        nnoremap <A-MiddleMouse> x
-        xnoremap <A-RightMouse> x
-        xnoremap <A-MiddleMouse> x
-        inoremap <A-RightMouse> <C-O>x
-        inoremap <A-MiddleMouse> <C-O>x
-
-        "ctrl+alt+middle/right = paste
-        nnoremap <C-A-RightMouse> p
-        nnoremap <C-A-MiddleMouse> p
-        xnoremap <C-A-RightMouse> p
-        xnoremap <C-A-MiddleMouse> p
-        inoremap <C-A-RightMouse> <C-O>p
-        inoremap <C-A-MiddleMouse> <C-O>p
-
-        "ctrl+left = word
-        nnoremap <C-LeftMouse> <LeftMouse>bvw
-        xnoremap <C-LeftMouse> <Esc><LeftMouse>bvw
-        inoremap <C-LeftMouse> <Esc><LeftMouse>bvw
+        "middle & ctrl+left = select from cursor
+        nnoremap <MiddleMouse> <RightMouse>
+        xnoremap <MiddleMouse> <RightMouse>
+        inoremap <MiddleMouse> <C-0><RightMouse>
+        nnoremap <C-LeftMouse> <RightMouse>
+        xnoremap <C-LeftMouse> <RightMouse>
+        inoremap <C-LeftMouse> <C-0> <RightMouse>
 
         "alt+left = line
         nnoremap <A-LeftMouse> <LeftMouse>V
-        xnoremap <A-LeftMouse> <Esc><LeftMouse>V
+        xnoremap <A-LeftMouse> <RightMouse>$
         inoremap <A-LeftMouse> <Esc><LeftMouse>V
 
-        "ctrl-alt+left = paragraph
+        "ctrl+alt+left = select paragraph
         nnoremap <C-A-LeftMouse> <LeftMouse>vip
-        xnoremap <C-A-LeftMouse> <Esc><LeftMouse>vip
+        xnoremap <C-A-LeftMouse> <RightMouse>ip$
         inoremap <C-A-LeftMouse> <Esc><LeftMouse>vip
+
+        "ctrl+(middle/right) = copy
+        nnoremap <C-RightMouse> <LeftMouse>Vy
+        vnoremap <C-RightMouse> y
+        inoremap <C-RightMouse> <C-0>y
+        nnoremap <C-MiddleMouse> <LeftMouse>Vy
+        vnoremap <C-MiddleMouse> y
+        inoremap <C-MiddleMouse> <C-0>y
+
+        "alt+(middle/right) = cut
+        nnoremap <A-RightMouse> x
+        xnoremap <A-RightMouse> x
+        inoremap <A-RightMouse> <C-O>x
+        nnoremap <A-MiddleMouse> x
+        xnoremap <A-MiddleMouse> x
+        inoremap <A-MiddleMouse> <C-O>x
+
+        "ctrl+alt+(middle/right) = paste
+        nnoremap <C-A-RightMouse> p
+        xnoremap <C-A-RightMouse> p
+        inoremap <C-A-RightMouse> <C-O>p
+        nnoremap <C-A-MiddleMouse> p
+        xnoremap <C-A-MiddleMouse> p
+        inoremap <C-A-MiddleMouse> <C-O>p
+
+        "configure middle click to paste from X
+        noremap <S-Insert> <MiddleMouse>
+        noremap! <S-Insert> <MiddleMouse>
     "}
 
     "TABS:{
