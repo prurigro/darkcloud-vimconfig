@@ -108,7 +108,9 @@
 | \<Ctrl-F11\>           | ALL  |                    Toggle the toolbar **(gvim)** |
 | \<Ctrl-F12\>           | ALL  |                 Toggle the scrollbars **(gvim)** |
 
-**Complete Reference**: For a complete list of darkcloud-vimconfig specific mappings, check the list in the comments at the top of [vim/config/keyboard.vim](https://github.com/prurigro/darkcloud-vimconfig/blob/master/vim/config/keyboard.vim).
+### Complete Reference ###
+
+For all **darkcloud-vimconfig**-specific mappings, check the list in the comments at the top of [vim/config/keyboard.vim](https://github.com/prurigro/darkcloud-vimconfig/blob/master/vim/config/keyboard.vim).
 
 ## Plugins ##
 
