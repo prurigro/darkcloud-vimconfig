@@ -87,19 +87,23 @@
 |:-----------------------|:----:|-------------------------------------------------:|
 | \<Backslash\>\<Space\> | NORM |         Toggle the **goyo** distraction-free UI  |
 |                        |      |                                                  |
-| ??                     | NORM |                  Toggle the Vim reference manual |
+| ??                     | NORM |              Toggle the **vim** reference manual |
 | ~                      | NORM |         Toggle **vimfiler** file manager sidebar |
 | \`                     | NORM |    Toggle the gutter (line #s, folds, git diffs) |
 |                        |      |                                                  |
 | \<F1\>                 | ALL  |        Toggle the **gundo** undo history sidebar |
-| \<F2\>                 | ALL  |    Toggle the spellcheck list of incorrect words |
+| \<F2\>                 | ALL  | Toggle the **spellcheck** bottom bar of mistakes |
 | \<F3\>                 | ALL  |    Toggle the **tagbar** source code tag sidebar |
-| \<F12\>                | ALL  |          Toggle the Extradite git history window |
+| \<F12\>                | ALL  |      Toggle the **extradite** git history window |
 |                        |      |                                                  |
 | \<Ctrl-F1\>            | ALL  |                             Toggle line wrapping |
-| \<Ctrl-F2\>            | ALL  |             Toggle spell check word highlighting |
+| \<Ctrl-F2\>            | ALL  |         Toggle highlighting of spelling mistakes |
 | \<Ctrl-F3\>            | ALL  |               Toggle source code syntax checking |
-|                        |      |                                                  |
+
+##### GVim #####
+
+| Binding                | Mode |                                           Action |
+|:-----------------------|:----:|-------------------------------------------------:|
 | \<Ctrl-F10\>           | ALL  |                    Toggle the menubar **(gvim)** |
 | \<Ctrl-F11\>           | ALL  |                    Toggle the toolbar **(gvim)** |
 | \<Ctrl-F12\>           | ALL  |                 Toggle the scrollbars **(gvim)** |
