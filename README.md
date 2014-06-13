@@ -89,7 +89,7 @@
 |                       |      |                                                  |
 | ??                    | NORM |                  Toggle the Vim reference manual |
 | ~                     | NORM |         Toggle **vimfiler** file manager sidebar |
-| `                     | NORM |    Toggle the gutter (line #s, folds, git diffs) |
+| \`                    | NORM |    Toggle the gutter (line #s, folds, git diffs) |
 |                       |      |                                                  |
 | <F1>                  | ALL  |        Toggle the **gundo** undo history sidebar |
 | <F2>                  | ALL  |    Toggle the spellcheck list of incorrect words |
