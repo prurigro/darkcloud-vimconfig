@@ -81,7 +81,30 @@
 
 ### Keyboard ###
 
-**Todo**: For now, check comments at the top of *[vim/config/keyboard.vim](https://github.com/prurigro/darkcloud-vimconfig/blob/master/vim/config/keyboard.vim)* for a list.
+#### Toggles and Sidebars ####
+
+| Binding               | Mode |                                           Action |
+|:----------------------|:----:|-------------------------------------------------:|
+| <Backslash><Space>    | NORM |         Toggle the **goyo** distraction-free UI  |
+|                       |      |                                                  |
+| ??                    | NORM |                  Toggle the Vim reference manual |
+| ~                     | NORM |         Toggle **vimfiler** file manager sidebar |
+| `                     | NORM |    Toggle the gutter (line #s, folds, git diffs) |
+|                       |      |                                                  |
+| <F1>                  | ALL  |        Toggle the **gundo** undo history sidebar |
+| <F2>                  | ALL  |    Toggle the spellcheck list of incorrect words |
+| <F3>                  | ALL  |    Toggle the **tagbar** source code tag sidebar |
+| <F12>                 | ALL  |          Toggle the Extradite git history window |
+|                       |      |                                                  |
+| <Ctrl-F1>             | ALL  |                             Toggle line wrapping |
+| <Ctrl-F2>             | ALL  |             Toggle spell check word highlighting |
+| <Ctrl-F3>             | ALL  |               Toggle source code syntax checking |
+|                       |      |                                                  |
+| <Ctrl-F10>            | ALL  |                    Toggle the menubar **(gvim)** |
+| <Ctrl-F11>            | ALL  |                    Toggle the toolbar **(gvim)** |
+| <Ctrl-F12>            | ALL  |                 Toggle the scrollbars **(gvim)** |
+
+**Complete Reference**: For a complete list of darkcloud-vimconfig specific mappings, check the list in the comments at the top of [vim/config/keyboard.vim](https://github.com/prurigro/darkcloud-vimconfig/blob/master/vim/config/keyboard.vim).
 
 ## Plugins ##
 
@@ -115,12 +138,6 @@
   * [vim-repeat](https://github.com/tpope/vim-repeat.git) A library used by vim-surround to allow its delimiter-switching functions to be repeated with the `.` command.
 * [vim-togglelist](https://github.com/milkypostman/vim-togglelist.git) Supplies toggle functions for the *location* and *error* lists, which are used by a number of plugins and normally require separate open and close commands.
 * [vim-trailing-whitespace](https://github.com/bronson/vim-trailing-whitespace.git) Highlights and allows for the easy removal of trailing whitespace in documents.
-
-## Notes ##
-
-* **Runtimepath**: To find the runtimepath locations currently set, run the following in vim: `:verbose set runtimepath`.
-* **Key Bindings**: You can find a list of the bindings added by darkcloud-vimconfig, as well as a few of the ones added by plugins in _vim/config/keyboard.vim_.
-* **Vim Quick Reference**: Type _??_, _?>_ and _?<_ to toggle sidebars with three styles of quick reference material on different reference topics.
 
 ## Credits ##
 
