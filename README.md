@@ -59,50 +59,50 @@
 
 ### Mouse ###
 
-| Binding               | Mode |                                           Action |
-|:----------------------|:----:|-------------------------------------------------:|
-| Ctrl-ScrollUp         | ALL  |          Scroll right a few characters at a time |
-| Ctrl-ScrollDown       | ALL  |           Scroll left a few characters at a time |
-| Alt-ScrollUp          | ALL  |             Scroll right one character at a time |
-| Alt-ScrollDown        | ALL  |              Scroll left one character at a time |
-|                       |      |                                                  |
-| MiddleClick           | ALL  |          Select between the cursor and the mouse |
-| Ctrl-LeftClick        | ALL  |          Select between the cursor and the mouse |
-| Alt-LeftClick         | ALL  |                     Select the line at the mouse |
-| Ctrl-Alt-LeftClick    | ALL  |                Select the paragraph at the mouse |
-|                       |      |                                                  |
-| Ctrl-RightClick       | ALL  |     Copy selection or character under the cursor |
-| Ctrl-MiddleClick      | ALL  |     Copy selection or character under the cursor |
-| Alt-RightClick        | ALL  |      Cut selection or character under the cursor |
-| Alt-MiddleClick       | ALL  |      Cut selection or character under the cursor |
-| Ctrl-Alt-RightClick   | ALL  |                              Paste at the cursor |
-| Ctrl-Alt-MiddleClick  | ALL  |                              Paste at the cursor |
-| Shift-MiddleClick     | ALL  |            Paste the contents of the xorg buffer |
+| Binding                | Mode |                                           Action |
+|:-----------------------|:----:|-------------------------------------------------:|
+| Ctrl-ScrollUp          | ALL  |          Scroll right a few characters at a time |
+| Ctrl-ScrollDown        | ALL  |           Scroll left a few characters at a time |
+| Alt-ScrollUp           | ALL  |             Scroll right one character at a time |
+| Alt-ScrollDown         | ALL  |              Scroll left one character at a time |
+|                        |      |                                                  |
+| MiddleClick            | ALL  |          Select between the cursor and the mouse |
+| Ctrl-LeftClick         | ALL  |          Select between the cursor and the mouse |
+| Alt-LeftClick          | ALL  |                     Select the line at the mouse |
+| Ctrl-Alt-LeftClick     | ALL  |                Select the paragraph at the mouse |
+|                        |      |                                                  |
+| Ctrl-RightClick        | ALL  |     Copy selection or character under the cursor |
+| Ctrl-MiddleClick       | ALL  |     Copy selection or character under the cursor |
+| Alt-RightClick         | ALL  |      Cut selection or character under the cursor |
+| Alt-MiddleClick        | ALL  |      Cut selection or character under the cursor |
+| Ctrl-Alt-RightClick    | ALL  |                              Paste at the cursor |
+| Ctrl-Alt-MiddleClick   | ALL  |                              Paste at the cursor |
+| Shift-MiddleClick      | ALL  |            Paste the contents of the xorg buffer |
 
 ### Keyboard ###
 
 #### Toggles and Sidebars ####
 
-| Binding               | Mode |                                           Action |
-|:----------------------|:----:|-------------------------------------------------:|
-| <Backslash><Space>    | NORM |         Toggle the **goyo** distraction-free UI  |
-|                       |      |                                                  |
-| ??                    | NORM |                  Toggle the Vim reference manual |
-| ~                     | NORM |         Toggle **vimfiler** file manager sidebar |
-| \`                    | NORM |    Toggle the gutter (line #s, folds, git diffs) |
-|                       |      |                                                  |
-| \<F1\>                | ALL  |        Toggle the **gundo** undo history sidebar |
-| \<F2\>                | ALL  |    Toggle the spellcheck list of incorrect words |
-| \<F3\>                | ALL  |    Toggle the **tagbar** source code tag sidebar |
-| \<F12\>               | ALL  |          Toggle the Extradite git history window |
-|                       |      |                                                  |
-| \<Ctrl-F1\>           | ALL  |                             Toggle line wrapping |
-| \<Ctrl-F2\>           | ALL  |             Toggle spell check word highlighting |
-| \<Ctrl-F3\>           | ALL  |               Toggle source code syntax checking |
-|                       |      |                                                  |
-| \<Ctrl-F10\>          | ALL  |                    Toggle the menubar **(gvim)** |
-| \<Ctrl-F11\>          | ALL  |                    Toggle the toolbar **(gvim)** |
-| \<Ctrl-F12\>          | ALL  |                 Toggle the scrollbars **(gvim)** |
+| Binding                | Mode |                                           Action |
+|:-----------------------|:----:|-------------------------------------------------:|
+| \<Backslash\>\<Space\> | NORM |         Toggle the **goyo** distraction-free UI  |
+|                        |      |                                                  |
+| ??                     | NORM |                  Toggle the Vim reference manual |
+| ~                      | NORM |         Toggle **vimfiler** file manager sidebar |
+| \`                     | NORM |    Toggle the gutter (line #s, folds, git diffs) |
+|                        |      |                                                  |
+| \<F1\>                 | ALL  |        Toggle the **gundo** undo history sidebar |
+| \<F2\>                 | ALL  |    Toggle the spellcheck list of incorrect words |
+| \<F3\>                 | ALL  |    Toggle the **tagbar** source code tag sidebar |
+| \<F12\>                | ALL  |          Toggle the Extradite git history window |
+|                        |      |                                                  |
+| \<Ctrl-F1\>            | ALL  |                             Toggle line wrapping |
+| \<Ctrl-F2\>            | ALL  |             Toggle spell check word highlighting |
+| \<Ctrl-F3\>            | ALL  |               Toggle source code syntax checking |
+|                        |      |                                                  |
+| \<Ctrl-F10\>           | ALL  |                    Toggle the menubar **(gvim)** |
+| \<Ctrl-F11\>           | ALL  |                    Toggle the toolbar **(gvim)** |
+| \<Ctrl-F12\>           | ALL  |                 Toggle the scrollbars **(gvim)** |
 
 **Complete Reference**: For a complete list of darkcloud-vimconfig specific mappings, check the list in the comments at the top of [vim/config/keyboard.vim](https://github.com/prurigro/darkcloud-vimconfig/blob/master/vim/config/keyboard.vim).
 
