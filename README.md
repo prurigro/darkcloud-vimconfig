@@ -91,18 +91,18 @@
 | ~                     | NORM |         Toggle **vimfiler** file manager sidebar |
 | \`                    | NORM |    Toggle the gutter (line #s, folds, git diffs) |
 |                       |      |                                                  |
-| <F1>                  | ALL  |        Toggle the **gundo** undo history sidebar |
-| <F2>                  | ALL  |    Toggle the spellcheck list of incorrect words |
-| <F3>                  | ALL  |    Toggle the **tagbar** source code tag sidebar |
-| <F12>                 | ALL  |          Toggle the Extradite git history window |
+| \<F1\>                | ALL  |        Toggle the **gundo** undo history sidebar |
+| \<F2\>                | ALL  |    Toggle the spellcheck list of incorrect words |
+| \<F3\>                | ALL  |    Toggle the **tagbar** source code tag sidebar |
+| \<F12\>               | ALL  |          Toggle the Extradite git history window |
 |                       |      |                                                  |
-| <Ctrl-F1>             | ALL  |                             Toggle line wrapping |
-| <Ctrl-F2>             | ALL  |             Toggle spell check word highlighting |
-| <Ctrl-F3>             | ALL  |               Toggle source code syntax checking |
+| \<Ctrl-F1\>           | ALL  |                             Toggle line wrapping |
+| \<Ctrl-F2\>           | ALL  |             Toggle spell check word highlighting |
+| \<Ctrl-F3\>           | ALL  |               Toggle source code syntax checking |
 |                       |      |                                                  |
-| <Ctrl-F10>            | ALL  |                    Toggle the menubar **(gvim)** |
-| <Ctrl-F11>            | ALL  |                    Toggle the toolbar **(gvim)** |
-| <Ctrl-F12>            | ALL  |                 Toggle the scrollbars **(gvim)** |
+| \<Ctrl-F10\>          | ALL  |                    Toggle the menubar **(gvim)** |
+| \<Ctrl-F11\>          | ALL  |                    Toggle the toolbar **(gvim)** |
+| \<Ctrl-F12\>          | ALL  |                 Toggle the scrollbars **(gvim)** |
 
 **Complete Reference**: For a complete list of darkcloud-vimconfig specific mappings, check the list in the comments at the top of [vim/config/keyboard.vim](https://github.com/prurigro/darkcloud-vimconfig/blob/master/vim/config/keyboard.vim).
 
