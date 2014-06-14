@@ -37,7 +37,6 @@
     set nowrap "disable line wrapping
     set cursorline cursorcolumn "enable row/column highlighting
     set visualbell "notify visually instead of with an audible bell
-    set cryptmethod=blowfish
     set splitright "add new tiles on the right (and not left) when added
     set scrolloff=0 sidescrolloff=0 "start scrolling if the cursor is one position away from the edge
     set list listchars=tab:>-,trail:- "display tabs as: >--- and trailing spaces as: -
