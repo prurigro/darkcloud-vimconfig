@@ -308,10 +308,11 @@
         "middle & ctrl+left = select from cursor
         nnoremap <MiddleMouse> <RightMouse>
         xnoremap <MiddleMouse> <RightMouse>
-        inoremap <MiddleMouse> <C-0><RightMouse>
+        inoremap <MiddleMouse> <RightMouse>
+        xnoremap <LeftMouse> <RightMouse>
         nnoremap <C-LeftMouse> <RightMouse>
         xnoremap <C-LeftMouse> <RightMouse>
-        inoremap <C-LeftMouse> <C-0> <RightMouse>
+        inoremap <C-LeftMouse> <RightMouse>
 
         "alt+left = line
         nnoremap <A-LeftMouse> <LeftMouse>V
