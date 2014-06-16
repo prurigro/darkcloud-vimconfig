@@ -49,7 +49,6 @@
 "    <Alt-ScrollUp>           | (A) -> scroll right slowly
 "    <Alt-ScrollDown>         | (A) -> scroll left slowly
 "
-"    <LeftClick>              | (V) -> selects from the cursor
 "    <MiddleClick>            | (A) -> selects from the cursor
 "    <Ctrl-LeftClick>         | (A) -> selects from the cursor
 "    <Alt-LeftClick>          | (A) -> select the line being clicked
@@ -310,7 +309,6 @@
         nnoremap <MiddleMouse> <RightMouse>
         xnoremap <MiddleMouse> <RightMouse>
         inoremap <MiddleMouse> <RightMouse>
-        xnoremap <LeftMouse> <RightMouse>
         nnoremap <C-LeftMouse> <RightMouse>
         xnoremap <C-LeftMouse> <RightMouse>
         inoremap <C-LeftMouse> <RightMouse>
