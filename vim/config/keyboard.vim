@@ -49,6 +49,7 @@
 "    <Alt-ScrollUp>           | (A) -> scroll right slowly
 "    <Alt-ScrollDown>         | (A) -> scroll left slowly
 "
+"    <LeftClick>              | (V) -> selects from the cursor
 "    <MiddleClick>            | (A) -> selects from the cursor
 "    <Ctrl-LeftClick>         | (A) -> selects from the cursor
 "    <Alt-LeftClick>          | (A) -> select the line being clicked

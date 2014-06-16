@@ -66,6 +66,7 @@
 | Alt-ScrollUp           | ALL  |             Scroll right one character at a time |
 | Alt-ScrollDown         | ALL  |              Scroll left one character at a time |
 |                        |      |                                                  |
+| LeftClick              | VIS  |          Select between the cursor and the mouse |
 | MiddleClick            | ALL  |          Select between the cursor and the mouse |
 | Ctrl-LeftClick         | ALL  |          Select between the cursor and the mouse |
 | Alt-LeftClick          | ALL  |                     Select the line at the mouse |
