@@ -2,7 +2,7 @@
 "                                                            "
 "  Darkcloud Vim Config: settings to load after all else     "
 "                                                            "
-"  Maintainer: Kevin MacMartin (prurigro@gmail.com)          "
+"  By: Kevin MacMartin (prurigro@gmail.com)                  "
 "  Website: https://github.com/prurigro/darkcloud-vimconfig  "
 "                                                            "
 "  License: MIT                                              "

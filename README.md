@@ -1,4 +1,6 @@
-# Darkcloud Vim Distribution: Theme, Config and Plugins #
+# darkcloud-vimconfig #
+
+A theme, config and collection of plugins for Vim.
 
 ## Requirements ##
 
@@ -31,7 +33,7 @@
 
 1. Clone the darkcloud-vimconfig repo and use the _update_ script to install the plugins:
   * `git clone https://github.com/prurigro/darkcloud-vimconfig.git`
-  * `sh darkcloud-vimconfig/update`
+  * `./darkcloud-vimconfig/update` (if you don't want colour output, run: `./darkcloud-vimconfig/update --no-colour` instead)
   * **Note**: The _update_ script requires bash, but if it's not available you can enter the _darkcloud-vimconfig/_ folder and run: `git submodule update --init` to install the plugins manually, then create _vim/vimrc.user_ and remember to run: `:Helptags` once everything else is running.
 2. If you don't know where vim expects to find your vimrc, start vim and run: `:version` to find the values "user vimrc file" (for a single-user install) and "system vimrc file" (for a system-wide install). T
 3. Copy or symlink the vimrc file from `darkcloud-vimconfig/vimrc` to one of the locations vim expects to find it, based on whether you want a local or system-wide install, then choose one of the following:
@@ -43,11 +45,11 @@
 ## Configuration ##
 
 * **Configure Variables**: The following variables can be added to _vim/vimrc.user_ and have their values set to the values you require:
-  * **g:disablelinebreaks**: 1 = Override filetype plugins so linebreaks never occur | 0 = Linebreaks are disabled by default, but filetype plugins can override this setting (_default_: 1)
-  * **g:autostartfiler**: 1 = Start the filer file manager when vim is run and the buffer is empty | 0 = Do nothing when vim is run and the buffer is empty (_default_: 1)
-  * **g:autostartchecker**: 1 = Check syntax once an appropriate file is loaded | 0 = Check syntax only after syntax checking is toggled on (_default_: 0)
-  * **g:autostarttagbar**: 1 = Have the tagbar load automatically when a compatible format is run | 0 = The tagbar will stay hidden until triggered on demand with its toggle (_default_: 0)
-  * **g:powerlinefonts**: 1 = Render the statusline using characters available with powerline-patched fonts | 0 = Render the statusbar with less attractive but more compatible characters available in all fonts (_default_: 0)
+  * `g:disablelinebreaks`: **1** = Override filetype plugins so linebreaks never occur | 0 = Linebreaks are disabled by default, but filetype plugins can override this setting (_default_: 1)
+  * `g:autostartfiler`: **1** = Start the filer file manager when vim is run and the buffer is empty | 0 = Do nothing when vim is run and the buffer is empty (_default_: 1)
+  * `g:autostartchecker`: **1** = Check syntax once an appropriate file is loaded | 0 = Check syntax only after syntax checking is toggled on (_default_: 0)
+  * `g:autostarttagbar`: **1** = Have the tagbar load automatically when a compatible format is run | 0 = The tagbar will stay hidden until triggered on demand with its toggle (_default_: 0)
+  * `g:powerlinefonts`: **1** = Render the statusline using characters available with powerline-patched fonts | 0 = Render the statusbar with less attractive but more compatible characters available in all fonts (_default_: 0)
 * **Custom Settings**: Settings with priority over those set by darkcloud-vimconfig can be added to a file named _vimrc.user_, located in _darkcloud-vimconfig/vim/_ or any of the folders in the runtimepath.
 * **Custom Plugins**: Pathogen compatible plugins can be cloned or extracted to "darkcloud-vimconfig/vim/bundle.user/", or a folder named "bundle" or "bundle.user" in any of the folders in the runtimepath.
 * **Custom Snippets**: To add or override Emmet snippets, create _~/.vim/snippets.json_ and add your own definitions using json like shown in the [Emmet Documentation](http://docs.emmet.io/customization/snippets/).
@@ -110,7 +112,7 @@
 
 ### Complete Reference ###
 
-For all **darkcloud-vimconfig**-specific mappings, check the list in the comments at the top of [vim/config/keyboard.vim](https://github.com/prurigro/darkcloud-vimconfig/blob/master/vim/config/keyboard.vim).
+For a complete list of mappings specific to **darkcloud-vimconfig**, check the list in the comments at the top of [vim/config/keyboard.vim](https://github.com/prurigro/darkcloud-vimconfig/blob/master/vim/config/keyboard.vim).
 
 ## Plugins ##
 
@@ -147,9 +149,9 @@ For all **darkcloud-vimconfig**-specific mappings, check the list in the comment
 
 ## Credits ##
 
-* Written by Kevin MacMartin: [GitHub Projects](https://github.com/prurigro?tab=repositories) | [Arch Linux AUR Packages](https://aur.archlinux.org/packages/?SeB=m&K=prurigro)
-* Many other authors have their work contained in this repo, most of which are self contained in the vim/bundle directory. I also used the Vim jellybean theme as a basis for the Darkcloud theme, which is maintained by NanoTech <http://nanotech.nanotechcorp.net/>
+* By Kevin MacMartin: [GitHub Projects](https://github.com/prurigro?tab=repositories) | [Arch Linux AUR Packages](https://aur.archlinux.org/packages/?SeB=m&K=prurigro)
+* The jellybean theme for Vim by [NanoTech](http://nanotech.nanotechcorp.net) was stripped down and used as a starting point to build the darkcloud theme included in this project.
 
 ## License ##
 
-All projects cloned in the vim/bundle folder are separate and have their own licenses. Everything else is released under the MIT license.
+Licensed under the [MIT license](http://opensource.org/licenses/MIT).

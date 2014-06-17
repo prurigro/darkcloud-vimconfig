@@ -2,7 +2,7 @@
 "                                                            "
 "  Darkcloud Vim Config: plugin settings                     "
 "                                                            "
-"  Maintainer: Kevin MacMartin (prurigro@gmail.com)          "
+"  By: Kevin MacMartin (prurigro@gmail.com)                  "
 "  Website: https://github.com/prurigro/darkcloud-vimconfig  "
 "                                                            "
 "  License: MIT                                              "
