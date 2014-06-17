@@ -83,13 +83,14 @@
 "    <Leader>0                | (N) -> reset all folds using default fold level
 "
 "    <F1>                     | (N) -> toggle the gundo sidebar
-"    <F2>                     | (A) -> toggle spellcheck error list
-"    <F3>                     | (A) -> toggle the tagbar sidebar
-"    <12>                     | (A) -> toggle extradite git commit history
+"    <F2>                     | (A) -> toggle the tagbar sidebar
+"    <F3>                     | (A) -> toggle spellcheck error list
+"    <F4>                     | (A) -> toggle extradite git commit history
 "
 "    <Ctrl-F1>                | (A) -> toggle line wrapping
 "    <Ctrl-F2>                | (A) -> toggle spell check
 "    <Ctrl-F3>                | (A) -> toggle syntax checking
+"    <Ctrl-F4>                | (A) -> toggle external-paste mode
 "
 "  (gvim toggles)
 "    <Ctrl-F10>               | (A) -> toggle the menubar
@@ -165,7 +166,6 @@
 "    <Shift-Left>             | (V) -> select a few lines left
 "
 "  (copy/paste and undo/redo)
-"    <Alt-p>                  | (N) -> toggle paste mode
 "    <Leader>p                | (N) -> view the paste buffers and register contents
 "    y                        | (N) -> copies the character at the cursor
 "    P                        | (V) -> save selection to the buffer and paste over
@@ -183,7 +183,7 @@
 "      <Leader>dd             | (N) -> delete lines under and after the one below
 "      <Leader>d              | (V) -> delete the currently selected text
 "
-"    (typical copy and paste shortcuts)
+"    (improved copy and paste shortcuts)
 "      <Ctrl-v>               | (N) -> paste from buffer
 "      <Ctrl-v>               | (V) -> paste buffer in place of selection
 "      <Ctrl-v>               | (I) -> paste from buffer then return to input
@@ -207,7 +207,7 @@
 "    <Leader><Backspace>      | (N) -> move to the parent tag
 "
 "  (extradite)
-"    <C-F7>                   | (A) -> close the dialog
+"    <F4>                     | (A) -> close the dialog
 "    <Right>                  | (A) -> same as down
 "    l                        | (A) -> same as j
 "    <Left>                   | (A) -> same as Up
@@ -390,38 +390,41 @@
 
         "bindings to trigger the gundo undo history
         nnoremap <silent><expr> <F1> ':GundoToggle<CR>:echo "undo history sidebar toggled"<CR>'
-        xnoremap <silent><expr> <F1> '<Esc>:GundoToggle<CR>v'
-        inoremap <silent><expr> <F1> '<C-O>:GundoToggle<CR>'
-
-        "bindings to trigger spellcheck
-        nnoremap <silent><expr> <F2> ':UpdateAndSpellCheck<CR>:call ToggleQuickfixList()<CR>:wincmd j<CR>'
-        xnoremap <silent><expr> <F2> '<Esc>:UpdateAndSpellCheck<CR>:call ToggleQuickfixList()<CR>:wincmd j<CR>'
-        inoremap <silent><expr> <F2> '<Esc>:UpdateAndSpellCheck<CR>:call ToggleQuickfixList()<CR>:wincmd j<CR>'
+        xnoremap <silent><expr> <F1> '<Esc>:GundoToggle<CR>'
+        inoremap <silent><expr> <F1> '<Esc>:GundoToggle<CR>'
 
         "bindings to trigger the tagbar list of tags
-        nnoremap <silent><expr> <F3> ':TagbarToggle<CR>:echo "tagbar toggled"<CR>'
-        xnoremap <silent><expr> <F3> '<Esc>:TagbarToggle<CR>gv'
-        inoremap <silent><expr> <F3> '<C-O>:TagbarToggle<CR>'
+        nnoremap <silent><expr> <F2> ':TagbarToggle<CR>:echo "tagbar toggled"<CR>'
+        xnoremap <silent><expr> <F2> '<Esc>:TagbarToggle<CR>gv'
+        inoremap <silent><expr> <F2> '<C-O>:TagbarToggle<CR>'
+
+        "bindings to trigger spellcheck
+        nnoremap <silent><expr> <F3> ':UpdateAndSpellCheck<CR>:call ToggleQuickfixList()<CR>:wincmd j<CR>'
+        xnoremap <silent><expr> <F3> '<Esc>:UpdateAndSpellCheck<CR>:call ToggleQuickfixList()<CR>:wincmd j<CR>'
+        inoremap <silent><expr> <F3> '<Esc>:UpdateAndSpellCheck<CR>:call ToggleQuickfixList()<CR>:wincmd j<CR>'
 
         "view commit history and diffs
-        nnoremap <expr><silent> <F12> ':Extradite<CR>:wincmd x<CR>:wincmd j<CR>:resize 10<CR>'
-        xnoremap <expr><silent> <F12> '<Esc>:Extradite<CR>:wincmd x<CR>:wincmd j<CR>:resize 10<CR>v'
-        inoremap <expr><silent> <F12> '<Esc>:Extradite<CR>:wincmd x<CR>:wincmd j<CR>:resize 10<CR>'
+        nnoremap <expr><silent> <F4> ':Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        xnoremap <expr><silent> <F4> '<Esc>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        inoremap <expr><silent> <F4> '<Esc>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
 
         "toggle line wrapping (and bottom bar if using the gui)
         nnoremap <silent><expr> <C-F1> ':set wrap!<CR>:echo "line wrapping toggled"<CR>'
         xnoremap <silent><expr> <C-F1> '<Esc>:set wrap!<CR>gv'
         inoremap <silent><expr> <C-F1> '<C-O>:set wrap!<CR>'
 
-        "toggle spellcheck
-        nnoremap <silent><expr> <C-F2> ':set spell!<CR>:echo "spell checking toggled"<CR>'
-        xnoremap <silent><expr> <C-F2> '<Esc>:set spell!<CR>gv'
-        inoremap <silent><expr> <C-F2> '<C-O>:set spell!<CR>'
-
         "toggle syntax checking
-        nnoremap <silent><expr> <C-F3> ':SyntasticToggleMode<CR>'
-        xnoremap <silent><expr> <C-F3> '<Esc>:SyntasticToggleMode<CR>gv'
-        inoremap <silent><expr> <C-F3> '<C-O>:SyntasticToggleMode<CR>'
+        nnoremap <silent><expr> <C-F2> ':SyntasticToggleMode<CR>'
+        xnoremap <silent><expr> <C-F2> '<Esc>:SyntasticToggleMode<CR>gv'
+        inoremap <silent><expr> <C-F2> '<C-O>:SyntasticToggleMode<CR>'
+
+        "toggle spellcheck
+        nnoremap <silent><expr> <C-F3> ':set spell!<CR>:echo "spell checking toggled"<CR>'
+        xnoremap <silent><expr> <C-F3> '<Esc>:set spell!<CR>gv'
+        inoremap <silent><expr> <C-F3> '<C-O>:set spell!<CR>'
+
+        "toggle external-paste mode
+        set pastetoggle=<C-F4>
     "}
 
     "GVIM TOGGLES:{
@@ -539,9 +542,6 @@
     "}
 
     "COPY PASTE AND UNDO REDO:{
-        "toggle paste mode
-        nnoremap <silent><expr> <A-p> ':set paste!<CR>'
-
         "display contents of paste buffers
         nnoremap <silent><expr> <Leader>p ':reg<CR>'
 
@@ -593,7 +593,7 @@
     autocmd FileType extradite map <buffer> l j
     autocmd FileType extradite map <buffer> <Left> <Up>
     autocmd FileType extradite map <buffer> h k
-    autocmd FileType diff,extradite map <buffer> <silent><expr> <F12> ':Extradite<CR>'
+    autocmd FileType diff,extradite map <buffer> <silent><expr> <F4> ':Extradite<CR>'
 
     "gundo
     autocmd FileType gundo map <buffer> <LeftMouse> <LeftMouse>0l
@@ -611,7 +611,7 @@
     endif
 
     "markdown: launch table of contents instead of the tagbar
-    autocmd FileType mkd map <buffer> <silent><expr> <F3> ':Toch<CR>'
+    autocmd FileType mkd map <buffer> <silent><expr> <F2> ':Toch<CR>'
 
     "markdown table of contents
     autocmd FileType qf map <buffer> <LeftMouse> <LeftMouse>0
@@ -624,14 +624,13 @@
     autocmd FileType qf map <buffer> h j
     autocmd FileType qf map <buffer> l k
     autocmd FileType qf map <buffer> <silent><expr> q ':hide<CR>'
-    autocmd FileType qf map <buffer> <silent><expr> <F2> ':hide<CR>'
+    autocmd FileType qf map <buffer> <silent><expr> <F3> ':hide<CR>'
 
     "vimdiff
     autocmd FilterWritePre * if &diff|nnoremap <buffer> <silent><expr> <Leader><> ':diffu<CR>'|endif
     autocmd FilterWritePre * if &diff|nnoremap <buffer> <silent><expr> <Leader>>< ':diffu<CR>'|endif
     autocmd FilterWritePre * if &diff|nnoremap <buffer> <Leader>> dp|endif
     autocmd FilterWritePre * if &diff|nnoremap <buffer> <Leader>< do|endif
-    autocmd FilterWritePre * if &diff|cabbrev q qall|endif
     autocmd FilterWritePre * if &diff|cabbrev q! qall!|endif
 
     "vimfiler
@@ -648,8 +647,8 @@
 "DISABLED MAPPINGS FOR FILETYPES: {{{
     "remove incompatible toggles from specific file types
     autocmd Filetype qf,vimfiler,extradite,help noremap <buffer> <F1> <Nop>
-    autocmd Filetype ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <F2> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler,extradite,help noremap <buffer> <F3> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler,extradite,help noremap <buffer> <F2> <Nop>
+    autocmd Filetype ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <F3> <Nop>
     autocmd Filetype qf,ggundo,vimfiler,tagbar,help noremap <buffer> <12> <Nop>
 
     "disable modifier keys with directions that would interfere with logic

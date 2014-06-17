@@ -8,16 +8,16 @@ A theme, config and collection of plugins for Vim.
 * **Bash**: Required by the _update_ and _gentags_ scripts.
 * **Git**: Required by the _update_ script and git-related plugins.
 * **Grep and Find**: Required by the _grep_ plugin.
-* **CTags**: Required by the _tagbar_ and _neocomplcache_ plugins as well as the _gentags_ script ([ctags website](http://ctags.sourceforge.net)).
 
 ## Optional Requirements ##
 
-* **Powerline Fonts**: Required to enable the fancier looking status line ([powerline-fonts repo](https://github.com/Lokaltog/powerline-fonts)).
 * **Artistic Style**: Required by the _autoformat_ plugin to format C, C++, C++/CLI, C#, and Java source ([astyle website](http://astyle.sourceforge.net)).
 * **autopep8**: Required by the _autoformat_ plugin to format Python using the PEP 8 style guide ([autopep8 repo](https://github.com/hhatto/autopep8)).
-* **JS Beautifier**: Required by the _autoformat_ plugin to format Javascript source and HTML ([js-beautify repo](https://github.com/Chiel92/vim-autoformat)).
-* **Tidy**: Required by the _autoformat_ plugin to format XHTML and XML ([tidy website](http://tidy.sourceforge.net)).
 * **Compilers and Runtimes**: The syntastic plugin can use the compiler or runtime for most languages to provide real-time syntax checking.
+* **CTags**: Required by the _tagbar_ and _neocomplcache_ plugins as well as the _gentags_ script ([ctags website](http://ctags.sourceforge.net)).
+* **JS Beautifier**: Required by the _autoformat_ plugin to format Javascript source and HTML ([js-beautify repo](https://github.com/Chiel92/vim-autoformat)).
+* **Powerline Fonts**: Required to enable the fancier looking status line ([powerline-fonts repo](https://github.com/Lokaltog/powerline-fonts)).
+* **Tidy**: Required by the _autoformat_ plugin to format XHTML and XML ([tidy website](http://tidy.sourceforge.net)).
 
 ## Distribution Features ##
 
@@ -94,13 +94,14 @@ A theme, config and collection of plugins for Vim.
 | \`                     | NORM |    Toggle the gutter (line #s, folds, git diffs) |
 |                        |      |                                                  |
 | \<F1\>                 | ALL  |        Toggle the **gundo** undo history sidebar |
-| \<F2\>                 | ALL  | Toggle the **spellcheck** bottom bar of mistakes |
-| \<F3\>                 | ALL  |    Toggle the **tagbar** source code tag sidebar |
-| \<F12\>                | ALL  |      Toggle the **extradite** git history window |
+| \<F2\>                 | ALL  |    Toggle the **tagbar** source code tag sidebar |
+| \<F3\>                 | ALL  | Toggle the **spellcheck** bottom bar of mistakes |
+| \<F4\>                 | ALL  |      Toggle the **extradite** git history window |
 |                        |      |                                                  |
 | \<Ctrl-F1\>            | ALL  |                             Toggle line wrapping |
 | \<Ctrl-F2\>            | ALL  |         Toggle highlighting of spelling mistakes |
 | \<Ctrl-F3\>            | ALL  |               Toggle source code syntax checking |
+| \<Ctrl-F4\>            | ALL  |                       Toggle external-paste mode |
 
 ##### GVim #####
 
