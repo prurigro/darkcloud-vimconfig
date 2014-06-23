@@ -98,7 +98,7 @@
 "    <Ctrl-F12>               | (A) -> toggle the scrollbar
 "
 "  (completion)
-"    <Ctrl-\>,                | (A) -> enter after emmet 'word' (ie: html:5)
+"    <Ctrl-m>,                | (A) -> enter after emmet 'word' (ie: html:5)
 "    \\                       | (N) -> show spelling suggestions popup for word
 "    \|                       | (N) -> add word to a local list of correct spellings
 "    <Tab>                    | (I) -> (neocomp) autocomplete using common string
@@ -368,7 +368,7 @@
         nnoremap <silent><expr> ~ ':VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
 
         "toggle the display of the left gutter
-        nnoremap <silent><expr> ` ':if (&number)<Bar>set number!<Bar>if (&foldenable)<Bar>set foldenable!<Bar>endif<Bar>if (b:sy.active)<Bar>SignifyToggle<Bar>endif<Bar>else<Bar>set number!<Bar>if !(&foldenable)<Bar>set foldenable!<Bar>endif<Bar>if !(b:sy.active)<Bar>SignifyToggle<Bar>endif<Bar>endif<CR>:echo "gutter visibility toggled"<CR>'
+        nnoremap <silent><expr> ` ':if (&number)<Bar>set number!<Bar>if (&foldenable)<Bar>set foldenable!<Bar>endif<Bar>if exists("b:sy")<Bar>if (b:sy.active)<Bar>SignifyToggle<Bar>endif<Bar>endif<Bar>else<Bar>set number!<Bar>if !(&foldenable)<Bar>set foldenable!<Bar>endif<Bar>if exists("b:sy")<Bar>if !(b:sy.active)<Bar>SignifyToggle<Bar>endif<Bar>endif<Bar>endif<CR>:echo "gutter visibility toggled"<CR>'
 
         "toggle folded code at foldpoints
         nnoremap <Space> za
@@ -444,7 +444,7 @@
 
     "COMPLETION:{
         "emmet switch triggerkey from <Ctrl-Y>
-        let g:user_emmet_leader_key='<C-\>'
+        let g:user_emmet_leader_key='<C-m>'
 
         "press backslash twice on a mispelled word for suggestions
         nnoremap \\ hei<C-X><C-S>
