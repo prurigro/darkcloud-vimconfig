@@ -83,33 +83,45 @@ A theme, config and collection of plugins for Vim.
 
 ### Keyboard ###
 
-#### Toggles and Sidebars ####
+#### Sidebars ####
 
 | Binding                | Mode |                                           Action |
 |:-----------------------|:----:|-------------------------------------------------:|
-| \<Backslash\>\<Space\> | NORM |         Toggle the **goyo** distraction-free UI  |
-|                        |      |                                                  |
-| ??                     | NORM |              Toggle the **vim** reference manual |
-| ~                      | NORM |         Toggle **vimfiler** file manager sidebar |
-| \`                     | NORM |    Toggle the gutter (line #s, folds, git diffs) |
-|                        |      |                                                  |
-| \<F1\>                 | ALL  |        Toggle the **gundo** undo history sidebar |
-| \<F2\>                 | ALL  |    Toggle the **tagbar** source code tag sidebar |
-| \<F3\>                 | ALL  | Toggle the **spellcheck** bottom bar of mistakes |
+| \<F1\>                 | ALL  |         Toggle **vimfiler** file manager sidebar |
+| \<F2\>                 | ALL  |        Toggle the **gundo** undo history sidebar |
+| \<F3\>                 | ALL  |    Toggle the **tagbar** source code tag sidebar |
 | \<F4\>                 | ALL  |      Toggle the **extradite** git history window |
+
+#### Toggles ####
+
+| Binding                | Mode |                                           Action |
+|:-----------------------|:----:|-------------------------------------------------:|
+| \<(Ctrl-or-Alt)-F1\>   | ALL  |                             Toggle line wrapping |
+| \<(Ctrl-or-Alt)-F2\>   | ALL  |         Toggle highlighting of spelling mistakes |
+| \<(Ctrl-or-Alt)-F3\>   | ALL  |               Toggle source code syntax checking |
+| \<(Ctrl-or-Alt)-F4\>   | ALL  |                       Toggle external-paste mode |
 |                        |      |                                                  |
-| \<Ctrl-F1\>            | ALL  |                             Toggle line wrapping |
-| \<Ctrl-F2\>            | ALL  |         Toggle highlighting of spelling mistakes |
-| \<Ctrl-F3\>            | ALL  |               Toggle source code syntax checking |
-| \<Ctrl-F4\>            | ALL  |                       Toggle external-paste mode |
+| \`                     | NORM |  Toggle gutter (left bar with line numbers etc.) |
+| \<Backslash\>\<F1\>    | NORM |              Toggle the **vim** reference manual |
+| \<Backslash\>\<Space\> | NORM |         Toggle the **goyo** distraction-free UI  |
+| ?\<Space\>             | NORM | Toggle the **spellcheck** bottom bar of mistakes |
+
+#### Spell Check ####
+
+| Binding                | Mode |                                           Action |
+|:-----------------------|:----:|-------------------------------------------------:|
+| ?<Space>               | NORM |                     Toggle spellcheck error list |
+| ?+                     | NORM |    Add the selected word to the local dictionary |
+| ??                     | NORM |      Show spelling suggestions for selected word |
+| ?N                     | NORM |                  Go to the next spelling mistake |
+| ?P                     | NORM |              Go to the previous spelling mistake |
 
 ##### GVim #####
 
 | Binding                | Mode |                                           Action |
 |:-----------------------|:----:|-------------------------------------------------:|
-| \<Ctrl-F10\>           | ALL  |                    Toggle the menubar **(gvim)** |
-| \<Ctrl-F11\>           | ALL  |                    Toggle the toolbar **(gvim)** |
-| \<Ctrl-F12\>           | ALL  |                 Toggle the scrollbars **(gvim)** |
+| \<F12\>                | ALL  |                    Toggle the menubar **(gvim)** |
+| \<Ctrl-F12\>           | ALL  |                    Toggle the toolbar **(gvim)** |
 
 ### Complete Reference ###
 

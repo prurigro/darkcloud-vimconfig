@@ -77,5 +77,6 @@
 
 "GVIM: GUI CONFIG OPTIONS {{{
     set guicursor+=a:blinkon0 "disable the blinking cursor
-    set guioptions=aegi
+    set guioptions=aegip "enable some good defaults for gvim
+    set guioptions+=lRb "enable scrollbars (right only when a split is present)
 "}}}

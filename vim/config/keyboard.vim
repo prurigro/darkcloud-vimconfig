@@ -73,8 +73,7 @@
 "    <Alt-d>                  | (N) -> create a new tab with a double pane vimfiler
 "
 "  (toggles and features)
-"    ??                       | (N) -> toggle the vim reference manual
-"    ~                        | (N) -> toggle vimfiler sidebar
+"    <Leader><F1>             | (N) -> toggle the vim reference manual
 "    `                        | (A) -> toggle the gutter(line numbers, folds and signify)
 "
 "    Space                    | (N) -> toggle selected fold
@@ -82,41 +81,50 @@
 "    <Leader>-                | (N) -> unopen all folds
 "    <Leader>0                | (N) -> reset all folds using default fold level
 "
-"    <F1>                     | (N) -> toggle the gundo sidebar
-"    <F2>                     | (A) -> toggle the tagbar sidebar
-"    <F3>                     | (A) -> toggle spellcheck error list
+"    <F1>                     | (A) -> toggle vimfiler sidebar
+"    <F2>                     | (A) -> toggle the gundo sidebar
+"    <F3>                     | (A) -> toggle the tagbar sidebar
 "    <F4>                     | (A) -> toggle extradite git commit history
 "
 "    <Ctrl-F1>                | (A) -> toggle line wrapping
 "    <Ctrl-F2>                | (A) -> toggle spell check
 "    <Ctrl-F3>                | (A) -> toggle syntax checking
 "    <Ctrl-F4>                | (A) -> toggle external-paste mode
+"    <Alt-F1>                 | (A) -> toggle line wrapping
+"    <Alt-F2>                 | (A) -> toggle spell check
+"    <Alt-F3>                 | (A) -> toggle syntax checking
+"    <Alt-F4>                 | (A) -> toggle external-paste mode
 "
 "  (gvim toggles)
-"    <Ctrl-F10>               | (A) -> toggle the menubar
-"    <Ctrl-F11>               | (A) -> toggle the toolbar
-"    <Ctrl-F12>               | (A) -> toggle the scrollbar
+"    <F12>                    | (A) -> toggle the menubar
+"    <Ctrl-F12>               | (A) -> toggle the toolbar
+"
+"  (spellcheck)
+"    ?<Space>                 | (N) -> toggle spellcheck error list
+"    ?+                       | (N) -> add the selected word to the local dictionary
+"    ??                       | (N) -> show spelling suggestions for selected word
+"    ?N                       | (N) -> go to the next spelling mistake
+"    ?P                       | (N) -> go to the previous spelling mistake
 "
 "  (completion)
 "    <Ctrl-m>,                | (A) -> enter after emmet 'word' (ie: html:5)
-"    \\                       | (N) -> show spelling suggestions popup for word
-"    \|                       | (N) -> add word to a local list of correct spellings
 "    <Tab>                    | (I) -> (neocomp) autocomplete using common string
 "    <Leader><Tab>            | (I) -> (neocomp) autocomplete the common string
 "    <Enter>                  | (I) -> (neocomp) close the suggestion popup
 "    <Leader><Backspace>      | (I) -> (neocomp) undo the most recent completion
 "
+"  (search)
+"    <Leader>\                | (N) -> remove search highlighting
+"
 "  (formatting)
 "    <Backspace>              | (V) -> deletes currently selected text
-"    <Leader><Ctrl-f>         | (N) -> format document and return to cursor
-"    <Leader><Ctrl-f>         | (V) -> format the selection and return to cursor
-"    <Leader><Leader><Ctrl-f> | (N) -> format document using :Autoformat
-"    <Leader><Ctrl-l>         | (N) -> format document to a width of 79 characters
-"    <Leader><Ctrl-l>         | (V) -> format selection to a width of 79 characters
-"    <Leader><Ctrl-w>         | (N) -> remove whitespace
-"    <Leader><Ctrl-t>         | (N) -> convert tabs into spaces
-"    <Leader>\                | (N) -> remove search highlighting
-"    <Leader><Esc>            | (N) -> an alt mapping to remove search highlighting
+"    <Leader>J                | (N) -> format document text to 79 chars
+"    <Leader>J                | (V) -> format selected text to 79 chars
+"    <Leader>f                | (N) -> format document and return to cursor
+"    <Leader>f                | (V) -> format the selection and return to cursor
+"    <Leader>F                | (N) -> format document using :Autoformat
+"    <Leader>w                | (N) -> remove whitespace
+"    <Leader>t                | (N) -> convert tabs into spaces
 "    <Tab>                    | (V) -> indent all the lines currently selected
 "    <Tab>                    | (N) -> indent the current line
 "    <Shift-Tab>              | (V) -> unindent all the lines currently selected
@@ -224,7 +232,7 @@
 "
 "  (help)
 "    q                        | (A) -> close the dialog
-"    ??                       | (A) -> close the dialog
+"    <Leader><F1>             | (A) -> close the dialog
 "    ?>                       | (A) -> close the dialog
 "    ?<                       | (A) -> close the dialog
 "
@@ -266,8 +274,9 @@
     noremap < <Nop>
 
     "-unmapping help from F1 and Ctrl-F1 for use toggling the reference manual
-    "+the :h topic feature works, and ?? displays quickref
+    "+the :h topic feature works, and <Leader><F1> displays quickref
     map <F1> <Nop>
+    map <A-F1> <Nop>
     map <C-F1> <Nop>
 "}}}
 
@@ -362,10 +371,7 @@
 
     "TOGGLES AND FEATURES:{
         "toggle the vim reference manual
-        nnoremap <silent><expr> ?? ':h index.txt<CR>'
-
-        "trigger vimfiler
-        nnoremap <silent><expr> ~ ':VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
+        nnoremap <silent><expr> <Leader><F1> ':h index.txt<CR>'
 
         "toggle the display of the left gutter
         nnoremap <silent><expr> ` ':if (&number)<Bar>set number!<Bar>if (&foldenable)<Bar>set foldenable!<Bar>endif<Bar>if exists("b:sy")<Bar>if (b:sy.active)<Bar>SignifyToggle<Bar>endif<Bar>endif<Bar>else<Bar>set number!<Bar>if !(&foldenable)<Bar>set foldenable!<Bar>endif<Bar>if exists("b:sy")<Bar>if !(b:sy.active)<Bar>SignifyToggle<Bar>endif<Bar>endif<Bar>endif<CR>:echo "gutter visibility toggled"<CR>'
@@ -388,20 +394,20 @@
         xnoremap <silent><expr> <Leader>0 '<Esc>zXgv'
         inoremap <silent><expr> <Leader>0 '<C-O>zX'
 
+        "trigger vimfiler
+        nnoremap <silent><expr> <F1> ':VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
+        xnoremap <silent><expr> <F1> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
+        inoremap <silent><expr> <F1> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
+
         "bindings to trigger the gundo undo history
-        nnoremap <silent><expr> <F1> ':GundoToggle<CR>:echo "undo history sidebar toggled"<CR>'
-        xnoremap <silent><expr> <F1> '<Esc>:GundoToggle<CR>'
-        inoremap <silent><expr> <F1> '<Esc>:GundoToggle<CR>'
+        nnoremap <silent><expr> <F2> ':GundoToggle<CR>:echo "undo history sidebar toggled"<CR>'
+        xnoremap <silent><expr> <F2> '<Esc>:GundoToggle<CR>'
+        inoremap <silent><expr> <F2> '<Esc>:GundoToggle<CR>'
 
         "bindings to trigger the tagbar list of tags
-        nnoremap <silent><expr> <F2> ':TagbarToggle<CR>:echo "tagbar toggled"<CR>'
-        xnoremap <silent><expr> <F2> '<Esc>:TagbarToggle<CR>gv'
-        inoremap <silent><expr> <F2> '<C-O>:TagbarToggle<CR>'
-
-        "bindings to trigger spellcheck
-        nnoremap <silent><expr> <F3> ':UpdateAndSpellCheck<CR>:call ToggleQuickfixList()<CR>:wincmd j<CR>'
-        xnoremap <silent><expr> <F3> '<Esc>:UpdateAndSpellCheck<CR>:call ToggleQuickfixList()<CR>:wincmd j<CR>'
-        inoremap <silent><expr> <F3> '<Esc>:UpdateAndSpellCheck<CR>:call ToggleQuickfixList()<CR>:wincmd j<CR>'
+        nnoremap <silent><expr> <F3> ':TagbarToggle<CR>:echo "tagbar toggled"<CR>'
+        xnoremap <silent><expr> <F3> '<Esc>:TagbarToggle<CR>gv'
+        inoremap <silent><expr> <F3> '<C-O>:TagbarToggle<CR>'
 
         "view commit history and diffs
         nnoremap <expr><silent> <F4> ':Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
@@ -412,43 +418,64 @@
         nnoremap <silent><expr> <C-F1> ':set wrap!<CR>:echo "line wrapping toggled"<CR>'
         xnoremap <silent><expr> <C-F1> '<Esc>:set wrap!<CR>gv'
         inoremap <silent><expr> <C-F1> '<C-O>:set wrap!<CR>'
-
-        "toggle syntax checking
-        nnoremap <silent><expr> <C-F2> ':SyntasticToggleMode<CR>'
-        xnoremap <silent><expr> <C-F2> '<Esc>:SyntasticToggleMode<CR>gv'
-        inoremap <silent><expr> <C-F2> '<C-O>:SyntasticToggleMode<CR>'
+        nnoremap <silent><expr> <A-F1> ':set wrap!<CR>:echo "line wrapping toggled"<CR>'
+        xnoremap <silent><expr> <A-F1> '<Esc>:set wrap!<CR>gv'
+        inoremap <silent><expr> <A-F1> '<C-O>:set wrap!<CR>'
 
         "toggle spellcheck
-        nnoremap <silent><expr> <C-F3> ':set spell!<CR>:echo "spell checking toggled"<CR>'
-        xnoremap <silent><expr> <C-F3> '<Esc>:set spell!<CR>gv'
-        inoremap <silent><expr> <C-F3> '<C-O>:set spell!<CR>'
+        nnoremap <silent><expr> <C-F2> ':set spell!<CR>:echo "spell checking toggled"<CR>'
+        xnoremap <silent><expr> <C-F2> '<Esc>:set spell!<CR>gv'
+        inoremap <silent><expr> <C-F2> '<C-O>:set spell!<CR>'
+        nnoremap <silent><expr> <A-F2> ':set spell!<CR>:echo "spell checking toggled"<CR>'
+        xnoremap <silent><expr> <A-F2> '<Esc>:set spell!<CR>gv'
+        inoremap <silent><expr> <A-F2> '<C-O>:set spell!<CR>'
+
+        "toggle syntax checking
+        nnoremap <silent><expr> <C-F3> ':SyntasticToggleMode<CR>'
+        xnoremap <silent><expr> <C-F3> '<Esc>:SyntasticToggleMode<CR>gv'
+        inoremap <silent><expr> <C-F3> '<C-O>:SyntasticToggleMode<CR>'
+        nnoremap <silent><expr> <A-F3> ':SyntasticToggleMode<CR>'
+        xnoremap <silent><expr> <A-F3> '<Esc>:SyntasticToggleMode<CR>gv'
+        inoremap <silent><expr> <A-F3> '<C-O>:SyntasticToggleMode<CR>'
 
         "toggle external-paste mode
         set pastetoggle=<C-F4>
+        noremap <A-F4> <C-F4>
     "}
 
     "GVIM TOGGLES:{
-        "map toggles for the menu, toolbar and vertical scrollbar
-        nnoremap <silent><expr> <C-F10> ":if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>:echo 'Menu bar toggled'<CR>"
-        vnoremap <silent><expr> <C-F10> "<Esc>:if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>gv"
-        inoremap <silent><expr> <C-F10> "<C-O>:if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>"
+        "toggle the menu
+        nnoremap <silent><expr> <F12> ":if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>:echo 'Menu bar toggled'<CR>"
+        vnoremap <silent><expr> <F12> "<Esc>:if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>gv"
+        inoremap <silent><expr> <F12> "<C-O>:if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>"
 
-        nnoremap <silent><expr> <C-F11> ":if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>:echo 'Toolbar toggled'<CR>"
-        vnoremap <silent><expr> <C-F11> "<Esc>:if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>gv"
-        inoremap <silent><expr> <C-F11> "<C-O>:if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>"
+        "toggle the toolbar
+        nnoremap <silent><expr> <C-F12> ":if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>:echo 'Toolbar toggled'<CR>"
+        vnoremap <silent><expr> <C-F12> "<Esc>:if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>gv"
+        inoremap <silent><expr> <C-F12> "<C-O>:if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>"
+    "}
 
-        nnoremap <silent><expr> <C-F12> ":if &go=~#'r'<Bar>set go-=r<Bar>set go-=L<Bar>set go-=b<Bar>else<Bar>set go+=r<Bar>set go+=L<Bar>set go+=b<Bar>endif<CR>:echo 'Scrollbars toggled'<CR>"
-        vnoremap <silent><expr> <C-F12> "<Esc>:if &go=~#'r'<Bar>set go-=r<Bar>set go-=L<Bar>set go-=b<Bar>else<Bar>set go+=r<Bar>set go+=L<Bar>set go+=b<Bar>endif<CR>gv"
-        inoremap <silent><expr> <C-F12> "<C-O>:if &go=~#'r'<Bar>set go-=r<Bar>set go-=L<Bar>set go-=b<Bar>else<Bar>set go+=r<Bar>set go+=L<Bar>set go+=b<Bar>endif<CR>"
+    "SPELLCHECK:{
+        "trigger spellcheck bar
+        nnoremap <silent><expr> ?<Space> ':UpdateAndSpellCheck<CR>:call ToggleQuickfixList()<CR>:wincmd j<CR>'
+
+        "add the selected mispelled word to the local dictionary
+        nnoremap ?+ zg
+
+        "display a list of suggestions for the selected mispelled word
+        nnoremap ?? hei<C-X><C-S>
+
+        "go to the next mispelled word
+        nnoremap ?N ]s
+
+        "go to the previous mispelled word
+        nnoremap ?P [s
     "}
 
     "COMPLETION:{
         "emmet switch triggerkey from <Ctrl-Y>
         let g:user_emmet_leader_key='<C-m>'
 
-        "press backslash twice on a mispelled word for suggestions
-        nnoremap \\ hei<C-X><C-S>
-        nnoremap \| zg
 
         "neocomplcache: scroll through completion list
         inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -461,19 +488,21 @@
     "}
 
     "FORMATTING:{
+        nnoremap <silent><expr> <Leader>/ ':noh<CR>:echo "Search results have been cleared"<CR>'
+    "}
+
+    "FORMATTING:{
         "have backspace delete the selected text
         vnoremap <Backspace> "_x
 
         "formatting options to apply to the whole document
-        nnoremap <Leader><C-f> mzgg=G`z<CR>:echo "The document has been formatted"<CR>
-        vnoremap <Leader><C-f> mz=`z<CR>:echo "The selection has been formatted"<CR>
-        nnoremap <Leader><Leader><C-f> :Autoformat<CR><CR>:echo "The document has been formatted with :Autoformat"<CR>
-        nnoremap <silent><expr> <Leader><C-l> ':set tw=79<CR>gggqG:set tw=0<CR>:echo "Document text has been formatted to a width of 79 characters"<CR>'
-        vnoremap <silent><expr> <Leader><C-l> '<Esc>:set tw=79<CR>gvgq:set tw=0<CR>:echo "Selected text has been formatted to a width of 79 characters"<CR>'
-        nnoremap <silent><expr> <Leader><C-w> ':FixWhitespace<CR>:echo "Trailing whitespace has been removed"<CR>'
-        nnoremap <silent><expr> <Leader><C-t> ':retab<CR>:noh<CR>:echo "Tabs have been converted to spaces"<CR>'
-        nnoremap <silent><expr> <Leader>/ ':noh<CR>:echo "Search results have been cleared"<CR>'
-        nnoremap <silent><expr> <Leader><Esc> ':noh<CR>:echo "Search results have been cleared"<CR>'
+        nnoremap <silent><expr> <Leader>J ':set tw=79<CR>gggqG:set tw=0<CR>:echo "Document text has been formatted to a width of 79 characters"<CR>'
+        vnoremap <silent><expr> <Leader>J '<Esc>:set tw=79<CR>gvgq:set tw=0<CR>:echo "Selected text has been formatted to a width of 79 characters"<CR>'
+        nnoremap <Leader>f mzgg=G`z<CR>:echo "The document has been formatted"<CR>
+        vnoremap <Leader>f mz=`z<CR>:echo "The selection has been formatted"<CR>
+        nnoremap <Leader>F :Autoformat<CR><CR>:echo "The document has been formatted with :Autoformat"<CR>
+        nnoremap <silent><expr> <Leader>w ':FixWhitespace<CR>:echo "Trailing whitespace has been removed"<CR>'
+        nnoremap <silent><expr> <Leader>t ':retab<CR>:noh<CR>:echo "Tabs have been converted to spaces"<CR>'
 
         "tab and untab the currently selected lines
         vnoremap <Tab> >gv
@@ -607,11 +636,11 @@
     "help
     if !&diff
         autocmd FileType help map <buffer> <silent><expr> q ':q<CR>'
-        autocmd FileType help map <buffer> <silent><expr> ?? ':q<CR>'
+        autocmd FileType help map <buffer> <silent><expr> <Leader><F1> ':q<CR>'
     endif
 
     "markdown: launch table of contents instead of the tagbar
-    autocmd FileType mkd map <buffer> <silent><expr> <F2> ':Toch<CR>'
+    autocmd FileType mkd map <buffer> <silent><expr> <F3> ':Toch<CR>'
 
     "markdown table of contents
     autocmd FileType qf map <buffer> <LeftMouse> <LeftMouse>0
@@ -624,7 +653,7 @@
     autocmd FileType qf map <buffer> h j
     autocmd FileType qf map <buffer> l k
     autocmd FileType qf map <buffer> <silent><expr> q ':hide<CR>'
-    autocmd FileType qf map <buffer> <silent><expr> <F3> ':hide<CR>'
+    autocmd FileType qf map <buffer> <silent><expr> ?<Space> ':hide<CR>'
 
     "vimdiff
     autocmd FilterWritePre * if &diff|nnoremap <buffer> <silent><expr> <Leader><> ':diffu<CR>'|endif
@@ -646,9 +675,9 @@
 
 "DISABLED MAPPINGS FOR FILETYPES: {{{
     "remove incompatible toggles from specific file types
-    autocmd Filetype qf,vimfiler,extradite,help noremap <buffer> <F1> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler,extradite,help noremap <buffer> <F2> <Nop>
-    autocmd Filetype ggundo,vimfiler,extradite,tagbar,help noremap <buffer> <F3> <Nop>
+    autocmd Filetype qf,vimfiler,extradite,help noremap <buffer> <F2> <Nop>
+    autocmd Filetype qf,ggundo,vimfiler,extradite,help noremap <buffer> <F3> <Nop>
+    autocmd Filetype ggundo,vimfiler,extradite,tagbar,help noremap <buffer> ?<Space> <Nop>
     autocmd Filetype qf,ggundo,vimfiler,tagbar,help noremap <buffer> <12> <Nop>
 
     "disable modifier keys with directions that would interfere with logic
