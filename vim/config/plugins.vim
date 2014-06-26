@@ -153,11 +153,6 @@
     let g:tagbar_width=35
 "}}}
 
-"TCOMMENT: {{{
-    "set the comment style for archversion config files to '#'
-    call tcomment#DefineType('archversion', '# %s')
-"}}}
-
 "VIM FILER: {{{
     "autostart filer when vim opens to an empty buffer (default: 1)
     if !exists("g:autostartfiler")|let g:autostartfiler=1|endif

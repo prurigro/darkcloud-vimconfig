@@ -71,7 +71,6 @@
     au BufNewFile,BufRead *.gradle setf groovy
     au BufNewFile,BufRead *.muttrc setf muttrc
     au BufNewFile,BufRead pacman.conf,yaourtrc setf sh
-    au BufNewFile,BufRead archversion.conf setf archversion
     au BufNewFile,BufRead cjdroute.conf,cjdmaid.conf setf json
 "}}}
 
