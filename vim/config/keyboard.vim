@@ -132,13 +132,15 @@
 "
 "  (movement)
 "    =                        | (N) -> move to the first character on the next line
-"    <Ctrl-Up>                | (N) -> move to the beginning of the document
-"    <Ctrl-Down>              | (N) -> move to the end of the document
-"    <Ctrl-Right>             | (N) -> move to the end of the line
-"    <Ctrl-Left>              | (N) -> move to the beginning of the non-whitespace
+"    <Shift-Up>               | (N) -> move to the beginning of the document
+"    <Shift-Down>             | (N) -> move to the end of the document
+"    <Shift-Right>            | (N) -> move to the end of the line
+"    <Shift-Left>             | (N) -> move to the beginning of the non-whitespace
 "
-"    <Shift-Up>               | (N) -> move a few lines up
-"    <Shift-Down>             | (N) -> move a few lines down
+"    <Ctrl-Up>                | (N) -> move four lines up
+"    <Ctrl-Down>              | (N) -> move four lines down
+"    <Ctrl-Right>             | (N) -> move one word right
+"    <Ctrl-Left>              | (N) -> move one word left
 "
 "    <Alt+Up>                 | (V) -> move a block up one line
 "    <Alt+Down>               | (V) -> move a block down one line
@@ -163,15 +165,15 @@
 "    <Ctrl-a>                 | (V) -> select all text
 "    <Leader>a                | (V) -> select all text
 "
-"    <Ctrl-Up>                | (V) -> select all text above
-"    <Ctrl-Down>              | (V) -> select all text below
-"    <Ctrl-Right>             | (V) -> select all text to the right
-"    <Ctrl-Left>              | (V) -> select all text to the left up to the indent
+"    <Shift-Up>               | (V) -> select all text above
+"    <Shift-Down>             | (V) -> select all text below
+"    <Shift-Right>            | (V) -> select all text to the right
+"    <Shift-Left>             | (V) -> select all text to the left up to the indent
 "
-"    <Shift-Up>               | (V) -> select a few lines up
-"    <Shift-Down>             | (V) -> select a few lines down
-"    <Shift-Right>            | (V) -> select a few lines right
-"    <Shift-Left>             | (V) -> select a few lines left
+"    <Ctrl-Up>                | (V) -> select four lines up
+"    <Ctrl-Down>              | (V) -> select four lines down
+"    <Ctrl-Right>             | (V) -> select one word right
+"    <Ctrl-Left>              | (V) -> select one word left
 "
 "  (copy/paste and undo/redo)
 "    <Leader>p                | (N) -> view the paste buffers and register contents
@@ -516,14 +518,16 @@
         nnoremap = +
 
         "remap keys for speedier movement
-        nnoremap <S-Up> 4k
-        nnoremap <S-Down> 4j
+        nnoremap <C-Up> 4k
+        nnoremap <C-Down> 4j
+        nnoremap <C-Right> <S-Right>
+        nnoremap <C-Left> <S-Left>
 
         "remap keys to scroll to the end in a direction
-        nnoremap <C-Up> gg0
-        nnoremap <C-Down> G$
-        nnoremap <C-Right> $
-        nnoremap <C-Left> ^
+        nnoremap <S-Up> gg0
+        nnoremap <S-Down> G$
+        nnoremap <S-Right> $
+        nnoremap <S-Left> ^
 
         "remap alt+up/down to move blocks up/down a line
         vmap <A-Up> <Plug>MoveBlockUp
@@ -558,16 +562,16 @@
         xnoremap <Leader>a gg0vG$
 
         "map remap keys for speedier text selection
-        xnoremap <S-Up> 4k
-        xnoremap <S-Down> 4j
-        xnoremap <S-Right> 6l
-        xnoremap <S-Left> 6h
+        xnoremap <C-Up> 4k
+        xnoremap <C-Down> 4j
+        xnoremap <C-Right> <S-Right>
+        xnoremap <C-Left> <S-Left>
 
         "remap keys to select all text in one direction
-        xnoremap <C-Up> gg0
-        xnoremap <C-Down> G$
-        xnoremap <C-Right> $
-        xnoremap <C-Left> ^
+        xnoremap <S-Up> gg0
+        xnoremap <S-Down> G$
+        xnoremap <S-Right> $
+        xnoremap <S-Left> ^
     "}
 
     "COPY PASTE AND UNDO REDO:{
