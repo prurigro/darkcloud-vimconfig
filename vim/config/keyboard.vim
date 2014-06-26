@@ -498,7 +498,7 @@
         vnoremap <Backspace> "_x
 
         "formatting options to apply to the whole document
-        nnoremap <silent><expr> <Leader>J ':set tw=79<CR>gggqG:set tw=0<CR>:echo "Document text has been formatted to a width of 79 characters"<CR>'
+        nnoremap <silent><expr> <Leader>J ':set tw=79<CR>Vgq:set tw=0<CR>:echo "Document text has been formatted to a width of 79 characters"<CR>'
         vnoremap <silent><expr> <Leader>J '<Esc>:set tw=79<CR>gvgq:set tw=0<CR>:echo "Selected text has been formatted to a width of 79 characters"<CR>'
         nnoremap <Leader>f mzgg=G`z<CR>:echo "The document has been formatted"<CR>
         vnoremap <Leader>f mz=`z<CR>:echo "The selection has been formatted"<CR>
