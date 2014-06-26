@@ -118,8 +118,8 @@
 "
 "  (formatting)
 "    <Backspace>              | (V) -> deletes currently selected text
-"    <Leader>J                | (N) -> format document text to 79 chars
-"    <Leader>J                | (V) -> format selected text to 79 chars
+"    <Leader>J                | (N) -> split the line into lines of <=79 chars
+"    <Leader>J                | (V) -> split the selection into lines of <=79 chars
 "    <Leader>f                | (N) -> format document and return to cursor
 "    <Leader>f                | (V) -> format the selection and return to cursor
 "    <Leader>F                | (N) -> format document using :Autoformat
