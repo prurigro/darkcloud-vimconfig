@@ -108,10 +108,10 @@
 "
 "  (completion)
 "    <Ctrl-m>,                | (A) -> enter after emmet 'word' (ie: html:5)
-"    <Tab>                    | (I) -> (neocomp) autocomplete using common string
-"    <Leader><Tab>            | (I) -> (neocomp) autocomplete the common string
-"    <Enter>                  | (I) -> (neocomp) close the suggestion popup
-"    <Leader><Backspace>      | (I) -> (neocomp) undo the most recent completion
+"    <Enter>                  | (I) -> (neocomp) close the popup and <Enter>
+"    <Tab>                    | (I) -> (neocomp) select/cycle popup completion
+"    <Backspace>              | (I) -> (neocomp) close the popup and <Backspace>
+"    <Ctrl-u>                 | (I) -> (neocomp) undo the most recent completion
 "
 "  (search)
 "    <Leader>\                | (N) -> remove search highlighting
@@ -383,18 +383,12 @@
 
         "open all folds
         nnoremap <silent><expr> <Leader>+ 'zn:echo "all folds have been opened"<CR>'
-        xnoremap <silent><expr> <Leader>+ '<Esc>zngv'
-        inoremap <silent><expr> <Leader>+ '<C-O>zn'
 
         "close folds set to be closed
         nnoremap <silent><expr> <Leader>- 'zN:echo "all opened folds have been closed"<CR>'
-        xnoremap <silent><expr> <Leader>- '<Esc>zNgv'
-        inoremap <silent><expr> <Leader>- '<C-O>zN'
 
         "reset all folds to the default fold level
         nnoremap <silent><expr> <Leader>0 'zX:echo "all folds have been reset"<CR>'
-        xnoremap <silent><expr> <Leader>0 '<Esc>zXgv'
-        inoremap <silent><expr> <Leader>0 '<C-O>zX'
 
         "trigger vimfiler
         nnoremap <silent><expr> <F1> ':VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
@@ -478,15 +472,17 @@
         "emmet switch triggerkey from <Ctrl-Y>
         let g:user_emmet_leader_key='<C-m>'
 
-
-        "neocomplcache: scroll through completion list
-        inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-        "neocomplcache: complete the common part of the string
-        inoremap <expr><Leader><Tab> neocomplcache#complete_common_string()
-        "neocomplcache: close popup and delete backward char
-        inoremap <expr><CR> pumvisible() ? neocomplcache#smart_close_popup() : "\<CR>"
+        "neocomplcache close popup and save indent
+        inoremap <silent> <CR> <C-r>=<SID>neocompl_cr()<CR>
+        function! s:neocompl_cr()
+            return neocomplcache#smart_close_popup() . "\<CR>"
+        endfunction
+        "neocomplcache tab completion
+        inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
         "neocomplcache : undo completion
-        inoremap <expr><Leader><Backspace> "<Backspace>" . neocomplcache#undo_completion()
+        inoremap <expr><Backspace> neocomplcache#smart_close_popup()."\<C-h>"
+        "neocomplcache undo completion
+        inoremap <expr><C-u> neocomplcache#undo_completion()
     "}
 
     "FORMATTING:{
