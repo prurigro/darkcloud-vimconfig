@@ -87,4 +87,4 @@
 	url = https://github.com/Chiel92/vim-autoformat.git
 [submodule "vim/bundle/vim-polyglot-darkcloud"]
 	path = vim/bundle/vim-polyglot-darkcloud
-	url = https://github.com/prurigro/vim-polyglot.git
+	url = https://github.com/prurigro/vim-polyglot-darkcloud.git
