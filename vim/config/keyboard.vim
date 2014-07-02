@@ -622,7 +622,7 @@
     autocmd FileType extradite map <buffer> l j
     autocmd FileType extradite map <buffer> <Left> <Up>
     autocmd FileType extradite map <buffer> h k
-    autocmd FileType diff,extradite map <buffer> <silent><expr> <F4> ':Extradite<CR>'
+    autocmd FileType extradite map <buffer> <F4> q
 
     "gundo
     autocmd FileType gundo map <buffer> <LeftMouse> <LeftMouse>0l
@@ -675,26 +675,27 @@
 
 "DISABLED MAPPINGS FOR FILETYPES: {{{
     "remove incompatible toggles from specific file types
+    autocmd Filetype qf,gundo,vimfiler,tagbar,extradite,help noremap <buffer> ` <Nop>
     autocmd Filetype qf,vimfiler,extradite,help noremap <buffer> <F2> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler,extradite,help noremap <buffer> <F3> <Nop>
+    autocmd Filetype qf,gundo,vimfiler,extradite,help noremap <buffer> <F3> <Nop>
     autocmd Filetype ggundo,vimfiler,extradite,tagbar,help noremap <buffer> ?<Space> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler,tagbar,help noremap <buffer> <12> <Nop>
+    autocmd Filetype qf,gundo,vimfiler,tagbar,help,diff noremap <buffer> <F4> <Nop>
 
     "disable modifier keys with directions that would interfere with logic
-    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <C-Up> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <C-k> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <C-Down> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <C-j> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler,extradite noremap <buffer> <C-Right> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler,extradite noremap <buffer> <C-l> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler,extradite noremap <buffer> <C-Left> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler,extradite noremap <buffer> <C-h> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <S-Up> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <S-k> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <S-Down> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler noremap <buffer> <S-j> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler,extradite noremap <buffer> <S-Right> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler,extradite noremap <buffer> <S-l> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler,extradite noremap <buffer> <S-Left> <Nop>
-    autocmd Filetype qf,ggundo,vimfiler,extradite noremap <buffer> <S-h> <Nop>
+    autocmd Filetype qf,gundo,vimfiler noremap <buffer> <C-Up> <Nop>
+    autocmd Filetype qf,gundo,vimfiler noremap <buffer> <C-k> <Nop>
+    autocmd Filetype qf,gundo,vimfiler noremap <buffer> <C-Down> <Nop>
+    autocmd Filetype qf,gundo,vimfiler noremap <buffer> <C-j> <Nop>
+    autocmd Filetype qf,gundo,vimfiler,extradite noremap <buffer> <C-Right> <Nop>
+    autocmd Filetype qf,gundo,vimfiler,extradite noremap <buffer> <C-l> <Nop>
+    autocmd Filetype qf,gundo,vimfiler,extradite noremap <buffer> <C-Left> <Nop>
+    autocmd Filetype qf,gundo,vimfiler,extradite noremap <buffer> <C-h> <Nop>
+    autocmd Filetype qf,gundo,vimfiler noremap <buffer> <S-Up> <Nop>
+    autocmd Filetype qf,gundo,vimfiler noremap <buffer> <S-k> <Nop>
+    autocmd Filetype qf,gundo,vimfiler noremap <buffer> <S-Down> <Nop>
+    autocmd Filetype qf,gundo,vimfiler noremap <buffer> <S-j> <Nop>
+    autocmd Filetype qf,gundo,vimfiler,extradite noremap <buffer> <S-Right> <Nop>
+    autocmd Filetype qf,gundo,vimfiler,extradite noremap <buffer> <S-l> <Nop>
+    autocmd Filetype qf,gundo,vimfiler,extradite noremap <buffer> <S-Left> <Nop>
+    autocmd Filetype qf,gundo,vimfiler,extradite noremap <buffer> <S-h> <Nop>
 "}}}
