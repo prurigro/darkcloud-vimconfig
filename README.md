@@ -120,8 +120,8 @@ A theme, config and collection of plugins for Vim.
 
 | Binding                | Mode |                                           Action |
 |:-----------------------|:----:|-------------------------------------------------:|
-| \<F12\>                | ALL  |                    Toggle the menubar **(gvim)** |
-| \<Ctrl-F12\>           | ALL  |                    Toggle the toolbar **(gvim)** |
+| \<Backslash\>\<F1\>    | ALL  |                    Toggle the menubar **(gvim)** |
+| \<Backslash\>\<F2\>    | ALL  |                    Toggle the toolbar **(gvim)** |
 
 ### Complete Reference ###
 

@@ -96,8 +96,8 @@
 "    <Alt-F4>                 | (A) -> toggle external-paste mode
 "
 "  (gvim toggles)
-"    <F12>                    | (A) -> toggle the menubar
-"    <Ctrl-F12>               | (A) -> toggle the toolbar
+"    <Leader><F1>             | (A) -> toggle the menubar
+"    <Leader><F2>             | (A) -> toggle the toolbar
 "
 "  (spellcheck)
 "    ?<Space>                 | (N) -> toggle spellcheck error list
@@ -441,14 +441,14 @@
 
     "GVIM TOGGLES:{
         "toggle the menu
-        nnoremap <silent><expr> <F12> ":if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>:echo 'Menu bar toggled'<CR>"
-        vnoremap <silent><expr> <F12> "<Esc>:if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>gv"
-        inoremap <silent><expr> <F12> "<C-O>:if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>"
+        nnoremap <silent><expr> <Leader><F1> ":if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>:echo 'Menu bar toggled'<CR>"
+        vnoremap <silent><expr> <Leader><F1> "<Esc>:if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>gv"
+        inoremap <silent><expr> <Leader><F1> "<C-O>:if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>"
 
         "toggle the toolbar
-        nnoremap <silent><expr> <C-F12> ":if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>:echo 'Toolbar toggled'<CR>"
-        vnoremap <silent><expr> <C-F12> "<Esc>:if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>gv"
-        inoremap <silent><expr> <C-F12> "<C-O>:if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>"
+        nnoremap <silent><expr> <Leader><F2> ":if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>:echo 'Toolbar toggled'<CR>"
+        vnoremap <silent><expr> <Leader><F2> "<Esc>:if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>gv"
+        inoremap <silent><expr> <Leader><F2> "<C-O>:if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>"
     "}
 
     "SPELLCHECK:{
