@@ -529,8 +529,8 @@ call s:X("SyntasticError","#d75f5f","","standout,bold","Red","")
 call s:X("SyntasticWarning","#ffd787","","standout,bold","Yellow","")
 hi! link SyntasticErrorLine SyntasticError
 hi! link SyntasticWarningLine SyntasticWarning
-hi! link SyntasticErrorSign Error
-hi! link SyntasticWarningSign Statement
+hi! link SyntasticErrorSign SyntasticError
+hi! link SyntasticWarningSign SyntasticWarning
 hi! link qfSeparator Delimiter
 hi! link qfLineNr SyntasticError
 
