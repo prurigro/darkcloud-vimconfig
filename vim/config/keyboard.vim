@@ -475,7 +475,7 @@
         "neocomplcache close popup and save indent
         inoremap <silent> <CR> <C-r>=<SID>neocompl_cr()<CR>
         function! s:neocompl_cr()
-            return neocomplcache#smart_close_popup() . "\<CR>"
+            return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
         endfunction
         "neocomplcache tab completion
         inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
