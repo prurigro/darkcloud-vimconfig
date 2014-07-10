@@ -322,7 +322,7 @@ call s:X("WildMenu","#808080","#303030","","White",s:termBlack)
 
 "folding
 call s:X("Folded","#87d7ff","#4e4e4e","bold","Blue",s:termBlack)
-call s:X("FoldColumn","#ffd787","","bold","Yellow","")
+call s:X("FoldColumn","#eaeaea","","bold","White","")
 call s:X("SignColumn","#d75f5f","","bold","Red","")
 hi! link ColorColumn SignColumn
 
