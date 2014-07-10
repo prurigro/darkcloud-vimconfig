@@ -64,9 +64,6 @@
 [submodule "vim/bundle/vim-move"]
 	path = vim/bundle/vim-move
 	url = https://github.com/matze/vim-move.git
-[submodule "vim/bundle/breeze.vim"]
-	path = vim/bundle/breeze.vim
-	url = https://github.com/gcmt/breeze.vim.git
 [submodule "vim/bundle/vim-signify"]
 	path = vim/bundle/vim-signify
 	url = https://github.com/mhinz/vim-signify
@@ -88,3 +85,6 @@
 [submodule "vim/bundle/vim-polyglot-darkcloud"]
 	path = vim/bundle/vim-polyglot-darkcloud
 	url = https://github.com/prurigro/vim-polyglot-darkcloud.git
+[submodule "vim/bundle/breeze.vim"]
+	path = vim/bundle/breeze.vim
+	url = https://github.com/prurigro/breeze.vim

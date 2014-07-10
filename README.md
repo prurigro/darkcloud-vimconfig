@@ -131,7 +131,7 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 
 * [auto-autoformat](https://github.com/Chiel92/vim-autoformat): Provides easy code formatting in Vim by integrating existing code formatters.
 * [autoswap.vim](https://github.com/vim-scripts/autoswap.vim): Switch to open editor window instead of asking what to do with swapfile.
-* [breeze.vim](https://github.com/gcmt/breeze.vim.git): Provides tag matching and navigation shortcuts for HTML.
+* [breeze.vim](https://github.com/prurigro/breeze.vim): Provides tag matching and navigation shortcuts for HTML.
 * [emmet-vim](https://github.com/mattn/emmet-vim.git): Support for expanding abbreviations.
   * [webapi-vim](https://github.com/mattn/webapi-vim.git) A web library used by emmet to provide support for custom snippets.
 * [goyo.vim](https://github.com/junegunn/goyo.vim) Distraction-free writing in Vim
