@@ -70,7 +70,7 @@
     au BufNewFile,BufRead *.aspx,*.asmx,*.ascx,*.master setf aspnet
     au BufNewFile,BufRead *.gradle setf groovy
     au BufNewFile,BufRead *muttrc setf muttrc
-    au BufNewFile,BufRead *ircd.conf setf javascript
+    au BufNewFile,BufRead *ircd.conf setf json
     au BufNewFile,BufRead *taskrc setlocal commentstring=#\ %s
     au BufNewFile,BufRead pacman.conf,yaourtrc setf sh
     au BufNewFile,BufRead cjdroute.conf,cjdmaid.conf setf json
