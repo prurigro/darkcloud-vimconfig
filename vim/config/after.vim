@@ -33,7 +33,6 @@ endif
     autocmd FileType notes,mail,notmuch,mkd,text setlocal nonumber
     autocmd FileType mail,notmuch,text setlocal wrap
     autocmd FileType notes setlocal tw=80
-    autocmd FileType sh setlocal iskeyword+=$
     autocmd FileType help* wincmd L "help windows always open vertically
     autocmd FileType help* vertical resize 80 "set the window size to 80 cols
     autocmd FileType help* setlocal nocursorline "remove the horizontal cursor line
