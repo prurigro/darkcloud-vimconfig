@@ -131,13 +131,13 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 
 * [auto-autoformat](https://github.com/Chiel92/vim-autoformat): Provides easy code formatting in Vim by integrating existing code formatters.
 * [autoswap.vim](https://github.com/vim-scripts/autoswap.vim): Switch to open editor window instead of asking what to do with swapfile.
-* [breeze.vim](https://github.com/prurigro/breeze.vim): Provides tag matching and navigation shortcuts for HTML.
 * [emmet-vim](https://github.com/mattn/emmet-vim.git): Support for expanding abbreviations.
   * [webapi-vim](https://github.com/mattn/webapi-vim.git) A web library used by emmet to provide support for custom snippets.
 * [goyo.vim](https://github.com/junegunn/goyo.vim) Distraction-free writing in Vim
 * [grep](https://github.com/yegappan/grep.git): Provides the ability to perform various match-based searches using grep.
 * [gundo.vim](https://github.com/sjl/gundo.vim.git): Sidebar to visualize your undo tree and browse the differences of each change.
 * [lightline.vim](https://github.com/itchyny/lightline.vim) A light and configurable statusline/tabline for Vim.
+* [MatchTagAlways](https://github.com/Valloric/MatchTagAlways) A Vim plugin that always highlights the enclosing html/xml tags.
 * [neocomplcache.vim](https://github.com/Shougo/neocomplcache.vim.git) The '*ultimate*' auto-completion system for Vim.
 * [ReplaceWithRegister](https://github.com/vim-scripts/ReplaceWithRegister.git) Replace text with the contents of a register (for paste+replace without writing over the buffer).
 * [SpellCheck](https://github.com/vim-scripts/SpellCheck.git) Provides a list of spelling mistakes in the bottom bar that can be clicked to find them in the document.

@@ -85,3 +85,6 @@
 [submodule "vim/bundle/vim-polyglot-darkcloud"]
 	path = vim/bundle/vim-polyglot-darkcloud
 	url = https://github.com/prurigro/vim-polyglot-darkcloud.git
+[submodule "vim/bundle/MatchTagAlways"]
+	path = vim/bundle/MatchTagAlways
+	url = https://github.com/Valloric/MatchTagAlways.git

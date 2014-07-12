@@ -64,6 +64,10 @@
     nmap ]u <Plug>(Markdown_MoveToParentHeader)
 "}}}
 
+"MATCHTAGALWAYS: {{{
+    let g:mta_filetypes = {'aspnet':1, 'html':1, 'xhtml':1, 'xml':1, 'php':1, 'jinja':1}
+"}}}
+
 "NEOCOMPLCACHE AUTOCOMPLETION PLUGIN: {{{
     let g:neocomplcache_enable_at_startup=1
     let g:neocomplcache_enable_smart_case=1
