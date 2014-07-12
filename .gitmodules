@@ -85,6 +85,3 @@
 [submodule "vim/bundle/vim-polyglot-darkcloud"]
 	path = vim/bundle/vim-polyglot-darkcloud
 	url = https://github.com/prurigro/vim-polyglot-darkcloud.git
-[submodule "vim/bundle/breeze.vim"]
-	path = vim/bundle/breeze.vim
-	url = https://github.com/prurigro/breeze.vim

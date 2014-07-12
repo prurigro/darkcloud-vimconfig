@@ -18,11 +18,6 @@
     let g:vim_json_syntax_conceal=0
 "}}}
 
-"BREEZE: {{{
-    let g:breeze_active_filetypes="*.html,*.htm,*.xhtml,*.xml,*.php"
-    let g:breeze_shade_color="String"
-"}}}
-
 "EMMET: {{{
     let g:user_emmet_install_global=0
     let g:use_emmet_complete_tag=1

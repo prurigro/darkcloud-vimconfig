@@ -207,15 +207,6 @@
 "      <Ctrl-w>               | (I) -> undo-able equivalent
 "
 " Filetype Specific Mappings:
-"  (breeze->html compat)
-"    _                        | (N) -> move to the next sibling tag
-"    +                        | (N) -> move to the previous sibling tag
-"    <Leader>-                | (N) -> move to the first sibling tag
-"    <Leader>=                | (N) -> move to the last sibling tag
-"    <Leader>_                | (N) -> move to the first child tag
-"    <Leader>+                | (N) -> move to the last child tag
-"    <Leader><Backspace>      | (N) -> move to the parent tag
-"
 "  (extradite)
 "    <F4>                     | (A) -> close the dialog
 "    <Right>                  | (A) -> same as down
@@ -608,15 +599,6 @@
 "}}}
 
 "FILETYPE SPECIFIC MAPPINGS: {{{
-    "breeze compatible formats
-    autocmd BufNewFile,BufRead *.html,*.htm,*.xhtml,*.xml,*.php,*.aspx nmap <buffer> <silent><expr> _ ':BreezePrevSibling<CR>'
-    autocmd BufNewFile,BufRead *.html,*.htm,*.xhtml,*.xml,*.php,*.aspx nmap <buffer> <silent><expr> + ':BreezeNextSibling<CR>'
-    autocmd BufNewFile,BufRead *.html,*.htm,*.xhtml,*.xml,*.php,*.aspx nmap <buffer> <silent><expr> <Leader>- ':BreezeFirstSibling<CR>'
-    autocmd BufNewFile,BufRead *.html,*.htm,*.xhtml,*.xml,*.php,*.aspx nmap <buffer> <silent><expr> <Leader>= ':BreezeLastSibling<CR>'
-    autocmd BufNewFile,BufRead *.html,*.htm,*.xhtml,*.xml,*.php,*.aspx nmap <buffer> <silent><expr> <Leader>_ ':BreezeFirstChild<CR>'
-    autocmd BufNewFile,BufRead *.html,*.htm,*.xhtml,*.xml,*.php,*.aspx nmap <buffer> <silent><expr> <Leader>+ ':BreezeLastChild<CR>'
-    autocmd BufNewFile,BufRead *.html,*.htm,*.xhtml,*.xml,*.php,*.aspx nmap <buffer> <silent><expr> <Leader><Backspace> ':BreezeParent<CR>'
-
     "extradite
     autocmd FileType extradite map <buffer> <Right> <Down>
     autocmd FileType extradite map <buffer> l j
