@@ -17,7 +17,7 @@ ERRORLOG="update-errors.log" # set the error log filename
 
 # script variables (these should not be touched)
 VERSION=$(printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)")
-SCRIPT_NAME=`echo "$0" | grep -o -e "[^\/]*$"`
+SCRIPT_NAME=$(grep -o -e "[^\/]*$" <<< "$0")
 SCRIPT_HOME="${0%/*}"
 ### END: VARIABLES ###
 
