@@ -29,7 +29,7 @@ endif
 
 "FILETPE AND SYNTAX: {{{
     "misc filtype specific settings
-    autocmd FileType gitcommit,notes,mail,notmuch,text setlocal spell
+    autocmd FileType gitcommit,notes,mail,notmuch,mkd,text setlocal spell
     autocmd FileType notes,mail,notmuch,mkd,text setlocal nonumber
     autocmd FileType mail,notmuch,text setlocal wrap
     autocmd FileType notes setlocal tw=80
