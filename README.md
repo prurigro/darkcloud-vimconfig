@@ -44,11 +44,12 @@ A theme, config and collection of plugins for Vim.
 ## Configuration ##
 
 * **Configure Variables**: The following variables can be added to _vim/vimrc.user_ and have their values set to the values you require:
-  * `g:disablelinebreaks`: **1** = Override filetype plugins so linebreaks never occur | 0 = Linebreaks are disabled by default, but filetype plugins can override this setting (_default_: 1)
-  * `g:autostartfiler`: **1** = Start the filer file manager when vim is run and the buffer is empty | 0 = Do nothing when vim is run and the buffer is empty (_default_: 1)
-  * `g:autostartchecker`: **1** = Check syntax once an appropriate file is loaded | 0 = Check syntax only after syntax checking is toggled on (_default_: 0)
-  * `g:autostarttagbar`: **1** = Have the tagbar load automatically when a compatible format is run | 0 = The tagbar will stay hidden until triggered on demand with its toggle (_default_: 0)
-  * `g:powerlinefonts`: **1** = Render the statusline using characters available with powerline-patched fonts | 0 = Render the statusbar with less attractive but more compatible characters available in all fonts (_default_: 0)
+  * `g:autostartfiler`: **1** = Start the filer file manager when vim is run and the buffer is empty | **0** = Do nothing when vim is run and the buffer is empty (_default_: **1**)
+  * `g:autostartchecker`: **1** = Check syntax once an appropriate file is loaded | **0** = Check syntax only after syntax checking is toggled on (_default_: **0**)
+  * `g:autostarttagbar`: **1** = Have the tagbar load automatically when a compatible format is run | **0** = The tagbar will stay hidden until triggered on demand with its toggle (_default_: **0**)
+  * `g:disableautotags`: **1** = Prevent tags from being automatically generated and highlighted | **0** = Automatically generate and highlight tags (_default_: **0**)
+  * `g:disablelinebreaks`: **1** = Override filetype plugins so linebreaks never occur | **0** = Linebreaks are disabled by default, but filetype plugins can override this setting (_default_: **0**)
+  * `g:powerlinefonts`: **1** = Render the statusline using characters available with powerline-patched fonts | **0** = Render the statusbar with less attractive but more compatible characters available in all fonts (_default_: **0**)
 * **Custom Settings**: Settings with priority over those set by darkcloud-vimconfig can be added to a file named _vimrc.user_, located in _darkcloud-vimconfig/vim/_ or any of the folders in the runtimepath.
 * **Custom Plugins**: Pathogen compatible plugins can be cloned or extracted to "darkcloud-vimconfig/vim/bundle.user/", or a folder named "bundle" or "bundle.user" in any of the folders in the runtimepath.
 * **Custom Snippets**: To add or override Emmet snippets, create _~/.vim/snippets.json_ and add your own definitions using json like shown in the [Emmet Documentation](http://docs.emmet.io/customization/snippets/).

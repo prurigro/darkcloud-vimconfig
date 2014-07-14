@@ -418,12 +418,12 @@
         inoremap <silent><expr> <A-F2> '<C-O>:set spell!<CR>'
 
         "toggle syntax checking
-        nnoremap <silent><expr> <C-F3> ':SyntasticToggleMode<CR>'
-        xnoremap <silent><expr> <C-F3> '<Esc>:SyntasticToggleMode<CR>gv'
-        inoremap <silent><expr> <C-F3> '<C-O>:SyntasticToggleMode<CR>'
-        nnoremap <silent><expr> <A-F3> ':SyntasticToggleMode<CR>'
-        xnoremap <silent><expr> <A-F3> '<Esc>:SyntasticToggleMode<CR>gv'
-        inoremap <silent><expr> <A-F3> '<C-O>:SyntasticToggleMode<CR>'
+        nnoremap <silent><expr> <C-F3> ':if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>let g:syntastic_check_on_wq=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>let g:syntastic_check_on_wq=1<Bar>endif<Bar>:SyntasticToggleMode<CR>'
+        xnoremap <silent><expr> <C-F3> '<Esc>:if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>let g:syntastic_check_on_wq=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>let g:syntastic_check_on_wq=1<Bar>endif<Bar>:SyntasticToggleMode<CR>gv'
+        inoremap <silent><expr> <C-F3> '<C-O>:if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>let g:syntastic_check_on_wq=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>let g:syntastic_check_on_wq=1<Bar>endif<Bar>:SyntasticToggleMode<CR>'
+        nnoremap <silent><expr> <A-F3> ':if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>let g:syntastic_check_on_wq=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>let g:syntastic_check_on_wq=1<Bar>endif<Bar>:SyntasticToggleMode<CR>'
+        xnoremap <silent><expr> <A-F3> '<Esc>:if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>let g:syntastic_check_on_wq=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>let g:syntastic_check_on_wq=1<Bar>endif<Bar><Esc>:SyntasticToggleMode<CR>gv'
+        inoremap <silent><expr> <A-F3> '<C-O>:if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>let g:syntastic_check_on_wq=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>let g:syntastic_check_on_wq=1<Bar>endif<Bar><C-O>:SyntasticToggleMode<CR>'
 
         "toggle external-paste mode
         set pastetoggle=<C-F4>

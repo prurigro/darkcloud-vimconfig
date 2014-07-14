@@ -15,11 +15,11 @@ if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
 endif
 
 "disable linebreaks by default or override all of them (default: 1)
-if !exists("g:disablelinebreaks")|let g:disablelinebreaks=1|endif
+if !exists("g:disablelinebreaks")
+    let g:disablelinebreaks=1
+endif
 if (g:disablelinebreaks == 1)
     autocmd VimEnter * set tw=0 nolinebreak
-else
-    set tw=0 nolinebreak
 endif
 
 "enable omnicompletion for any filetype without that has syntax highlighting

@@ -20,6 +20,18 @@
 
 "EASYTAGS: {{{
     let g:easytags_file = '~/.vim/tags'
+
+    "prevent automatically generating the tagfile and syntax highlighting tags (default: 0)
+    if !exists("g:disableautotags")
+        let g:disableautotags=0
+    endif
+    if (g:disableautotags == 1)
+        let g:easytags_auto_update=0
+        let g:easytags_auto_highlight=0
+    else
+        let g:easytags_auto_update=1
+        let g:easytags_auto_highlight=1
+    endif
 "}}}
 
 "EMMET: {{{
@@ -27,7 +39,7 @@
     let g:use_emmet_complete_tag=1
     let g:user_emmet_mode='a'
 
-    autocmd FileType css,json,htm,html,php,aspx EmmetInstall
+    autocmd FileType aspnet,html,xhtml,php,css,javascript,json EmmetInstall
 
     if filereadable("~/.vim/snippets.json")
         let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.vim/snippets.json')), "\n"))
@@ -69,7 +81,7 @@
 "}}}
 
 "MATCHTAGALWAYS: {{{
-    let g:mta_filetypes = {'aspnet':1, 'html':1, 'xhtml':1, 'xml':1, 'php':1, 'jinja':1}
+    let g:mta_filetypes = {'aspnet':1, 'html':1, 'xhtml':1, 'php':1, 'xml':1, 'jinja':1}
 "}}}
 
 "NEOCOMPLCACHE AUTOCOMPLETION PLUGIN: {{{
@@ -96,6 +108,7 @@
     let g:neocomplcache_omni_patterns.css='^\s\+\w+\|\w+[):;]?\s\+\|[@!]'
     let g:neocomplcache_omni_patterns.less='^\s\+\w+\|\w+[):;]?\s\+\|[@!]'
     let g:neocomplcache_omni_patterns.javascript='[^. \t]\.\%(\h\w*\)\?'
+    let g:neocomplcache_omni_patterns.json='[^. \t]\.\%(\h\w*\)\?'
     let g:neocomplcache_omni_patterns.python='[^. *\t]\.\h\w*\|\h\w*::'
     let g:neocomplcache_omni_patterns.ruby='[^. *\t]\.\w*\|\h\w*::'
     let g:neocomplcache_omni_patterns.php='[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
@@ -127,9 +140,11 @@
         if (g:autostartchecker == 1)
             let g:syntastic_mode_map = {'mode':'active','active_filetypes':[],'passive_filetypes':[]}
             let g:syntastic_check_on_open=1
+            let g:syntastic_check_on_wq=1
         else
             let g:syntastic_mode_map = {'mode':'passive','active_filetypes':[],'passive_filetypes':[]}
             let g:syntastic_check_on_open=0
+            let g:syntastic_check_on_wq=0
         endif
 
         let g:syntastic_always_populate_loc_list=1
@@ -143,7 +158,6 @@
     if !exists("g:autostarttagbar")
         let g:autostarttagbar=0
     endif
-
     if !&diff
         if (g:autostarttagbar == 1)
             autocmd VimEnter * nested :call tagbar#autoopen(1)

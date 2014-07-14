@@ -11,6 +11,8 @@
 #                                                            #
 ##############################################################
 
+cd $(dirname "$0")
+
 ### BEGIN: VARIABLES ###
 # user variables (these can be edited)
 ERRORLOG="update-errors.log" # set the error log filename
@@ -18,9 +20,8 @@ ERRORLOG="update-errors.log" # set the error log filename
 # script variables (these should not be touched)
 VERSION=$(printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)")
 SCRIPT_NAME=$(grep -o -e "[^\/]*$" <<< "$0")
-SCRIPT_HOME="${0%/*}"
+SCRIPT_HOME=$(pwd)
 ### END: VARIABLES ###
-
 
 ### BEGIN: FUNCTIONS ###
 # command_parse "$@": configures environment using arguments
@@ -72,7 +73,6 @@ function show_help() {
 }
 ### END: FUNCTIONS ###
 
-
 ### BEGIN: SETUP ###
 # change to the base darkcloud-vimconfig folder
 cd "$SCRIPT_HOME"
@@ -123,12 +123,13 @@ if [ ! -e vim/vimrc.user ]; then
     echo -n -e "\n${HEADINGCOLOUR} >> Creating User Config File:${RESETCOLOUR}"
     PROCESS_STATUS=$(touch vim/vimrc.user 2>&1)
     if [ $? = 0 ]; then
-        echo -e '"Disable Linebreaks: (*1:force disabled globally | 0: disabled by default)\n"let g:disablelinebreaks=0\n' >> vim/vimrc.user
-        echo -e '"Autostart Filer: (*1:filer loads in new empty buffers | 0: filer must be triggered)\n"let g:autostartfiler=0\n' >> vim/vimrc.user
-        echo -e '"Syntax Autostart: (1:start toggled on | *0: start toggled off)\n"let g:autostartchecker=1\n' >> vim/vimrc.user
-        echo -e '"Tagbar Autostart: (1:start open | *0:start closed)\n"let g:autostarttagbar=1\n' >> vim/vimrc.user
-        echo -e '"Powerline Fonts: (1:enabled | *0:disabled)\n"let g:powerlinefonts=1 "(set powerline font for gvim and terminal when enabled)\n' >> vim/vimrc.user
-        echo -e '"GVim Font Selection: (Escaping spaces and use powerline if appropriate)\nset guifont=Monospace\ 12' >> vim/vimrc.user
+        echo -e '"Autostart Filer in empty buffers: (*1:filer loads in new empty buffers | 0:filer must be triggered)\n"let g:autostartfiler=0\n' >> vim/vimrc.user
+        echo -e '"Autocheck syntax checking: (1:start toggled on | *0:start toggled off)\n"let g:autostartchecker=1\n' >> vim/vimrc.user
+        echo -e '"Autoload Tagbar: (1:start open | *0:start closed)\n"let g:autostarttagbar=1\n' >> vim/vimrc.user
+        echo -e '"Disable automatic tag generation and highlighting: (1:force disabled tag generation and highlighting | *0:enable automatic tag generation and highlighting)\n"let g:disableautotags=1\n' >> vim/vimrc.user
+        echo -e '"Disable automatic linebreaking: (1:force disabled globally | *0:let the filetype decide)\n"let g:disablelinebreaks=1\n' >> vim/vimrc.user
+        echo -e '"Enable Powerline fonts: (1:expect powerline font | *0:expect regular font)\n"let g:powerlinefonts=1 "(set powerline font for gvim and terminal when enabled)\n' >> vim/vimrc.user
+        echo -e '"GVim font selection: (Escaping spaces and use powerline if appropriate)\nset guifont=Monospace\ 12' >> vim/vimrc.user
         echo -e "${SUCCESSCOLOUR} SUCCESS! ${RESETCOLOUR}"
     else
         echo -e "${FAILCOLOUR} FAIL! ${RESETCOLOUR}"
@@ -136,7 +137,6 @@ if [ ! -e vim/vimrc.user ]; then
     fi
 fi
 ### END: SETUP ###
-
 
 ### BEGIN: REPO UPDATE ###
 echo -n -e "\n${HEADINGCOLOUR} >> Updating Repository:${RESETCOLOUR}"
@@ -149,7 +149,6 @@ else
     exit 1
 fi
 ### END: REPO UPDATE ###
-
 
 ### BEGIN: SUBMODULE UPDATE ###
 # synchronize the repo urls for each submodule using the ones in .gitmodules
@@ -212,7 +211,6 @@ git submodule foreach git clean -dxf > /dev/null 2>&1 && echo -e "${SUCCESSCOLOU
 done && echo
 ### END: SUBMODULE UPDATE ###
 
-
 ### BEGIN: USER PLUGIN UPDATE ###
 if [ -d vim/bundle.user ]; then
     if [ ! $(find vim/bundle.user | grep ".git/config" | wc -l) = 0 ]; then
@@ -242,7 +240,6 @@ if [ -d vim/bundle.user ]; then
     fi
 fi
 ### END: USER PLUGIN UPDATE ###
-
 
 ### BEGIN: GENERATE PLUGIN HELPTAGS ###
 if [ $(type -P vim) ]; then

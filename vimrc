@@ -37,11 +37,11 @@
     "Load Keymappings:
     runtime config/keyboard.vim
 
-    "Load After Config:
-    runtime config/after.vim
-
     "Load User Config:
     runtime vimrc.user
+
+    "Load After Config:
+    runtime config/after.vim
 
     "Load Plugin Configuration:
     runtime config/plugins.vim
