@@ -18,6 +18,10 @@
     let g:vim_json_syntax_conceal=0
 "}}}
 
+"EASYTAGS: {{{
+    let g:easytags_file = '~/.vim/tags'
+"}}}
+
 "EMMET: {{{
     let g:user_emmet_install_global=0
     let g:use_emmet_complete_tag=1
