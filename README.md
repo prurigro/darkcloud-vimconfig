@@ -7,7 +7,6 @@ A theme, config and collection of plugins for Vim.
 * **Vim**: The latest [vim](http://www.vim.org) should be installed to use this distribution (versions 7.3 and below aren't tested or guaranteed to work).
 * **Bash**: Required by the _update_ and _gentags_ scripts.
 * **Git**: Required by the _update_ script and git-related plugins.
-* **Grep and Find**: Required by the _grep_ plugin.
 
 ## Optional Requirements ##
 
@@ -134,7 +133,6 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [emmet-vim](https://github.com/mattn/emmet-vim.git): Support for expanding abbreviations.
   * [webapi-vim](https://github.com/mattn/webapi-vim.git) A web library used by emmet to provide support for custom snippets.
 * [goyo.vim](https://github.com/junegunn/goyo.vim) Distraction-free writing in Vim
-* [grep](https://github.com/yegappan/grep.git): Provides the ability to perform various match-based searches using grep.
 * [gundo.vim](https://github.com/sjl/gundo.vim.git): Sidebar to visualize your undo tree and browse the differences of each change.
 * [lightline.vim](https://github.com/itchyny/lightline.vim) A light and configurable statusline/tabline for Vim.
 * [MatchTagAlways](https://github.com/Valloric/MatchTagAlways) A Vim plugin that always highlights the enclosing html/xml tags.

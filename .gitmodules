@@ -52,9 +52,6 @@
 [submodule "vim/bundle/vim-fugitive"]
 	path = vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "vim/bundle/grep"]
-	path = vim/bundle/grep
-	url = https://github.com/yegappan/grep.git
 [submodule "vim/bundle/vim-neco-calc"]
 	path = vim/bundle/vim-neco-calc
 	url = https://github.com/hrsh7th/vim-neco-calc.git
