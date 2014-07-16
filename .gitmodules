@@ -82,12 +82,12 @@
 [submodule "vim/bundle/vim-polyglot-darkcloud"]
 	path = vim/bundle/vim-polyglot-darkcloud
 	url = https://github.com/prurigro/vim-polyglot-darkcloud.git
-[submodule "vim/bundle/MatchTagAlways"]
-	path = vim/bundle/MatchTagAlways
-	url = https://github.com/Valloric/MatchTagAlways.git
 [submodule "vim/bundle/vim-misc"]
 	path = vim/bundle/vim-misc
 	url = https://github.com/xolox/vim-misc.git
 [submodule "vim/bundle/vim-easytags"]
 	path = vim/bundle/vim-easytags
 	url = https://github.com/xolox/vim-easytags.git
+[submodule "vim/bundle/MatchTagAlways"]
+	path = vim/bundle/MatchTagAlways
+	url = https://github.com/prurigro/MatchTagAlways.git
