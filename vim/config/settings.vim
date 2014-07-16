@@ -52,7 +52,7 @@
     set diffopt=foldcolumn:0,filler "vimdiff default settings
     set formatoptions=roqnl12 "how automatic formatting is to be done
     set foldmethod=syntax foldcolumn=1 foldlevel=3 "fold layers 3 or more deep
-    let &showbreak="_" "highlight wrapped lines when linewrap is enabled
+    let &showbreak="" "highlight wrapped lines when linewrap is enabled
 
     "enable tab completion in command mode and configure how it handles extensions
     set completeopt=longest,menuone
