@@ -1,6 +1,6 @@
 "============================================================"
 "                                                            "
-"  Darkcloud Vim Config: settings to load after all else     "
+"  Darkcloud Vim Config: settings to load after              "
 "                                                            "
 "  By: Kevin MacMartin (prurigro@gmail.com)                  "
 "  Website: https://github.com/prurigro/darkcloud-vimconfig  "
@@ -28,8 +28,11 @@ if has("autocmd") && exists("+omnifunc")
 endif
 
 "FILETPE AND SYNTAX: {{{
-    "misc filtype specific settings
-    autocmd FileType sh setlocal iskeyword-=.
+    "filename specific settings
+    autocmd BufEnter,BufRead *taskrc setlocal commentstring=#\ %s
+    autocmd BufEnter,BufRead PKGBUILD setlocal iskeyword-=.
+
+    "filtype specific settings
     autocmd FileType gitcommit,notes,mail,notmuch,mkd,text setlocal nonumber spell nolist wrap linebreak breakat&vim "some defautls for word processing
     autocmd Filetype mkd setlocal breakat-=* "prevent breaking *s from words to linewrap in markdown
     autocmd FileType help* wincmd L "help windows always open vertically
