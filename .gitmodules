@@ -90,4 +90,4 @@
 	url = https://github.com/xolox/vim-easytags.git
 [submodule "vim/bundle/MatchTagAlways"]
 	path = vim/bundle/MatchTagAlways
-	url = https://github.com/prurigro/MatchTagAlways.git
+	url = https://github.com/Valloric/MatchTagAlways.git
