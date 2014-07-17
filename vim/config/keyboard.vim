@@ -273,6 +273,12 @@
     map <F1> <Nop>
     map <A-F1> <Nop>
     map <C-F1> <Nop>
+
+    " unmap mousewheel combos to ensure the old behaviour stays gone
+    map <C-ScrollWheelUp> <Nop>
+    map <C-ScrollWheelDown> <Nop>
+    map <A-ScrollWheelUp> <Nop>
+    map <A-ScrollWheelDown> <Nop>
 "}}}
 
 "ALIASES: COMMAND SHORTCUTS {{{
@@ -585,7 +591,7 @@
         vnoremap <Leader>X "_X
         nnoremap <Leader>D "_D
         vnoremap <Leader>D "_D
-        nnoremap <Leader>dd "_dd hello and good day
+        nnoremap <Leader>dd "_dd
         nnoremap <Leader>dw "_dw
         vnoremap <Leader>d "_d
 
