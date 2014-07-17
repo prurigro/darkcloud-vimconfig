@@ -448,11 +448,6 @@ hi! link rubyClass Type
 hi! link rubyIdentifier Identifier
 hi! link rubyPredefinedIdentifier PreProc
 call s:X("rubyGlobalVariable","","","bold","","")
-"call s:X("rubySymbol","","","","","")
-"call s:X("rubyControl","","","","","")
-"call s:X("rubyRegexpDelimiter","","","","","")
-"call s:X("rubyRegexp","","","","","")
-"call s:X("rubyRegexpSpecial","","","","","")
 
 "lua
 hi! link luaOperator Conditional
@@ -520,6 +515,14 @@ hi! link quicktaskTimestamp Identifier
 hi! link quicktaskSection Todo
 call s:X("quicktaskTimeNote","#ffd787","","bold","Yellow","")
 call s:X("quicktaskTask","#ffffff","","bold","White","")
+
+"taskwarrior
+call s:X("taskwarrior_tablehead","#d0d0d0","","standout,bold",s:termBlack,"White")
+call s:X("taskwarrior_field","","","standout,bold","","")
+hi! link taskwarrior_id Comment
+hi! link taskwarrior_project Keyword
+hi! link taskwarrior_entry Identifier
+hi! link taskwarrior_description String
 
 "taglist
 hi! link TagListFileName Directory

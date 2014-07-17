@@ -33,12 +33,12 @@ endif
     autocmd BufEnter,BufRead PKGBUILD setlocal iskeyword-=.
 
     "filtype specific settings
-    autocmd FileType gitcommit,notes,mail,notmuch,mkd,text setlocal nonumber spell nolist wrap linebreak breakat&vim "some defautls for word processing
+    autocmd FileType gitcommit,notes,mail,notmuch,mkd,text,taskreport setlocal nonumber spell nolist wrap linebreak breakat&vim "some defautls for word processing
     autocmd Filetype mkd setlocal breakat-=* "prevent breaking *s from words to linewrap in markdown
     autocmd FileType help* wincmd L "help windows always open vertically
     autocmd FileType help* vertical resize 80 "set the window size to 80 cols
     autocmd FileType help* setlocal nocursorline "remove the horizontal cursor line
-    autocmd BufEnter,FileType qf,help* setlocal nowrap nocursorcolumn "disable text wrapping and the vertical cursor line
+    autocmd BufEnter,FileType taskreport,qf,help* setlocal nowrap nocursorcolumn "disable text wrapping and the vertical cursor line
     autocmd BufEnter,FileType extradite setlocal number "enable line numbers in extradite
 
     "settings for buffers in diff mode
