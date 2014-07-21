@@ -92,6 +92,7 @@ A theme, config and collection of plugins for Vim.
 | \<(Ctrl-or-Alt)-F2\>   | ALL  |        Toggle the **gundo** undo history sidebar |
 | \<(Ctrl-or-Alt)-F3\>   | ALL  |    Toggle the **tagbar** source code tag sidebar |
 | \<(Ctrl-or-Alt)-F4\>   | ALL  |      Toggle the **extradite** git history window |
+| \<(Ctrl-or-Alt)-F12\>  | ALL  |        Toggle the **goyo** distraction-free mode |
 
 #### Toggles ####
 

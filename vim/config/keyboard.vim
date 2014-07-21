@@ -29,7 +29,7 @@
 "   <Ctrl-_>p                 | (A) -> comment the current paragraph
 "   +                         | (V) -> increase the selected region
 "   _                         | (V) -> decrease the selected region
-"   <Leader><Space>           | (N) -> center content and hide everything else
+"   <Leader><Enter>           | (N) -> center content and hide everything else
 "
 "  (surround)
 "    S"                       | (V) -> surround selection with quotes
@@ -78,8 +78,10 @@
 "    `                        | (A) -> toggle the gutter(line numbers, folds and signify)
 "
 "    <Space>                  | (N) -> toggle selected fold
+"    <Leader><Space>          | (N) -> open all folds
 "    <Leader>=                | (N) -> open all folds
 "    <Leader>+                | (N) -> open all folds
+"    <Leader><Leader><Space>  | (N) -> open all folds
 "    <Leader>-                | (N) -> unopen all folds
 "    <Leader>_                | (N) -> unopen all folds
 "    <Leader>0                | (N) -> reset all folds using default fold level
@@ -97,6 +99,9 @@
 "    <F2>                     | (A) -> toggle spell check
 "    <F3>                     | (A) -> toggle external-paste mode
 "    <F4>                     | (A) -> toggle syntax checking
+"
+"    <Ctrl-F12>               | (A) -> toggle goyo (distraction-free mode)
+"    <Alt-F12>                | (A) -> toggle goyo (distraction-free mode)
 "
 "  (gvim toggles)
 "    <Leader><F1>             | (A) -> toggle the menubar
@@ -117,7 +122,7 @@
 "    <Ctrl-u>                 | (I) -> (neocomp) undo the most recent completion
 "
 "  (search)
-"    <Leader>\                | (N) -> remove search highlighting
+"    <Leader>/                | (N) -> remove search highlighting
 "
 "  (formatting)
 "    <Backspace>              | (V) -> deletes currently selected text
@@ -213,7 +218,8 @@
 "
 " Filetype Specific Mappings:
 "  (extradite)
-"    <F4>                     | (A) -> close the dialog
+"    <C-F4>                   | (A) -> close the dialog
+"    <A-F4>                   | (A) -> close the dialog
 "    <Right>                  | (A) -> same as down
 "    l                        | (A) -> same as j
 "    <Left>                   | (A) -> same as Up
@@ -379,16 +385,18 @@
         nnoremap <silent><expr> <Leader>? ':h index.txt<CR>'
 
         "toggle the display of the left gutter
-        nnoremap <silent><expr> ` ':if (&number)<Bar>set number!<Bar>if (&foldenable)<Bar>set foldenable!<Bar>endif<Bar>if exists("b:sy")<Bar>if (b:sy.active)<Bar>SignifyToggle<Bar>endif<Bar>endif<Bar>else<Bar>set number!<Bar>if !(&foldenable)<Bar>set foldenable!<Bar>endif<Bar>if exists("b:sy")<Bar>if !(b:sy.active)<Bar>SignifyToggle<Bar>endif<Bar>endif<Bar>endif<CR>:echo "gutter visibility toggled"<CR>'
+        nnoremap <silent><expr> ` ':if (&number)<Bar>set nonumber<Bar>if (&foldenable)<Bar>set nofoldenable<Bar>endif<Bar>if exists("b:sy")<Bar>if (b:sy.active)<Bar>SignifyToggle<Bar>endif<Bar>endif<Bar>else<Bar>set number<Bar>if !(&foldenable)<Bar>set foldenable<Bar>endif<Bar>if exists("b:sy")<Bar>if !(b:sy.active)<Bar>SignifyToggle<Bar>endif<Bar>endif<Bar>endif<CR>:echo "gutter visibility toggled"<CR>'
 
         "toggle folded code at foldpoints
         nnoremap <Space> za
 
         "open all folds
+        nnoremap <silent><expr> <Leader><Space> 'zn:echo "all folds have been opened"<CR>'
         nnoremap <silent><expr> <Leader>= 'zn:echo "all folds have been opened"<CR>'
         nnoremap <silent><expr> <Leader>+ 'zn:echo "all folds have been opened"<CR>'
 
         "close folds set to be closed
+        nnoremap <silent><expr> <Leader><Leader><Space> 'zN:echo "all opened folds have been closed"<CR>'
         nnoremap <silent><expr> <Leader>- 'zN:echo "all opened folds have been closed"<CR>'
         nnoremap <silent><expr> <Leader>_ 'zN:echo "all opened folds have been closed"<CR>'
 
@@ -444,6 +452,10 @@
         nnoremap <silent><expr> <F4> ':if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>let g:syntastic_check_on_wq=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>let g:syntastic_check_on_wq=1<Bar>endif<Bar>:SyntasticToggleMode<CR>'
         xnoremap <silent><expr> <F4> '<Esc>:if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>let g:syntastic_check_on_wq=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>let g:syntastic_check_on_wq=1<Bar>endif<Bar>:SyntasticToggleMode<CR>gv'
         inoremap <silent><expr> <F4> '<C-O>:if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>let g:syntastic_check_on_wq=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>let g:syntastic_check_on_wq=1<Bar>endif<Bar>:SyntasticToggleMode<CR>'
+
+        "toggle goyo
+        nnoremap <silent><expr> <C-F12> ':Goyo<CR>'
+        nnoremap <silent><expr> <A-F12> ':Goyo<CR>'
     "}
 
     "GVIM TOGGLES:{
@@ -640,6 +652,7 @@
     if !&diff
         autocmd FileType help map <buffer> <silent><expr> q ':q<CR>'
         autocmd FileType help map <buffer> <silent><expr> <Leader><F1> ':q<CR>'
+        autocmd FileType help map <buffer> <silent><expr> <Leader>? ':q<CR>'
     endif
 
     "markdown: launch table of contents instead of the tagbar

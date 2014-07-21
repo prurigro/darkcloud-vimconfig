@@ -48,7 +48,6 @@
 "}}}
 
 "GOYO: {{{
-    nnoremap <Leader><Space> :Goyo<CR>
     autocmd VimEnter,Filetype *
         \   let g:goyo_width = &textwidth |
         \   if (g:goyo_width == 0) |
@@ -123,10 +122,10 @@
 "}}}
 
 "SIGNIFY: {{{
-    let g:signify_sign_add = '+'
-    let g:signify_sign_change = '!'
-    let g:signify_sign_delete = '-'
-    let g:signify_sign_delete_first_line = '~'
+    let g:signify_sign_add='+'
+    let g:signify_sign_change='!'
+    let g:signify_sign_delete='-'
+    let g:signify_sign_delete_first_line='~'
 "}}}
 
 "SYNTASTIC: {{{
