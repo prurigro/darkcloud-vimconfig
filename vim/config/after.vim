@@ -28,6 +28,14 @@ if has("autocmd") && exists("+omnifunc")
 endif
 
 "FILETPE AND SYNTAX: {{{
+    "set given filenames to various filetypes
+    au BufNewFile,BufRead pacman.conf,yaourtrc setf sh
+    au BufNewFile,BufRead cjdroute.conf,cjdmaid.conf setf json
+    au BufNewFile,BufRead *muttrc setf muttrc
+    au BufNewFile,BufRead *ircd.conf setf javascript
+    au BufNewFile,BufRead *.aspx,*.asmx,*.ascx,*.master setf aspnet
+    au BufNewFile,BufRead *.gradle setf groovy
+
     "filename specific settings
     autocmd BufEnter,BufRead *taskrc setlocal commentstring=#\ %s
     autocmd BufEnter,BufRead PKGBUILD setlocal iskeyword-=.

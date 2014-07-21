@@ -9,74 +9,86 @@
 "                                                            "
 "============================================================"
 
-"COMPATIBILITY SETTINGS: DOCUMENT AND ENVIRONMENT SETTINGS {{{
-    set nocompatible "enable vim specific capabilities
-    set encoding=utf-8 "set encoding
-    set fileformats=unix,dos,mac "set compatible line endings in order of preference
-    set backspace=indent,eol,start "enables backspacing
-    set clipboard=unnamedplus "enable copy/paste support between vim and the environment's clipboard
-    set lazyredraw "only redraw what needs to be redrawn
-    set ttyfast "assume a fast connection to the terminal for better rendering
-
-    set mouse=a "enables mouse functionality with extended capabilities
-    if has("mouse_sgr")
-        set ttymouse=sgr "use mouse handling that emits sgr-style reporting if it's available
-    else
-        set ttymouse=xterm2 "fall back to xterm2-style reporting if sgr isn't available
-    endif
-
-    if $TERM =~ '^linux'
-        set t_Co=8 "use 8 colours when a vterm is detected
-    elseif !has("gui_running")
-        set t_Co=256 "assume 256 colours when any other terminal is detected
-    endif
-"}}}
-
-"GENERAL: ANYTHING THAT DOESN'T FIT ELSEWHERE {{{
-    set number "enable line numbers
-    set nowrap "disable line wrapping
-    set cursorline cursorcolumn "enable row/column highlighting
-    set visualbell "notify visually instead of with an audible bell
-    set splitright "add new tiles on the right (and not left) when added
-    set scrolloff=0 sidescrolloff=0 "start scrolling if the cursor is one position away from the edge
-    set list listchars=tab:>-,trail:- "display tabs as: >--- and trailing spaces as: -
-    set autochdir "current dir is file dir
-    set history=250 "undo history
-    set timeoutlen=800 ttimeoutlen=0 "shorten the timeout length of escapes
-    set whichwrap=b,s,<,>,[,] "allow the cursor to wrap lines
-    set showmatch "show matching open bracket when closed bracket is inserted
-    set matchtime=5 "the amount of time the matching bracket will highlight
-    set smarttab expandtab autoindent tabstop=4 shiftwidth=4 "configure tabs
-    set laststatus=2 showcmd statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v] "statusline init and config
-    set hlsearch incsearch ignorecase smartcase "configure search
-    set diffopt=foldcolumn:0,filler "vimdiff default settings
-    set formatoptions=roqnl12 "how automatic formatting is to be done
-    set foldmethod=syntax foldcolumn=1 foldlevel=5 "fold layers 5 or more deep
-    let &showbreak="" "highlight wrapped lines when linewrap is enabled
-
-    "enable tab completion in command mode and configure how it handles extensions
-    set completeopt=longest,menuone
-    set wildmenu
-    set wildmode=list:longest,full
-    set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
-    set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
-"}}}
-
-"FILETYPES AND SYNTAX: SETTINGS FOR FILETYPES AND ASSOCIATED SYNTAX {{{
-    filetype plugin indent on
-    syntax on
-
-    "set given filenames to various filetypes
-    au BufNewFile,BufRead pacman.conf,yaourtrc setf sh
-    au BufNewFile,BufRead cjdroute.conf,cjdmaid.conf setf json
-    au BufNewFile,BufRead *muttrc setf muttrc
-    au BufNewFile,BufRead *ircd.conf setf javascript
-    au BufNewFile,BufRead *.aspx,*.asmx,*.ascx,*.master setf aspnet
-    au BufNewFile,BufRead *.gradle setf groovy
-"}}}
-
-"GVIM: GUI CONFIG OPTIONS {{{
+"GVIM SETTINGS: {{{
     set guicursor+=a:blinkon0 "disable the blinking cursor
     set guioptions=aegip "enable some good defaults for gvim
     set guioptions+=lRb "enable scrollbars (right only when a split is present)
+"}}}
+
+"COMPATIBILITY SETTINGS: {{{
+    set nocompatible "disable vi-compatibility settings
+    set backspace=indent,eol,start "enables/configures standard backspace behaviour
+
+    "use the '*' register as well as the the '+' register if it's available too
+    set clipboard=unnamed
+    if has('unnamedplus')|set clipboard+=unnamedplus|endif
+
+    "fancy mouse reporting with xterm2 fallback
+    if has("mouse_sgr")|set ttymouse=sgr|else|set ttymouse=xterm2|endif
+    set mouse=a "enables mouse functionality with extended capabilities
+
+    "8 colours in $TERM=linux, 256 elsewhere
+    if $TERM =~ '^linux'|set t_Co=8|elseif !has("gui_running")|set t_Co=256|endif
+    set lazyredraw "only redraw what needs to be redrawn
+    set ttyfast "assume a fast connection to the terminal for better rendering
+
+    "configure to primarily use utf8
+    if has("multi_byte")
+        if &termencoding == ""|let &termencoding = &encoding|endif
+        set encoding=utf-8
+        setglobal fileencoding=utf-8
+    endif
+    set fileformats=unix,dos,mac "set compatible line endings in order of preference
+"}}}
+
+"GENERAL SETTINGS: {{{
+    "FILETYPES: {{{
+        filetype plugin indent on "enable filetype-based auto-indentation
+        syntax on "enable syntax highlighting
+        set formatoptions=roqnl12 "how automatic formatting is to be done
+        set diffopt=foldcolumn:0,filler "vimdiff default settings
+        set foldmethod=syntax foldcolumn=1 foldlevel=5 "fold layers 5 or more deep
+    "}}}
+
+    "USER INTERFACE: {{{
+        set laststatus=2 showcmd statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v] "statusline init and config
+        set number "enable line numbers
+        set nowrap "disable line wrapping
+        set cursorline cursorcolumn "enable row/column highlighting
+        set visualbell "notify visually instead of with an audible bell
+        set splitright "add new tiles on the right (and not left) when added
+        set scrolloff=0 sidescrolloff=0 "start scrolling if the cursor is one position away from the edge
+        set list listchars=tab:>-,trail:- "display tabs as: >-- and trailing spaces as: -
+        set showmatch "show matching open bracket when closed bracket is inserted
+        set matchtime=5 "the amount of time before the matching bracket will highlight
+        let &showbreak="" "character to prepend to wrapped lines when linewrapping is enabled
+
+        "enable tab completion in command mode and configure how it handles extensions
+        set completeopt=longest,menuone
+        set wildmenu
+        set wildmode=list:longest,full
+        set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
+        set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+    "}}}
+
+    "BEHAVIOUR: {{{
+        set autochdir "change to a file's directory when it's opened
+        set history=250 "size of the undo history
+        set whichwrap=b,s,<,>,[,] "scrolling left/right off current line wraps to the next/previous
+        set smarttab expandtab autoindent tabstop=4 shiftwidth=4 "configure tabs
+        set hlsearch incsearch ignorecase smartcase "configure how search behaves
+        set timeoutlen=500 ttimeoutlen=0 "shorten the timeout length of escapes
+
+        "enable the auto-creation of missing folders in a save path
+        function s:MakeNewDir(fullpath, buf)
+            if empty(getbufvar(a:buf,'&buftype')) && a:fullpath!~#'\v^\w+\:\/'
+                let dirpath=fnamemodify(a:fullpath,':h')
+                if !isdirectory(dirpath)|call mkdir(dirpath,'p')|endif
+            endif
+        endfunction
+        augroup WriteDir
+            autocmd!
+            autocmd BufWritePre * :call s:MakeNewDir(expand('<afile>'),+expand('<abuf>'))
+        augroup END
+    "}}}
 "}}}

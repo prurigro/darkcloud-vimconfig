@@ -9,7 +9,13 @@
 "                                                            "
 "============================================================"
 
-"PATHOGEN BUNDLED EXTENSIONS PLUGIN: {{{
+"INITIALIZE PLUGINS: {{{
+    "create missing plugin user config files
+    if !filereadable(glob("~/.vim/tags"))|new|silent e ~/.vim/tags|silent w|q|endif
+    if !filereadable(glob("~/.vim/snippets.json"))|new|silent e ~/.vim/snippets.json|silent w|q|endif
+    if !filereadable(glob("~/.vim/filetypes.vim"))|new|silent e ~/.vim/filetypes.vim|silent w|q|endif
+
+    "load plugins in vim/bundle/ and vim/bundle.user/
     execute pathogen#infect('bundle/{}', 'bundle.user/{}')
 "}}}
 
