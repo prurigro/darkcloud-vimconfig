@@ -88,19 +88,19 @@ A theme, config and collection of plugins for Vim.
 
 | Binding                | Mode |                                           Action |
 |:-----------------------|:----:|-------------------------------------------------:|
-| \<F1\>                 | ALL  |         Toggle **vimfiler** file manager sidebar |
-| \<F2\>                 | ALL  |        Toggle the **gundo** undo history sidebar |
-| \<F3\>                 | ALL  |    Toggle the **tagbar** source code tag sidebar |
-| \<F4\>                 | ALL  |      Toggle the **extradite** git history window |
+| \<(Ctrl-or-Alt)-F1\>   | ALL  |         Toggle **vimfiler** file manager sidebar |
+| \<(Ctrl-or-Alt)-F2\>   | ALL  |        Toggle the **gundo** undo history sidebar |
+| \<(Ctrl-or-Alt)-F3\>   | ALL  |    Toggle the **tagbar** source code tag sidebar |
+| \<(Ctrl-or-Alt)-F4\>   | ALL  |      Toggle the **extradite** git history window |
 
 #### Toggles ####
 
 | Binding                | Mode |                                           Action |
 |:-----------------------|:----:|-------------------------------------------------:|
-| \<(Ctrl-or-Alt)-F1\>   | ALL  |                             Toggle line wrapping |
-| \<(Ctrl-or-Alt)-F2\>   | ALL  |         Toggle highlighting of spelling mistakes |
-| \<(Ctrl-or-Alt)-F3\>   | ALL  |               Toggle source code syntax checking |
-| \<(Ctrl-or-Alt)-F4\>   | ALL  |                       Toggle external-paste mode |
+| \<F1\>                 | ALL  |                             Toggle line wrapping |
+| \<F2\>                 | ALL  |         Toggle highlighting of spelling mistakes |
+| \<F3\>                 | ALL  |               Toggle source code syntax checking |
+| \<F4\>                 | ALL  |                       Toggle external-paste mode |
 |                        |      |                                                  |
 | \`                     | NORM |  Toggle gutter (left bar with line numbers etc.) |
 | \<Backslash\>\<F1\>    | NORM |              Toggle the **vim** reference manual |

@@ -74,6 +74,7 @@
 "
 "  (toggles and features)
 "    <Leader><F1>             | (N) -> toggle the vim reference manual
+"    <Leader>?                | (N) -> toggle the vim reference manual
 "    `                        | (A) -> toggle the gutter(line numbers, folds and signify)
 "
 "    Space                    | (N) -> toggle selected fold
@@ -81,19 +82,19 @@
 "    <Leader>-                | (N) -> unopen all folds
 "    <Leader>0                | (N) -> reset all folds using default fold level
 "
-"    <F1>                     | (A) -> toggle vimfiler sidebar
-"    <F2>                     | (A) -> toggle the gundo sidebar
-"    <F3>                     | (A) -> toggle the tagbar sidebar
-"    <F4>                     | (A) -> toggle extradite git commit history
+"    <Ctrl-F1>                | (A) -> toggle vimfiler sidebar
+"    <Ctrl-F2>                | (A) -> toggle the gundo sidebar
+"    <Ctrl-F3>                | (A) -> toggle the tagbar sidebar
+"    <Ctrl-F4>                | (A) -> toggle extradite git commit history
+"    <Alt-F1>                 | (A) -> toggle vimfiler sidebar
+"    <Alt-F2>                 | (A) -> toggle the gundo sidebar
+"    <Alt-F3>                 | (A) -> toggle the tagbar sidebar
+"    <Alt-F4>                 | (A) -> toggle extradite git commit history
 "
-"    <Ctrl-F1>                | (A) -> toggle line wrapping
-"    <Ctrl-F2>                | (A) -> toggle spell check
-"    <Ctrl-F3>                | (A) -> toggle syntax checking
-"    <Ctrl-F4>                | (A) -> toggle external-paste mode
-"    <Alt-F1>                 | (A) -> toggle line wrapping
-"    <Alt-F2>                 | (A) -> toggle spell check
-"    <Alt-F3>                 | (A) -> toggle syntax checking
-"    <Alt-F4>                 | (A) -> toggle external-paste mode
+"    <F1>                     | (A) -> toggle line wrapping
+"    <F2>                     | (A) -> toggle spell check
+"    <F3>                     | (A) -> toggle external-paste mode
+"    <F4>                     | (A) -> toggle syntax checking
 "
 "  (gvim toggles)
 "    <Leader><F1>             | (A) -> toggle the menubar
@@ -373,6 +374,7 @@
     "TOGGLES AND FEATURES:{
         "toggle the vim reference manual
         nnoremap <silent><expr> <Leader><F1> ':h index.txt<CR>'
+        nnoremap <silent><expr> <Leader>? ':h index.txt<CR>'
 
         "toggle the display of the left gutter
         nnoremap <silent><expr> ` ':if (&number)<Bar>set number!<Bar>if (&foldenable)<Bar>set foldenable!<Bar>endif<Bar>if exists("b:sy")<Bar>if (b:sy.active)<Bar>SignifyToggle<Bar>endif<Bar>endif<Bar>else<Bar>set number!<Bar>if !(&foldenable)<Bar>set foldenable!<Bar>endif<Bar>if exists("b:sy")<Bar>if !(b:sy.active)<Bar>SignifyToggle<Bar>endif<Bar>endif<Bar>endif<CR>:echo "gutter visibility toggled"<CR>'
@@ -390,52 +392,54 @@
         nnoremap <silent><expr> <Leader>0 'zX:echo "all folds have been reset"<CR>'
 
         "trigger vimfiler
-        nnoremap <silent><expr> <F1> ':VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
-        xnoremap <silent><expr> <F1> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
-        inoremap <silent><expr> <F1> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
+        nnoremap <silent><expr> <C-F1> ':VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
+        xnoremap <silent><expr> <C-F1> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
+        inoremap <silent><expr> <C-F1> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
+        nnoremap <silent><expr> <A-F1> ':VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
+        xnoremap <silent><expr> <A-F1> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
+        inoremap <silent><expr> <A-F1> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
 
         "bindings to trigger the gundo undo history
-        nnoremap <silent><expr> <F2> ':GundoToggle<CR>:echo "undo history sidebar toggled"<CR>'
-        xnoremap <silent><expr> <F2> '<Esc>:GundoToggle<CR>'
-        inoremap <silent><expr> <F2> '<Esc>:GundoToggle<CR>'
+        nnoremap <silent><expr> <C-F2> ':GundoToggle<CR>:echo "undo history sidebar toggled"<CR>'
+        xnoremap <silent><expr> <C-F2> '<Esc>:GundoToggle<CR>'
+        inoremap <silent><expr> <C-F2> '<Esc>:GundoToggle<CR>'
+        nnoremap <silent><expr> <A-F2> ':GundoToggle<CR>:echo "undo history sidebar toggled"<CR>'
+        xnoremap <silent><expr> <A-F2> '<Esc>:GundoToggle<CR>'
+        inoremap <silent><expr> <A-F2> '<Esc>:GundoToggle<CR>'
 
         "bindings to trigger the tagbar list of tags
-        nnoremap <silent><expr> <F3> ':TagbarToggle<CR>:echo "tagbar toggled"<CR>'
-        xnoremap <silent><expr> <F3> '<Esc>:TagbarToggle<CR>gv'
-        inoremap <silent><expr> <F3> '<C-O>:TagbarToggle<CR>'
+        nnoremap <silent><expr> <C-F3> ':TagbarToggle<CR>:echo "tagbar toggled"<CR>'
+        xnoremap <silent><expr> <C-F3> '<Esc>:TagbarToggle<CR>gv'
+        inoremap <silent><expr> <C-F3> '<C-O>:TagbarToggle<CR>'
+        nnoremap <silent><expr> <A-F3> ':TagbarToggle<CR>:echo "tagbar toggled"<CR>'
+        xnoremap <silent><expr> <A-F3> '<Esc>:TagbarToggle<CR>gv'
+        inoremap <silent><expr> <A-F3> '<C-O>:TagbarToggle<CR>'
 
         "view commit history and diffs
-        nnoremap <expr><silent> <F4> ':Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        xnoremap <expr><silent> <F4> '<Esc>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        inoremap <expr><silent> <F4> '<Esc>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        nnoremap <expr><silent> <C-F4> ':Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        xnoremap <expr><silent> <C-F4> '<Esc>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        inoremap <expr><silent> <C-F4> '<Esc>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        nnoremap <expr><silent> <A-F4> ':Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        xnoremap <expr><silent> <A-F4> '<Esc>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        inoremap <expr><silent> <A-F4> '<Esc>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
 
         "toggle line wrapping (and bottom bar if using the gui)
-        nnoremap <silent><expr> <C-F1> ':set wrap!<CR>:echo "line wrapping toggled"<CR>'
-        xnoremap <silent><expr> <C-F1> '<Esc>:set wrap!<CR>gv'
-        inoremap <silent><expr> <C-F1> '<C-O>:set wrap!<CR>'
-        nnoremap <silent><expr> <A-F1> ':set wrap!<CR>:echo "line wrapping toggled"<CR>'
-        xnoremap <silent><expr> <A-F1> '<Esc>:set wrap!<CR>gv'
-        inoremap <silent><expr> <A-F1> '<C-O>:set wrap!<CR>'
+        nnoremap <silent><expr> <F1> ':set wrap!<CR>:echo "line wrapping toggled"<CR>'
+        xnoremap <silent><expr> <F1> '<Esc>:set wrap!<CR>gv'
+        inoremap <silent><expr> <F1> '<C-O>:set wrap!<CR>'
 
         "toggle spellcheck
-        nnoremap <silent><expr> <C-F2> ':set spell!<CR>:echo "spell checking toggled"<CR>'
-        xnoremap <silent><expr> <C-F2> '<Esc>:set spell!<CR>gv'
-        inoremap <silent><expr> <C-F2> '<C-O>:set spell!<CR>'
-        nnoremap <silent><expr> <A-F2> ':set spell!<CR>:echo "spell checking toggled"<CR>'
-        xnoremap <silent><expr> <A-F2> '<Esc>:set spell!<CR>gv'
-        inoremap <silent><expr> <A-F2> '<C-O>:set spell!<CR>'
-
-        "toggle syntax checking
-        nnoremap <silent><expr> <C-F3> ':if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>let g:syntastic_check_on_wq=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>let g:syntastic_check_on_wq=1<Bar>endif<Bar>:SyntasticToggleMode<CR>'
-        xnoremap <silent><expr> <C-F3> '<Esc>:if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>let g:syntastic_check_on_wq=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>let g:syntastic_check_on_wq=1<Bar>endif<Bar>:SyntasticToggleMode<CR>gv'
-        inoremap <silent><expr> <C-F3> '<C-O>:if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>let g:syntastic_check_on_wq=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>let g:syntastic_check_on_wq=1<Bar>endif<Bar>:SyntasticToggleMode<CR>'
-        nnoremap <silent><expr> <A-F3> ':if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>let g:syntastic_check_on_wq=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>let g:syntastic_check_on_wq=1<Bar>endif<Bar>:SyntasticToggleMode<CR>'
-        xnoremap <silent><expr> <A-F3> '<Esc>:if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>let g:syntastic_check_on_wq=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>let g:syntastic_check_on_wq=1<Bar>endif<Bar><Esc>:SyntasticToggleMode<CR>gv'
-        inoremap <silent><expr> <A-F3> '<C-O>:if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>let g:syntastic_check_on_wq=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>let g:syntastic_check_on_wq=1<Bar>endif<Bar><C-O>:SyntasticToggleMode<CR>'
+        nnoremap <silent><expr> <F2> ':set spell!<CR>:echo "spell checking toggled"<CR>'
+        xnoremap <silent><expr> <F2> '<Esc>:set spell!<CR>gv'
+        inoremap <silent><expr> <F2> '<C-O>:set spell!<CR>'
 
         "toggle external-paste mode
-        set pastetoggle=<C-F4>
-        noremap <A-F4> <C-F4>
+        set pastetoggle=<F3>
+
+        "toggle syntax checking
+        nnoremap <silent><expr> <F4> ':if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>let g:syntastic_check_on_wq=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>let g:syntastic_check_on_wq=1<Bar>endif<Bar>:SyntasticToggleMode<CR>'
+        xnoremap <silent><expr> <F4> '<Esc>:if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>let g:syntastic_check_on_wq=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>let g:syntastic_check_on_wq=1<Bar>endif<Bar>:SyntasticToggleMode<CR>gv'
+        inoremap <silent><expr> <F4> '<C-O>:if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>let g:syntastic_check_on_wq=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>let g:syntastic_check_on_wq=1<Bar>endif<Bar>:SyntasticToggleMode<CR>'
     "}
 
     "GVIM TOGGLES:{
@@ -616,7 +620,8 @@
     autocmd FileType extradite map <buffer> l j
     autocmd FileType extradite map <buffer> <Left> <Up>
     autocmd FileType extradite map <buffer> h k
-    autocmd FileType extradite map <buffer> <F4> q
+    autocmd FileType extradite map <buffer> <C-F4> q
+    autocmd FileType extradite map <buffer> <A-F4> q
 
     "gundo
     autocmd FileType gundo map <buffer> <LeftMouse> <LeftMouse>0l
@@ -634,7 +639,8 @@
     endif
 
     "markdown: launch table of contents instead of the tagbar
-    autocmd FileType mkd map <buffer> <silent><expr> <F3> ':Toch<CR>'
+    autocmd FileType mkd map <buffer> <silent><expr> <C-F3> ':Toch<CR>'
+    autocmd FileType mkd map <buffer> <silent><expr> <A-F3> ':Toch<CR>'
 
     "markdown table of contents
     autocmd FileType qf map <buffer> <LeftMouse> <LeftMouse>0
@@ -670,10 +676,13 @@
 "DISABLED MAPPINGS FOR FILETYPES: {{{
     "remove incompatible toggles from specific file types
     autocmd Filetype qf,gundo,vimfiler,tagbar,extradite,help noremap <buffer> ` <Nop>
-    autocmd Filetype qf,vimfiler,extradite,help noremap <buffer> <F2> <Nop>
-    autocmd Filetype qf,gundo,vimfiler,extradite,help noremap <buffer> <F3> <Nop>
+    autocmd Filetype qf,vimfiler,extradite,help noremap <buffer> <C-F2> <Nop>
+    autocmd Filetype qf,vimfiler,extradite,help noremap <buffer> <A-F2> <Nop>
+    autocmd Filetype qf,gundo,vimfiler,extradite,help noremap <buffer> <C-F3> <Nop>
+    autocmd Filetype qf,gundo,vimfiler,extradite,help noremap <buffer> <A-F3> <Nop>
     autocmd Filetype ggundo,vimfiler,extradite,tagbar,help noremap <buffer> ?<Space> <Nop>
-    autocmd Filetype qf,gundo,vimfiler,tagbar,help,diff noremap <buffer> <F4> <Nop>
+    autocmd Filetype qf,gundo,vimfiler,tagbar,help,diff noremap <buffer> <C-F4> <Nop>
+    autocmd Filetype qf,gundo,vimfiler,tagbar,help,diff noremap <buffer> <A-F4> <Nop>
 
     "disable modifier keys with directions that would interfere with logic
     autocmd Filetype qf,gundo,vimfiler noremap <buffer> <C-Up> <Nop>
