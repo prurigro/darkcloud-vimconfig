@@ -77,9 +77,11 @@
 "    <Leader>?                | (N) -> toggle the vim reference manual
 "    `                        | (A) -> toggle the gutter(line numbers, folds and signify)
 "
-"    Space                    | (N) -> toggle selected fold
+"    <Space>                  | (N) -> toggle selected fold
+"    <Leader>=                | (N) -> open all folds
 "    <Leader>+                | (N) -> open all folds
 "    <Leader>-                | (N) -> unopen all folds
+"    <Leader>_                | (N) -> unopen all folds
 "    <Leader>0                | (N) -> reset all folds using default fold level
 "
 "    <Ctrl-F1>                | (A) -> toggle vimfiler sidebar
@@ -383,10 +385,12 @@
         nnoremap <Space> za
 
         "open all folds
+        nnoremap <silent><expr> <Leader>= 'zn:echo "all folds have been opened"<CR>'
         nnoremap <silent><expr> <Leader>+ 'zn:echo "all folds have been opened"<CR>'
 
         "close folds set to be closed
         nnoremap <silent><expr> <Leader>- 'zN:echo "all opened folds have been closed"<CR>'
+        nnoremap <silent><expr> <Leader>_ 'zN:echo "all opened folds have been closed"<CR>'
 
         "reset all folds to the default fold level
         nnoremap <silent><expr> <Leader>0 'zX:echo "all folds have been reset"<CR>'
