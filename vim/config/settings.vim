@@ -11,8 +11,14 @@
 
 "GVIM SETTINGS: {{{
     set guicursor+=a:blinkon0 "disable the blinking cursor
-    set guioptions=aegip "enable some good defaults for gvim
-    set guioptions+=lRb "enable scrollbars (right only when a split is present)
+    set guioptions=e "use the gui to render the list of open tabs
+    set guioptions+=g "make inactive menu items grey
+    set guioptions+=i "have the gui use the vim icon
+    set guioptions+=p "enable pointer callbacks for X11 (required by some WMs)
+    set guioptions+=h "prevent the cursor jumping to the longest line while scrolling
+    set guioptions+=l "enable left-hand scrollbars
+    set guioptions+=R "enable right-hand scrollbars when there's a split window
+    set guioptions+=b "enable bottom scrollbars
 "}}}
 
 "COMPATIBILITY SETTINGS: {{{
