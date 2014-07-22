@@ -34,7 +34,7 @@
     set mouse=a "enables mouse functionality with extended capabilities
 
     "8 colours in $TERM=linux, 256 elsewhere
-    if $TERM =~ '^linux'|set t_Co=8|elseif !has("gui_running")|set t_Co=256|endif
+    if $TERM =~ '^linux$'|set t_Co=8|elseif !has("gui_running")|set t_Co=256|endif
     set ttyfast "assume a fast connection to the terminal for better rendering
 
     "configure to primarily use utf8
