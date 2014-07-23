@@ -176,6 +176,10 @@
     let g:tagbar_width=35
 "}}}
 
+"TCOMMAND: {{{
+    let g:tcommand#include_history=0
+"}}}
+
 "VIM FILER: {{{
     "autostart filer when vim opens to an empty buffer (default: 1)
     if !exists("g:autostartfiler")|let g:autostartfiler=1|endif

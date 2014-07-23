@@ -91,3 +91,9 @@
 [submodule "vim/bundle/goyo.vim"]
 	path = vim/bundle/goyo.vim
 	url = https://github.com/prurigro/goyo.vim.git
+[submodule "vim/bundle/tcommand_vim"]
+	path = vim/bundle/tcommand_vim
+	url = https://github.com/tomtom/tcommand_vim.git
+[submodule "vim/bundle/tlib_vim"]
+	path = vim/bundle/tlib_vim
+	url = git://github.com/tomtom/tlib_vim.git

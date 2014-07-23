@@ -98,12 +98,14 @@ A theme, config and collection of plugins for Vim.
 
 | Binding                | Mode |                                           Action |
 |:-----------------------|:----:|-------------------------------------------------:|
+| \`                     | NORM |                      Popup a command list dialog |
+|                        |      |                                                  |
 | \<F1\>                 | ALL  |                             Toggle line wrapping |
 | \<F2\>                 | ALL  |         Toggle highlighting of spelling mistakes |
 | \<F3\>                 | ALL  |               Toggle source code syntax checking |
 | \<F4\>                 | ALL  |                       Toggle external-paste mode |
 |                        |      |                                                  |
-| \`                     | NORM |  Toggle gutter (left bar with line numbers etc.) |
+| ~                      | NORM |  Toggle gutter (left bar with line numbers etc.) |
 | \<Backslash\>\<F1\>    | NORM |              Toggle the **vim** reference manual |
 | \<Backslash\>\<Space\> | NORM |         Toggle the **goyo** distraction-free UI  |
 | ?\<Space\>             | NORM | Toggle the **spellcheck** bottom bar of mistakes |

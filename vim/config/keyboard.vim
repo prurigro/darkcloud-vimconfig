@@ -73,9 +73,10 @@
 "    <Alt-d>                  | (N) -> create a new tab with a double pane vimfiler
 "
 "  (toggles and features)
+"    `                        | (N) -> popup a command reference
 "    <Leader><F1>             | (N) -> toggle the vim reference manual
 "    <Leader>?                | (N) -> toggle the vim reference manual
-"    `                        | (A) -> toggle the gutter(line numbers, folds and signify)
+"    ~                        | (A) -> toggle the gutter(line numbers, folds and signify)
 "
 "    <Space>                  | (N) -> toggle selected fold
 "    <Leader><Space>          | (N) -> open all folds
@@ -120,9 +121,6 @@
 "    <Tab>                    | (I) -> (neocomp) select/cycle popup completion
 "    <Backspace>              | (I) -> (neocomp) close the popup and <Backspace>
 "    <Ctrl-u>                 | (I) -> (neocomp) undo the most recent completion
-"
-"  (search)
-"    <Leader>/                | (N) -> remove search highlighting
 "
 "  (formatting)
 "    <Backspace>              | (V) -> deletes currently selected text
@@ -182,6 +180,8 @@
 "    <Ctrl-Down>              | (V) -> select four lines down
 "    <Ctrl-Right>             | (V) -> select one word right
 "    <Ctrl-Left>              | (V) -> select one word left
+"
+"    <Leader>/                | (N) -> remove search highlighting
 "
 "  (copy/paste and undo/redo)
 "    <Leader>p                | (N) -> view the paste buffers and register contents
@@ -380,12 +380,15 @@
     "}
 
     "TOGGLES AND FEATURES:{
+        "toggle the command reference box
+        nnoremap <silent><expr> ` ':TCommand<CR>'
+
         "toggle the vim reference manual
         nnoremap <silent><expr> <Leader><F1> ':h index.txt<CR>'
         nnoremap <silent><expr> <Leader>? ':h index.txt<CR>'
 
         "toggle the display of the left gutter
-        nnoremap <silent><expr> ` ':if (&number)<Bar>set nonumber<Bar>if (&foldenable)<Bar>set nofoldenable<Bar>endif<Bar>if exists("b:sy")<Bar>if (b:sy.active)<Bar>SignifyToggle<Bar>endif<Bar>endif<Bar>else<Bar>set number<Bar>if !(&foldenable)<Bar>set foldenable<Bar>endif<Bar>if exists("b:sy")<Bar>if !(b:sy.active)<Bar>SignifyToggle<Bar>endif<Bar>endif<Bar>endif<CR>:echo "gutter visibility toggled"<CR>'
+        nnoremap <silent><expr> ~ ':if (&number)<Bar>set nonumber<Bar>if (&foldenable)<Bar>set nofoldenable<Bar>endif<Bar>if exists("b:sy")<Bar>if (b:sy.active)<Bar>SignifyToggle<Bar>endif<Bar>endif<Bar>else<Bar>set number<Bar>if !(&foldenable)<Bar>set foldenable<Bar>endif<Bar>if exists("b:sy")<Bar>if !(b:sy.active)<Bar>SignifyToggle<Bar>endif<Bar>endif<Bar>endif<CR>:echo "gutter visibility toggled"<CR>'
 
         "toggle folded code at foldpoints
         nnoremap <Space> za
@@ -505,10 +508,6 @@
     "}
 
     "FORMATTING:{
-        nnoremap <silent><expr> <Leader>/ ':noh<CR>:echo "Search results have been cleared"<CR>'
-    "}
-
-    "FORMATTING:{
         "have backspace delete the selected text
         vnoremap <Backspace> "_x
 
@@ -587,6 +586,9 @@
         xnoremap <S-Down> G$
         xnoremap <S-Right> $
         xnoremap <S-Left> ^
+
+        "clear search results
+        nnoremap <silent><expr> <Leader>/ ':noh<CR>:echo "Search results have been cleared"<CR>'
     "}
 
     "COPY PASTE AND UNDO REDO:{
@@ -692,7 +694,7 @@
 
 "DISABLED MAPPINGS FOR FILETYPES: {{{
     "remove incompatible toggles from specific file types
-    autocmd Filetype qf,gundo,vimfiler,tagbar,extradite,help noremap <buffer> ` <Nop>
+    autocmd Filetype qf,gundo,vimfiler,tagbar,extradite,help noremap <buffer> ~ <Nop>
     autocmd Filetype qf,vimfiler,extradite,help noremap <buffer> <C-F2> <Nop>
     autocmd Filetype qf,vimfiler,extradite,help noremap <buffer> <A-F2> <Nop>
     autocmd Filetype qf,gundo,vimfiler,extradite,help noremap <buffer> <C-F3> <Nop>
