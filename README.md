@@ -29,6 +29,8 @@ A theme, config and collection of plugins for Vim.
 
 ![Darkcloud Vim Distribution Theme](http://i.imgur.com/jP0EqeN.png)
 
+![Darkcloud Vimconfig Update Tool](http://i.imgur.com/AOXSL7S.png)
+
 ## Installation ##
 
 1. Clone the darkcloud-vimconfig repo and use the _update_ script to install the plugins:
