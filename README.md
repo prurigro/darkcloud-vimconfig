@@ -149,6 +149,8 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [SudoEdit.vim](https://github.com/vim-scripts/SudoEdit.vim) Read and write files without the necessary permissions through the use of sudo.
 * [syntastic](https://github.com/scrooloose/syntastic) Uses system compilers and parsers to check syntax either on-the-fly or after saving a compatible document.
 * [tagbar](https://github.com/majutsushi/tagbar) Uses ctags to generate a sidebar of the tags for the current file.
+* [tcommand_vim](https://github.com/tomtom/tcommand_vim) Select commands, menu items etc. from a list
+  * [tlib_vim](https://github.com/tomtom/tlib_vim) Some utility functions for VIM
 * [tcomment_vim](https://github.com/tomtom/tcomment_vim) File-type sensible comments that can be easily toggled on and off for blocks of text.
 * [vim-easytags](https://github.com/xolox/vim-easytags) Automated tag file generation and syntax highlighting of tags in Vim.
   * [vim-misc](https://github.com/xolox/vim-misc) Miscellaneous auto-load Vim scripts.
