@@ -82,18 +82,21 @@
         set whichwrap=b,s,<,>,[,] "scrolling left/right off current line wraps to the next/previous
         set smarttab expandtab autoindent tabstop=4 shiftwidth=4 "configure tabs
         set hlsearch incsearch ignorecase smartcase "configure how search behaves
-        set timeoutlen=500 ttimeoutlen=0 "shorten the timeout length of escapes
+        set timeout timeoutlen=1000 "how long before timing out for mappings
+        set ttimeout ttimeoutlen=100 "how long before timing out for terminal key codes
 
         "enable the auto-creation of missing folders in a save path
-        function s:MakeNewDir(fullpath, buf)
-            if empty(getbufvar(a:buf,'&buftype')) && a:fullpath!~#'\v^\w+\:\/'
-                let dirpath=fnamemodify(a:fullpath,':h')
-                if !isdirectory(dirpath)|call mkdir(dirpath,'p')|endif
-            endif
-        endfunction
-        augroup WriteDir
-            autocmd!
-            autocmd BufWritePre * :call s:MakeNewDir(expand('<afile>'),+expand('<abuf>'))
-        augroup END
+        if !exists('*s:MakeNewDir')
+            function s:MakeNewDir(fullpath, buf)
+                if empty(getbufvar(a:buf,'&buftype')) && a:fullpath!~#'\v^\w+\:\/'
+                    let dirpath=fnamemodify(a:fullpath,':h')
+                    if !isdirectory(dirpath)|call mkdir(dirpath,'p')|endif
+                endif
+            endfunction
+            augroup WriteDir
+                autocmd!
+                autocmd BufWritePre * :call s:MakeNewDir(expand('<afile>'),+expand('<abuf>'))
+            augroup END
+        endif
     "}}}
 "}}}
