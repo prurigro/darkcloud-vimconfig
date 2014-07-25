@@ -537,7 +537,6 @@ hi! link SyntasticWarningSign SyntasticWarning
 hi! link qfSeparator Delimiter
 hi! link qfLineNr SyntasticError
 
-"COLOR DEFINITIONS:
 "delete functions {{{
     delf s:X
     delf s:rgb
@@ -548,40 +547,4 @@ hi! link qfLineNr SyntasticError
     delf s:grey_color
     delf s:grey_level
     delf s:grey_number
-"}}}
-
-"colour presets (used with lightline) {{{
-    let s:base3 = '#eaeaea'
-    let s:base23 = '#d0d0d0'
-    let s:base2 = '#c6c6c6'
-    let s:base1 = '#b2b2b2'
-    let s:base0 = '#949494'
-    let s:base00 = '#767676'
-    let s:base01 = '#606060'
-    let s:base02 = '#4e4e4e'
-    let s:base023 = '#303030'
-    let s:darkblue = '#005fff'
-    let s:red = '#d75f5f'
-    let s:orange = '#ffaf00'
-    let s:yellow = '#ffd787'
-    let s:green = '#5faf00'
-    let s:cyan = '#d7ffff'
-    let s:blue = '#87d7ff'
-    let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
-    let s:p.normal.left = [ [ s:base023, s:blue ], [ s:base3, s:base01 ] ]
-    let s:p.normal.right = [ [ s:base02, s:base1 ], [ s:base2, s:base01 ] ]
-    let s:p.inactive.right = [ [ s:base02, s:base0 ], [ s:base1, s:base01 ] ]
-    let s:p.inactive.left =  [ [ s:base02, s:base0 ], [ s:base00, s:darkblue ] ]
-    let s:p.insert.left = [ [ s:base023, s:red ], [ s:base3, s:base01 ] ]
-    let s:p.replace.left = [ [ s:base023, s:orange ], [ s:base3, s:base01 ] ]
-    let s:p.visual.left = [ [ s:base023, s:yellow ], [ s:base3, s:base01 ] ]
-    let s:p.normal.middle = [ [ s:base1, s:base02 ] ]
-    let s:p.inactive.abmiddle = [ [ s:base0, s:base02 ] ]
-    let s:p.tabline.left = [ [ s:base2, s:base01 ] ]
-    let s:p.tabline.tabsel = [ [ s:base2, s:base023 ] ]
-    let s:p.tabline.middle = [ [ s:base01, s:base1 ] ]
-    let s:p.tabline.right = copy(s:p.normal.right)
-    let s:p.normal.error = [ [ s:red, s:base023 ] ]
-    let s:p.normal.warning = [ [ s:yellow, s:base02 ] ]
-    let g:lightline#colorscheme#darkcloud#palette = lightline#colorscheme#fill(s:p)
 "}}}
