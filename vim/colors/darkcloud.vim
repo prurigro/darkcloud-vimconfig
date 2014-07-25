@@ -327,7 +327,7 @@ call s:X("SignColumn","#d75f5f","","bold","Red","")
 hi! link ColorColumn SignColumn
 
 "syntax style
-call s:X("Title","#d75f5f","","underline","Red","")
+call s:X("Title","#d75f5f","","bold","Red","")
 call s:X("Comment","#6c6c6c","","italic","Grey","")
 call s:X("Constant","#87d7ff","","bold","Blue","")
 call s:X("Special","#ffd787","","bold","Yellow","")
