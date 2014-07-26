@@ -52,9 +52,6 @@
 [submodule "vim/bundle/vim-neco-calc"]
 	path = vim/bundle/vim-neco-calc
 	url = https://github.com/hrsh7th/vim-neco-calc.git
-[submodule "vim/bundle/vim-fixkey"]
-	path = vim/bundle/vim-fixkey
-	url = https://github.com/drmikehenry/vim-fixkey.git
 [submodule "vim/bundle/vim-move"]
 	path = vim/bundle/vim-move
 	url = https://github.com/matze/vim-move.git
@@ -94,3 +91,6 @@
 [submodule "vim/bundle/tlib_vim"]
 	path = vim/bundle/tlib_vim
 	url = git://github.com/tomtom/tlib_vim.git
+[submodule "vim/bundle/vim-fixkey"]
+	path = vim/bundle/vim-fixkey
+	url = https://github.com/prurigro/vim-fixkey.git

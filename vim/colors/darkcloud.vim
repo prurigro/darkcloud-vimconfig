@@ -373,13 +373,13 @@ hi! link gitconfigAssignment Label
 hi! link ExtraditeLogName Type
 
 "html
-call s:X("htmlTitle","#ffffff","","underline,bold","White","")
-call s:X("htmlH1","#d75f5f","","underline,bold","Red","")
-call s:X("htmlH2","#ffd787","","underline,bold","Yellow","")
-call s:X("htmlH3","#87d7ff","","underline,bold","Blue","")
-call s:X("htmlH4","#d75f5f","","underline","Red","")
-call s:X("htmlH5","#ffd787","","underline","Yellow","")
-call s:X("htmlH6","#87d7ff","","underline","Blue","")
+hi! link htmlTitle Title
+call s:X("htmlH1","#d75f5f","","bold","Red","")
+call s:X("htmlH2","#ffd787","","bold","Yellow","")
+call s:X("htmlH3","#87d7ff","","bold","Blue","")
+call s:X("htmlH4","#d75f5f","","italic","Red","")
+call s:X("htmlH5","#ffd787","","italic","Yellow","")
+call s:X("htmlH6","#87d7ff","","italic","Blue","")
 call s:X("htmlSpecialChar","","","italic","","")
 call s:X("htmlArg","#d75f5f","","bold","Red","")
 call s:X("htmlTagName","#ffd787","","bold","Yellow","")
