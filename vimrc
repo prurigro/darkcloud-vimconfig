@@ -9,8 +9,8 @@
 "                                                            "
 "============================================================"
 
-"DARKCLOUD VIM CONFIG FOLDER PATH: {{{
-    " If you want to use darkcloud-vimconfig as a package without symlinking
+"darkcloud vim config folder path: {{{
+    " if you want to use darkcloud-vimconfig as a package without symlinking
     " the vim folder or placing it @ /etc/darkcloud-vimconfig, create a file
     " @ ~/.vim/darkcloud-path.vim and in it place the following, except with
     " the path pointing to the cloned repo:
@@ -28,17 +28,17 @@
     "Add Config Directory: (distro-agnostic system-wide)
     let &runtimepath=printf('%s,%s/vim,%s/vim/after',&runtimepath,g:darkcloudpath,g:darkcloudpath)
 
+    "Load Colour Scheme:
+    colorscheme darkcloud
+
     "Load Settings:
     runtime config/settings.vim
 
-    "Load Plugins:
+    "Init Plugin Loader:
     runtime bundle/vim-pathogen/autoload/pathogen.vim
 
     "Load Keymappings:
     runtime config/keyboard.vim
-
-    "Load Colour Scheme:
-    colorscheme darkcloud
 
     "Load User Config:
     runtime vimrc.user
