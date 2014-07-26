@@ -151,7 +151,6 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [MatchTagAlways](https://github.com/Valloric/MatchTagAlways) A Vim plugin that always highlights the enclosing html/xml tags.
 * [neocomplcache.vim](https://github.com/Shougo/neocomplcache.vim) The '*ultimate*' auto-completion system for Vim.
 * [ReplaceWithRegister](https://github.com/vim-scripts/ReplaceWithRegister) Replace text with the contents of a register (for paste+replace without writing over the buffer).
-* [SpellCheck](https://github.com/vim-scripts/SpellCheck) Provides a list of spelling mistakes in the bottom bar that can be clicked to find them in the document.
 * [SudoEdit.vim](https://github.com/vim-scripts/SudoEdit.vim) Read and write files without the necessary permissions through the use of sudo.
 * [syntastic](https://github.com/scrooloose/syntastic) Uses system compilers and parsers to check syntax either on-the-fly or after saving a compatible document.
 * [tagbar](https://github.com/majutsushi/tagbar) Uses ctags to generate a sidebar of the tags for the current file.
