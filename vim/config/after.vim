@@ -32,6 +32,7 @@ endif
     au BufNewFile,BufRead pacman.conf,yaourtrc setf sh
     au BufNewFile,BufRead cjdroute.conf,cjdmaid.conf setf json
     au BufNewFile,BufRead *muttrc setf muttrc
+    au BufNewFile,BufRead *vimpagerrc setf vim
     au BufNewFile,BufRead *ircd.conf setf javascript
     au BufNewFile,BufRead *.aspx,*.asmx,*.ascx,*.master setf aspnet
     au BufNewFile,BufRead *.gradle setf groovy
