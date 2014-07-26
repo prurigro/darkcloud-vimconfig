@@ -94,7 +94,7 @@
     let g:neocomplcache_enable_at_startup=1
     let g:neocomplcache_enable_smart_case=1
     let g:neocomplcache_min_syntax_length=3
-    let g:neocomplcache_enable_insert_char_pre=1
+    let g:neocomplcache_enable_insert_char_pre=0
     let g:neocomplcache_enable_underbar_completion=1
     let g:neocomplcache_wildcard_characters={'_': '-'}
 
