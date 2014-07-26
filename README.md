@@ -165,7 +165,6 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [vim-fixkey](https://github.com/drmikehenry/vim-fixkey) A set of keyboard mappings that override differences in different environments that might normally break consistency or compatibility.
 * [vim-fugitive](https://github.com/tpope/vim-fugitive) A wrapper integrating git into vim in such a way as to provide features neither of them could offer on their own.
 * [vim-move](https://github.com/matze/vim-move) Provides a few convenient ways to move selected text.
-* [vim-neco-calc](https://github.com/hrsh7th/vim-neco-calc) A calculator plugin extending neocomplcache.vim for the on-the-fly auto-completion of simple math equations.
 * [vim-pathogen](https://github.com/tpope/vim-pathogen) A plugin to load other plugins while keeping them isolated in their own directory structure rather than all dumped together.
 * [vim-polyglot](https://github.com/prurigro/vim-polyglot) The darkcloud-vimconfig fork of a meta-package that attempts to provide the best syntax plugins for each file type.
 * [vim-signify](https://github.com/mhinz/vim-signify) When a version controlled file is changed, this displays a column showing where and how, and allows for navigation to and between differences.
