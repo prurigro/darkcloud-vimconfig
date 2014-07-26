@@ -40,9 +40,6 @@
     "Load Plugins:
     execute pathogen#infect('bundle.pager/{}')
 
-    "Load Keymappings:
-    runtime config/keyboard.vim
-
     "Load After Config:
     runtime config/after.vim
 
@@ -50,4 +47,24 @@
     set nocursorline nocursorcolumn "disable cursor column/line highlighting
     set nofoldenable "disable the fold column
     set noru laststatus=0 noshowmode "remove statusline
+
+    "Keymappings:
+    map <C-ScrollWheelUp> <Nop>
+    map <C-ScrollWheelDown> <Nop>
+    map <A-ScrollWheelUp> <Nop>
+    map <A-ScrollWheelDown> <Nop>
+    nnoremap <C-ScrollWheelUp> 4zl
+    xnoremap <C-ScrollWheelUp> 4zl
+    inoremap <C-ScrollWheelUp> <C-O>4zl
+    nnoremap <C-ScrollWheelDown> 4zh
+    xnoremap <C-ScrollWheelDown> 4zh
+    inoremap <C-ScrollWheelDown> <C-O>4zh
+    nnoremap <A-ScrollWheelUp> zl
+    xnoremap <A-ScrollWheelUp> zl
+    inoremap <A-ScrollWheelUp> <C-O>zl
+    nnoremap <A-ScrollWheelDown> zh
+    xnoremap <A-ScrollWheelDown> zh
+    inoremap <A-ScrollWheelDown> <C-O>zh
+    map <Home> 0
+    map <End> $
 "}}}

@@ -44,6 +44,12 @@ A theme, config and collection of plugins for Vim.
   * Place _darkcloud-vimconfig_ in the default location @ _/etc/darkcloud-vimconfig_.
   * Create your own vimrc and have that set the _g:darkcloudpath_ variable before sourcing the included vimrc.
 
+### Vimpager ###
+
+Once darkcloud-vimconfig has been set up, you can configure `vimpager` to use it by running: `ln -s /etc/darkcloud-vimconfig/vimpagerrc /etc/vimpagerrc` for a system-wide configuration, or `ln -s /etc/darkcloud-vimconfig/vimpagerrc ~/.vimpagerrc` for a given user (assuming you've used the default path @ _"/etc/darkcloud-vimconfig"_).
+
+As usual, to have your system use vimpager in place of less, you'll need to set the PAGER environment variable to vimpager: `export PAGER=vimpager` and configure an alias for less: `alias less='vimpager'`.
+
 ## Configuration ##
 
 * **Configure Variables**: The following variables can be added to _vim/vimrc.user_ and have their values set to the values you require:
