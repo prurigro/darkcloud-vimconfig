@@ -109,7 +109,6 @@
 "    <Leader><F2>             | (A) -> toggle the toolbar
 "
 "  (spellcheck)
-"    ?<Space>                 | (N) -> toggle spellcheck error list
 "    ?+                       | (N) -> add the selected word to the local dictionary
 "    ??                       | (N) -> show spelling suggestions for selected word
 "    ?N                       | (N) -> go to the next spelling mistake
@@ -443,7 +442,7 @@
         xnoremap <silent><expr> <F1> '<Esc>:set wrap!<CR>gv'
         inoremap <silent><expr> <F1> '<C-O>:set wrap!<CR>'
 
-        "toggle spellcheck
+        "toggle show spelling errors
         nnoremap <silent><expr> <F2> ':set spell!<CR>:echo "spell checking toggled"<CR>'
         xnoremap <silent><expr> <F2> '<Esc>:set spell!<CR>gv'
         inoremap <silent><expr> <F2> '<C-O>:set spell!<CR>'
@@ -474,9 +473,6 @@
     "}
 
     "SPELLCHECK:{
-        "trigger spellcheck bar
-        nnoremap <silent><expr> ?<Space> ':UpdateAndSpellCheck<CR>:call ToggleQuickfixList()<CR>:wincmd j<CR>'
-
         "add the selected mispelled word to the local dictionary
         nnoremap ?+ zg
 
@@ -671,8 +667,9 @@
     autocmd FileType qf map <buffer> <Right> <Down>
     autocmd FileType qf map <buffer> h j
     autocmd FileType qf map <buffer> l k
-    autocmd FileType qf map <buffer> <silent><expr> q ':hide<CR>'
-    autocmd FileType qf map <buffer> <silent><expr> ?<Space> ':hide<CR>'
+    autocmd FileType qf map <buffer> <silent><expr> q ':call ToggleQuickfixList()<CR>'
+    autocmd FileType qf map <buffer> <silent><expr> <C-F3> ':call ToggleQuickfixList()<CR>'
+    autocmd FileType qf map <buffer> <silent><expr> <A-F3> ':call ToggleQuickfixList()<CR>'
 
     "vimdiff
     autocmd FilterWritePre * if &diff|nnoremap <buffer> <silent><expr> <Leader><> ':diffu<CR>'|endif
@@ -697,9 +694,8 @@
     autocmd Filetype qf,gundo,vimfiler,tagbar,extradite,help noremap <buffer> ~ <Nop>
     autocmd Filetype qf,vimfiler,extradite,help noremap <buffer> <C-F2> <Nop>
     autocmd Filetype qf,vimfiler,extradite,help noremap <buffer> <A-F2> <Nop>
-    autocmd Filetype qf,gundo,vimfiler,extradite,help noremap <buffer> <C-F3> <Nop>
-    autocmd Filetype qf,gundo,vimfiler,extradite,help noremap <buffer> <A-F3> <Nop>
-    autocmd Filetype ggundo,vimfiler,extradite,tagbar,help noremap <buffer> ?<Space> <Nop>
+    autocmd Filetype gundo,vimfiler,extradite,help noremap <buffer> <C-F3> <Nop>
+    autocmd Filetype gundo,vimfiler,extradite,help noremap <buffer> <A-F3> <Nop>
     autocmd Filetype qf,gundo,vimfiler,tagbar,help,diff noremap <buffer> <C-F4> <Nop>
     autocmd Filetype qf,gundo,vimfiler,tagbar,help,diff noremap <buffer> <A-F4> <Nop>
 
