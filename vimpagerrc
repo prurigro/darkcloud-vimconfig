@@ -38,7 +38,7 @@
     runtime bundle/vim-pathogen/autoload/pathogen.vim
 
     "Load Plugins:
-    execute pathogen#infect('bundle/vim-polyglot-darkcloud/{}', 'bundle/vim-fixkey/{}')
+    execute pathogen#infect('bundle.pager/{}')
 
     "Load Keymappings:
     runtime config/keyboard.vim
