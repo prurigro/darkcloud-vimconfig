@@ -79,9 +79,6 @@
 [submodule "vim/bundle/MatchTagAlways"]
 	path = vim/bundle/MatchTagAlways
 	url = https://github.com/Valloric/MatchTagAlways.git
-[submodule "vim/bundle/goyo.vim"]
-	path = vim/bundle/goyo.vim
-	url = https://github.com/prurigro/goyo.vim.git
 [submodule "vim/bundle/tcommand_vim"]
 	path = vim/bundle/tcommand_vim
 	url = https://github.com/tomtom/tcommand_vim.git
@@ -91,3 +88,6 @@
 [submodule "vim/bundle/vim-fixkey"]
 	path = vim/bundle/vim-fixkey
 	url = https://github.com/prurigro/vim-fixkey.git
+[submodule "vim/bundle/goyo.vim"]
+	path = vim/bundle/goyo.vim
+	url = https://github.com/junegunn/goyo.vim.git
