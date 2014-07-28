@@ -136,7 +136,8 @@
 "    <Shift-Tab>              | (N) -> unindent the current line
 "
 "  (movement)
-"    =                        | (N) -> move to the first character on the next line
+"    =                        | (N) -> go to the first char on the next line
+"    _                        | (N) -> go to the first char on the previous line
 "    <Shift-Up>               | (N) -> move to the beginning of the document
 "    <Shift-Down>             | (N) -> move to the end of the document
 "    <Shift-Right>            | (N) -> move to the end of the line
@@ -526,6 +527,7 @@
     "MOVEMENT:{
         "additional mappings for easier access
         nnoremap = +
+        nnoremap _ -
 
         "remap keys for speedier movement
         nnoremap <C-Up> 4k
@@ -568,8 +570,8 @@
         "ctrl-a to select all (and an alt for screen users)
         nnoremap <C-a> gg0vG$
         xnoremap <C-a> <Esc>gg0vG$
-        nnoremap <Leader>a <Esc>gg0vG$
-        xnoremap <Leader>a gg0vG$
+        nnoremap <Leader>a gg0vG$
+        xnoremap <Leader>a <Esc>gg0vG$
 
         "map remap keys for speedier text selection
         xnoremap <C-Up> 4k
