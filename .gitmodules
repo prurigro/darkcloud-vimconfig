@@ -85,9 +85,9 @@
 [submodule "vim/bundle/tlib_vim"]
 	path = vim/bundle/tlib_vim
 	url = git://github.com/tomtom/tlib_vim.git
-[submodule "vim/bundle/vim-fixkey"]
-	path = vim/bundle/vim-fixkey
-	url = https://github.com/prurigro/vim-fixkey.git
 [submodule "vim/bundle/goyo.vim"]
 	path = vim/bundle/goyo.vim
 	url = https://github.com/junegunn/goyo.vim.git
+[submodule "vim/bundle/vim-fixkey"]
+	path = vim/bundle/vim-fixkey
+	url = https://github.com/drmikehenry/vim-fixkey.git
