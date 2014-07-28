@@ -286,6 +286,7 @@ hi SpellLocal guisp=NONE gui=NONE guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NON
 "core style
 call s:X("Normal","#eaeaea","#262626","","White",s:termBlack)
 hi Normal ctermfg=254 ctermbg=235
+hi! link Conceal Normal
 
 call s:X("Cursor","","#262626","standout,underline,bold",s:termBlack,"White")
 call s:X("CursorColumn","","#303030","","",s:termBlack)
@@ -375,17 +376,22 @@ hi! link ExtraditeLogName Type
 "html
 hi! link htmlTitle Title
 call s:X("htmlH1","#d75f5f","","bold","Red","")
-call s:X("htmlH2","#ffd787","","bold","Yellow","")
-call s:X("htmlH3","#87d7ff","","bold","Blue","")
+call s:X("htmlH2","#87d7ff","","bold","Blue","")
+call s:X("htmlH3","#ffd787","","bold","Yellow","")
 call s:X("htmlH4","#d75f5f","","italic","Red","")
-call s:X("htmlH5","#ffd787","","italic","Yellow","")
-call s:X("htmlH6","#87d7ff","","italic","Blue","")
+call s:X("htmlH5","#87d7ff","","italic","Blue","")
+call s:X("htmlH6","#ffd787","","italic","Yellow","")
 call s:X("htmlSpecialChar","","","italic","","")
 call s:X("htmlArg","#d75f5f","","bold","Red","")
 call s:X("htmlTagName","#ffd787","","bold","Yellow","")
 call s:X("htmlTag","#87d7ff","","bold","Blue","")
-call s:X("commentURL","#ffd787","","italic,underline","Yellow","")
-call s:X("htmlLink","#ffd787","","underline","Yellow","")
+call s:X("htmlLink","#d75f5f","","underline","Red","")
+call s:X("htmlBold","#ffffff","","bold","White","")
+
+"markdown
+call s:X("mkdURL","#6c6c6c","","","Grey","")
+call s:X("mkdCode","#444444","#ffd787","reverse","Grey","Yellow")
+hi! link mkdIndentCode mkdCode
 
 "php
 hi! link phpFunctions Function
