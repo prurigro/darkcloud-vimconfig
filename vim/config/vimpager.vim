@@ -58,7 +58,7 @@ noremap <S-Left> ^
 
 " Copy/Paste
 nnoremap y vy<Esc>
-vnoremap <silent><expr> y ':yank<CR>'
+vnoremap y y
 nnoremap <C-c> y
 vnoremap <C-c> y
 nnoremap T vg_y
