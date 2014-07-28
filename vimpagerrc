@@ -48,23 +48,76 @@
     set nofoldenable "disable the fold column
     set noru laststatus=0 noshowmode "remove statusline
 
-    "Keymappings:
-    map <C-ScrollWheelUp> <Nop>
-    map <C-ScrollWheelDown> <Nop>
-    map <A-ScrollWheelUp> <Nop>
-    map <A-ScrollWheelDown> <Nop>
-    nnoremap <C-ScrollWheelUp> 4zl
-    xnoremap <C-ScrollWheelUp> 4zl
-    inoremap <C-ScrollWheelUp> <C-O>4zl
-    nnoremap <C-ScrollWheelDown> 4zh
-    xnoremap <C-ScrollWheelDown> 4zh
-    inoremap <C-ScrollWheelDown> <C-O>4zh
-    nnoremap <A-ScrollWheelUp> zl
-    xnoremap <A-ScrollWheelUp> zl
-    inoremap <A-ScrollWheelUp> <C-O>zl
-    nnoremap <A-ScrollWheelDown> zh
-    xnoremap <A-ScrollWheelDown> zh
-    inoremap <A-ScrollWheelDown> <C-O>zh
-    map <Home> 0
-    map <End> $
+    "Keymappings: {{{
+        "mouse
+        map <C-ScrollWheelUp> <Nop>
+        map <C-ScrollWheelDown> <Nop>
+        map <A-ScrollWheelUp> <Nop>
+        map <A-ScrollWheelDown> <Nop>
+        nnoremap <C-ScrollWheelUp> 4zl
+        xnoremap <C-ScrollWheelUp> 4zl
+        nnoremap <C-ScrollWheelDown> 4zh
+        xnoremap <C-ScrollWheelDown> 4zh
+        nnoremap <A-ScrollWheelUp> zl
+        xnoremap <A-ScrollWheelUp> zl
+        nnoremap <A-ScrollWheelDown> zh
+        xnoremap <A-ScrollWheelDown> zh
+
+        "movement
+        map <Home> 0
+        map <End> $
+        nnoremap = +
+        nnoremap <C-Up> 4k
+        nnoremap <C-Down> 4j
+        nnoremap <C-Right> <S-Right>
+        nnoremap <C-Left> <S-Left>
+        nnoremap <S-Up> gg0
+        nnoremap <S-Down> G$
+        nnoremap <S-Right> $
+        nnoremap <S-Left> ^
+        vmap <A-Up> <Plug>MoveBlockUp
+        vmap <A-Down> <Plug>MoveBlockDown
+        nmap <A-Up> <Plug>MoveLineUp
+        nmap <A-Down> <Plug>MoveLineDown
+        vmap <A-Left> <Plug>MoveBlockHalfPageUp
+        vmap <A-Right> <Plug>MoveBlockHalfPageDown
+        nmap <A-Left> <Plug>MoveLineHalfPageUp
+        nmap <A-Right> <Plug>MoveLineHalfPageDown
+        vmap <A-h> <Plug>MoveBlockHalfPageUp
+        vmap <A-l> <Plug>MoveBlockHalfPageDown
+        nmap <A-h> <Plug>MoveLineHalfPageUp
+        nmap <A-l> <Plug>MoveLineHalfPageDown
+
+        "copy/paste
+        noremap y vy<Esc>
+        nnoremap <C-c> y
+        vnoremap <C-c> y
+        nnoremap T vg_y
+        vnoremap T g_y
+
+        "selection
+        nnoremap <C-a> gg0vG$
+        xnoremap <C-a> <Esc>gg0vG$
+        nnoremap <Leader>a <Esc>gg0vG$
+        xnoremap <Leader>a gg0vG$
+        xnoremap <C-Up> 4k
+        xnoremap <C-Down> 4j
+        xnoremap <C-Right> <S-Right>
+        xnoremap <C-Left> <S-Left>
+        xnoremap <S-Up> gg0
+        xnoremap <S-Down> G$
+        xnoremap <S-Right> $
+        xnoremap <S-Left> ^
+        nnoremap <silent><expr> <Leader>/ ':noh<CR>:echo "Search results have been cleared"<CR>'
+
+        "folds
+        nnoremap <Space> za
+        nnoremap <silent><expr> <Leader><Space> 'zn:echo "all folds have been opened"<CR>'
+        nnoremap <silent><expr> <Leader>= 'zn:echo "all folds have been opened"<CR>'
+        nnoremap <silent><expr> <Leader>+ 'zn:echo "all folds have been opened"<CR>'
+        nnoremap <silent><expr> <Leader><Leader><Space> 'zN:echo "all opened folds have been closed"<CR>'
+        nnoremap <silent><expr> <Leader>- 'zN:echo "all opened folds have been closed"<CR>'
+        nnoremap <silent><expr> <Leader>_ 'zN:echo "all opened folds have been closed"<CR>'
+        nnoremap <silent><expr> <Leader>0 'zX:echo "all folds have been reset"<CR>'
+    "}}}
 "}}}
