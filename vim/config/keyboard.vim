@@ -513,7 +513,7 @@
         vnoremap <silent><expr> <Leader>J '<Esc>:set tw=79<CR>gvgq:set tw=0<CR>:echo "Selected text has been formatted to a width of 79 characters"<CR>'
         nnoremap <Leader>f mzgg=G`z<CR>:echo "The document has been formatted"<CR>
         vnoremap <Leader>f mz=`z<CR>:echo "The selection has been formatted"<CR>
-        nnoremap <Leader>F :Autoformat<CR><CR>:echo "The document has been formatted with :Autoformat"<CR>
+        nnoremap <silent><expr> <Leader>F ':Autoformat<CR>:echo "The document has been formatted with :Autoformat"<CR>'
         nnoremap <silent><expr> <Leader>w ':FixWhitespace<CR>:echo "Trailing whitespace has been removed"<CR>'
         nnoremap <silent><expr> <Leader>t ':retab<CR>:noh<CR>:echo "Tabs have been converted to spaces"<CR>'
 
@@ -658,6 +658,7 @@
     "markdown: launch table of contents instead of the tagbar
     autocmd FileType mkd map <buffer> <silent><expr> <C-F3> ':Toch<CR>'
     autocmd FileType mkd map <buffer> <silent><expr> <A-F3> ':Toch<CR>'
+    autocmd Filetype mkd nnoremap <buffer> <silent><expr> <Leader>F ':TableFormat<CR>:echo "Markdown tables have been formatted with :FormatTable"<CR>'
 
     "markdown table of contents
     autocmd FileType qf map <buffer> <LeftMouse> <LeftMouse>0

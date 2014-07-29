@@ -153,6 +153,7 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [ReplaceWithRegister](https://github.com/vim-scripts/ReplaceWithRegister) Replace text with the contents of a register (for paste+replace without writing over the buffer).
 * [SudoEdit.vim](https://github.com/vim-scripts/SudoEdit.vim) Read and write files without the necessary permissions through the use of sudo.
 * [syntastic](https://github.com/scrooloose/syntastic) Uses system compilers and parsers to check syntax either on-the-fly or after saving a compatible document.
+* [tabular](https://github.com/godlygeek/tabular) Vim script for text filtering and alignment.
 * [tagbar](https://github.com/majutsushi/tagbar) Uses ctags to generate a sidebar of the tags for the current file.
 * [tcommand_vim](https://github.com/tomtom/tcommand_vim) Select commands, menu items etc. from a list
   * [tlib_vim](https://github.com/tomtom/tlib_vim) Some utility functions for VIM

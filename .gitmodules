@@ -91,3 +91,6 @@
 [submodule "vim/bundle/vim-fixkey"]
 	path = vim/bundle/vim-fixkey
 	url = https://github.com/drmikehenry/vim-fixkey.git
+[submodule "vim/bundle/tabular"]
+	path = vim/bundle/tabular
+	url = https://github.com/godlygeek/tabular
