@@ -144,35 +144,35 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [auto-autoformat](https://github.com/Chiel92/vim-autoformat): Provides easy code formatting in Vim by integrating existing code formatters.
 * [autoswap.vim](https://github.com/vim-scripts/autoswap.vim): Switch to open editor window instead of asking what to do with swapfile.
 * [emmet-vim](https://github.com/mattn/emmet-vim): Support for expanding abbreviations.
-  * [webapi-vim](https://github.com/mattn/webapi-vim) A web library used by emmet to provide support for custom snippets.
-* [goyo.vim](https://github.com/junegunn/goyo.vim) Distraction-free writing in Vim.
+  * [webapi-vim](https://github.com/mattn/webapi-vim): A web library used by emmet to provide support for custom snippets.
+* [goyo.vim](https://github.com/junegunn/goyo.vim): Distraction-free writing in Vim.
 * [gundo.vim](https://github.com/sjl/gundo.vim): Sidebar to visualize your undo tree and browse the differences of each change.
-* [lightline.vim](https://github.com/itchyny/lightline.vim) A light and configurable statusline/tabline for Vim.
-* [MatchTagAlways](https://github.com/Valloric/MatchTagAlways) A Vim plugin that always highlights the enclosing html/xml tags.
-* [neocomplcache.vim](https://github.com/Shougo/neocomplcache.vim) The '*ultimate*' auto-completion system for Vim.
-* [ReplaceWithRegister](https://github.com/vim-scripts/ReplaceWithRegister) Replace text with the contents of a register (for paste+replace without writing over the buffer).
-* [SudoEdit.vim](https://github.com/vim-scripts/SudoEdit.vim) Read and write files without the necessary permissions through the use of sudo.
-* [syntastic](https://github.com/scrooloose/syntastic) Uses system compilers and parsers to check syntax either on-the-fly or after saving a compatible document.
-* [tabular](https://github.com/godlygeek/tabular) Vim script for text filtering and alignment.
-* [tagbar](https://github.com/majutsushi/tagbar) Uses ctags to generate a sidebar of the tags for the current file.
-* [tcommand_vim](https://github.com/tomtom/tcommand_vim) Select commands, menu items etc. from a list
-  * [tlib_vim](https://github.com/tomtom/tlib_vim) Some utility functions for VIM
-* [tcomment_vim](https://github.com/tomtom/tcomment_vim) File-type sensible comments that can be easily toggled on and off for blocks of text.
-* [vim-easytags](https://github.com/xolox/vim-easytags) Automated tag file generation and syntax highlighting of tags in Vim.
-  * [vim-misc](https://github.com/xolox/vim-misc) Miscellaneous auto-load Vim scripts.
-* [vim-extradite](https://github.com/int3/vim-extradite) A git commit browser extending vim-fugitive that displays differences and optionally loads old revisions.
-* [vimfiler.vim](https://github.com/Shougo/vimfiler.vim) A curses-style file manager for vim that runs on it's own or in a sidebar and can associate handlers for file types.
-  * [unite.vim](https://github.com/Shougo/unite.vim) A library used by Vim Filer to help build its user interface.
-* [vim-fixkey](https://github.com/drmikehenry/vim-fixkey) A set of keyboard mappings that override differences in different environments that might normally break consistency or compatibility.
-* [vim-fugitive](https://github.com/tpope/vim-fugitive) A wrapper integrating git into vim in such a way as to provide features neither of them could offer on their own.
-* [vim-move](https://github.com/matze/vim-move) Provides a few convenient ways to move selected text.
-* [vim-pathogen](https://github.com/tpope/vim-pathogen) A plugin to load other plugins while keeping them isolated in their own directory structure rather than all dumped together.
-* [vim-polyglot](https://github.com/prurigro/vim-polyglot) The darkcloud-vimconfig fork of a meta-package that attempts to provide the best syntax plugins for each file type.
-* [vim-signify](https://github.com/mhinz/vim-signify) When a version controlled file is changed, this displays a column showing where and how, and allows for navigation to and between differences.
-* [vim-surround](https://github.com/tpope/vim-surround) Provides functionality to exchange surrounding delimiters and xml-style tags with another, or simply remove them.
-  * [vim-repeat](https://github.com/tpope/vim-repeat) A library used by vim-surround to allow its delimiter-switching functions to be repeated with the `.` command.
-* [vim-togglelist](https://github.com/milkypostman/vim-togglelist) Supplies toggle functions for the *location* and *error* lists, which are used by a number of plugins and normally require separate open and close commands.
-* [vim-trailing-whitespace](https://github.com/bronson/vim-trailing-whitespace) Highlights and allows for the easy removal of trailing whitespace in documents.
+* [lightline.vim](https://github.com/itchyny/lightline.vim): A light and configurable statusline/tabline for Vim.
+* [MatchTagAlways](https://github.com/Valloric/MatchTagAlways): A Vim plugin that always highlights the enclosing html/xml tags.
+* [neocomplcache.vim](https://github.com/Shougo/neocomplcache.vim): The '*ultimate*' auto-completion system for Vim.
+* [ReplaceWithRegister](https://github.com/vim-scripts/ReplaceWithRegister): Replace text with the contents of a register (for paste+replace without writing over the buffer).
+* [SudoEdit.vim](https://github.com/vim-scripts/SudoEdit.vim): Read and write files without the necessary permissions through the use of sudo.
+* [syntastic](https://github.com/scrooloose/syntastic): Uses system compilers and parsers to check syntax either on-the-fly or after saving a compatible document.
+* [tabular](https://github.com/godlygeek/tabular): Vim script for text filtering and alignment.
+* [tagbar](https://github.com/majutsushi/tagbar): Uses ctags to generate a sidebar of the tags for the current file.
+* [tcommand_vim](https://github.com/tomtom/tcommand_vim): Select commands, menu items etc. from a list
+  * [tlib_vim](https://github.com/tomtom/tlib_vim): Some utility functions for VIM
+* [tcomment_vim](https://github.com/tomtom/tcomment_vim): File-type sensible comments that can be easily toggled on and off for blocks of text.
+* [vim-easytags](https://github.com/xolox/vim-easytags): Automated tag file generation and syntax highlighting of tags in Vim.
+  * [vim-misc](https://github.com/xolox/vim-misc): Miscellaneous auto-load Vim scripts.
+* [vim-extradite](https://github.com/int3/vim-extradite): A git commit browser extending vim-fugitive that displays differences and optionally loads old revisions.
+* [vimfiler.vim](https://github.com/Shougo/vimfiler.vim): A curses-style file manager for vim that runs on it's own or in a sidebar and can associate handlers for file types.
+  * [unite.vim](https://github.com/Shougo/unite.vim): A library used by Vim Filer to help build its user interface.
+* [vim-fixkey](https://github.com/drmikehenry/vim-fixkey): A set of keyboard mappings that override differences in different environments that might normally break consistency or compatibility.
+* [vim-fugitive](https://github.com/tpope/vim-fugitive): A wrapper integrating git into vim in such a way as to provide features neither of them could offer on their own.
+* [vim-move](https://github.com/matze/vim-move): Provides a few convenient ways to move selected text.
+* [vim-pathogen](https://github.com/tpope/vim-pathogen): A plugin to load other plugins while keeping them isolated in their own directory structure rather than all dumped together.
+* [vim-polyglot](https://github.com/prurigro/vim-polyglot): The darkcloud-vimconfig fork of a meta-package that attempts to provide the best syntax plugins for each file type.
+* [vim-signify](https://github.com/mhinz/vim-signify): When a version controlled file is changed, this displays a column showing where and how, and allows for navigation to and between differences.
+* [vim-surround](https://github.com/tpope/vim-surround): Provides functionality to exchange surrounding delimiters and xml-style tags with another, or simply remove them.
+  * [vim-repeat](https://github.com/tpope/vim-repeat): A library used by vim-surround to allow its delimiter-switching functions to be repeated with the `.` command.
+* [vim-togglelist](https://github.com/milkypostman/vim-togglelist): Supplies toggle functions for the *location* and *error* lists, which are used by a number of plugins and normally require separate open and close commands.
+* [vim-trailing-whitespace](https://github.com/bronson/vim-trailing-whitespace): Highlights and allows for the easy removal of trailing whitespace in documents.
 
 ## Credits ##
 
