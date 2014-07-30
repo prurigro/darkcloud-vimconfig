@@ -26,6 +26,10 @@ set clipboard+=unnamed "use '*' reg
 if has('unnamedplus')|set clipboard+=unnamedplus|endif "if exists, use '+' reg
 set autoread "track file changes
 autocmd CursorHold * checktime "use CursorHold events to trigger checktime
+set conceallevel=2 "enable the conceal feature to hide unnecessary elements
+
+" Override Filetypes:
+runtime bundle.pager/vim-markdown-concealed/ftdetect/mkdc.vim
 
 " Mappings:
 " Mouse

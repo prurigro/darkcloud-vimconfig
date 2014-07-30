@@ -94,3 +94,6 @@
 [submodule "vim/bundle/tabular"]
 	path = vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular
+[submodule "vim/bundle.pager/vim-markdown-concealed"]
+	path = vim/bundle.pager/vim-markdown-concealed
+	url = https://github.com/prurigro/vim-markdown-concealed
