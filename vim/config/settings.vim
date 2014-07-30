@@ -57,6 +57,7 @@
 
     "USER INTERFACE: {{{
         set laststatus=2 showcmd statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v] "statusline init and config
+        set lazyredraw "don't redraw the screen while macros are executing
         set number "enable line numbers
         set nowrap "disable line wrapping
         set cursorline cursorcolumn "enable row/column highlighting
