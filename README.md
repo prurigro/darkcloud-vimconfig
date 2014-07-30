@@ -39,7 +39,7 @@ A theme, config and collection of plugins for Vim.
   * **Note**: The _update_ script requires bash, but if it's not available you can enter the _darkcloud-vimconfig/_ folder and run: `git submodule update --init` to install the plugins manually, then create _vim/vimrc.user_ and remember to run: `:Helptags` once everything else is running.
 2. If you don't know where vim expects to find your vimrc, start vim and run: `:version` to find the values "user vimrc file" (for a single-user install) and "system vimrc file" (for a system-wide install). T
 3. Copy or symlink the vimrc file from `darkcloud-vimconfig/vimrc` to one of the locations vim expects to find it, based on whether you want a local or system-wide install, then choose one of the following:
-  * Edit the _g:darkcloudpath_ variable in the vimrc file iteself, pointing it to the location you're keeping the _darkcloud-vimconfig_ repo folder.
+  * Edit the _g:darkcloudpath_ variable in the vimrc file itself, pointing it to the location you're keeping the _darkcloud-vimconfig_ repo folder.
   * Create a file @ _~/.vim/darkcloud-path.vim_ and in it put the following: `let g:darkcloudpath="/etc/darkcloud-vimconfig"`, but replacing _"/etc/darkcloud-vimconfig"_ with the path to the _darkcloud-vimconfig_ repo folder.
   * Place _darkcloud-vimconfig_ in the default location @ _/etc/darkcloud-vimconfig_.
   * Create your own vimrc and have that set the _g:darkcloudpath_ variable before sourcing the included vimrc.
