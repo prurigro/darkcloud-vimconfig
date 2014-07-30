@@ -390,7 +390,7 @@ call s:X("htmlBold","#ffffff","","bold","White","")
 
 "markdown
 call s:X("mkdURL","#6c6c6c","","","Grey","")
-call s:X("mkdCode","#444444","#ffd787","reverse","Grey","Yellow")
+call s:X("mkdCode","#ffd787","#444444","","Yellow","Grey")
 hi! link mkdIndentCode mkdCode
 
 "php
