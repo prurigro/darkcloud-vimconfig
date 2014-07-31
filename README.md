@@ -48,25 +48,19 @@ A theme, config and collection of plugins for Vim.
 
 Once darkcloud-vimconfig has been set up, you can configure `vimpager` to use it by running (assuming the default path @ _"/etc/darkcloud-vimconfig"_):
 
-`ln -s /etc/darkcloud-vimconfig/vimpagerrc /etc/vimpagerrc` (for a system-wide configuration)
-
-or:
+`ln -s /etc/darkcloud-vimconfig/vimpagerrc /etc/vimpagerrc` (for a system-wide configuration), or:
 
 `ln -s /etc/darkcloud-vimconfig/vimpagerrc ~/.vimpagerrc` (for a given user).
 
 Similarly, the _vimpagerrc_ can be used for `vimcat` as well by running:
 
-`ln -s /etc/darkcloud-vimconfig/vimpagerrc /etc/vimcatrc` (for a system-wide configuration)
-
-or:
+`ln -s /etc/darkcloud-vimconfig/vimpagerrc /etc/vimcatrc` (for a system-wide configuration), or:
 
 `ln -s /etc/darkcloud-vimconfig/vimpagerrc ~/.vimcatrc` (for a given user).
 
 As usual, to have your system use `vimpager` in place of `less`, you'll need to set the **$PAGER** environment variable to `vimpager`:
 
-`export PAGER=vimpager`
-
-and configure aliases for less and cat in _"/etc/bash.bashrc"_ or _"~/.bashrc"_:
+`export PAGER=vimpager`, and configure aliases for less and cat in _"/etc/bash.bashrc"_ or _"~/.bashrc"_:
 
 ```
 alias less='vimpager'
