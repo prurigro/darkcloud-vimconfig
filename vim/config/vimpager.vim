@@ -12,10 +12,10 @@
 " Undo unwanted less.vim keymappings
 unmap v
 unmap w
-unmap <PageDown>
-unmap <kPageDown>
-unmap <PageUp>
-unmap <kPageUp>
+if mapcheck('<PageDown>', 'b')|unmap <PageDown>|endif
+if mapcheck('<PageDown>', 'b')|unmap <kPageDown>|endif
+if mapcheck('<PageDown>', 'b')|unmap <PageUp>|endif
+if mapcheck('<PageDown>', 'b')|unmap <kPageUp>|endif
 
 " Main Settings:
 set nocursorline nocursorcolumn "disable cursor column/line highlighting
