@@ -142,6 +142,9 @@
 "      <Ctrl-c>               | (V) -> copy selection
 "      <Ctrl-x>               | (N) -> cut character
 "      <Ctrl-x>               | (V) -> cut selection
+"      <Ctrl-W>               | (I) -> cut previous word during input
+"      <Ctrl-D>               | (I) -> cut line before cursor during input
+"      <Ctrl-Y>               | (I) -> paste what's been cut during input
 "
 "  (completion)
 "    <Ctrl-m>,                | (A) -> enter after emmet 'word' (ie: html:5)
@@ -521,6 +524,9 @@
         vnoremap <C-c> y
         nnoremap <C-x> x
         vnoremap <C-x> x
+        inoremap <silent> <C-W> <C-\><C-O>db
+        inoremap <silent> <C-D> <C-\><C-O>d0
+        inoremap <silent> <C-Y> <C-R>"
 
         "remap ctrl-u and ctrl-w to safer alternatives
         inoremap <C-u> <C-g>u<C-u>
