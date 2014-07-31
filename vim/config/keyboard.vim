@@ -114,6 +114,35 @@
 "    ?N                       | (N) -> go to the next spelling mistake
 "    ?P                       | (N) -> go to the previous spelling mistake
 "
+"  (copy/paste and undo/redo)
+"    <Leader>p                | (N) -> view the paste buffers and register contents
+"    y                        | (N) -> copies the character at the cursor
+"    P                        | (V) -> save selection to the buffer and paste over
+"    p                        | (V) -> preserve the buffer pasting over selected text
+"    <Ctrl-p>Direction        | (N) -> paste in the direction entered
+"    T                        | (N) -> copy to the end of the line
+"    T                        | (V) -> copy to the end of the line
+"
+"    (delete/cut functions)
+"      <Leader>x              | (N) -> delete the char(s) under and the cursor
+"      <Leader>x              | (V) -> delete the currently selected text
+"      <Leader>X              | (N) -> delete the char(s) before the cursor
+"      <Leader>X              | (V) -> delete the currently selected lines
+"      <Leader>D              | (N) -> delete chars under and after the cursor on the line
+"      <Leader>D              | (V) -> delete the currently selected lines
+"      <Leader>dw             | (N) -> delete chars under and after the cursor in the word
+"      <Leader>dd             | (N) -> delete lines under and after the one below
+"      <Leader>d              | (V) -> delete the currently selected text
+"
+"    (improved copy and paste shortcuts)
+"      <Ctrl-v>               | (N) -> paste from buffer
+"      <Ctrl-v>               | (V) -> paste buffer in place of selection
+"      <Ctrl-v>               | (I) -> paste from buffer then return to input
+"      <Ctrl-c>               | (N) -> copy character
+"      <Ctrl-c>               | (V) -> copy selection
+"      <Ctrl-x>               | (N) -> cut character
+"      <Ctrl-x>               | (V) -> cut selection
+"
 "  (completion)
 "    <Ctrl-m>,                | (A) -> enter after emmet 'word' (ie: html:5)
 "    <Enter>                  | (I) -> (neocomp) close the popup and <Enter>
@@ -182,35 +211,6 @@
 "    <Ctrl-Left>              | (V) -> select one word left
 "
 "    <Leader>/                | (N) -> remove search highlighting
-"
-"  (copy/paste and undo/redo)
-"    <Leader>p                | (N) -> view the paste buffers and register contents
-"    y                        | (N) -> copies the character at the cursor
-"    P                        | (V) -> save selection to the buffer and paste over
-"    p                        | (V) -> preserve the buffer pasting over selected text
-"    <Ctrl-p>Direction        | (N) -> paste in the direction entered
-"    T                        | (N) -> copy to the end of the line
-"    T                        | (V) -> copy to the end of the line
-"
-"    (delete/cut functions)
-"      <Leader>x              | (N) -> delete the char(s) under and the cursor
-"      <Leader>x              | (V) -> delete the currently selected text
-"      <Leader>X              | (N) -> delete the char(s) before the cursor
-"      <Leader>X              | (V) -> delete the currently selected lines
-"      <Leader>D              | (N) -> delete chars under and after the cursor on the line
-"      <Leader>D              | (V) -> delete the currently selected lines
-"      <Leader>dw             | (N) -> delete chars under and after the cursor in the word
-"      <Leader>dd             | (N) -> delete lines under and after the one below
-"      <Leader>d              | (V) -> delete the currently selected text
-"
-"    (improved copy and paste shortcuts)
-"      <Ctrl-v>               | (N) -> paste from buffer
-"      <Ctrl-v>               | (V) -> paste buffer in place of selection
-"      <Ctrl-v>               | (I) -> paste from buffer then return to input
-"      <Ctrl-c>               | (N) -> copy character
-"      <Ctrl-c>               | (V) -> copy selection
-"      <Ctrl-x>               | (N) -> cut character
-"      <Ctrl-x>               | (V) -> cut selection
 "
 "    (remap dangerous functions that skip undo)
 "      <Ctrl-u>               | (I) -> undo-able equivalent
@@ -487,6 +487,46 @@
         nnoremap ?P [s
     "}
 
+    "COPY PASTE AND UNDO REDO:{
+        "display contents of paste buffers
+        nnoremap <silent><expr> <Leader>p ':reg<CR>'
+
+        "allow y to copy a single character in normal mode
+        nnoremap y vy<Esc>
+
+        "P pastes and replaces the buffer, p pastes and keeps it
+        vnoremap P p
+        xmap p <Plug>ReplaceWithRegisterVisual
+
+        "copy to the end of the line
+        nnoremap T vg_y
+        vnoremap T g_y
+
+        "Alternatives to cut/deletion commands that don't replace the buffer
+        nnoremap <Leader>x "_x
+        vnoremap <Leader>x "_x
+        nnoremap <Leader>X "_X
+        vnoremap <Leader>X "_X
+        nnoremap <Leader>D "_D
+        vnoremap <Leader>D "_D
+        nnoremap <Leader>dd "_dd
+        nnoremap <Leader>dw "_dw
+        vnoremap <Leader>d "_d
+
+        "map copy/paste shortcuts to more typical ones
+        nnoremap <C-v> P
+        xmap <C-v> <Plug>ReplaceWithRegisterVisual
+        inoremap <C-v> <C-O>p
+        nnoremap <C-c> y
+        vnoremap <C-c> y
+        nnoremap <C-x> x
+        vnoremap <C-x> x
+
+        "remap ctrl-u and ctrl-w to safer alternatives
+        inoremap <C-u> <C-g>u<c-u>
+        inoremap <C-w> <C-g>u<c-w>
+    "}
+
     "COMPLETION:{
         "emmet switch triggerkey from <Ctrl-Y>
         let g:user_emmet_leader_key='<C-m>'
@@ -587,46 +627,6 @@
 
         "clear search results
         nnoremap <silent><expr> <Leader>/ ':noh<CR>:echo "Search results have been cleared"<CR>'
-    "}
-
-    "COPY PASTE AND UNDO REDO:{
-        "display contents of paste buffers
-        nnoremap <silent><expr> <Leader>p ':reg<CR>'
-
-        "allow y to copy a single character in normal mode
-        nnoremap y vy<Esc>
-
-        "P pastes and replaces the buffer, p pastes and keeps it
-        vnoremap P p
-        xmap p <Plug>ReplaceWithRegisterVisual
-
-        "copy to the end of the line
-        nnoremap T vg_y
-        vnoremap T g_y
-
-        "Alternatives to cut/deletion commands that don't replace the buffer
-        nnoremap <Leader>x "_x
-        vnoremap <Leader>x "_x
-        nnoremap <Leader>X "_X
-        vnoremap <Leader>X "_X
-        nnoremap <Leader>D "_D
-        vnoremap <Leader>D "_D
-        nnoremap <Leader>dd "_dd
-        nnoremap <Leader>dw "_dw
-        vnoremap <Leader>d "_d
-
-        "map copy/paste shortcuts to more typical ones
-        nnoremap <C-v> P
-        xmap <C-v> <Plug>ReplaceWithRegisterVisual
-        inoremap <C-v> <C-O>p
-        nnoremap <C-c> y
-        vnoremap <C-c> y
-        nnoremap <C-x> x
-        vnoremap <C-x> x
-
-        "remap ctrl-u and ctrl-w to safer alternatives
-        inoremap <C-u> <C-g>u<c-u>
-        inoremap <C-w> <C-g>u<c-w>
     "}
 "}}}
 
