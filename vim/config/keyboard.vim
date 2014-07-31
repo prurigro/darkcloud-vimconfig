@@ -523,8 +523,8 @@
         vnoremap <C-x> x
 
         "remap ctrl-u and ctrl-w to safer alternatives
-        inoremap <C-u> <C-g>u<c-u>
-        inoremap <C-w> <C-g>u<c-w>
+        inoremap <C-u> <C-g>u<C-u>
+        inoremap <C-w> <C-g>u<C-w>
     "}
 
     "COMPLETION:{
