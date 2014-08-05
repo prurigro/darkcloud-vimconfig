@@ -162,6 +162,10 @@
 "    <Leader>F                | (N) -> format document using :Autoformat
 "    <Leader>w                | (N) -> remove whitespace
 "    <Leader>t                | (N) -> convert tabs into spaces
+"    <Leader>A                | (N) -> aligns all comments
+"    <Leader>A                | (V) -> aligns selected comments
+"    <Leader>a                | (N) -> aligns all comments after text
+"    <Leader>a                | (V) -> aligns selected comments after text
 "    <Tab>                    | (V) -> indent all the lines currently selected
 "    <Tab>                    | (N) -> indent the current line
 "    <Shift-Tab>              | (V) -> unindent all the lines currently selected
@@ -199,9 +203,7 @@
 "
 "  (selection)
 "    <Ctrl-a>                 | (N) -> select all text
-"    <Leader>a                | (N) -> select all text
 "    <Ctrl-a>                 | (V) -> select all text
-"    <Leader>a                | (V) -> select all text
 "
 "    <Shift-Up>               | (V) -> select all text above
 "    <Shift-Down>             | (V) -> select all text below
@@ -562,6 +564,10 @@
         nnoremap <silent><expr> <Leader>F ':Autoformat<CR>:echo "The document has been formatted with :Autoformat"<CR>'
         nnoremap <silent><expr> <Leader>w ':FixWhitespace<CR>:echo "Trailing whitespace has been removed"<CR>'
         nnoremap <silent><expr> <Leader>t ':retab<CR>:noh<CR>:echo "Tabs have been converted to spaces"<CR>'
+        nnoremap <Leader>A :<C-u>exe "%Tabular" '/^[^'.matchstr(&commentstring, '[^%]*').']*\zs'.matchstr(&commentstring, '[^%]*').'.*'<CR>
+        vnoremap <Leader>A :<C-u>exe "'<,'>Tabular" '/^[^'.matchstr(&commentstring, '[^%]*').']*\zs'.matchstr(&commentstring, '[^%]*').'.*'<CR>
+        nnoremap <Leader>a :<C-u>exe "%Tabular" '/^\ *[^'.matchstr(&commentstring, '[^%]*').'\ ][^\'.matchstr(&commentstring, '[^%]*').']*\zs'.matchstr(&commentstring, '[^%]*').'.*'<CR>
+        vnoremap <Leader>a :<C-u>exe "'<,'>Tabular" '/^\ *[^'.matchstr(&commentstring, '[^%]*').' ][^\'.matchstr(&commentstring, '[^%]*').']*\zs'.matchstr(&commentstring, '[^%]*').'.*'<CR>
 
         "tab and untab the currently selected lines
         vnoremap <Tab> >gv
@@ -613,11 +619,9 @@
     "}
 
     "SELECTION:{
-        "ctrl-a to select all (and an alt for screen users)
+        "ctrl-a to select all
         nnoremap <C-a> gg0vG$
         xnoremap <C-a> <Esc>gg0vG$
-        nnoremap <Leader>a gg0vG$
-        xnoremap <Leader>a <Esc>gg0vG$
 
         "map remap keys for speedier text selection
         xnoremap <C-Up> 4k
