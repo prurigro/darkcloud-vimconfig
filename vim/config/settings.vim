@@ -19,6 +19,7 @@
     set guioptions+=l "enable left-hand scrollbars
     set guioptions+=R "enable right-hand scrollbars when there's a split window
     set guioptions+=b "enable bottom scrollbars
+    set winaltkeys=no "don't select the menu when pressing the alt-keys
 "}}}
 
 "COMPATIBILITY SETTINGS: {{{
@@ -57,6 +58,7 @@
 
     "USER INTERFACE: {{{
         set laststatus=2 showcmd statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v] "statusline init and config
+        set shortmess=atI "make messages less verbose
         set lazyredraw "don't redraw the screen while macros are executing
         set number "enable line numbers
         set nowrap "disable line wrapping
@@ -68,6 +70,7 @@
         set showmatch "show matching open bracket when closed bracket is inserted
         set matchtime=5 "the amount of time before the matching bracket will highlight
         let &showbreak="" "character to prepend to wrapped lines when linewrapping is enabled
+        set shellcmdflag=-ic "add interactive shell so aliases from ~/.bashrc are read
 
         "enable tab completion in command mode and configure how it handles extensions
         set completeopt=longest,menuone
