@@ -140,6 +140,7 @@ As usual, to have your system use `vimpager` in place of `less`, you'll need to 
 |:-----------------------|:----:|-------------------------------------------------:|
 | \<Backslash\>\<F1\>    | ALL  |                    Toggle the menubar **(gvim)** |
 | \<Backslash\>\<F2\>    | ALL  |                    Toggle the toolbar **(gvim)** |
+| \<Backslash\>\<F3\>    | ALL  |                 Toggle the scrollbars **(gvim)** |
 
 ### Complete Reference ###
 

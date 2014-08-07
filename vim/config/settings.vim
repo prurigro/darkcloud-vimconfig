@@ -16,9 +16,6 @@
     set guioptions+=i "have the gui use the vim icon
     set guioptions+=p "enable pointer callbacks for X11 (required by some WMs)
     set guioptions+=h "prevent the cursor jumping to the longest line while scrolling
-    set guioptions+=l "enable left-hand scrollbars
-    set guioptions+=R "enable right-hand scrollbars when there's a split window
-    set guioptions+=b "enable bottom scrollbars
     set winaltkeys=no "don't select the menu when pressing the alt-keys
 "}}}
 

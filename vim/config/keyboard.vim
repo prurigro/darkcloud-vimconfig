@@ -107,6 +107,7 @@
 "  (gvim toggles)
 "    <Leader><F1>             | (A) -> toggle the menubar
 "    <Leader><F2>             | (A) -> toggle the toolbar
+"    <Leader><F3>             | (A) -> toggle the scrollbars
 "
 "  (spellcheck)
 "    ?+                       | (N) -> add the selected word to the local dictionary
@@ -476,6 +477,11 @@
         nnoremap <silent><expr> <Leader><F2> ":if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>:echo 'Toolbar toggled'<CR>"
         vnoremap <silent><expr> <Leader><F2> "<Esc>:if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>gv"
         inoremap <silent><expr> <Leader><F2> "<C-O>:if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>"
+
+        "toggle the scrollbars
+        nnoremap <silent><expr> <Leader><F3> ":if &go=~#'l'<Bar>set go-=lRb<Bar>else<Bar>set go+=lRb<Bar>endif<CR>:echo 'Scrollbars toggled'<CR>"
+        vnoremap <silent><expr> <Leader><F3> "<Esc>:if &go=~#'l'<Bar>set go-=lRb<Bar>else<Bar>set go+=lRb<Bar>endif<CR>gv"
+        inoremap <silent><expr> <Leader><F3> "<C-O>:if &go=~#'l'<Bar>set go-=lRb<Bar>else<Bar>set go+=lRb<Bar>endif<CR>"
     "}
 
     "SPELLCHECK:{
