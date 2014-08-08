@@ -289,7 +289,10 @@
     map <A-F1> <Nop>
     map <C-F1> <Nop>
 
-    " unmap mousewheel combos to ensure the old behaviour stays gone
+    "-unmap the suspend function
+    map <C-z> <Nop>
+
+    "unmap mousewheel combos to ensure the old behaviour stays gone
     map <C-ScrollWheelUp> <Nop>
     map <C-ScrollWheelDown> <Nop>
     map <A-ScrollWheelUp> <Nop>

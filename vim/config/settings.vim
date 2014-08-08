@@ -55,7 +55,6 @@
 
     "USER INTERFACE: {{{
         set laststatus=2 showcmd statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v] "statusline init and config
-        set shortmess=atI "make messages less verbose
         set lazyredraw "don't redraw the screen while macros are executing
         set number "enable line numbers
         set nowrap "disable line wrapping
@@ -67,7 +66,6 @@
         set showmatch "show matching open bracket when closed bracket is inserted
         set matchtime=5 "the amount of time before the matching bracket will highlight
         let &showbreak="" "character to prepend to wrapped lines when linewrapping is enabled
-        set shellcmdflag=-ic "add interactive shell so aliases from ~/.bashrc are read
 
         "enable tab completion in command mode and configure how it handles extensions
         set completeopt=longest,menuone
@@ -85,6 +83,7 @@
         set hlsearch incsearch ignorecase smartcase "configure how search behaves
         set timeout timeoutlen=1000 "how long before timing out for mappings
         set ttimeout ttimeoutlen=100 "how long before timing out for terminal key codes
+        set noesckeys "disable escape keys
 
         "enable the auto-creation of missing folders in a save path
         if !exists('*s:MakeNewDir')
