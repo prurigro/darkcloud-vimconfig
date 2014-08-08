@@ -49,6 +49,8 @@ noremap <End> $
 noremap <kEnd> <End>
 noremap <Up> <C-P>
 noremap <Down> <C-N>
+noremap <Right> 4zl
+noremap <Left> 4zh
 noremap = +
 noremap _ -
 noremap <C-Up> 4k
@@ -74,3 +76,9 @@ xnoremap <C-a> <Esc>gg0vG$
 nnoremap <Leader>a gg0vG$
 xnoremap <Leader>a <Esc>gg0vG$
 nnoremap <silent><expr> <Leader>/ ':noh<CR>'
+
+" Toggles
+nnoremap <silent><expr> <F1> ':set wrap!<CR>:echo "line wrapping toggled"<CR>'
+xnoremap <silent><expr> <F1> '<Esc>:set wrap!<CR>gv'
+nnoremap <silent><expr> <F2> ':set spell!<CR>:echo "spell checking toggled"<CR>'
+xnoremap <silent><expr> <F2> '<Esc>:set spell!<CR>gv'
