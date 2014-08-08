@@ -49,8 +49,8 @@ noremap <End> $
 noremap <kEnd> <End>
 noremap <Up> <C-P>
 noremap <Down> <C-N>
-noremap <Right> 4zl
-noremap <Left> 4zh
+noremap <Right> zL
+noremap <Left> zH
 noremap = +
 noremap _ -
 noremap <C-Up> 4k
