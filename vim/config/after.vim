@@ -19,7 +19,7 @@ if !exists("g:disablelinebreaks")
     let g:disablelinebreaks=1
 endif
 if (g:disablelinebreaks == 1)
-    autocmd VimEnter * set tw=0 nolinebreak
+    autocmd VimEnter * set tw=0
 endif
 
 "enable omnicompletion for any filetype without that has syntax highlighting
@@ -41,8 +41,8 @@ endif
     autocmd BufEnter,BufRead PKGBUILD setlocal iskeyword-=.
 
     "filtype specific settings
-    autocmd FileType gitcommit,notes,mail,notmuch,mkd,text,taskreport setlocal nonumber spell nolist wrap linebreak breakat&vim "some defautls for word processing
-    autocmd Filetype mkd,mkdc setlocal breakat-=* "prevent breaking *s from words to linewrap in markdown
+    autocmd FileType gitcommit,notes,mail,notmuch,text,taskreport setlocal nonumber spell nolist wrap linebreak breakat&vim "some defautls for word processing
+    autocmd Filetype mkd,mkdc setlocal nonumber spell nolist wrap linebreak breakat&vim breakat-=* breakat-=. "set some defaults for markdown
     autocmd FileType help* wincmd L "help windows always open vertically
     autocmd FileType help* vertical resize 80 "set the window size to 80 cols
     autocmd FileType help* setlocal nocursorline "remove the horizontal cursor line
