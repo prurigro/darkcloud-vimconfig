@@ -29,13 +29,13 @@ endif
 
 "FILETPE AND SYNTAX: {{{
     "set given filenames to various filetypes
-    au BufNewFile,BufRead pacman.conf,yaourtrc setf sh
-    au BufNewFile,BufRead cjdroute.conf,cjdmaid.conf setf json
-    au BufNewFile,BufRead *muttrc setf muttrc
-    au BufNewFile,BufRead *vimpagerrc setf vim
-    au BufNewFile,BufRead *ircd.conf setf json
-    au BufNewFile,BufRead *.aspx,*.asmx,*.ascx,*.master setf aspnet
-    au BufNewFile,BufRead *.gradle setf groovy
+    autocmd BufNewFile,BufRead *.aspx,*.asmx,*.ascx,*.master setlocal ft=aspnet
+    autocmd BufNewFile,BufRead *.gradle setlocal ft=groovy
+    autocmd BufNewFile,BufRead *muttrc setlocal ft=muttrc
+    autocmd BufNewFile,BufRead *vimpagerrc setlocal ft=vim
+    autocmd BufNewFile,BufRead *ircd.conf setlocal ft=json
+    autocmd BufNewFile,BufRead pacman.conf,yaourtrc setlocal ft=sh
+    autocmd BufNewFile,BufRead cjdroute.conf,cjdmaid.conf setlocal ft=json
 
     "filename specific settings
     autocmd BufEnter,BufRead PKGBUILD setlocal iskeyword-=.
