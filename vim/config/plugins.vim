@@ -17,6 +17,9 @@
 
     "load plugins in vim/bundle/ and vim/bundle.user/
     execute pathogen#infect('bundle/{}', 'bundle.user/{}')
+
+    "set the locations for easytags, tagbar and other plugins to look for tag files
+    set tags=./.tags;,~/.vim/tags
 "}}}
 
 "SYNTAX PLUGINS: {{{
@@ -25,11 +28,11 @@
 "}}}
 
 "EASYTAGS: {{{
-    let g:easytags_file = '~/.vim/tags'
-    let g:easytags_suppress_ctags_warning = 1
-    let g:easytags_autorecurse = 1
-    let g:easytags_resolve_links = 1
-    let g:easytags_dynamic_files = 1
+    let g:easytags_file='~/.vim/tags'
+    let g:easytags_suppress_ctags_warning=1
+    let g:easytags_autorecurse=1
+    let g:easytags_resolve_links=1
+    let g:easytags_dynamic_files=1
 
     "prevent automatically generating the tagfile and syntax highlighting tags (default: 0)
     if !exists("g:disableautotags")
