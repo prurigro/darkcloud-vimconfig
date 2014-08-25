@@ -123,12 +123,12 @@ if [ ! -e vim/vimrc.user ]; then
     echo -n -e "\n${HEADINGCOLOUR} >> Creating User Config File:${RESETCOLOUR}"
     PROCESS_STATUS=$(touch vim/vimrc.user 2>&1)
     if [ $? = 0 ]; then
-        echo -e '"Autostart Filer in empty buffers: (*1:filer loads in new empty buffers | 0:filer must be triggered)\n"let g:autostartfiler=0\n' >> vim/vimrc.user
-        echo -e '"Autocheck syntax checking: (1:start toggled on | *0:start toggled off)\n"let g:autostartchecker=1\n' >> vim/vimrc.user
-        echo -e '"Autoload Tagbar: (1:start open | *0:start closed)\n"let g:autostarttagbar=1\n' >> vim/vimrc.user
-        echo -e '"Disable automatic tag generation and highlighting: (*1:force disabled tag generation and highlighting | 0:enable automatic tag generation and highlighting)\n"let g:disableautotags=1\n' >> vim/vimrc.user
-        echo -e '"Disable automatic linebreaking: (1:force disabled globally | *0:let the filetype decide)\n"let g:disablelinebreaks=1\n' >> vim/vimrc.user
-        echo -e '"Enable Powerline fonts: (1:expect powerline font | *0:expect regular font)\n"let g:powerlinefonts=1 "(set powerline font for gvim and terminal when enabled)\n' >> vim/vimrc.user
+        echo -e '"Autostart Filer in empty buffers: (*1:filer loads in new empty buffers | 0:filer must be triggered)\n"let g:autostartfiler=1\n' >> vim/vimrc.user
+        echo -e '"Autocheck syntax checking: (1:start toggled on | *0:start toggled off)\n"let g:autostartchecker=0\n' >> vim/vimrc.user
+        echo -e '"Autoload Tagbar: (1:start open | *0:start closed)\n"let g:autostarttagbar=0\n' >> vim/vimrc.user
+        echo -e '"Disable automatic tag generation and highlighting: (1:force disabled tag generation and highlighting | *0:enable automatic tag generation and highlighting)\n"let g:disableautotags=0\n' >> vim/vimrc.user
+        echo -e '"Disable automatic linebreaking: (1:force disabled globally | *0:let the filetype decide)\n"let g:disablelinebreaks=0\n' >> vim/vimrc.user
+        echo -e '"Enable Powerline fonts: (1:expect powerline font | *0:expect regular font)\n"let g:powerlinefonts=0 "(set powerline font for gvim and terminal when enabled)\n' >> vim/vimrc.user
         echo -e '"GVim font selection: (Escaping spaces and use powerline if appropriate)\nset guifont=Monospace\ 12' >> vim/vimrc.user
         echo -e "${SUCCESSCOLOUR} SUCCESS! ${RESETCOLOUR}"
     else
