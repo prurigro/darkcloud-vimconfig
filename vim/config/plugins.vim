@@ -36,7 +36,7 @@
 
     "prevent automatically generating the tagfile and syntax highlighting tags (default: 0)
     if !exists("g:disableautotags")
-        let g:disableautotags=0
+        let g:disableautotags=1
     endif
     if (g:disableautotags == 1)
         let g:easytags_auto_update=0
