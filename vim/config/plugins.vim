@@ -23,11 +23,6 @@
     set tags=./.tags;,~/.vim/tags
 "}}}
 
-"SYNTAX PLUGINS: {{{
-    let g:vim_json_warnings=0
-    let g:vim_json_syntax_conceal=0
-"}}}
-
 "EASYTAGS: {{{
     let g:easytags_file='~/.vim/tags'
     let g:easytags_suppress_ctags_warning=1
@@ -75,6 +70,11 @@
     let g:gundo_preview_height=10
 
     autocmd FileType gundo setlocal nocursorcolumn
+"}}}
+
+"JSON: {{{
+    let g:vim_json_warnings=0
+    let g:vim_json_syntax_conceal=0
 "}}}
 
 "MARKDOWN: {{{
