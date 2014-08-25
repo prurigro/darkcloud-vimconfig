@@ -97,3 +97,6 @@
 [submodule "vim/bundle.pager/vim-markdown-concealed"]
 	path = vim/bundle.pager/vim-markdown-concealed
 	url = https://github.com/prurigro/vim-markdown-concealed
+[submodule "vim/bundle/ttagecho_vim"]
+	path = vim/bundle/ttagecho_vim
+	url = https://github.com/tomtom/ttagecho_vim.git

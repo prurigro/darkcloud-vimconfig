@@ -74,6 +74,7 @@
 "
 "  (toggles and features)
 "    `                        | (N) -> popup a command reference
+"    ,                        | (N) -> display tag information in echo area
 "    <Leader><F1>             | (N) -> toggle the vim reference manual
 "    <Leader>?                | (N) -> toggle the vim reference manual
 "    ~                        | (A) -> toggle the gutter(line numbers, folds and signify)
@@ -224,8 +225,8 @@
 "
 " Filetype Specific Mappings:
 "  (extradite)
-"    <C-F4>                   | (A) -> close the dialog
-"    <A-F4>                   | (A) -> close the dialog
+"    <Ctrl-F4>                | (A) -> close the dialog
+"    <Alt-F4>                 | (A) -> close the dialog
 "    <Right>                  | (A) -> same as down
 "    l                        | (A) -> same as j
 "    <Left>                   | (A) -> same as Up
@@ -247,7 +248,8 @@
 "    ?<                       | (A) -> close the dialog
 "
 "  (markdown)
-"    <F8>                     | (A) -> show heading TOC instead of the taglist
+"    <Ctrl-F3>                | (A) -> show heading TOC instead of the taglist
+"    <Alt-F3>                 | (A) -> show heading TOC instead of the taglist
 "
 "  (markdown toc)
 "    <LClick>                 | (A) -> left click + left justify the cursor
@@ -391,6 +393,9 @@
     "TOGGLES AND FEATURES:{
         "toggle the command reference box
         nnoremap <silent><expr> ` ':TCommand<CR>'
+
+        "display tag information in the gutter
+        noremap <buffer> <silent><expr> , ':TTagechoWord<CR>'
 
         "toggle the vim reference manual
         nnoremap <silent><expr> <Leader><F1> ':h index.txt<CR>'
