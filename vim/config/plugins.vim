@@ -149,12 +149,14 @@
         let g:autostartchecker=0
     else
         if (g:autostartchecker == 1)
-            let g:syntastic_mode_map = {'mode':'active','active_filetypes':[],'passive_filetypes':[]}
+            let g:syntastic_mode_map={'mode':'active','active_filetypes':[],'passive_filetypes':[]}
             let g:syntastic_check_on_open=1
         else
-            let g:syntastic_mode_map = {'mode':'passive','active_filetypes':[],'passive_filetypes':[]}
+            let g:syntastic_mode_map={'mode':'passive','active_filetypes':[],'passive_filetypes':[]}
             let g:syntastic_check_on_open=0
         endif
+
+        let g:syntastic_quiet_messages={'regex':['package\ [^\ ]*\ does not exist.*', 'cannot find symbol.*']}
 
         let g:syntastic_check_on_wq=0
         let g:syntastic_always_populate_loc_list=1
