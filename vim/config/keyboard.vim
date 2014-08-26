@@ -466,9 +466,9 @@
         set pastetoggle=<F3>
 
         "toggle syntax checking
-        nnoremap <silent><expr> <F4> ':if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>let g:syntastic_check_on_wq=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>let g:syntastic_check_on_wq=1<Bar>endif<Bar>:SyntasticToggleMode<CR>'
-        xnoremap <silent><expr> <F4> '<Esc>:if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>let g:syntastic_check_on_wq=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>let g:syntastic_check_on_wq=1<Bar>endif<Bar>:SyntasticToggleMode<CR>gv'
-        inoremap <silent><expr> <F4> '<C-O>:if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>let g:syntastic_check_on_wq=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>let g:syntastic_check_on_wq=1<Bar>endif<Bar>:SyntasticToggleMode<CR>'
+        nnoremap <silent><expr> <F4> ':if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>endif<Bar>:SyntasticToggleMode<CR>'
+        xnoremap <silent><expr> <F4> '<Esc>:if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>endif<Bar>:SyntasticToggleMode<CR>gv'
+        inoremap <silent><expr> <F4> '<C-O>:if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>endif<Bar>:SyntasticToggleMode<CR>'
 
         "toggle goyo
         nnoremap <silent><expr> <C-F12> ':Goyo<CR>'
