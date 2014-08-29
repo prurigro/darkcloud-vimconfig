@@ -11,7 +11,7 @@
 
 "INITIALIZE PLUGINS: {{{
     "create missing plugin config files and directories
-    if !isdirectory(glob("~/.vim/tags_by_filetype"))|call mkdir(glob("~/.vim/tags_by_filetype"),'p')|endif
+    if exists('*mkdir')|if !isdirectory(glob("~/.vim/tags_by_filetype"))|call mkdir(glob("~/.vim/tags_by_filetype"),'p')|endif|endif
     if !filereadable(glob("~/.vim/tags"))|new|silent e ~/.vim/tags|silent w|q|endif
     if !filereadable(glob("~/.vim/snippets.json"))|new|silent e ~/.vim/snippets.json|silent w|q|endif
     if !filereadable(glob("~/.vim/filetypes.vim"))|new|silent e ~/.vim/filetypes.vim|silent w|q|endif
@@ -24,9 +24,9 @@
 "}}}
 
 "EASYTAGS: {{{
-    let g:easytags_file='~/.vim/tags'
     let g:easytags_suppress_ctags_warning=1
-    let g:easytags_by_filetype='~/.vim/tags_by_filetype'
+    if !filereadable(glob("~/.vim/tags"))|let g:easytags_file='~/.vim/tags'|endif
+    if !isdirectory(glob("~/.vim/tags_by_filetype"))|let g:easytags_by_filetype='~/.vim/tags_by_filetype'|endif
 
     "prevent automatically generating the tagfile and syntax highlighting tags (default: 0)
     if !exists("g:disableautotags")
