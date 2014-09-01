@@ -80,7 +80,7 @@
         set whichwrap=b,s,<,>,[,] "scrolling left/right off current line wraps to the next/previous
         set smarttab expandtab autoindent tabstop=4 shiftwidth=4 "configure tabs
         set hlsearch incsearch ignorecase smartcase "configure how search behaves
-        set timeout timeoutlen=1000 "how long before timing out for mappings
+        set timeout timeoutlen=500 "how long before timing out for mappings
         set ttimeout ttimeoutlen=100 "how long before timing out for terminal key codes
 
         "change to a file's directory when it's opened
