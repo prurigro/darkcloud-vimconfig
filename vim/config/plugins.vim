@@ -156,7 +156,7 @@
             let g:syntastic_check_on_open=0
         endif
 
-        let g:syntastic_quiet_messages={'regex':['package\ [^\ ]*\ does not exist.*', 'cannot find symbol.*']}
+        let g:syntastic_quiet_messages={'regex':['package\ [^\ ]*\ does not exist.*', 'cannot find symbol.*', '.*method does not override or implement a method from a supertype.*']}
 
         let g:syntastic_check_on_wq=0
         let g:syntastic_always_populate_loc_list=1
