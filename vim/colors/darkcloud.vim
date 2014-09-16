@@ -358,10 +358,10 @@ hi! link Structure PreProc
 hi! link Number Type
 
 "vimdiff
-call s:X("DiffAdd","#000000","#ffd787","italic",s:termBlack,"Yellow")
-call s:X("DiffDelete","#000000","#d75f5f","italic",s:termBlack,"Red")
-call s:X("DiffChange","#000000","#87d7ff","italic",s:termBlack,"Blue")
-call s:X("DiffText","#000000","#c6c6c6","italic",s:termBlack,"White")
+call s:X("DiffAdd","#ffd787","","standout","Yellow","")
+call s:X("DiffDelete","#d75f5f","","standout","Red","")
+call s:X("DiffChange","#87d7ff","","standout","Blue","")
+call s:X("DiffText","#c6c6c6","","standout","White","")
 
 "version control
 call s:X("SignifySignAdd","#ffd787","","bold","","Yellow")
