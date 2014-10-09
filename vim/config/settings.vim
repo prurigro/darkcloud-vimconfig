@@ -83,9 +83,6 @@
         set timeout timeoutlen=500 "how long before timing out for mappings
         set ttimeout ttimeoutlen=100 "how long before timing out for terminal key codes
 
-        "change to a file's directory when it's opened
-        if exists("+autochdir")|set autochdir|endif
-
         "enable the auto-creation of missing folders in a save path
         if !exists('*s:MakeNewDir')
             function s:MakeNewDir(fullpath, buf)
