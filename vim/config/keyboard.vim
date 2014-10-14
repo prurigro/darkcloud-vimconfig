@@ -247,16 +247,12 @@
 "    ?>                       | (A) -> close the dialog
 "    ?<                       | (A) -> close the dialog
 "
-"  (markdown)
-"    <Ctrl-F3>                | (A) -> show heading TOC instead of the taglist
-"    <Alt-F3>                 | (A) -> show heading TOC instead of the taglist
-"
-"  (markdown toc)
+"  (qf sidebar mappings)
 "    <LClick>                 | (A) -> left click + left justify the cursor
 "    <MClick>                 | (A) -> same as the left click
 "    <RClick>                 | (A) -> same as the left click
-"    <LClick><LClick>         | (A) -> select heading to edit
-"    <Space>                  | (A) -> select heading but remain in toc
+"    <LClick><LClick>         | (A) -> select entry
+"    <Space>                  | (A) -> select entry but remain in qf sidebar
 "    <Left>                   | (A) -> up
 "    <Right>                  | (A) -> down
 "    h                        | (A) -> j
@@ -679,12 +675,7 @@
         autocmd FileType help map <buffer> <silent><expr> <Leader>? ':q<CR>'
     endif
 
-    "markdown: launch table of contents instead of the tagbar
-    autocmd FileType mkd map <buffer> <silent><expr> <C-F3> ':Toch<CR>'
-    autocmd FileType mkd map <buffer> <silent><expr> <A-F3> ':Toch<CR>'
-    autocmd Filetype mkd nnoremap <buffer> <silent><expr> <Leader>F ':TableFormat<CR>:echo "Markdown tables have been formatted with :FormatTable"<CR>'
-
-    "markdown table of contents
+    "mappings for qf-based plugins
     autocmd FileType qf map <buffer> <LeftMouse> <LeftMouse>0
     autocmd FileType qf map <buffer> <MiddleMouse> <LeftMouse>
     autocmd FileType qf map <buffer> <RightMouse> <LeftMouse>
