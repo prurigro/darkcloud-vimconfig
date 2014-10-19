@@ -41,7 +41,7 @@ endif
     autocmd BufEnter,BufRead PKGBUILD setlocal iskeyword-=.
 
     "filtype specific settings
-    autocmd Filetype text,mkd,mkdc,gitcommit,notes,mail,notmuch,taskreport setlocal nonumber spell nolist wrap linebreak breakat&vim breakat-=* breakat-=. breakat-=/ breakat-=? breakat-=, breakat-=: breakat-=; breakat-=! "set some defaults for word processing
+    autocmd Filetype text,mkd,mkdc,gitcommit,notes,mail,notmuch,rst,taskreport setlocal nonumber spell nolist wrap linebreak breakat&vim breakat-=* breakat-=. breakat-=/ breakat-=? breakat-=, breakat-=: breakat-=; breakat-=! "set some defaults for word processing
     autocmd FileType help* wincmd L "help windows always open vertically
     autocmd FileType help* vertical resize 80 "set the window size to 80 cols
     autocmd FileType help* setlocal nocursorline "remove the horizontal cursor line
