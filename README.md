@@ -154,6 +154,7 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
   * [webapi-vim](https://github.com/mattn/webapi-vim): A web library used by emmet to provide support for custom snippets.
 * [goyo.vim](https://github.com/junegunn/goyo.vim): Distraction-free writing in Vim.
 * [gundo.vim](https://github.com/sjl/gundo.vim): Sidebar to visualize your undo tree and browse the differences of each change.
+* [incsearch.vim](https://github.com/haya14busa/incsearch.vim): Improved incremental searching for Vim.
 * [lightline.vim](https://github.com/itchyny/lightline.vim): A light and configurable statusline/tabline for Vim.
 * [MatchTagAlways](https://github.com/Valloric/MatchTagAlways): A Vim plugin that always highlights the enclosing html/xml tags.
 * [neocomplcache.vim](https://github.com/Shougo/neocomplcache.vim): The '*ultimate*' auto-completion system for Vim.
@@ -162,8 +163,8 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [syntastic](https://github.com/scrooloose/syntastic): Uses system compilers and parsers to check syntax either on-the-fly or after saving a compatible document.
 * [tabular](https://github.com/godlygeek/tabular): Vim script for text filtering and alignment.
 * [tagbar](https://github.com/majutsushi/tagbar): Uses ctags to generate a sidebar of the tags for the current file.
-* [tcommand_vim](https://github.com/tomtom/tcommand_vim): Select commands, menu items etc. from a list
-  * [tlib_vim](https://github.com/tomtom/tlib_vim): Some utility functions for VIM
+* [tcommand_vim](https://github.com/tomtom/tcommand_vim): Select commands, menu items etc. from a list.
+  * [tlib_vim](https://github.com/tomtom/tlib_vim): Some utility functions for VIM.
 * [tcomment_vim](https://github.com/tomtom/tcomment_vim): File-type sensible comments that can be easily toggled on and off for blocks of text.
 * [vim-easytags](https://github.com/xolox/vim-easytags): Automated tag file generation and syntax highlighting of tags in Vim.
   * [vim-misc](https://github.com/xolox/vim-misc): Miscellaneous auto-load Vim scripts.
