@@ -217,7 +217,7 @@
 "    <Ctrl-Right>             | (V) -> select one word right
 "    <Ctrl-Left>              | (V) -> select one word left
 "
-"    <Leader>/                | (N) -> remove search highlighting
+"    //                       | (N) -> remove search highlighting
 "
 "    (remap dangerous functions that skip undo)
 "      <Ctrl-u>               | (I) -> undo-able equivalent
@@ -646,7 +646,7 @@
         xnoremap <S-Left> ^
 
         "clear search results
-        nnoremap <silent><expr> <Leader>/ ':noh<CR>:echo "Search results have been cleared"<CR>'
+        nnoremap <silent><expr> // '<Esc>:noh<CR>'
     "}
 "}}}
 

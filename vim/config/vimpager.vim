@@ -70,12 +70,17 @@ vnoremap <C-c> y
 nnoremap T vg_y
 vnoremap T g_y
 
+" Search
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+nnoremap <silent><expr> // '<Esc>:noh<CR>'
+
 " Selection
 nnoremap <C-a> gg0vG$
 xnoremap <C-a> <Esc>gg0vG$
 nnoremap <Leader>a gg0vG$
 xnoremap <Leader>a <Esc>gg0vG$
-nnoremap <silent><expr> <Leader>/ ':noh<CR>'
 
 " Toggles
 nnoremap <silent><expr> <F1> ':set wrap!<CR>:echo "line wrapping toggled"<CR>'
