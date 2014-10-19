@@ -312,8 +312,12 @@ call s:X("Pmenu","#87d7ff","#303030","","Grey","Blue")
 call s:X("PmenuSel","#87d7ff","#4e4e4e","bold","White","Black")
 
 "search
-call s:X("Search","#87d7ff","#262626","standout","Blue",s:termBlack)
-call s:X("IncSearch","#87d7ff","#262626","standout,bold","Blue",s:termBlack)
+call s:X("Search","","#262626","standout","",s:termBlack)
+hi! link IncSearchMatch Search
+hi! link IncSearchMatchReverse Search
+call s:X("IncSearch","","#262626","standout,bold,underline","",s:termBlack)
+hi! link IncSearchOnCursor IncSearch
+hi! link IncSearchCursor IncSearchOnCursor
 
 "status line
 call s:X("StatusLine","#000000","#d75f5f","bold",s:termBlack,"Red")

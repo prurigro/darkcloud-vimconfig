@@ -102,4 +102,4 @@
 	url = https://github.com/tomtom/ttagecho_vim.git
 [submodule "vim/bundle/incsearch.vim"]
 	path = vim/bundle/incsearch.vim
-	url = https://github.com/vim-scripts/incsearch.vim.git
+	url = https://github.com/haya14busa/incsearch.vim
