@@ -51,6 +51,7 @@
         set formatoptions=roqnl12 "how automatic formatting is to be done
         set diffopt=foldcolumn:0,filler "vimdiff default settings
         set foldmethod=syntax foldcolumn=1 foldlevel=5 "fold layers 5 or more deep
+        set tw=80 "set the default text width to 80 when nothing overrides this
     "}}}
 
     "USER INTERFACE: {{{

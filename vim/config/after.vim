@@ -14,7 +14,7 @@ if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
     runtime! macros/matchit.vim
 endif
 
-"disable linebreaks by default or override all of them (default: 1)
+"when enabled, this will override each file type default and disable all line breaks (default: 1)
 if !exists("g:disablelinebreaks")
     let g:disablelinebreaks=1
 endif
