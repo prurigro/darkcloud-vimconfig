@@ -158,6 +158,7 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [lightline.vim](https://github.com/itchyny/lightline.vim): A light and configurable statusline/tabline for Vim.
 * [MatchTagAlways](https://github.com/Valloric/MatchTagAlways): A Vim plugin that always highlights the enclosing html/xml tags.
 * [neocomplcache.vim](https://github.com/Shougo/neocomplcache.vim): The '*ultimate*' auto-completion system for Vim.
+* [patchreview-vim](https://github.com/junkblocker/patchreview-vim): A Vim plugin for doing single, multi-patch or diff code reviews.
 * [ReplaceWithRegister](https://github.com/vim-scripts/ReplaceWithRegister): Replace text with the contents of a register (for paste+replace without writing over the buffer).
 * [SudoEdit.vim](https://github.com/vim-scripts/SudoEdit.vim): Read and write files without the necessary permissions through the use of sudo.
 * [syntastic](https://github.com/scrooloose/syntastic): Uses system compilers and parsers to check syntax either on-the-fly or after saving a compatible document.
