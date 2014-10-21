@@ -566,14 +566,20 @@
         "have backspace delete the selected text
         vnoremap <Backspace> "_x
 
-        "formatting options to apply to the whole document
-        nnoremap <silent><expr> <Leader>J ':set tw=79<CR>Vgq:set tw=0<CR>:echo "Document text has been formatted to a width of 79 characters"<CR>'
-        vnoremap <silent><expr> <Leader>J '<Esc>:set tw=79<CR>gvgq:set tw=0<CR>:echo "Selected text has been formatted to a width of 79 characters"<CR>'
+        "format width to text width (or 80 chars if text width is 0)
+        nnoremap <silent><expr> <Leader>J ':let b:tw=&textwidth<CR>:if (b:tw == 0)<Bar>set tw=80<Bar>endif<CR>gg0vG$gq:if (b:tw == 0)<Bar>set tw=0<Bar>let b:tw=80<Bar>endif<CR>:echo "Document has been formatted to a width of ".b:tw." characters"<CR>'
+        vnoremap <silent><expr> <Leader>J '<Esc>:let b:tw=&textwidth<CR>:if (b:tw == 0)<Bar>set tw=80<Bar>endif<CR>gvgq:if (b:tw == 0)<Bar>set tw=0<Bar>let b:tw=80<Bar>endif<CR>:echo "Selection has been formatted to a width of ".b:tw." characters"<CR>'
+
+        "format syntax
         nnoremap <Leader>f mzgg=G`z<CR>:echo "The document has been formatted"<CR>
         vnoremap <Leader>f mz=`z<CR>:echo "The selection has been formatted"<CR>
         nnoremap <silent><expr> <Leader>F ':Autoformat<CR>:echo "The document has been formatted with :Autoformat"<CR>'
+
+        "convert tabs to spaces
         nnoremap <silent><expr> <Leader>w ':FixWhitespace<CR>:echo "Trailing whitespace has been removed"<CR>'
         nnoremap <silent><expr> <Leader>t ':retab<CR>:noh<CR>:echo "Tabs have been converted to spaces"<CR>'
+
+        "align comments
         nnoremap <Leader>A :<C-u>exe "%Tabular" '/^[^'.matchstr(&commentstring, '[^%]*').']*\zs'.matchstr(&commentstring, '[^%]*').'.*'<CR>
         vnoremap <Leader>A :<C-u>exe "'<,'>Tabular" '/^[^'.matchstr(&commentstring, '[^%]*').']*\zs'.matchstr(&commentstring, '[^%]*').'.*'<CR>
         nnoremap <Leader>a :<C-u>exe "%Tabular" '/^\ *[^'.matchstr(&commentstring, '[^%]*').'\ ][^\'.matchstr(&commentstring, '[^%]*').']*\zs'.matchstr(&commentstring, '[^%]*').'.*'<CR>
