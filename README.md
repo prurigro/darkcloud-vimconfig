@@ -76,71 +76,85 @@ As usual, to have your system use `vimpager` in place of `less`, you'll need to 
 
 ### Mouse ###
 
-| Binding                | Mode |                                           Action |
-|:-----------------------|:----:|-------------------------------------------------:|
-| Ctrl-ScrollUp          | ALL  |          Scroll right a few characters at a time |
-| Ctrl-ScrollDown        | ALL  |           Scroll left a few characters at a time |
-| Alt-ScrollUp           | ALL  |             Scroll right one character at a time |
-| Alt-ScrollDown         | ALL  |              Scroll left one character at a time |
-|                        |      |                                                  |
-| MiddleClick            | ALL  |          Select between the cursor and the mouse |
-| Ctrl-LeftClick         | ALL  |          Select between the cursor and the mouse |
-| Alt-LeftClick          | ALL  |                     Select the line at the mouse |
-| Ctrl-Alt-LeftClick     | ALL  |                Select the paragraph at the mouse |
-|                        |      |                                                  |
-| Ctrl-RightClick        | ALL  |     Copy selection or character under the cursor |
-| Ctrl-MiddleClick       | ALL  |     Copy selection or character under the cursor |
-| Alt-RightClick         | ALL  |      Cut selection or character under the cursor |
-| Alt-MiddleClick        | ALL  |      Cut selection or character under the cursor |
-| Ctrl-Alt-RightClick    | ALL  |                              Paste at the cursor |
-| Ctrl-Alt-MiddleClick   | ALL  |                              Paste at the cursor |
-| Shift-MiddleClick      | ALL  |            Paste the contents of the xorg buffer |
+| Binding                  | Mode | Action                                       |
+|--------------------------|------|----------------------------------------------|
+| \<Ctrl-ScrollUp\>        | ALL  | Scroll right a few characters at a time      |
+| \<Ctrl-ScrollDown\>      | ALL  | Scroll left a few characters at a time       |
+| \<Alt-ScrollUp\>         | ALL  | Scroll right one character at a time         |
+| \<Alt-ScrollDown\>       | ALL  | Scroll left one character at a time          |
+|                          |      |                                              |
+| MiddleClick              | ALL  | Select between the cursor and the mouse      |
+| \<Ctrl-LeftClick\>       | ALL  | Select between the cursor and the mouse      |
+| \<Alt-LeftClick\>        | ALL  | Select the line at the mouse                 |
+| \<Ctrl-Alt-LeftClick\>   | ALL  | Select the paragraph at the mouse            |
+|                          |      |                                              |
+| \<Ctrl-RightClick\>      | ALL  | Copy selection or character under the cursor |
+| \<Ctrl-MiddleClick\>     | ALL  | Copy selection or character under the cursor |
+| \<Alt-RightClick\>       | ALL  | Cut selection or character under the cursor  |
+| \<Alt-MiddleClick\>      | ALL  | Cut selection or character under the cursor  |
+| \<Ctrl-Alt-RightClick\>  | ALL  | Paste at the cursor                          |
+| \<Ctrl-Alt-MiddleClick\> | ALL  | Paste at the cursor                          |
+| \<Shift-MiddleClick\>    | ALL  | Paste the contents of the xorg buffer        |
 
 ### Keyboard ###
 
 #### Sidebars ####
 
-| Binding                | Mode |                                           Action |
-|:-----------------------|:----:|-------------------------------------------------:|
-| \<(Ctrl-or-Alt)-F1\>   | ALL  |         Toggle **vimfiler** file manager sidebar |
-| \<(Ctrl-or-Alt)-F2\>   | ALL  |        Toggle the **gundo** undo history sidebar |
-| \<(Ctrl-or-Alt)-F3\>   | ALL  |    Toggle the **tagbar** source code tag sidebar |
-| \<(Ctrl-or-Alt)-F4\>   | ALL  |      Toggle the **extradite** git history window |
-| \<(Ctrl-or-Alt)-F12\>  | ALL  |        Toggle the **goyo** distraction-free mode |
+| Binding               | Mode | Action                                        |
+|-----------------------|------|-----------------------------------------------|
+| \<(Ctrl-or-Alt)-F1\>  | ALL  | Toggle **vimfiler** file manager sidebar      |
+| \<(Ctrl-or-Alt)-F2\>  | ALL  | Toggle the **gundo** undo history sidebar     |
+| \<(Ctrl-or-Alt)-F3\>  | ALL  | Toggle the **tagbar** source code tag sidebar |
+| \<(Ctrl-or-Alt)-F4\>  | ALL  | Toggle the **extradite** git history window   |
+| \<(Ctrl-or-Alt)-F12\> | ALL  | Toggle the **goyo** distraction-free mode     |
 
 #### Toggles ####
 
-| Binding                | Mode |                                           Action |
-|:-----------------------|:----:|-------------------------------------------------:|
-| \`                     | NORM |                      Popup a command list dialog |
+| Binding                | Mode | Action                                           |
+|------------------------|------|--------------------------------------------------|
+| ~                      | N    | Popup a command list dialog                      |
 |                        |      |                                                  |
-| \<F1\>                 | ALL  |                             Toggle line wrapping |
-| \<F2\>                 | ALL  |         Toggle highlighting of spelling mistakes |
-| \<F3\>                 | ALL  |               Toggle source code syntax checking |
-| \<F4\>                 | ALL  |                       Toggle external-paste mode |
+| \<F1\>                 | ALL  | Toggle line wrapping                             |
+| \<F2\>                 | ALL  | Toggle highlighting of spelling mistakes         |
+| \<F3\>                 | ALL  | Toggle source code syntax checking               |
+| \<F4\>                 | ALL  | Toggle external-paste mode                       |
 |                        |      |                                                  |
-| ~                      | NORM |  Toggle gutter (left bar with line numbers etc.) |
-| \<Backslash\>\<F1\>    | NORM |              Toggle the **vim** reference manual |
-| \<Backslash\>\<Space\> | NORM |         Toggle the **goyo** distraction-free UI  |
-| ?\<Space\>             | NORM | Toggle the **spellcheck** bottom bar of mistakes |
+| \`                     | N    | Toggle gutter (left bar with line numbers etc.)  |
+| \<Backslash\>\<F1\>    | N    | Toggle the **vim** reference manual              |
+| \<Backslash\>\<Space\> | N    | Toggle the **goyo** distraction-free UI          |
+| ?\<Space\>             | N    | Toggle the **spellcheck** bottom bar of mistakes |
 
 #### Spell Check ####
 
-| Binding                | Mode |                                           Action |
-|:-----------------------|:----:|-------------------------------------------------:|
-| ?<Space>               | NORM |                     Toggle spellcheck error list |
-| ?+                     | NORM |    Add the selected word to the local dictionary |
-| ??                     | NORM |      Show spelling suggestions for selected word |
-| ?N                     | NORM |                  Go to the next spelling mistake |
-| ?P                     | NORM |              Go to the previous spelling mistake |
+| Binding    | Mode | Action                                        |
+|------------|------|-----------------------------------------------|
+| ?\<Space\> | N    | Toggle spellcheck error list                  |
+| ?+         | N    | Add the selected word to the local dictionary |
+| ??         | N    | Show spelling suggestions for selected word   |
+| ?N         | N    | Go to the next spelling mistake               |
+| ?P         | N    | Go to the previous spelling mistake           |
 
-##### GVim #####
+#### Formatting ####
 
-| Binding                | Mode |                                           Action |
-|:-----------------------|:----:|-------------------------------------------------:|
-| \<Backslash\>\<F1\>    | ALL  |                    Toggle the menubar **(gvim)** |
-| \<Backslash\>\<F2\>    | ALL  |                    Toggle the toolbar **(gvim)** |
-| \<Backslash\>\<F3\>    | ALL  |                 Toggle the scrollbars **(gvim)** |
+| Binding     | Mode | Action                                                        |
+|-------------|------|---------------------------------------------------------------|
+| \<Leader\>J | N+V  | Format line/selected lines to a max width of the _textwidth_  |
+| \<Leader\>f | N+V  | Format document/selection alignment using Vim syntax          |
+| \<Leader\>F | N    | Format based on file-type using Autoformat                    |
+| \<Leader\>F | N+V  | (Markdown) Format table cursor is currently on                |
+| \<Leader\>t | N    | Convert all tabs into spaces and continue session with spaces |
+| \<Leader\>T | N    | Convert all spaces into tabs and continue session with tabs   |
+| \<Leader\>w | N    | Remove all trailing whitespace                                |
+| \<Leader\>A | N+V  | Align comments in document/selection                          |
+| \<Leader\>a | N+V  | Align comments following non-comments in document/selection   |
+
+#### GVim ####
+
+| Binding             | Mode | Action                           |
+|---------------------|------|----------------------------------|
+| \<Backslash\>\<F1\> | ALL  | Toggle the menubar **(gvim)**    |
+| \<Backslash\>\<F2\> | ALL  | Toggle the toolbar **(gvim)**    |
+| \<Backslash\>\<F3\> | ALL  | Toggle the scrollbars **(gvim)** |
 
 ### Complete Reference ###
 
@@ -187,6 +201,7 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 
 * By Kevin MacMartin: [GitHub Projects](https://github.com/prurigro?tab=repositories) | [Arch Linux AUR Packages](https://aur.archlinux.org/packages/?SeB=m&K=prurigro)
 * The jellybean theme for Vim by [NanoTech](http://nanotech.nanotechcorp.net) was stripped down and used as a starting point to build the darkcloud theme included in this project.
+* The [vim-markdown](https://github.com/plasticboy/vim-markdown) plugin **TableFormat** command, used to format tables in markdown files, was pulled into [plugins.vim](https://github.com/prurigro/darkcloud-vimconfig/blob/master/vim/config/plugins.vim) from [ftplugin/mkd](https://github.com/plasticboy/vim-markdown/blob/master/ftplugin/mkd.vim).
 
 ## License ##
 

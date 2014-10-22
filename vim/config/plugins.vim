@@ -8,6 +8,14 @@
 "  License: MIT                                              "
 "                                                            "
 "============================================================"
+"
+" Acknowledgements:
+"
+"  The Tabular TableFormat() function is taken from the
+"  vim-markdown project by plasticboy, which can be found
+"  at https://github.com/plasticboy/vim-markdown and is
+"  licensed with the MIT license.
+"
 
 "INITIALIZE PLUGINS: {{{
     "create missing plugin config files and directories
@@ -165,6 +173,24 @@
         let g:syntastic_auto_loc_list=1
         let g:syntastic_loc_list_height=5
     endif
+"}}}
+
+"TAGBAR: {{{
+    " TableFormat() for formatting markdown tables with Tabular
+    function! s:TableFormat()
+      let l:pos = getpos('.')
+      normal! {
+      " Search instead of `normal! j` because of the table at beginning of file edge case.
+      call search('|')
+      normal! j
+      " Remove everything that is not a pipe othewise well formated tables would grow
+      " because of addition of 2 spaces on the separator line by Tabularize /|.
+      s/[^|]//g
+      Tabularize /|
+      s/ /-/g
+      call setpos('.', l:pos)
+    endfunction
+    command! -buffer TableFormat call s:TableFormat()
 "}}}
 
 "TAGBAR: {{{

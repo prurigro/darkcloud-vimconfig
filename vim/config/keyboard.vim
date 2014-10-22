@@ -72,18 +72,20 @@
 "    <Alt-c>                  | (N) -> create a new tab with vimfiler
 "    <Alt-d>                  | (N) -> create a new tab with a double pane vimfiler
 "
+"  (display)
+"    <Esc><Esc>               | (N) -> reset window and clear search
+"    //                       | (N) -> reset window and clear search
+"
 "  (toggles and features)
-"    `                        | (N) -> popup a command reference
+"    ~                        | (N) -> popup a command reference
 "    ,                        | (N) -> display tag information in echo area
 "    <Leader><F1>             | (N) -> toggle the vim reference manual
 "    <Leader>?                | (N) -> toggle the vim reference manual
-"    ~                        | (A) -> toggle the gutter(line numbers, folds and signify)
+"    `                        | (A) -> toggle the gutter(line numbers, folds and signify)
 "
-"    <Space>                  | (N) -> toggle selected fold
-"    <Leader><Space>          | (N) -> open all folds
+"    <Space><Space>           | (N) -> toggle selected fold
 "    <Leader>=                | (N) -> open all folds
 "    <Leader>+                | (N) -> open all folds
-"    <Leader><Leader><Space>  | (N) -> open all folds
 "    <Leader>-                | (N) -> unopen all folds
 "    <Leader>_                | (N) -> unopen all folds
 "    <Leader>0                | (N) -> reset all folds using default fold level
@@ -118,7 +120,6 @@
 "
 "  (copy/paste and undo/redo)
 "    <Leader>p                | (N) -> view the paste buffers and register contents
-"    y                        | (N) -> copies the character at the cursor
 "    P                        | (V) -> save selection to the buffer and paste over
 "    p                        | (V) -> preserve the buffer pasting over selected text
 "    <Ctrl-p>Direction        | (N) -> paste in the direction entered
@@ -162,16 +163,21 @@
 "    <Leader>f                | (N) -> format document and return to cursor
 "    <Leader>f                | (V) -> format the selection and return to cursor
 "    <Leader>F                | (N) -> format document using :Autoformat
-"    <Leader>w                | (N) -> remove whitespace
 "    <Leader>t                | (N) -> convert tabs into spaces
-"    <Leader>A                | (N) -> aligns all comments
+"    <Leader>T                | (N) -> convert spaces into tabs
+"    <Leader>w                | (N) -> remove whitespace
+"    <Leader>A                | (N) -> aligns comments using the comment symbol
 "    <Leader>A                | (V) -> aligns selected comments
 "    <Leader>a                | (N) -> aligns all comments after text
 "    <Leader>a                | (V) -> aligns selected comments after text
 "    <Tab>                    | (V) -> indent all the lines currently selected
 "    <Tab>                    | (N) -> indent the current line
-"    <Shift-Tab>              | (V) -> unindent all the lines currently selected
-"    <Shift-Tab>              | (N) -> unindent the current line
+"    <Leader>>                | (V) -> indent all the lines currently selected
+"    <Leader>>                | (N) -> indent the current line
+"    <Shift-Tab>              | (V) -> un-indent all the lines currently selected
+"    <Shift-Tab>              | (N) -> un-indent the current line
+"    <Leader><                | (V) -> un-indent all the lines currently selected
+"    <Leader><                | (N) -> un-indent the current line
 "
 "  (movement)
 "    =                        | (N) -> go to the first char on the next line
@@ -217,8 +223,6 @@
 "    <Ctrl-Right>             | (V) -> select one word right
 "    <Ctrl-Left>              | (V) -> select one word left
 "
-"    //                       | (N) -> remove search highlighting
-"
 "    (remap dangerous functions that skip undo)
 "      <Ctrl-u>               | (I) -> undo-able equivalent
 "      <Ctrl-w>               | (I) -> undo-able equivalent
@@ -262,7 +266,9 @@
 "    <Leader><>               | (N) -> update differences
 "    <Leader>><               | (N) -> update differences
 "    <Leader>>                | (N) -> replace diff in other pane with current pane
+"    <Leader>.                | (N) -> replace diff in other pane with current pane
 "    <Leader<<                | (N) -> replace diff in current pane with other pane
+"    <Leader<,                | (N) -> replace diff in current pane with other pane
 "
 "  (vimfiler)
 "    <LClick>                 | (A) -> left click + left justify the cursor
@@ -386,9 +392,15 @@
         nnoremap <silent><expr> <A-d> ':VimFiler -tab -project -double<CR>'
     "}
 
+    "DISPLAY:{
+        "clear search and reset buffer
+        nnoremap <silent><expr> <Esc><Esc> ':noh<CR>:redraw!<CR>'
+        nnoremap <silent><expr> // ':noh<CR>:redraw!<CR>'
+    "}
+
     "TOGGLES AND FEATURES:{
         "toggle the command reference box
-        nnoremap <silent><expr> ` ':TCommand<CR>'
+        nnoremap <silent><expr> ~ ':TCommand<CR>'
 
         "display tag information in the gutter
         noremap <buffer> <silent><expr> , ':TTagechoWord<CR>'
@@ -398,18 +410,16 @@
         nnoremap <silent><expr> <Leader>? ':h index.txt<CR>'
 
         "toggle the display of the left gutter
-        nnoremap <silent><expr> ~ ':if (&number)<Bar>set nonumber<Bar>if (&foldenable)<Bar>set nofoldenable<Bar>endif<Bar>if exists("b:sy")<Bar>if (b:sy.active)<Bar>SignifyToggle<Bar>endif<Bar>endif<Bar>else<Bar>set number<Bar>if !(&foldenable)<Bar>set foldenable<Bar>endif<Bar>if exists("b:sy")<Bar>if !(b:sy.active)<Bar>SignifyToggle<Bar>endif<Bar>endif<Bar>endif<CR>:echo "gutter visibility toggled"<CR>'
+        nnoremap <silent><expr> ` ':if (&number)<Bar>set nonumber<Bar>if (&foldenable)<Bar>set nofoldenable<Bar>endif<Bar>if exists("b:sy")<Bar>if (b:sy.active)<Bar>SignifyToggle<Bar>endif<Bar>endif<Bar>else<Bar>set number<Bar>if !(&foldenable)<Bar>set foldenable<Bar>endif<Bar>if exists("b:sy")<Bar>if !(b:sy.active)<Bar>SignifyToggle<Bar>endif<Bar>endif<Bar>endif<CR>:echo "gutter visibility toggled"<CR>'
 
         "toggle folded code at foldpoints
-        nnoremap <Space> za
+        nnoremap <Space><Space> za
 
         "open all folds
-        nnoremap <silent><expr> <Leader><Space> 'zn:echo "all folds have been opened"<CR>'
-        nnoremap <silent><expr> <Leader>= 'zn:echo "all folds have been opened"<CR>'
-        nnoremap <silent><expr> <Leader>+ 'zn:echo "all folds have been opened"<CR>'
+        nnoremap <silent><expr> <Space>= 'zn:echo "all folds have been opened"<CR>'
+        nnoremap <silent><expr> <Space>+ 'zn:echo "all folds have been opened"<CR>'
 
         "close folds set to be closed
-        nnoremap <silent><expr> <Leader><Leader><Space> 'zN:echo "all opened folds have been closed"<CR>'
         nnoremap <silent><expr> <Leader>- 'zN:echo "all opened folds have been closed"<CR>'
         nnoremap <silent><expr> <Leader>_ 'zN:echo "all opened folds have been closed"<CR>'
 
@@ -506,9 +516,6 @@
         "display contents of paste buffers
         nnoremap <silent><expr> <Leader>p ':reg<CR>'
 
-        "allow y to copy a single character in normal mode
-        nnoremap y vy<Esc>
-
         "P pastes and replaces the buffer, p pastes and keeps it
         vnoremap P p
         xmap p <Plug>ReplaceWithRegisterVisual
@@ -555,7 +562,7 @@
             return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
         endfunction
         "neocomplcache tab completion
-        inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+        inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
         "neocomplcache : undo completion
         inoremap <expr><Backspace> neocomplcache#smart_close_popup()."\<C-h>"
         "neocomplcache undo completion
@@ -570,26 +577,35 @@
         nnoremap <silent><expr> <Leader>J ':let b:tw=&textwidth<CR>:if (b:tw == 0)<Bar>set tw=80<Bar>endif<CR>gg0vG$gq:if (b:tw == 0)<Bar>set tw=0<Bar>let b:tw=80<Bar>endif<CR>:echo "Document has been formatted to a width of ".b:tw." characters"<CR>'
         vnoremap <silent><expr> <Leader>J '<Esc>:let b:tw=&textwidth<CR>:if (b:tw == 0)<Bar>set tw=80<Bar>endif<CR>gvgq:if (b:tw == 0)<Bar>set tw=0<Bar>let b:tw=80<Bar>endif<CR>:echo "Selection has been formatted to a width of ".b:tw." characters"<CR>'
 
-        "format syntax
+        "format by Vim syntax + by Autoformat tool syntax
         nnoremap <Leader>f mzgg=G`z<CR>:echo "The document has been formatted"<CR>
         vnoremap <Leader>f mz=`z<CR>:echo "The selection has been formatted"<CR>
         nnoremap <silent><expr> <Leader>F ':Autoformat<CR>:echo "The document has been formatted with :Autoformat"<CR>'
 
-        "convert tabs to spaces
+        "convert tabs to spaces and spaces to tabs
+        nnoremap <silent><expr> <Leader>t ':set expandtab<CR>:retab!<CR>:echo "Tabs have been converted to spaces"<CR>'
+        nnoremap <silent><expr> <Leader>T ':set noexpandtab<CR>:%retab!<CR>:echo "Spaces have been converted to tabs"<CR>'
+
+        "remove trailing whitespace
         nnoremap <silent><expr> <Leader>w ':FixWhitespace<CR>:echo "Trailing whitespace has been removed"<CR>'
-        nnoremap <silent><expr> <Leader>t ':retab<CR>:noh<CR>:echo "Tabs have been converted to spaces"<CR>'
 
         "align comments
-        nnoremap <Leader>A :<C-u>exe "%Tabular" '/^[^'.matchstr(&commentstring, '[^%]*').']*\zs'.matchstr(&commentstring, '[^%]*').'.*'<CR>
-        vnoremap <Leader>A :<C-u>exe "'<,'>Tabular" '/^[^'.matchstr(&commentstring, '[^%]*').']*\zs'.matchstr(&commentstring, '[^%]*').'.*'<CR>
-        nnoremap <Leader>a :<C-u>exe "%Tabular" '/^\ *[^'.matchstr(&commentstring, '[^%]*').'\ ][^\'.matchstr(&commentstring, '[^%]*').']*\zs'.matchstr(&commentstring, '[^%]*').'.*'<CR>
-        vnoremap <Leader>a :<C-u>exe "'<,'>Tabular" '/^\ *[^'.matchstr(&commentstring, '[^%]*').' ][^\'.matchstr(&commentstring, '[^%]*').']*\zs'.matchstr(&commentstring, '[^%]*').'.*'<CR>
+        nnoremap <Leader>A :exe "%Tabular" '/^[^'.matchstr(&commentstring, '[^%]*').']*\zs'.matchstr(&commentstring, '[^%]*').'.*'<CR>:redraw!<CR>
+        vnoremap <Leader>A <C-u>:exe "'<,'>Tabular" '/^[^'.matchstr(&commentstring, '[^%]*').']*\zs'.matchstr(&commentstring, '[^%]*').'.*'<CR>:redraw!<CR>
 
-        "tab and untab the currently selected lines
+        "align only comments following non-comments
+        nnoremap <Leader>a :exe "%Tabular" '/^ *[^'.matchstr(&commentstring, '[^%]*').' ][^\'.matchstr(&commentstring, '[^%]*').']*\zs'.matchstr(&commentstring, '[^%]*').'.*'<CR>:redraw!<CR>
+        vnoremap <Leader>a <C-u>:exe "'<,'>Tabular" '/^ *[^'.matchstr(&commentstring, '[^%]*').' ][^\'.matchstr(&commentstring, '[^%]*').']*\zs'.matchstr(&commentstring, '[^%]*').'.*'<CR>:redraw!<CR>
+
+        "tab/<Leader>> and untab/<Leader>< the currently selected lines
         vnoremap <Tab> >gv
         nnoremap <Tab> v>gv<Esc>
+        vnoremap <Leader>> >gv
+        nnoremap <Leader>> v>gv<Esc>
         vnoremap <S-Tab> <gv
         nnoremap <S-Tab> v<gv<Esc>
+        vnoremap <Leader>< <gv
+        nnoremap <Leader>< v<gv<Esc>
     "}
 
     "MOVEMENT:{
@@ -650,9 +666,6 @@
         xnoremap <S-Down> G$
         xnoremap <S-Right> $
         xnoremap <S-Left> ^
-
-        "clear search results
-        nnoremap <silent><expr> // '<Esc>:noh<CR>'
     "}
 "}}}
 
@@ -681,7 +694,11 @@
         autocmd FileType help map <buffer> <silent><expr> <Leader>? ':q<CR>'
     endif
 
-    "mappings for qf-based plugins
+    "markdown
+    autocmd FileType mkd nnoremap <buffer> <silent><expr> <Leader>F ':TableFormat<CR>'
+    autocmd FileType mkd xnoremap <buffer> <silent><expr> <Leader>F '<Esc>:TableFormat<CR>gv'
+
+    "qf-sidebar
     autocmd FileType qf map <buffer> <LeftMouse> <LeftMouse>0
     autocmd FileType qf map <buffer> <MiddleMouse> <LeftMouse>
     autocmd FileType qf map <buffer> <RightMouse> <LeftMouse>
@@ -699,7 +716,9 @@
     autocmd FilterWritePre * if &diff|nnoremap <buffer> <silent><expr> <Leader><> ':diffu<CR>'|endif
     autocmd FilterWritePre * if &diff|nnoremap <buffer> <silent><expr> <Leader>>< ':diffu<CR>'|endif
     autocmd FilterWritePre * if &diff|nnoremap <buffer> <Leader>> dp|endif
+    autocmd FilterWritePre * if &diff|nnoremap <buffer> <Leader>. dp|endif
     autocmd FilterWritePre * if &diff|nnoremap <buffer> <Leader>< do|endif
+    autocmd FilterWritePre * if &diff|nnoremap <buffer> <Leader>, do|endif
     autocmd FilterWritePre * if &diff|cabbrev q! qall!|endif
 
     "vimfiler
@@ -713,7 +732,7 @@
     autocmd FileType vimfiler map <buffer> ~ q
 "}}}
 
-"DISABLED MAPPINGS FOR FILETYPES: {{{
+"MAPPINGS DISABLED FOR GIVEN FILETYPES: {{{
     "remove incompatible toggles from specific file types
     autocmd Filetype qf,gundo,vimfiler,tagbar,extradite,help noremap <buffer> ~ <Nop>
     autocmd Filetype qf,vimfiler,extradite,help noremap <buffer> <C-F2> <Nop>
