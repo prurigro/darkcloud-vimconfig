@@ -539,7 +539,7 @@
         nnoremap <C-v> P
         xmap <C-v> <Plug>ReplaceWithRegisterVisual
         inoremap <C-v> <C-O>p
-        nnoremap <C-c> y
+        nnoremap <C-c> vy
         vnoremap <C-c> y
         nnoremap <C-x> x
         vnoremap <C-x> x
