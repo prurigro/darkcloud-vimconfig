@@ -1,6 +1,2 @@
-add-submodule
-delete-submodule
-add-pager-submodule
-delete-pager-submodule
 vim/bundle.user/*
 vim/vimrc.user
