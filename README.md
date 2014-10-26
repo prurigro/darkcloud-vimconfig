@@ -76,85 +76,85 @@ As usual, to have your system use `vimpager` in place of `less`, you'll need to 
 
 ### Mouse ###
 
-| Binding                  | Mode | Action                                       |
-|--------------------------|------|----------------------------------------------|
-| \<Ctrl-ScrollUp\>        | ALL  | Scroll right a few characters at a time      |
-| \<Ctrl-ScrollDown\>      | ALL  | Scroll left a few characters at a time       |
-| \<Alt-ScrollUp\>         | ALL  | Scroll right one character at a time         |
-| \<Alt-ScrollDown\>       | ALL  | Scroll left one character at a time          |
-|                          |      |                                              |
-| MiddleClick              | ALL  | Select between the cursor and the mouse      |
-| \<Ctrl-LeftClick\>       | ALL  | Select between the cursor and the mouse      |
-| \<Alt-LeftClick\>        | ALL  | Select the line at the mouse                 |
-| \<Ctrl-Alt-LeftClick\>   | ALL  | Select the paragraph at the mouse            |
-|                          |      |                                              |
-| \<Ctrl-RightClick\>      | ALL  | Copy selection or character under the cursor |
-| \<Ctrl-MiddleClick\>     | ALL  | Copy selection or character under the cursor |
-| \<Alt-RightClick\>       | ALL  | Cut selection or character under the cursor  |
-| \<Alt-MiddleClick\>      | ALL  | Cut selection or character under the cursor  |
-| \<Ctrl-Alt-RightClick\>  | ALL  | Paste at the cursor                          |
-| \<Ctrl-Alt-MiddleClick\> | ALL  | Paste at the cursor                          |
-| \<Shift-MiddleClick\>    | ALL  | Paste the contents of the xorg buffer        |
+| Binding              | Mode | Action                                       |
+|----------------------|------|----------------------------------------------|
+| Ctrl+ScrollUp        | ALL  | Scroll right a few characters at a time      |
+| Ctrl+ScrollDown      | ALL  | Scroll left a few characters at a time       |
+| Alt+ScrollUp         | ALL  | Scroll right one character at a time         |
+| Alt+ScrollDown       | ALL  | Scroll left one character at a time          |
+|                      |      |                                              |
+| MiddleClick          | ALL  | Select between the cursor and the mouse      |
+| Ctrl+LeftClick       | ALL  | Select between the cursor and the mouse      |
+| Alt+LeftClick        | ALL  | Select the line at the mouse                 |
+| Ctrl+Alt+LeftClick   | ALL  | Select the paragraph at the mouse            |
+|                      |      |                                              |
+| Ctrl+RightClick      | ALL  | Copy selection or character under the cursor |
+| Ctrl+MiddleClick     | ALL  | Copy selection or character under the cursor |
+| Alt+RightClick       | ALL  | Cut selection or character under the cursor  |
+| Alt+MiddleClick      | ALL  | Cut selection or character under the cursor  |
+| Ctrl+Alt+RightClick  | ALL  | Paste at the cursor                          |
+| Ctrl+Alt+MiddleClick | ALL  | Paste at the cursor                          |
+| Shift+MiddleClick    | ALL  | Paste the contents of the xorg buffer        |
 
 ### Keyboard ###
 
 #### Sidebars ####
 
-| Binding               | Mode | Action                                        |
-|-----------------------|------|-----------------------------------------------|
-| \<(Ctrl-or-Alt)-F1\>  | ALL  | Toggle **vimfiler** file manager sidebar      |
-| \<(Ctrl-or-Alt)-F2\>  | ALL  | Toggle the **gundo** undo history sidebar     |
-| \<(Ctrl-or-Alt)-F3\>  | ALL  | Toggle the **tagbar** source code tag sidebar |
-| \<(Ctrl-or-Alt)-F4\>  | ALL  | Toggle the **extradite** git history window   |
-| \<(Ctrl-or-Alt)-F12\> | ALL  | Toggle the **goyo** distraction-free mode     |
+| Binding         | Mode | Action                                        |
+|-----------------|------|-----------------------------------------------|
+| Ctrl-or-Alt+F1  | ALL  | Toggle **vimfiler** file manager sidebar      |
+| Ctrl-or-Alt+F2  | ALL  | Toggle the **gundo** undo history sidebar     |
+| Ctrl-or-Alt+F3  | ALL  | Toggle the **tagbar** source code tag sidebar |
+| Ctrl-or-Alt+F4  | ALL  | Toggle the **extradite** git history window   |
+| Ctrl-or-Alt+F12 | ALL  | Toggle the **goyo** distraction-free mode     |
 
 #### Toggles ####
 
-| Binding                | Mode | Action                                           |
-|------------------------|------|--------------------------------------------------|
-| ~                      | N    | Popup a command list dialog                      |
-|                        |      |                                                  |
-| \<F1\>                 | ALL  | Toggle line wrapping                             |
-| \<F2\>                 | ALL  | Toggle highlighting of spelling mistakes         |
-| \<F3\>                 | ALL  | Toggle source code syntax checking               |
-| \<F4\>                 | ALL  | Toggle external-paste mode                       |
-|                        |      |                                                  |
-| \`                     | N    | Toggle gutter (left bar with line numbers etc.)  |
-| \<Backslash\>\<F1\>    | N    | Toggle the **vim** reference manual              |
-| \<Backslash\>\<Space\> | N    | Toggle the **goyo** distraction-free UI          |
-| ?\<Space\>             | N    | Toggle the **spellcheck** bottom bar of mistakes |
+| Binding         | Mode | Action                                           |
+|-----------------|------|--------------------------------------------------|
+| ~               | N    | Popup a command list dialog                      |
+|                 |      |                                                  |
+| F1              | ALL  | Toggle line wrapping                             |
+| F2              | ALL  | Toggle highlighting of spelling mistakes         |
+| F3              | ALL  | Toggle source code syntax checking               |
+| F4              | ALL  | Toggle external-paste mode                       |
+|                 |      |                                                  |
+| \`              | N    | Toggle gutter (left bar with line numbers etc.)  |
+| Backslash+F1    | N    | Toggle the **vim** reference manual              |
+| Backslash+Space | N    | Toggle the **goyo** distraction-free UI          |
+| ?+Space         | N    | Toggle the **spellcheck** bottom bar of mistakes |
 
 #### Spell Check ####
 
-| Binding    | Mode | Action                                        |
-|------------|------|-----------------------------------------------|
-| ?\<Space\> | N    | Toggle spellcheck error list                  |
-| ?+         | N    | Add the selected word to the local dictionary |
-| ??         | N    | Show spelling suggestions for selected word   |
-| ?N         | N    | Go to the next spelling mistake               |
-| ?P         | N    | Go to the previous spelling mistake           |
+| Binding | Mode | Action                                        |
+|---------|------|-----------------------------------------------|
+| ?+Space | N    | Toggle spellcheck error list                  |
+| ?+      | N    | Add the selected word to the local dictionary |
+| ??      | N    | Show spelling suggestions for selected word   |
+| ?N      | N    | Go to the next spelling mistake               |
+| ?P      | N    | Go to the previous spelling mistake           |
 
 #### Formatting ####
 
-| Binding     | Mode | Action                                                        |
-|-------------|------|---------------------------------------------------------------|
-| \<Leader\>J | N+V  | Format line/selected lines to a max width of the _textwidth_  |
-| \<Leader\>f | N+V  | Format document/selection alignment using Vim syntax          |
-| \<Leader\>F | N    | Format based on file-type using Autoformat                    |
-| \<Leader\>F | N+V  | (Markdown) Format table cursor is currently on                |
-| \<Leader\>t | N    | Convert all tabs into spaces and continue session with spaces |
-| \<Leader\>T | N    | Convert all spaces into tabs and continue session with tabs   |
-| \<Leader\>w | N    | Remove all trailing whitespace                                |
-| \<Leader\>A | N+V  | Align comments in document/selection                          |
-| \<Leader\>a | N+V  | Align comments following non-comments in document/selection   |
+| Binding  | Mode | Action                                                        |
+|----------|------|---------------------------------------------------------------|
+| Leader+J | N+V  | Format line/selected lines to a max width of the _textwidth_  |
+| Leader+f | N+V  | Format document/selection alignment using Vim syntax          |
+| Leader+F | N    | Format based on file-type using Autoformat                    |
+| Leader+F | N+V  | (Markdown) Format table cursor is currently on                |
+| Leader+t | N    | Convert all tabs into spaces and continue session with spaces |
+| Leader+T | N    | Convert all spaces into tabs and continue session with tabs   |
+| Leader+w | N    | Remove all trailing whitespace                                |
+| Leader+A | N+V  | Align comments in document/selection                          |
+| Leader+a | N+V  | Align comments following non-comments in document/selection   |
 
 #### GVim ####
 
-| Binding             | Mode | Action                           |
-|---------------------|------|----------------------------------|
-| \<Backslash\>\<F1\> | ALL  | Toggle the menubar **(gvim)**    |
-| \<Backslash\>\<F2\> | ALL  | Toggle the toolbar **(gvim)**    |
-| \<Backslash\>\<F3\> | ALL  | Toggle the scrollbars **(gvim)** |
+| Binding      | Mode | Action                |
+|--------------|------|-----------------------|
+| Backslash+F1 | ALL  | Toggle the menubar    |
+| Backslash+F2 | ALL  | Toggle the toolbar    |
+| Backslash+F3 | ALL  | Toggle the scrollbars |
 
 ### Complete Reference ###
 
