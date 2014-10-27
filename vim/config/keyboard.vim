@@ -312,9 +312,7 @@
     cabbrev <expr><silent> gitstatus ':Gstatus<CR>'
     cabbrev <expr><silent> GitCommit ':Gcommit<CR>'
     cabbrev <expr><silent> gitcommit ':Gcommit<CR>'
-
-    cabbrev <expr><silent> diff ':vertical diffsplit'
-
+    cabbrev diff vertical diffsplit
     cabbrev sudow SudoWrite
     cabbrev wsudo SudoWrite
     cabbrev sudoe SudoRead
