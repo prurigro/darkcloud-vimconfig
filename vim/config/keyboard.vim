@@ -17,19 +17,15 @@
 "  :GitDiff & :gitdiff        | (C) -> current file and last commit in vimdiff
 "  :GitStatus & :gitstatus    | (C) -> shows the output of git status
 "  :GitCommit & :gitcommit    | (C) -> commits changes to the current file
+"  :git <file>                | (C) -> open a vert split with the file in diff mode
 "  :wsudo & :sudow            | (C) -> write the file as root using sudo
 "  :esudo & :sudoe            | (C) -> read a file as root using sudo
 "
 " Reference: (view plugin documentation for the full list of commands each offers)
-"  (tcomment _ can also be -)
 "   <Ctrl-_><Ctrl-_>          | (A) -> comment selection/create an empty comment
-"   gc                        | (A) -> comment selection/create an empty comment
 "   <Ctrl-_>b                 | (A) -> comment the current block(s)
 "   <Ctrl-_>r                 | (A) -> comment everything on the line to the right
 "   <Ctrl-_>p                 | (A) -> comment the current paragraph
-"   +                         | (V) -> increase the selected region
-"   _                         | (V) -> decrease the selected region
-"   <Leader><Enter>           | (N) -> center content and hide everything else
 "
 "  (surround)
 "    S"                       | (V) -> surround selection with quotes
@@ -149,7 +145,7 @@
 "      <Ctrl-D>               | (I) -> cut line before cursor during input
 "      <Ctrl-Y>               | (I) -> paste what's been cut during input
 "
-"  (completion)
+"  (autocompletion)
 "    <Ctrl-m>,                | (A) -> enter after emmet 'word' (ie: html:5)
 "    <Enter>                  | (I) -> (neocomp) close the popup and <Enter>
 "    <Tab>                    | (I) -> (neocomp) select/cycle popup completion
@@ -166,6 +162,8 @@
 "    <Leader>t                | (N) -> convert tabs into spaces
 "    <Leader>T                | (N) -> convert spaces into tabs
 "    <Leader>w                | (N) -> remove whitespace
+"    <Leader>c                | (N) -> comment/uncomment current line
+"    <Leader>c                | (V) -> comment/uncomment selection
 "    <Leader>A                | (N) -> aligns comments using the comment symbol
 "    <Leader>A                | (V) -> aligns selected comments
 "    <Leader>a                | (N) -> aligns all comments after text
@@ -264,7 +262,9 @@
 "
 "  (vimdiff)
 "    <Leader><>               | (N) -> update differences
+"    <Leader>,.               | (N) -> update differences
 "    <Leader>><               | (N) -> update differences
+"    <Leader>.,               | (N) -> update differences
 "    <Leader>>                | (N) -> replace diff in other pane with current pane
 "    <Leader>.                | (N) -> replace diff in other pane with current pane
 "    <Leader<<                | (N) -> replace diff in current pane with other pane
@@ -312,6 +312,8 @@
     cabbrev <expr><silent> gitstatus ':Gstatus<CR>'
     cabbrev <expr><silent> GitCommit ':Gcommit<CR>'
     cabbrev <expr><silent> gitcommit ':Gcommit<CR>'
+
+    cabbrev <expr><silent> diff ':vertical diffsplit'
 
     cabbrev sudow SudoWrite
     cabbrev wsudo SudoWrite
@@ -552,7 +554,7 @@
         inoremap <C-w> <C-g>u<C-w>
     "}
 
-    "COMPLETION:{
+    "AUTOCOMPLETION:{
         "emmet switch triggerkey from <Ctrl-Y>
         let g:user_emmet_leader_key='<C-m>'
 
@@ -588,6 +590,10 @@
 
         "remove trailing whitespace
         nnoremap <silent><expr> <Leader>w ':FixWhitespace<CR>:echo "Trailing whitespace has been removed"<CR>'
+
+        "commant/uncomment current line/selection using tcomment
+        nmap <Leader>c gcc
+        vmap <Leader>c gc
 
         "align comments
         nnoremap <Leader>A :exe "%Tabular" '/^[^'.matchstr(&commentstring, '[^%]*').']*\zs'.matchstr(&commentstring, '[^%]*').'.*'<CR>:redraw!<CR>
@@ -713,12 +719,14 @@
     autocmd FileType qf map <buffer> <silent><expr> <A-F3> ':call ToggleQuickfixList()<CR>'
 
     "vimdiff
-    autocmd FilterWritePre * if &diff|nnoremap <buffer> <silent><expr> <Leader><> ':diffu<CR>'|endif
-    autocmd FilterWritePre * if &diff|nnoremap <buffer> <silent><expr> <Leader>>< ':diffu<CR>'|endif
-    autocmd FilterWritePre * if &diff|nnoremap <buffer> <Leader>> dp|endif
-    autocmd FilterWritePre * if &diff|nnoremap <buffer> <Leader>. dp|endif
-    autocmd FilterWritePre * if &diff|nnoremap <buffer> <Leader>< do|endif
-    autocmd FilterWritePre * if &diff|nnoremap <buffer> <Leader>, do|endif
+    autocmd FilterWritePre * if &diff|nmap <buffer> <silent><expr> <Leader><> ':diffu<CR>'|endif
+    autocmd FilterWritePre * if &diff|nmap <buffer> <silent><expr> <Leader>,. ':diffu<CR>'|endif
+    autocmd FilterWritePre * if &diff|nmap <buffer> <silent><expr> <Leader>>< ':diffu<CR>'|endif
+    autocmd FilterWritePre * if &diff|nmap <buffer> <silent><expr> <Leader>., ':diffu<CR>'|endif
+    autocmd FilterWritePre * if &diff|nmap <buffer> <Leader>> dp|endif
+    autocmd FilterWritePre * if &diff|nmap <buffer> <Leader>. dp|endif
+    autocmd FilterWritePre * if &diff|nmap <buffer> <Leader>< do|endif
+    autocmd FilterWritePre * if &diff|nmap <buffer> <Leader>, do|endif
     autocmd FilterWritePre * if &diff|cabbrev q! qall!|endif
 
     "vimfiler
@@ -729,12 +737,11 @@
     autocmd FileType vimfiler map <buffer> <Right> l
     autocmd FileType vimfiler map <buffer> <Left> h
     autocmd FileType vimfiler map <buffer> ' e
-    autocmd FileType vimfiler map <buffer> ~ q
 "}}}
 
 "MAPPINGS DISABLED FOR GIVEN FILETYPES: {{{
     "remove incompatible toggles from specific file types
-    autocmd Filetype qf,gundo,vimfiler,tagbar,extradite,help noremap <buffer> ~ <Nop>
+    autocmd Filetype qf,gundo,vimfiler,tagbar,extradite,help noremap <buffer> ` <Nop>
     autocmd Filetype qf,vimfiler,extradite,help noremap <buffer> <C-F2> <Nop>
     autocmd Filetype qf,vimfiler,extradite,help noremap <buffer> <A-F2> <Nop>
     autocmd Filetype gundo,vimfiler,extradite,help noremap <buffer> <C-F3> <Nop>
