@@ -106,3 +106,6 @@
 [submodule "vim/bundle/patchreview-vim"]
 	path = vim/bundle/patchreview-vim
 	url = https://github.com/junkblocker/patchreview-vim
+[submodule "vim/bundle/vim-unimpaired"]
+	path = vim/bundle/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
