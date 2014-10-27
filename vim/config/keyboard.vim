@@ -69,7 +69,7 @@
 "    <Alt-d>                  | (N) -> create a new tab with a double pane vimfiler
 "
 "  (display)
-"    <Esc><Esc>               | (N) -> reset window and clear search
+"    <Backspace>              | (N) -> reset window and clear search
 "    //                       | (N) -> reset window and clear search
 "
 "  (toggles and features)
@@ -394,7 +394,7 @@
 
     "DISPLAY:{
         "clear search and reset buffer
-        nnoremap <silent><expr> <Esc><Esc> ':noh<CR>:redraw!<CR>'
+        nnoremap <silent><expr> <BackSpace> ':noh<CR>:redraw!<CR>'
         nnoremap <silent><expr> // ':noh<CR>:redraw!<CR>'
     "}
 
