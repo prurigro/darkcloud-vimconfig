@@ -84,17 +84,25 @@
         set timeout timeoutlen=500 "how long before timing out for mappings
         set ttimeout ttimeoutlen=100 "how long before timing out for terminal key codes
 
-        "enable the auto-creation of missing folders in a save path
-        if !exists('*s:MakeNewDir')
-            function s:MakeNewDir(fullpath, buf)
-                if empty(getbufvar(a:buf,'&buftype')) && a:fullpath!~#'\v^\w+\:\/'
-                    let dirpath=fnamemodify(a:fullpath,':h')
-                    if !isdirectory(dirpath)|call mkdir(dirpath,'p')|endif
-                endif
-            endfunction
-            augroup WriteDir
+        if has('autocmd')
+            "enable the auto-creation of missing folders in a save path
+            if !exists('*s:MakeNewDir')
+                function s:MakeNewDir(fullpath, buf)
+                    if empty(getbufvar(a:buf,'&buftype')) && a:fullpath!~#'\v^\w+\:\/'
+                        let dirpath=fnamemodify(a:fullpath,':h')
+                        if !isdirectory(dirpath)|call mkdir(dirpath,'p')|endif
+                    endif
+                endfunction
+                augroup WriteDir
+                    autocmd!
+                    autocmd BufWritePre * :call s:MakeNewDir(expand('<afile>'),+expand('<abuf>'))
+                augroup END
+            endif
+
+            "update the current filetype when a file is renamed
+            augroup RenameCheckFiletype
                 autocmd!
-                autocmd BufWritePre * :call s:MakeNewDir(expand('<afile>'),+expand('<abuf>'))
+                autocmd BufFilePost * filetype detect
             augroup END
         endif
     "}}}
