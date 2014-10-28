@@ -112,3 +112,6 @@
 [submodule "vim/bundle/rename.vim"]
 	path = vim/bundle/rename.vim
 	url = https://github.com/danro/rename.vim.git
+[submodule "vim/bundle/vim-bookmarks"]
+	path = vim/bundle/vim-bookmarks
+	url = https://github.com/MattesGroeger/vim-bookmarks.git

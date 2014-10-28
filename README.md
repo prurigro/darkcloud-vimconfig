@@ -182,8 +182,9 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [tcommand_vim](https://github.com/tomtom/tcommand_vim): Select commands, menu items etc. from a list.
   * [tlib_vim](https://github.com/tomtom/tlib_vim): Some utility functions for VIM.
 * [tcomment_vim](https://github.com/tomtom/tcomment_vim): File-type sensible comments that can be easily toggled on and off for blocks of text.
+* [vim-bookmarks](https://github.com/MattesGroeger/vim-bookmarks): Bookmark or annotate lines and quickly navigate between them.
 * [vim-easytags](https://github.com/xolox/vim-easytags): Automated tag file generation and syntax highlighting of tags in Vim.
-  * [vim-misc](https://github.com/xolox/vim-misc): Miscellaneous auto-load Vim scripts.
+  * [vim-misc](https://github.com/xolox/vim-misc): Miscellaneous auto-load Vim scripts required by vim-easytags.
 * [vim-extradite](https://github.com/int3/vim-extradite): A git commit browser extending vim-fugitive that displays differences and optionally loads old revisions.
 * [vimfiler.vim](https://github.com/Shougo/vimfiler.vim): A curses-style file manager for vim that runs on it's own or in a sidebar and can associate handlers for file types.
   * [unite.vim](https://github.com/Shougo/unite.vim): A library used by Vim Filer to help build its user interface.

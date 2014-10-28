@@ -31,6 +31,11 @@
     set tags=./.tags;,~/.vim/tags
 "}}}
 
+"BOOKMARKS: {{{
+    let g:bookmark_sign = '★'
+    let g:bookmark_annotation_sign = '📌'
+"}}}
+
 "EASYTAGS: {{{
     let g:easytags_suppress_ctags_warning=1
     if !filereadable(glob("~/.vim/tags"))|let g:easytags_file='~/.vim/tags'|endif
@@ -175,20 +180,17 @@
     endif
 "}}}
 
-"TAGBAR: {{{
-    " TableFormat() for formatting markdown tables with Tabular
+"TABULAR: {{{
+    "format markdown tables
     function! s:TableFormat()
-      let l:pos = getpos('.')
-      normal! {
-      " Search instead of `normal! j` because of the table at beginning of file edge case.
-      call search('|')
-      normal! j
-      " Remove everything that is not a pipe othewise well formated tables would grow
-      " because of addition of 2 spaces on the separator line by Tabularize /|.
-      s/[^|]//g
-      Tabularize /|
-      s/ /-/g
-      call setpos('.', l:pos)
+        let l:pos = getpos('.')
+        normal! {
+        call search('|')
+        normal! j
+        s/[^|]//g
+        Tabularize /|
+        s/ /-/g
+        call setpos('.', l:pos)
     endfunction
     command! -buffer TableFormat call s:TableFormat()
 "}}}

@@ -80,11 +80,11 @@
 "    `                        | (A) -> toggle the gutter(line numbers, folds and signify)
 "
 "    <Space><Space>           | (N) -> toggle selected fold
-"    <Leader>=                | (N) -> open all folds
-"    <Leader>+                | (N) -> open all folds
-"    <Leader>-                | (N) -> unopen all folds
-"    <Leader>_                | (N) -> unopen all folds
-"    <Leader>0                | (N) -> reset all folds using default fold level
+"    <Space>=                 | (N) -> open all folds
+"    <Space>+                 | (N) -> open all folds
+"    <Space>-                 | (N) -> unopen all folds
+"    <Space>_                 | (N) -> unopen all folds
+"    <Space>0                 | (N) -> reset all folds using default fold level
 "
 "    <Ctrl-F1>                | (A) -> toggle vimfiler sidebar
 "    <Ctrl-F2>                | (A) -> toggle the gundo sidebar
@@ -420,11 +420,11 @@
         nnoremap <silent><expr> <Space>+ 'zn:echo "all folds have been opened"<CR>'
 
         "close folds set to be closed
-        nnoremap <silent><expr> <Leader>- 'zN:echo "all opened folds have been closed"<CR>'
-        nnoremap <silent><expr> <Leader>_ 'zN:echo "all opened folds have been closed"<CR>'
+        nnoremap <silent><expr> <Space>- 'zN:echo "all opened folds have been closed"<CR>'
+        nnoremap <silent><expr> <Space>_ 'zN:echo "all opened folds have been closed"<CR>'
 
         "reset all folds to the default fold level
-        nnoremap <silent><expr> <Leader>0 'zX:echo "all folds have been reset"<CR>'
+        nnoremap <silent><expr> <Space>0 'zX:echo "all folds have been reset"<CR>'
 
         "trigger vimfiler
         nnoremap <silent><expr> <C-F1> ':VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
