@@ -32,7 +32,7 @@
 "    S<a href="">             | (V) -> surround <a href="">selection</a>
 "    ds"                      | (N) -> delete surrounding ""
 "    dst                      | (N) -> delete surrounding tag (ie: <strong></strong>)
-"    cs'"                     | (N) -> change surrounding '' to "" (any delimiters work)
+"    cs'"                     | (N) -> change surrounding '' to "" (any delimiters)
 "    cs"<q>                   | (N) -> change surrounding "" to the tag: <q></q>
 "    cst"                     | (N) -> change any surrounding tag to ""
 "    ysiw'                    | (N) -> surround the current word with ''
@@ -50,11 +50,11 @@
 "    <Alt-LeftClick>          | (A) -> select the line being clicked
 "    <Ctrl-Alt-LeftClick>     | (A) -> select the paragraph being clicked
 "
-"    <Ctrl-RightClick>        | (A) -> copy selection or character under the cursor
-"    <Ctrl-MiddleClick>       | (A) -> copy selection or character under the cursor
+"    <Ctrl-RightClick>        | (A) -> copy selection or character under cursor
+"    <Ctrl-MiddleClick>       | (A) -> copy selection or character under cursor
 "
-"    <Alt-RightClick>         | (A) -> cut selection or character under the cursor
-"    <Alt-MiddleClick>        | (A) -> cut selection or character under the cursor
+"    <Alt-RightClick>         | (A) -> cut selection or character under cursor
+"    <Alt-MiddleClick>        | (A) -> cut selection or character under cursor
 "
 "    <Ctrl-Alt-RightClick>    | (A) -> paste at the cursor (not mouse)
 "    <Ctrl-Alt-MiddleClick>   | (A) -> paste at the cursor (not mouse)
@@ -71,13 +71,17 @@
 "  (display)
 "    <Backspace>              | (N) -> reset window and clear search
 "    //                       | (N) -> reset window and clear search
+"    n                        | (N) -> center vertically on next search term
+"    N                        | (N) -> center vertically on last search term
+"    *                        | (N) -> center vertically on nth next search term
+"    #                        | (N) -> center vertically on nth last search term
 "
 "  (toggles and features)
 "    ~                        | (N) -> popup a command reference
 "    ,                        | (N) -> display tag information in echo area
 "    <Leader><F1>             | (N) -> toggle the vim reference manual
 "    <Leader>?                | (N) -> toggle the vim reference manual
-"    `                        | (A) -> toggle the gutter(line numbers, folds and signify)
+"    `                        | (A) -> toggle the gutter(numbers+folds+signify)
 "
 "    <Space><Space>           | (N) -> toggle selected fold
 "    <Space>=                 | (N) -> open all folds
@@ -127,11 +131,11 @@
 "      <Leader>x              | (V) -> delete the currently selected text
 "      <Leader>X              | (N) -> delete the char(s) before the cursor
 "      <Leader>X              | (V) -> delete the currently selected lines
-"      <Leader>D              | (N) -> delete chars under and after the cursor on the line
+"      <Leader>D              | (N) -> delete from the cursor to EOL
 "      <Leader>D              | (V) -> delete the currently selected lines
-"      <Leader>dw             | (N) -> delete chars under and after the cursor in the word
-"      <Leader>dd             | (N) -> delete lines under and after the one below
-"      <Leader>d              | (V) -> delete the currently selected text
+"      <Leader>dw             | (N) -> delete from the cursor to end of the word
+"      <Leader>dd             | (N) -> delete current line
+"      <Leader>d              | (V) -> delete selected text
 "
 "    (improved copy and paste shortcuts)
 "      <Ctrl-v>               | (N) -> paste from buffer
@@ -396,6 +400,12 @@
         "clear search and reset buffer
         nnoremap <silent><expr> <BackSpace> ':noh<CR>:redraw!<CR>'
         nnoremap <silent><expr> // ':noh<CR>:redraw!<CR>'
+
+        "keep the currently highlighted term in a search vertically centered
+        nnoremap <silent>n nzz
+        nnoremap <silent>N Nzz
+        nnoremap <silent>* *zz
+        nnoremap <silent># #zz
     "}
 
     "TOGGLES AND FEATURES:{
