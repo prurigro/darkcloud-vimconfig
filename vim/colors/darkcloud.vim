@@ -320,8 +320,8 @@ hi SpellLocal guisp=NONE gui=NONE guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NON
     hi! link IncSearchCursor IncSearchOnCursor
 
     "status line
-    call s:X("StatusLine","#000000","#d75f5f","bold",s:termBlack,"Red")
-    call s:X("StatusLineNC","#ffffff","#626262","","White","Grey")
+    call s:X("StatusLine","","#303030","","",s:termBlack)
+    hi! link StatusLineNC StatusLine
     call s:X("VertSplit","#626262","#626262","",s:termBlack,s:termBlack)
     call s:X("WildMenu","#808080","#303030","","White",s:termBlack)
 
