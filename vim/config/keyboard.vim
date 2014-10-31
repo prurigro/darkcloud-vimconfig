@@ -326,6 +326,10 @@
     cabbrev <expr><silent> gitstatus ':Gstatus<CR>'
     cabbrev <expr><silent> GitCommit ':Gcommit<CR>'
     cabbrev <expr><silent> gitcommit ':Gcommit<CR>'
+    cabbrev <expr><silent> vs25 ':VS25<CR>'
+    cabbrev <expr><silent> vs75 ':VS75<CR>'
+    cabbrev <expr><silent> sp25 ':SP25<CR>'
+    cabbrev <expr><silent> sp75 ':SP75<CR>'
     cabbrev diff vertical diffsplit
     cabbrev sudow SudoWrite
     cabbrev wsudo SudoWrite
@@ -410,11 +414,11 @@
         nmap <expr><silent> <C-w>{ ':wincmd R<CR>'
         nmap <expr><silent> <C-w>} ':wincmd r<CR>'
         nmap <expr><silent> <C-w>] ':vs<CR>'
-        nmap <expr><silent> <C-w>0 ':VSplit25<CR>'
-        nmap <expr><silent> <C-w>) ':VSplit75<CR>'
+        nmap <expr><silent> <C-w>0 ':VS25<CR>'
+        nmap <expr><silent> <C-w>) ':VS75<CR>'
         nmap <expr><silent> <C-w>[ ':sp<CR>:wincmd j<CR>'
-        nmap <expr><silent> <C-w>9 ':Split25<CR>'
-        nmap <expr><silent> <C-w>( ':Split75<CR>'
+        nmap <expr><silent> <C-w>9 ':SP25<CR>'
+        nmap <expr><silent> <C-w>( ':SP75<CR>'
     "}
 
     "DISPLAY:{

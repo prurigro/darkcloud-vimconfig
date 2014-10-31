@@ -107,30 +107,28 @@
             augroup END
         endif
 
-        function s:vResize25()
+        function s:VSResize75()
             vs|wincmd =|q
         endfunction
-        command! -buffer VResize25 call s:vResize25()
-        function s:vs25()
-            vs|call s:vResize25()
-        endfunction
-        command! -buffer VSplit25 call s:vs25()
         function s:vs75()
-            vs|wincmd h|call s:vResize25()|wincmd l
+            vs|call s:VSResize75()
         endfunction
-        command! -buffer VSplit75 call s:vs75()
+        command! -buffer VS75 call s:vs75()
+        function s:vs25()
+            vs|wincmd h|call s:VSResize75()|wincmd l
+        endfunction
+        command! -buffer VS25 call s:vs25()
 
-        function s:hResize25()
+        function s:SPResize25()
             sp|wincmd =|q
         endfunction
-        command! -buffer HResize25 call s:hResize25()
         function s:sp25()
-            sp|call s:hResize25()|wincmd j
+            sp|call s:SPResize25()|wincmd j
         endfunction
-        command! -buffer Split25 call s:sp25()
+        command! -buffer SP25 call s:sp25()
         function s:sp75()
-            sp|wincmd j|call s:hResize25()
+            sp|wincmd j|call s:SPResize25()
         endfunction
-        command! -buffer Split75 call s:sp75()
+        command! -buffer SP75 call s:sp75()
     "}}}
 "}}}
