@@ -491,6 +491,12 @@ hi SpellLocal guisp=NONE gui=NONE guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NON
     hi! link gitconfigAssignment Label
     hi! link ExtraditeLogName Type
 
+    "gitv
+    hi! link gitvSubject String
+    hi! link gitvLocalUncommit Special
+    hi! link gitvLocalCommited Identifier
+    hi! link gitvSeperatorMarks Delimiter
+
     "notes
     call s:X("notesRule","","","bold","","")
     call s:X("WarningMsg","#ffd787","#2c2c2c","standout,bold","Yellow",s:termBlack)

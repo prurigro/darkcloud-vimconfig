@@ -68,6 +68,16 @@
 "    <Alt-c>                  | (N) -> create a new tab with vimfiler
 "    <Alt-d>                  | (N) -> create a new tab with a double pane vimfiler
 "
+"  (split)
+"    <Ctrl-w>{                | (N) -> rotate counter-clockwise
+"    <Ctrl-w>}                | (N) -> rotate clockwise
+"    <Ctrl-w>]                | (N) -> split vertically
+"    <Ctrl-w>0                | (N) -> create a vertical split 25% of the window
+"    <Ctrl-w>)                | (N) -> create a vertical split 75% of the window
+"    <Ctrl-w>[                | (N) -> split horizontally
+"    <Ctrl-w>9                | (N) -> create a horizontal split 25% of the window
+"    <Ctrl-w>(                | (N) -> create a horizontal split 75% of the window
+"
 "  (display)
 "    <Backspace>              | (N) -> reset window and clear search
 "    //                       | (N) -> reset window and clear search
@@ -394,6 +404,17 @@
         nnoremap <silent><expr> <A-t> ':tabnew<CR>'
         nnoremap <silent><expr> <A-c> ':VimFiler -tab -project<CR>'
         nnoremap <silent><expr> <A-d> ':VimFiler -tab -project -double<CR>'
+    "}
+
+    "SPLIT:{
+        nmap <expr><silent> <C-w>{ ':wincmd R<CR>'
+        nmap <expr><silent> <C-w>} ':wincmd r<CR>'
+        nmap <expr><silent> <C-w>] ':vs<CR>'
+        nmap <expr><silent> <C-w>0 ':VSplit25<CR>'
+        nmap <expr><silent> <C-w>) ':VSplit75<CR>'
+        nmap <expr><silent> <C-w>[ ':sp<CR>:wincmd j<CR>'
+        nmap <expr><silent> <C-w>9 ':Split25<CR>'
+        nmap <expr><silent> <C-w>( ':Split75<CR>'
     "}
 
     "DISPLAY:{
@@ -766,6 +787,14 @@
     autocmd Filetype qf,gundo,vimfiler,extradite noremap <buffer> <C-l> <Nop>
     autocmd Filetype qf,gundo,vimfiler,extradite noremap <buffer> <C-Left> <Nop>
     autocmd Filetype qf,gundo,vimfiler,extradite noremap <buffer> <C-h> <Nop>
+    autocmd Filetype qf,gundo,vimfiler,extradite noremap <buffer> <A-Up> <Nop>
+    autocmd Filetype qf,gundo,vimfiler,extradite noremap <buffer> <A-k> <Nop>
+    autocmd Filetype qf,gundo,vimfiler,extradite noremap <buffer> <A-Down> <Nop>
+    autocmd Filetype qf,gundo,vimfiler,extradite noremap <buffer> <A-j> <Nop>
+    autocmd Filetype qf,gundo,vimfiler,extradite noremap <buffer> <A-Right> <Nop>
+    autocmd Filetype qf,gundo,vimfiler,extradite noremap <buffer> <A-l> <Nop>
+    autocmd Filetype qf,gundo,vimfiler,extradite noremap <buffer> <A-Left> <Nop>
+    autocmd Filetype qf,gundo,vimfiler,extradite noremap <buffer> <A-h> <Nop>
     autocmd Filetype qf,gundo,vimfiler noremap <buffer> <S-Up> <Nop>
     autocmd Filetype qf,gundo,vimfiler noremap <buffer> <S-k> <Nop>
     autocmd Filetype qf,gundo,vimfiler noremap <buffer> <S-Down> <Nop>

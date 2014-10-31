@@ -57,6 +57,7 @@
     "USER INTERFACE: {{{
         set laststatus=2 showcmd statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v] "statusline init and config
         set lazyredraw "don't redraw the screen while macros are executing
+        set noequalalways "don't force splits to be equal in size when closing or opening one
         set number "enable line numbers
         set nowrap "disable line wrapping
         set cursorline cursorcolumn "enable row/column highlighting
@@ -105,5 +106,31 @@
                 autocmd BufFilePost * filetype detect
             augroup END
         endif
+
+        function s:vResize25()
+            vs|wincmd =|q
+        endfunction
+        command! -buffer VResize25 call s:vResize25()
+        function s:vs25()
+            vs|call s:vResize25()
+        endfunction
+        command! -buffer VSplit25 call s:vs25()
+        function s:vs75()
+            vs|wincmd h|call s:vResize25()|wincmd l
+        endfunction
+        command! -buffer VSplit75 call s:vs75()
+
+        function s:hResize25()
+            sp|wincmd =|q
+        endfunction
+        command! -buffer HResize25 call s:hResize25()
+        function s:sp25()
+            sp|call s:hResize25()|wincmd j
+        endfunction
+        command! -buffer Split25 call s:sp25()
+        function s:sp75()
+            sp|wincmd j|call s:hResize25()
+        endfunction
+        command! -buffer Split75 call s:sp75()
     "}}}
 "}}}
