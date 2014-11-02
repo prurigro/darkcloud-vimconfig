@@ -85,50 +85,54 @@
         set timeout timeoutlen=500 "how long before timing out for mappings
         set ttimeout ttimeoutlen=100 "how long before timing out for terminal key codes
 
-        if has('autocmd')
-            "enable the auto-creation of missing folders in a save path
-            if !exists('*s:MakeNewDir')
-                function s:MakeNewDir(fullpath, buf)
-                    if empty(getbufvar(a:buf,'&buftype')) && a:fullpath!~#'\v^\w+\:\/'
-                        let dirpath=fnamemodify(a:fullpath,':h')
-                        if !isdirectory(dirpath)|call mkdir(dirpath,'p')|endif
-                    endif
-                endfunction
-                augroup WriteDir
+        "FUNCTIONS: {{{
+            if has('autocmd')
+                "enable the auto-creation of missing folders in a save path
+                if !exists('*s:MakeNewDir')
+                    function s:MakeNewDir(fullpath, buf)
+                        if empty(getbufvar(a:buf,'&buftype')) && a:fullpath!~#'\v^\w+\:\/'
+                            let dirpath=fnamemodify(a:fullpath,':h')
+                            if !isdirectory(dirpath)|call mkdir(dirpath,'p')|endif
+                        endif
+                    endfunction
+                    augroup WriteDir
+                        autocmd!
+                        autocmd BufWritePre * :call s:MakeNewDir(expand('<afile>'),+expand('<abuf>'))
+                    augroup END
+                endif
+
+                "update the current filetype when a file is renamed
+                augroup RenameCheckFiletype
                     autocmd!
-                    autocmd BufWritePre * :call s:MakeNewDir(expand('<afile>'),+expand('<abuf>'))
+                    autocmd BufFilePost * filetype detect
                 augroup END
             endif
 
-            "update the current filetype when a file is renamed
-            augroup RenameCheckFiletype
-                autocmd!
-                autocmd BufFilePost * filetype detect
-            augroup END
-        endif
+            "functions to create a split using 33% and 66% of the height
+            function s:SPResize33()
+                sp|wincmd =|q
+            endfunction
+            function s:sp33()
+                sp|call s:SPResize33()|wincmd j
+            endfunction
+            command! -buffer SP33 call s:sp33()
+            function s:sp66()
+                sp|wincmd j|call s:SPResize33()
+            endfunction
+            command! -buffer SP66 call s:sp66()
 
-        function s:VSResize75()
-            vs|wincmd =|q
-        endfunction
-        function s:vs75()
-            vs|call s:VSResize75()
-        endfunction
-        command! -buffer VS75 call s:vs75()
-        function s:vs25()
-            vs|wincmd h|call s:VSResize75()|wincmd l
-        endfunction
-        command! -buffer VS25 call s:vs25()
-
-        function s:SPResize25()
-            sp|wincmd =|q
-        endfunction
-        function s:sp25()
-            sp|call s:SPResize25()|wincmd j
-        endfunction
-        command! -buffer SP25 call s:sp25()
-        function s:sp75()
-            sp|wincmd j|call s:SPResize25()
-        endfunction
-        command! -buffer SP75 call s:sp75()
+            "functions to create a vertical split using 33% and 66% width
+            function s:VSResize66()
+                vs|wincmd =|q
+            endfunction
+            function s:vs66()
+                vs|call s:VSResize66()
+            endfunction
+            command! -buffer VS66 call s:vs66()
+            function s:vs33()
+                vs|wincmd h|call s:VSResize66()|wincmd l
+            endfunction
+            command! -buffer VS33 call s:vs33()
+        "}}}
     "}}}
 "}}}

@@ -72,11 +72,11 @@
 "    <Ctrl-w>{                | (N) -> rotate counter-clockwise
 "    <Ctrl-w>}                | (N) -> rotate clockwise
 "    <Ctrl-w>]                | (N) -> split vertically
-"    <Ctrl-w>0                | (N) -> create a vertical split 25% of the window
-"    <Ctrl-w>)                | (N) -> create a vertical split 75% of the window
+"    <Ctrl-w>0                | (N) -> create a vertical split 33% of the window
+"    <Ctrl-w>)                | (N) -> create a vertical split 66% of the window
 "    <Ctrl-w>[                | (N) -> split horizontally
-"    <Ctrl-w>9                | (N) -> create a horizontal split 25% of the window
-"    <Ctrl-w>(                | (N) -> create a horizontal split 75% of the window
+"    <Ctrl-w>9                | (N) -> create a horizontal split 33% of the window
+"    <Ctrl-w>(                | (N) -> create a horizontal split 66% of the window
 "
 "  (display)
 "    <Backspace>              | (N) -> reset window and clear search
@@ -326,10 +326,10 @@
     cabbrev <expr><silent> gitstatus ':Gstatus<CR>'
     cabbrev <expr><silent> GitCommit ':Gcommit<CR>'
     cabbrev <expr><silent> gitcommit ':Gcommit<CR>'
-    cabbrev <expr><silent> vs25 ':VS25<CR>'
-    cabbrev <expr><silent> vs75 ':VS75<CR>'
-    cabbrev <expr><silent> sp25 ':SP25<CR>'
-    cabbrev <expr><silent> sp75 ':SP75<CR>'
+    cabbrev <expr><silent> vs33 ':VS33<CR>'
+    cabbrev <expr><silent> vs66 ':VS66<CR>'
+    cabbrev <expr><silent> sp33 ':SP33<CR>'
+    cabbrev <expr><silent> sp66 ':SP66<CR>'
     cabbrev diff vertical diffsplit
     cabbrev sudow SudoWrite
     cabbrev wsudo SudoWrite
@@ -414,11 +414,11 @@
         nmap <expr><silent> <C-w>{ ':wincmd R<CR>'
         nmap <expr><silent> <C-w>} ':wincmd r<CR>'
         nmap <expr><silent> <C-w>] ':vs<CR>'
-        nmap <expr><silent> <C-w>0 ':VS25<CR>'
-        nmap <expr><silent> <C-w>) ':VS75<CR>'
+        nmap <expr><silent> <C-w>0 ':VS33<CR>'
+        nmap <expr><silent> <C-w>) ':VS66<CR>'
         nmap <expr><silent> <C-w>[ ':sp<CR>:wincmd j<CR>'
-        nmap <expr><silent> <C-w>9 ':SP25<CR>'
-        nmap <expr><silent> <C-w>( ':SP75<CR>'
+        nmap <expr><silent> <C-w>9 ':SP33<CR>'
+        nmap <expr><silent> <C-w>( ':SP66<CR>'
     "}
 
     "DISPLAY:{

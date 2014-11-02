@@ -43,13 +43,16 @@ endif
     "filtype specific settings
     autocmd Filetype text,mkd,mkdc,gitcommit,notes,mail,notmuch,rst,taskreport setlocal nonumber spell nolist linebreak breakat&vim breakat-=* breakat-=. breakat-=/ breakat-=? breakat-=, breakat-=: breakat-=; breakat-=! "set some defaults for word processing
     autocmd Filetype text,gitcommit,notes,mail,notmuch,rst,taskreport setlocal wrap
-    autocmd FileType help* wincmd L "help windows always open vertically
-    autocmd FileType help* vertical resize 80 "set the window size to 80 cols
-    autocmd FileType help* setlocal nocursorline "remove the horizontal cursor line
     autocmd FileType tmux,taskrc setlocal commentstring=#\ %s "set the comment string to #
     autocmd FileType slrnrc setlocal commentstring=%%\ %s "set the comment string to %
+
+    "special side/bottom-bar settings to apply when opened
     autocmd BufEnter,FileType taskreport,qf,help* setlocal nowrap nocursorcolumn "disable text wrapping and the vertical cursor line
     autocmd BufEnter,FileType extradite setlocal number "enable line numbers in extradite
+    autocmd BufEnter,FileType help* setlocal nocursorline "remove the horizontal cursor line
+
+    "load help as a vertical split (sidebar) using one third of the window
+    autocmd BufEnter,FileType help* wincmd L|wincmd h|vs|wincmd =|q|wincmd l
 
     "settings for buffers in diff mode
     autocmd VimEnter,FilterWritePre * if &diff|setlocal nofoldenable|endif
