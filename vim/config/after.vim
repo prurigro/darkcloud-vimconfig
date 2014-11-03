@@ -51,8 +51,8 @@ endif
     autocmd BufEnter,FileType extradite setlocal number "enable line numbers in extradite
     autocmd BufEnter,FileType help* setlocal nocursorline "remove the horizontal cursor line
 
-    "load help as a vertical split (sidebar) using one third of the window
-    autocmd BufEnter,FileType help* wincmd L|wincmd h|vs|wincmd =|q|wincmd l
+    "load help in an 80 char vertical split if the window is wider than 140 characters, otherwise load horizontally at 33% of the height
+    autocmd BufEnter,FileType help* if &columns >= 140|wincmd L|vertical resize 80|else|wincmd j|sp|wincmd =|q|wincmd k|endif
 
     "settings for buffers in diff mode
     autocmd VimEnter,FilterWritePre * if &diff|setlocal nofoldenable|endif
