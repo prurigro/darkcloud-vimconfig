@@ -18,8 +18,18 @@
 "  :GitStatus & :gitstatus    | (C) -> shows the output of git status
 "  :GitCommit & :gitcommit    | (C) -> commits changes to the current file
 "  :git <file>                | (C) -> open a vert split with the file in diff mode
+"
+"  :vs33                      | (C) -> create a vertical split using 33% width
+"  :vs66                      | (C) -> create a vertical split using 66% width
+"  :sp33                      | (C) -> create a split using 33% of the height
+"  :sp66                      | (C) -> create a split using 66% of the height
+"  :diff                      | (C) -> open a new file in diff mode
+"
 "  :wsudo & :sudow            | (C) -> write the file as root using sudo
 "  :esudo & :sudoe            | (C) -> read a file as root using sudo
+"
+"  :ik                        | (C) -> add following character to keywords
+"  :iK                        | (C) -> remove following character from keywords
 "
 " Reference: (view plugin documentation for the full list of commands each offers)
 "   <Ctrl-_><Ctrl-_>          | (A) -> comment selection/create an empty comment
@@ -87,6 +97,9 @@
 "    #                        | (N) -> center vertically on nth last search term
 "
 "  (toggles and features)
+"    ik                       | (N) -> add cursor character as a keyword
+"    iK                       | (N) -> remove cursor character as a keyword
+"
 "    ~                        | (N) -> popup a command reference
 "    ,                        | (N) -> display tag information in echo area
 "    <Leader><F1>             | (N) -> toggle the vim reference manual
@@ -319,6 +332,7 @@
 "}}}
 
 "ALIASES: COMMAND SHORTCUTS {{{
+    "shortcuts to git commands
     cabbrev <expr><silent> GitLog ':Extradite<CR>:wincmd x<CR>:wincmd j<CR>:resize 10<CR>'
     cabbrev <expr><silent> gitlog ':Extradite<CR>:wincmd x<CR>:wincmd j<CR>:resize 10<CR>'
     cabbrev <expr><silent> GitDiff ':Gdiff<CR>'
@@ -327,15 +341,23 @@
     cabbrev <expr><silent> gitstatus ':Gstatus<CR>'
     cabbrev <expr><silent> GitCommit ':Gcommit<CR>'
     cabbrev <expr><silent> gitcommit ':Gcommit<CR>'
+
+    "create various sizes of splits
     cabbrev <expr><silent> vs33 ':VS33<CR>'
     cabbrev <expr><silent> vs66 ':VS66<CR>'
     cabbrev <expr><silent> sp33 ':SP33<CR>'
     cabbrev <expr><silent> sp66 ':SP66<CR>'
     cabbrev diff vertical diffsplit
+
+    "read/write file with sudo
     cabbrev sudow SudoWrite
     cabbrev wsudo SudoWrite
     cabbrev sudoe SudoRead
     cabbrev esudo SudoRead
+
+    "add/remove character as keyword
+    cabbrev ik setlocal iskeyword+=
+    cabbrev iK setlocal iskeyword-=
 "}}}
 
 "MAPPINGS: GENERAL KEYBINDINGS AND REBINDINGS {{{
@@ -435,6 +457,10 @@
     "}
 
     "TOGGLES AND FEATURES:{
+        "add/remove cursor character as a keyword
+        nmap <expr><silent> <Leader>k ':execute "setlocal iskeyword+=".getline(".")[col(".")-1]<CR>:echo "The character ".getline(".")[col(".")-1]." has been added to iskeyword"<CR>'
+        nmap <expr><silent> <Leader>K ':execute "setlocal iskeyword-=".getline(".")[col(".")-1]<CR>:echo "The character ".getline(".")[col(".")-1]." has been removed from iskeyword"<CR>'
+
         "toggle the command reference box
         nnoremap <silent><expr> ~ ':TCommand<CR>'
 
