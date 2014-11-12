@@ -85,6 +85,10 @@
         set timeout timeoutlen=500 "how long before timing out for mappings
         set ttimeout ttimeoutlen=100 "how long before timing out for terminal key codes
 
+        "create ~/.vim/swap if necessary, then use as default swap file location
+        if !isdirectory($HOME.'/.vim/swap')|call mkdir($HOME.'/.vim/swap','p')|endif
+        set directory=$HOME/.vim/swap,.,/var/tmp,/tmp
+
         "FUNCTIONS: {{{
             if has('autocmd')
                 "enable the auto-creation of missing folders in a save path
