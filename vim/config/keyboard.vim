@@ -618,7 +618,7 @@
     "}
 
     "AUTOCOMPLETION:{
-        "emmet switch triggerkey from <Ctrl-Y>
+        "emmet switch triggerkey from ctrl-y
         let g:user_emmet_leader_key='<C-m>'
 
         "neocomplcache close popup and save indent
@@ -626,10 +626,13 @@
         function! s:neocompl_cr()
             return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
         endfunction
+
         "neocomplcache tab completion
         inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+
         "neocomplcache : undo completion
         inoremap <expr><Backspace> neocomplcache#smart_close_popup()."\<C-h>"
+
         "neocomplcache undo completion
         inoremap <expr><C-u> neocomplcache#undo_completion()
     "}
