@@ -244,13 +244,13 @@ fi
 ### BEGIN: GENERATE PLUGIN HELPTAGS ###
 if [ $(type -P vim) ]; then
     echo -n -e "${HEADINGCOLOUR} >> Generating Plugin Help:${RESETCOLOUR}"
-    timeout --foreground 2m vim -c "Helptags|qa!" &> /dev/null
+    timeout --foreground 2m vim -u "${PWD}/vimrc" -c "Helptags|qa!" &> /dev/null
     if [ $? = 0 ]; then
         echo -e "${SUCCESSCOLOUR} SUCCESS! ${RESETCOLOUR}"
     else
         reset -I
         echo -e "${FAILCOLOUR} FAIL! ${RESETCOLOUR}"
-        error "vim -c \"Helptags|qa!\"" "Generating helpdocs for the submodules failed"
+        error "vim -u \"${PWD}/vimrc\" -c \"Helptags|qa!\"" "Generating helpdocs for the submodules failed"
     fi
 fi
 ### END: GENERATE PLUGIN HELPTAGS ###
