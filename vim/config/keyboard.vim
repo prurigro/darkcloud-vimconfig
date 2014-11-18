@@ -513,12 +513,12 @@
         inoremap <silent><expr> <A-F3> '<C-O>:TagbarToggle<CR>'
 
         "view commit history and diffs
-        nnoremap <expr><silent> <C-F4> ':Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        xnoremap <expr><silent> <C-F4> '<Esc>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        inoremap <expr><silent> <C-F4> '<Esc>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        nnoremap <expr><silent> <A-F4> ':Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        xnoremap <expr><silent> <A-F4> '<Esc>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        inoremap <expr><silent> <A-F4> '<Esc>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        nnoremap <expr><silent> <C-F4> ':SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        xnoremap <expr><silent> <C-F4> '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        inoremap <expr><silent> <C-F4> '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        nnoremap <expr><silent> <A-F4> ':SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        xnoremap <expr><silent> <A-F4> '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        inoremap <expr><silent> <A-F4> '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
 
         "toggle line wrapping (and bottom bar if using the gui)
         nnoremap <silent><expr> <F1> ':set wrap!<CR>:echo "line wrapping toggled"<CR>'
@@ -534,9 +534,9 @@
         set pastetoggle=<F3>
 
         "toggle syntax checking
-        nnoremap <silent><expr> <F4> ':if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>endif<Bar>:SyntasticToggleMode<CR>'
-        xnoremap <silent><expr> <F4> '<Esc>:if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>endif<Bar>:SyntasticToggleMode<CR>gv'
-        inoremap <silent><expr> <F4> '<C-O>:if (g:syntastic_check_on_open == 1)<Bar>let g:syntastic_check_on_open=0<Bar>else<Bar>let g:syntastic_check_on_open=1<Bar>endif<Bar>:SyntasticToggleMode<CR>'
+        nnoremap <silent><expr> <F4> ':SyntasticToggleAll<CR>'
+        xnoremap <silent><expr> <F4> '<Esc>:SyntasticToggleAll<CR>gv'
+        inoremap <silent><expr> <F4> '<C-O>:SyntasticToggleAll<CR>'
 
         "toggle goyo
         nnoremap <silent><expr> <C-F12> ':Goyo<CR>'

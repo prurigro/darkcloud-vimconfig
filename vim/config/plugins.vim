@@ -178,6 +178,34 @@
         let g:syntastic_auto_loc_list=1
         let g:syntastic_loc_list_height=5
     endif
+
+    "function to enable syntastic and set check_on_open on
+    function s:SyntasticToggleOn()
+        let g:syntastic_check_on_open=1
+        if (g:syntastic_mode_map.mode == "passive")
+            SyntasticToggleMode
+        endif
+    endfunction
+    command! -buffer SyntasticToggleOn call s:SyntasticToggleOn()
+
+    "function to disable syntastic and set check_on_open off
+    function s:SyntasticToggleOff()
+        let g:syntastic_check_on_open=0
+        if (g:syntastic_mode_map.mode == "active")
+            SyntasticToggleMode
+        endif
+    endfunction
+    command! -buffer SyntasticToggleOff call s:SyntasticToggleOff()
+
+    "function to toggle syntastic and check_on_open on and off together
+    function s:SyntasticToggleAll()
+        if (g:syntastic_check_on_open == 1)
+            call s:SyntasticToggleOff()
+        else
+            call s:SyntasticToggleOn()
+        endif
+    endfunction
+    command! -buffer SyntasticToggleAll call s:SyntasticToggleAll()
 "}}}
 
 "TABULAR: {{{
