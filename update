@@ -11,7 +11,7 @@
 #                                                            #
 ##############################################################
 
-cd $(dirname "$0")
+cd "$(dirname $0)"
 
 ### BEGIN: VARIABLES ###
 # user variables (these can be edited)
