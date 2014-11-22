@@ -170,7 +170,8 @@
                 \ 'package\ [^\ ]*\ does not exist.*',
                 \ 'cannot find symbol.*',
                 \ '.*method does not override or implement a method from a supertype.*',
-                \ '.*fatal error:[^:]*: No such file or directory.*'
+                \ '.*fatal error:[^:]*: No such file or directory.*',
+                \ '.*line too long.*'
             \ ]}
 
         let g:syntastic_check_on_wq=0
