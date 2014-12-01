@@ -56,6 +56,8 @@
 
     "USER INTERFACE: {{{
         set laststatus=2 showcmd statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v] "statusline init and config
+        set winheight=10 winminheight=5 "set the minimum window height to 10 lines
+        set winwidth=10 winminwidth=5 "set the minimum window width to 10 columns
         set noshowmode "don't display mode information handled by lightline
         set lazyredraw "don't redraw the screen while macros are executing
         set noequalalways "don't force splits to be equal in size when closing or opening one
