@@ -174,7 +174,7 @@
 "      <Ctrl-Y>               | (I) -> paste what's been cut during input
 "
 "  (autocompletion)
-"    <Ctrl-m>,                | (A) -> enter after emmet 'word' (ie: html:5)
+"    <Alt-m>,                 | (A) -> enter after emmet 'word' (ie: html:5)
 "    <Enter>                  | (I) -> (neocomp) close the popup and <Enter>
 "    <Tab>                    | (I) -> (neocomp) select/cycle popup completion
 "    <Backspace>              | (I) -> (neocomp) close the popup and <Backspace>

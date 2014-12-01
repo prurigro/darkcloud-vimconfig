@@ -17,6 +17,9 @@
 "  licensed with the MIT license.
 "
 
+"use utf-8 encoding to load the script as it contains utf-8 characters
+scriptencoding utf-8
+
 "INITIALIZE PLUGINS: {{{
     "create missing plugin config files and directories
     if exists('*mkdir')|if !isdirectory(glob("~/.vim/tags_by_filetype"))|call mkdir(glob("~/.vim/tags_by_filetype"),'p')|endif|endif
@@ -58,6 +61,7 @@
     let g:user_emmet_install_global=0
     let g:use_emmet_complete_tag=1
     let g:user_emmet_mode='a'
+    let g:user_emmet_leader_key='<A-m>'
 
     autocmd FileType aspnet,html,xhtml,php,css,javascript,json EmmetInstall
 
@@ -68,13 +72,13 @@
 
 "GOYO: {{{
     autocmd VimEnter,Filetype *
-        \   let g:goyo_width = &textwidth |
-        \   if (g:goyo_width == 0) |
-        \       let g:goyo_width = max(map(getline(1,'$'), 'len(v:val)')) |
-        \       if (g:goyo_width < 80) |
-        \           let g:goyo_width = 80 |
-        \       endif |
-        \   endif
+        \ let g:goyo_width = &textwidth |
+        \ if (g:goyo_width == 0) |
+        \     let g:goyo_width = max(map(getline(1,'$'), 'len(v:val)')) |
+        \     if (g:goyo_width < 80) |
+        \         let g:goyo_width = 80 |
+        \     endif |
+        \ endif
 "}}}
 
 "GUNDO: {{{
@@ -286,7 +290,7 @@
     endfunction
 
     function! LLReadonly()
-        return &ft !~? 'help' && &readonly ? 'RO' : ''
+        return &ft !~? 'help' && &readonly ? '🔒' : ''
     endfunction
 
     function! LLFilename()
@@ -320,7 +324,7 @@
     endfunction
 
     function! LLFiletype()
-        return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+        return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'none') : ''
     endfunction
 
     function! LLFileencoding()
@@ -414,38 +418,37 @@
     endif
 
     "ligtline theme {{{
-        let s:base3 = '#eaeaea'
-        let s:base23 = '#d0d0d0'
-        let s:base2 = '#c6c6c6'
-        let s:base1 = '#b2b2b2'
-        let s:base0 = '#949494'
-        let s:base00 = '#767676'
-        let s:base01 = '#606060'
-        let s:base02 = '#4e4e4e'
-        let s:base023 = '#303030'
-        let s:darkblue = '#005fff'
-        let s:red = '#d75f5f'
-        let s:orange = '#ffaf00'
-        let s:yellow = '#ffd787'
-        let s:green = '#5faf00'
-        let s:cyan = '#d7ffff'
-        let s:blue = '#87d7ff'
-        let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
-        let s:p.normal.left = [ [ s:base023, s:blue ], [ s:base3, s:base01 ] ]
-        let s:p.normal.right = [ [ s:base02, s:base1 ], [ s:base2, s:base01 ] ]
-        let s:p.inactive.right = [ [ s:base02, s:base0 ], [ s:base1, s:base01 ] ]
-        let s:p.inactive.left =  [ [ s:base02, s:base0 ], [ s:base00, s:darkblue ] ]
-        let s:p.insert.left = [ [ s:base023, s:red ], [ s:base3, s:base01 ] ]
-        let s:p.replace.left = [ [ s:base023, s:orange ], [ s:base3, s:base01 ] ]
-        let s:p.visual.left = [ [ s:base023, s:yellow ], [ s:base3, s:base01 ] ]
-        let s:p.normal.middle = [ [ s:base1, s:base02 ] ]
-        let s:p.inactive.abmiddle = [ [ s:base0, s:base02 ] ]
-        let s:p.tabline.left = [ [ s:base2, s:base01 ] ]
-        let s:p.tabline.tabsel = [ [ s:base2, s:base023 ] ]
-        let s:p.tabline.middle = [ [ s:base01, s:base1 ] ]
+        let s:base0 = '#262626'
+        let s:base1 = '#303030'
+        let s:base2 = '#767676'
+        let s:base3 = '#949494'
+        let s:base4 = '#b2b2b2'
+        let s:base5 = '#c6c6c6'
+        let s:base6 = '#eaeaea'
+
+        let s:rcol = '#d75f5f'
+        let s:ycol = '#ffd787'
+        let s:bcol = '#87d7ff'
+
+        let s:p = {'normal':{},'inactive':{},'insert':{},'replace':{},'visual':{},'tabline':{}}
+
+        let s:p.normal.left = [[ s:bcol,s:base1 ],[ s:base6,s:base0 ]]
+        let s:p.normal.right = [[ s:base1,s:base4 ],[ s:base6,s:base0 ]]
+        let s:p.inactive.left =  [[ s:base6,s:base0 ],[ s:base4,s:base1 ]]
+        let s:p.inactive.right = [[ s:base1,s:base4 ],[ s:base6,s:base0 ]]
+        let s:p.insert.left = [[ s:rcol,s:base1 ],[ s:base6,s:base0 ]]
+        let s:p.replace.left = [[ s:base1,s:rcol ],[ s:base6,s:base0 ]]
+        let s:p.visual.left = [[ s:ycol,s:base1 ],[ s:base6,s:base0 ]]
+
+        let s:p.normal.middle = [[ s:base4,s:base1 ]]
+        let s:p.inactive.abmiddle = [[ s:base3,s:base1 ]]
+        let s:p.tabline.left = [[ s:base5,s:base0 ]]
+        let s:p.tabline.tabsel = [[ s:base5,s:base1 ]]
+        let s:p.tabline.middle = [[ s:base0,s:base4 ]]
         let s:p.tabline.right = copy(s:p.normal.right)
-        let s:p.normal.error = [ [ s:red, s:base023 ] ]
-        let s:p.normal.warning = [ [ s:yellow, s:base02 ] ]
+        let s:p.normal.error = [[ s:rcol,s:base1 ]]
+        let s:p.normal.warning = [[ s:ycol,s:base1 ]]
+
         let g:lightline#colorscheme#darkcloud#palette = lightline#colorscheme#fill(s:p)
     "}}}
 "}}}

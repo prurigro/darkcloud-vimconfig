@@ -56,6 +56,7 @@
 
     "USER INTERFACE: {{{
         set laststatus=2 showcmd statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v] "statusline init and config
+        set noshowmode "don't display mode information handled by lightline
         set lazyredraw "don't redraw the screen while macros are executing
         set noequalalways "don't force splits to be equal in size when closing or opening one
         set number "enable line numbers
