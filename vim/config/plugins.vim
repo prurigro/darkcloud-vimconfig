@@ -82,7 +82,7 @@ scriptencoding utf-8
 "}}}
 
 "GUNDO: {{{
-    let g:gundo_right=1
+    let g:gundo_right=0
     let g:gundo_width=35
     let g:gundo_preview_height=10
 
@@ -96,7 +96,7 @@ scriptencoding utf-8
     map g/ <Plug>(incsearch-stay)
 
     "n and N behavioru is consistant
-    let g:incsearch#consistent_n_direction = 1
+    let g:incsearch#consistent_n_direction=1
 "}}}
 
 "JSON: {{{
@@ -413,7 +413,7 @@ scriptencoding utf-8
         \   'subseparator': {'left': '|', 'right': '|'},
         \   'component': {
         \       'tagbar': '%{tagbar#currenttag("[%s]", "", "f")}',
-        \   },
+        \   }
         \ }
     endif
 
