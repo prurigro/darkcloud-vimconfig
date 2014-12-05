@@ -303,7 +303,7 @@ scriptencoding utf-8
         \   &ft == 'qf' ? '[Error/Location List]' :
         \   &ft == 'extradite' ? '[Commit History]' :
         \       ('' != LLReadonly() ? LLReadonly() . ' ' : '') .
-        \       ('' != fname ? fname : '[No Name]') .
+        \       ('' != fname ? fname : '📄') .
         \       ('' != LLModified() ? ' ' . LLModified() : '')
     endfunction
 
@@ -433,9 +433,9 @@ scriptencoding utf-8
         let s:p = {'normal':{},'inactive':{},'insert':{},'replace':{},'visual':{},'tabline':{}}
 
         let s:p.normal.left = [[ s:bcol,s:base1 ],[ s:base6,s:base0 ]]
-        let s:p.normal.right = [[ s:base1,s:base4 ],[ s:base6,s:base0 ]]
+        let s:p.normal.right = [[ s:base4,s:base1 ],[ s:base6,s:base0 ]]
         let s:p.inactive.left =  [[ s:base6,s:base0 ],[ s:base4,s:base1 ]]
-        let s:p.inactive.right = [[ s:base1,s:base4 ],[ s:base6,s:base0 ]]
+        let s:p.inactive.right = [[ s:base4,s:base1 ],[ s:base6,s:base0 ]]
         let s:p.insert.left = [[ s:rcol,s:base1 ],[ s:base6,s:base0 ]]
         let s:p.replace.left = [[ s:base1,s:rcol ],[ s:base6,s:base0 ]]
         let s:p.visual.left = [[ s:ycol,s:base1 ],[ s:base6,s:base0 ]]
