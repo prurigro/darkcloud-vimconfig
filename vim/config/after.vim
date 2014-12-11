@@ -19,7 +19,7 @@ if !exists("g:disablelinebreaks")
     let g:disablelinebreaks=1
 endif
 if (g:disablelinebreaks == 1)
-    autocmd VimEnter * set tw=0
+    autocmd VimEnter * set textwidth=0
 endif
 
 "enable omnicompletion for any filetype without that has syntax highlighting
@@ -59,5 +59,6 @@ endif
     autocmd VimEnter * if &diff|wincmd H|endif
 
     "disable the whitespace plugin for vimfiler
-    autocmd BufEnter,FileType vimfiler hi ExtraWhitespace ctermbg=NONE guibg=NONE
+    autocmd BufEnter,FileType vimfiler,mail hi ExtraWhitespace ctermbg=NONE guibg=NONE
+    autocmd BufEnter,FileType mail set textwidth=0
 "}}}
