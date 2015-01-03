@@ -34,11 +34,11 @@ endif
     autocmd BufNewFile,BufRead *muttrc setlocal ft=muttrc
     autocmd BufNewFile,BufRead *vimpagerrc setlocal ft=vim
     autocmd BufNewFile,BufRead *ircd.conf setlocal ft=json
-    autocmd BufNewFile,BufRead pacman.conf,yaourtrc setlocal ft=sh
-    autocmd BufNewFile,BufRead cjdroute.conf,cjdmaid.conf setlocal ft=json
+    autocmd BufNewFile,BufRead *pacman.conf,*yaourtrc setlocal ft=sh
+    autocmd BufNewFile,BufRead *cjdroute.conf,*cjdmaid.conf setlocal ft=json
 
     "filename specific settings
-    autocmd BufEnter,BufRead PKGBUILD setlocal iskeyword-=.
+    autocmd BufNewFile,BufRead PKGBUILD setlocal iskeyword-=.
 
     "filtype specific settings
     autocmd Filetype text,mkd,mkdc,gitcommit,notes,mail,notmuch,rst,taskreport setlocal nonumber spell nolist linebreak breakat&vim breakat-=* breakat-=. breakat-=/ breakat-=? breakat-=, breakat-=: breakat-=; breakat-=! "set some defaults for word processing
