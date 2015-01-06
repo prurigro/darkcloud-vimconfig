@@ -34,6 +34,12 @@ scriptencoding utf-8
     set tags=./.tags;,~/.vim/tags
 "}}}
 
+"AUTOFORMAT: {{{
+    "use tidy for html instead of html-beautify
+    let g:formatprg_html = "tidy"
+    let g:formatprg_args_expr_html = '"-q --show-errors 0 --show-warnings 0 --force-output --indent auto --indent-spaces ".&shiftwidth." --vertical-space yes --tidy-mark no -ashtml -wrap ".&textwidth'
+"}}
+
 "BOOKMARKS: {{{
     let g:bookmark_sign = '★'
     let g:bookmark_annotation_sign = '📌'

@@ -782,6 +782,10 @@
         autocmd FileType help map <buffer> <silent><expr> <Leader>? ':q<CR>'
     endif
 
+    "html
+    "after running autoformat, remove linebreaks that aren't between tags
+    autocmd FileType html,xhtml nnoremap <buffer> <silent><expr> <Leader>F ':Autoformat<CR>:%s/\n\s*\([^<\ ]\)/ \1/g<CR>:echo "The document has been formatted with :Autoformat"<CR>'
+
     "markdown
     autocmd FileType mkd nnoremap <buffer> <silent><expr> <Leader>F ':TableFormat<CR>'
     autocmd FileType mkd xnoremap <buffer> <silent><expr> <Leader>F '<Esc>:TableFormat<CR>gv'
