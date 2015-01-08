@@ -500,8 +500,6 @@
         xnoremap <silent><expr> <A-F1> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
         inoremap <silent><expr> <A-F1> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
         nnoremap <silent><expr> <Leader>[ ':VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
-        xnoremap <silent><expr> <Leader>[ '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
-        inoremap <silent><expr> <Leader>[ '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
 
         "bindings to trigger the tagbar list of tags
         nnoremap <silent><expr> <C-F2> ':TagbarToggle<CR>:echo "tagbar toggled"<CR>'
@@ -511,8 +509,6 @@
         xnoremap <silent><expr> <A-F3> '<Esc>:TagbarToggle<CR>gv'
         inoremap <silent><expr> <A-F3> '<C-O>:TagbarToggle<CR>'
         nnoremap <silent><expr> <Leader>] ':TagbarToggle<CR>:echo "tagbar toggled"<CR>'
-        xnoremap <silent><expr> <Leader>] '<Esc>:TagbarToggle<CR>gv'
-        inoremap <silent><expr> <Leader>] '<C-O>:TagbarToggle<CR>'
 
         "bindings to trigger the gundo undo history
         nnoremap <silent><expr> <C-F3> ':GundoToggle<CR>:echo "undo history sidebar toggled"<CR>'
@@ -522,8 +518,6 @@
         xnoremap <silent><expr> <A-F2> '<Esc>:GundoToggle<CR>'
         inoremap <silent><expr> <A-F2> '<Esc>:GundoToggle<CR>'
         nnoremap <silent><expr> <Leader>{ ':GundoToggle<CR>:echo "undo history sidebar toggled"<CR>'
-        xnoremap <silent><expr> <Leader>{ '<Esc>:GundoToggle<CR>'
-        inoremap <silent><expr> <Leader>{ '<Esc>:GundoToggle<CR>'
 
         "view commit history and diffs
         nnoremap <expr><silent> <C-F4> ':SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
@@ -533,8 +527,6 @@
         xnoremap <expr><silent> <A-F4> '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
         inoremap <expr><silent> <A-F4> '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
         nnoremap <silent><expr> <Leader>} ':SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        xnoremap <silent><expr> <Leader>} '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        inoremap <silent><expr> <Leader>} '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
 
         "toggle line wrapping (and bottom bar if using the gui)
         nnoremap <silent><expr> <F1> ':set wrap!<CR>:echo "line wrapping toggled"<CR>'
