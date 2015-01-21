@@ -1,128 +1,108 @@
 #!/usr/bin/env bash
 
-##############################################################
-#                                                            #
-#  Darkcloud Vim Config: update script                       #
-#                                                            #
-#  By: Kevin MacMartin (prurigro@gmail.com)                  #
-#  Website: https://github.com/prurigro/darkcloud-vimconfig  #
-#                                                            #
-#  License: MIT                                              #
-#                                                            #
-##############################################################
+#
+#  Darkcloud Vim Config Update Tool
+#  https://github.com/prurigro/darkcloud-vimconfig
+#
+#  Written by Kevin MacMartin (prurigro@gmail.com)
+#  Released under the MIT license
+#
 
-cd "$(dirname $0)"
+SCRIPT_NAME="${0//*\/}"
+SCRIPT_HOME="${0%/*}"
+VERSION="$(printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)")"
+ERRORLOG='update-errors.log'
 
-### BEGIN: VARIABLES ###
-# user variables (these can be edited)
-ERRORLOG="update-errors.log" # set the error log filename
+[[ -t 1 ]] && {
+    C_BGBLUE='\e[44m'
+    C_BGRED_BOLD='\e[1;41m'
+    C_BGBLACK='\e[40m'
+    C_BGYELLOW='\e[43m'
+    C_FGGREEN_BOLD='\e[1;32m'
+    C_FGRED_BOLD='\e[1;31m'
+    C_FGWHITE_BOLD='\e[1;37m'
+    C_RESET='\e[0m'
+} || \
+    C_BGBLUE='#'
 
-# script variables (these should not be touched)
-VERSION=$(printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)")
-SCRIPT_NAME=$(grep -o -e "[^\/]*$" <<< "$0")
-SCRIPT_HOME=$(pwd)
-### END: VARIABLES ###
-
-### BEGIN: FUNCTIONS ###
-# command_parse "$@": configures environment using arguments
-function command_parse {
-    for param in $@; do
-        case "$param" in
-            -n|--no-color|--no-colour)
-                NO_COLOUR=true
-                ;;
-            -h|--help)
-                SHOW_HELP=true
-                ;;
-            -v|--version)
-                SHOW_VERSION=true
-                ;;
-            *)
-                ERROR="\"${param}\" is not a valid argument"
-                ;;
-        esac
-    done
-}
-
-# error "file/command" "error output" "note": output and log error
+# error: output and log error
 function error() {
-    echo -e "${HEADINGCOLOUR} ${RESETCOLOUR}${ERRORCOLOUR} ! ERROR: ${RESETCOLOUR}${FAILCOLOUR} ${2} "
-    echo -e "${HEADINGCOLOUR} ${RESETCOLOUR}${ERRORCOLOUR} ! COMMAND: ${RESETCOLOUR} ${NOACTIONCOLOUR}=> ${1}${RESETCOLOUR}"
-    [[ -n "$3" ]] && echo -e "${HEADINGCOLOUR} ${RESETCOLOUR}${ERRORCOLOUR} ! OUTPUT: ${RESETCOLOUR}${NOACTIONCOLOUR} ${3}"
+    echo -e "$C_BGBLUE $C_RESET$C_BGRED_BOLD ! ERROR: $C_RESET$C_FGRED_BOLD $2 "
+    echo -e "$C_BGBLUE $C_RESET$C_BGRED_BOLD ! COMMAND: $C_RESET ${C_FGWHITE_BOLD}=> $1$C_RESET"
+    [[ -n "$3" ]] \
+        && echo -e "$C_BGBLUE $C_RESET$C_BGRED_BOLD ! OUTPUT: $C_RESET$C_FGWHITE_BOLD $3"
 
-    echo "DATE: @ $(date)" >> "${SCRIPT_HOME}/${ERRORLOG}"
-    echo "ERROR: ${2}" >> "${SCRIPT_HOME}/${ERRORLOG}"
-    echo "COMMAND: ${1}" >> "${SCRIPT_HOME}/${ERRORLOG}"
-    [[ -n "$3" ]] && echo "OUTPUT: ${3}" >> "${SCRIPT_HOME}/${ERRORLOG}"
-    echo >> "${SCRIPT_HOME}/${ERRORLOG}"
+    echo "DATE: @ $(date)" >> "$SCRIPT_HOME/$ERRORLOG"
+    echo "ERROR: $2" >> "$SCRIPT_HOME/$ERRORLOG"
+    echo "COMMAND: $1" >> "$SCRIPT_HOME/$ERRORLOG"
+    [[ -n "$3" ]] \
+        && echo "OUTPUT: $3" >> "$SCRIPT_HOME/$ERRORLOG"
+
+    echo >> "$SCRIPT_HOME/$ERRORLOG"
 }
 
 # show_version: displays version information
 function show_version() {
-    echo -e "Update tool for darkcloud-vimconfig (${SCRIPT_NAME}) v${VERSION}\n"
+    echo -e "$SCRIPT_NAME: darkcloud-vimconfig update tool (version: $VERSION)"
 }
 
 # show_help: this function displays help output
 function show_help() {
-    echo -e "Usage: ${SCRIPT_NAME} [OPTION]\n"
-    echo "    Options:"
-    echo -e "\t-n, --no-colour (or --no-color)\n\t\tdisable colour output\n"
-    echo -e "\t-v, --version\n\t\toutput version information and exit\n"
-    echo -e "\t-h, --help\n\t\tdisplay this help and exit\n"
-    echo -e "\tRun with no arguments to update darkcloud-vimconfig\n"
+    echo -e "\nUSAGE"
+    echo -e "  ./$SCRIPT_NAME [OPTION]\n"
+    echo "OPTIONS"
+    echo -e "  -v, --version\t| output version information and exit"
+    echo -e "  -h, --help\t| display this help and exit\n"
+    echo -e "Run with no arguments to update darkcloud-vimconfig"
 }
-### END: FUNCTIONS ###
 
-### BEGIN: SETUP ###
-# change to the base darkcloud-vimconfig folder
+### SETUP
 cd "$SCRIPT_HOME"
 
 # delete old error log if it exists
-[[ -f "$ERRORLOG" ]] && rm "${SCRIPT_HOME}/${ERRORLOG}"
+[[ -f "$ERRORLOG" ]] \
+    && rm "$SCRIPT_HOME/$ERRORLOG"
 
 # parse for arguments (then handle them below)
-[[ ! -z "$@" ]] && command_parse "$@"
+[[ -n "$1" ]] && {
+    case "$1" in
+        -h|--help)
+            show_version
+            show_help
+            exit 0
+            ;;
+        -v|--version)
+            show_version
+            exit 0
+            ;;
+        *)
+            error "$ERROR" "$1 is not a valid option"
+            show_help
+            exit 1
+            ;;
+    esac
+}
 
-# set colour for output unless an argument was given to disable it
-if [ ! "$NO_COLOUR" = "true" ]; then
-    TITLECOLOUR="\e[40m"
-    HEADINGCOLOUR="\e[44m"
-    SUBHEADINGCOLOUR="\e[43m"
-    SUCCESSCOLOUR="\e[1;32m"
-    FAILCOLOUR="\e[1;31m"
-    NOACTIONCOLOUR="\e[1;37m"
-    ERRORCOLOUR="\e[1;41m"
-    RESETCOLOUR="\e[0m"
-else
-    HEADINGCOLOUR="#"
-fi
+# display script title
+echo -e "\n$C_BGBLACK ~~~ DarkCloud Vimconfig Update Tool ~~~ $C_RESET"
 
-# display an error, help then exit when invalid argument(s) are given
-[[ -n "$ERROR" ]] && error "$ERROR" "Invalid option supplied at runtime" && echo && show_help && exit 1
-
-# show the help and exit when an argument has been given to do so
-[[ "$SHOW_HELP" = "true" ]] && show_version && show_help && exit 0
-
-# show version information and exit when an argument has been given to do so
-[[ "$SHOW_VERSION" = "true" ]] && show_version && exit 0
-
-echo -e "\n${TITLECOLOUR} ~~~ DarkCloud Vimconfig Update Tool ~~~ ${RESETCOLOUR}"
-
-# create vim/bundle.user and vim/vimrc.user if either don't exist
-if [ ! -d vim/bundle.user ]; then
-    echo -n -e "\n${HEADINGCOLOUR} >> Creating User Plugin Directory:${RESETCOLOUR}"
-    PROCESS_STATUS=$(install -d vim/bundle.user 2>&1)
-    if [ $? = 0 ]; then
-        echo -e "${SUCCESSCOLOUR} SUCCESS! ${RESETCOLOUR}"
-    else
-        echo -e "${FAILCOLOUR} FAIL! ${RESETCOLOUR}"
+# create vim/bundle.user if it doesn't exist
+[[ ! -d 'vim/bundle.user' ]] && {
+    echo -ne "\n$C_BGBLUE >> Creating User Plugin Directory:$C_RESET"
+    PROCESS_STATUS="$(install -d 'vim/bundle.user' 2>&1)"
+    [[ $? = 0 ]] && {
+        echo -e "$C_FGGREEN_BOLD SUCCESS! $C_RESET"
+    } || {
+        echo -e "$C_FGRED_BOLD FAIL! $C_RESET"
         error "install -d vim/bundle.user" "User plugin directory couldn't be created" "$PROCESS_STATUS"
-    fi
-fi
-if [ ! -e vim/vimrc.user ]; then
-    echo -n -e "\n${HEADINGCOLOUR} >> Creating User Config File:${RESETCOLOUR}"
-    PROCESS_STATUS=$(touch vim/vimrc.user 2>&1)
-    if [ $? = 0 ]; then
+    }
+}
+
+# create vim/vimrc.user if it doesn't exist
+[[ ! -e 'vim/vimrc.user' ]] && {
+    echo -ne "\n$C_BGBLUE >> Creating User Config File:$C_RESET"
+    PROCESS_STATUS="$(touch 'vim/vimrc.user' 2>&1)"
+    [[ $? = 0 ]] && {
         echo -e '"Autostart Filer in empty buffers: (*1:filer loads in new empty buffers | 0:filer must be triggered)\n"let g:autostartfiler=1\n' >> vim/vimrc.user
         echo -e '"Autocheck syntax checking: (1:start toggled on | *0:start toggled off)\n"let g:autostartchecker=0\n' >> vim/vimrc.user
         echo -e '"Autoload Tagbar: (1:start open | *0:start closed)\n"let g:autostarttagbar=0\n' >> vim/vimrc.user
@@ -130,130 +110,121 @@ if [ ! -e vim/vimrc.user ]; then
         echo -e '"Disable automatic linebreaking: (1:force disabled globally | *0:let the filetype decide)\n"let g:disablelinebreaks=0\n' >> vim/vimrc.user
         echo -e '"Enable Powerline fonts: (1:expect powerline font | *0:expect regular font)\n"let g:powerlinefonts=0 "(set powerline font for gvim and terminal when enabled)\n' >> vim/vimrc.user
         echo -e '"GVim font selection: (Escaping spaces and use powerline if appropriate)\nset guifont=Monospace\ 12' >> vim/vimrc.user
-        echo -e "${SUCCESSCOLOUR} SUCCESS! ${RESETCOLOUR}"
-    else
-        echo -e "${FAILCOLOUR} FAIL! ${RESETCOLOUR}"
+        echo -e "$C_FGGREEN_BOLD SUCCESS! $C_RESET"
+    } || {
+        echo -e "$C_FGRED_BOLD FAIL! $C_RESET"
         error "touch vim/vimrc.user" "User config couldn't be created" "$PROCESS_STATUS"
-    fi
-fi
-### END: SETUP ###
+    }
+}
 
-### BEGIN: REPO UPDATE ###
-echo -n -e "\n${HEADINGCOLOUR} >> Updating Repository:${RESETCOLOUR}"
-PROCESS_STATUS=$(git pull origin master 2>&1)
-if [ $? = 0 ]; then
-    echo -e "${SUCCESSCOLOUR} SUCCESS! ${RESETCOLOUR}"
-else
-    echo -e "${FAILCOLOUR} FAIL! ${RESETCOLOUR}"
+### REPO UPDATE
+echo -ne "\n$C_BGBLUE >> Updating Repository:$C_RESET"
+PROCESS_STATUS="$(git pull origin master 2>&1)"
+[[ $? = 0 ]] && {
+    echo -e "$C_FGGREEN_BOLD SUCCESS! $C_RESET"
+} || {
+    echo -e "$C_FGRED_BOLD FAIL! $C_RESET"
     error "git pull origin master" "Git failed to sync the repo" "$PROCESS_STATUS"
     exit 1
-fi
-### END: REPO UPDATE ###
+}
 
-### BEGIN: SUBMODULE UPDATE ###
-# synchronize the repo urls for each submodule using the ones in .gitmodules
-echo -e "\n${HEADINGCOLOUR} >> Updating Plugin Submodules >> ${RESETCOLOUR}"
-echo -n -e "${HEADINGCOLOUR} ${RESETCOLOUR}${SUBHEADINGCOLOUR} + Updating Plugin URLs:${RESETCOLOUR}"
-PROCESS_STATUS=$(git submodule sync 2>&1)
-if [ $? = 0 ]; then
-    echo -e "${SUCCESSCOLOUR} SUCCESS! ${RESETCOLOUR}"
-else
-    echo -e "${FAILCOLOUR} FAIL! ${RESETCOLOUR}"
+### SUBMODULE UPDATE {
+echo -e "\n$C_BGBLUE >> Updating Plugin Submodules >> $C_RESET"
+echo -ne "$C_BGBLUE $C_RESET$C_BGYELLOW + Updating Plugin URLs:$C_RESET"
+PROCESS_STATUS="$(git submodule sync 2>&1)"
+[[ $? = 0 ]] && {
+    echo -e "$C_FGGREEN_BOLD SUCCESS! $C_RESET"
+} || {
+    echo -e "$C_FGRED_BOLD FAIL! $C_RESET"
     error "git submodule sync" "Git failed to sync the submodules" "$PROCESS_STATUS"
-fi
+}
 
 # update each submodule to the new head and run 'git fetch --all'
-echo -n -e "${HEADINGCOLOUR} ${RESETCOLOUR}${SUBHEADINGCOLOUR} + Fetching Updates:${RESETCOLOUR}"
-PROCESS_STATUS=$(git submodule foreach git fetch --all 2>&1)
-if [ $? = 0 ]; then
+echo -ne "$C_BGBLUE $C_RESET$C_BGYELLOW + Fetching Updates:$C_RESET"
+PROCESS_STATUS="$(git submodule foreach git fetch --all 2>&1)"
+[[ $? = 0 ]] && {
     PROCESS_STATUS=$(git submodule update --init --recursive 2>&1)
-    if [ $? = 0 ]; then
-        echo -e "${SUCCESSCOLOUR} SUCCESS! ${RESETCOLOUR}"
-    else
-        echo -e "${FAILCOLOUR} FAIL! ${RESETCOLOUR}"
+    [[ $? = 0 ]] && {
+        echo -e "$C_FGGREEN_BOLD SUCCESS! $C_RESET"
+    } || {
+        echo -e "$C_FGRED_BOLD FAIL! $C_RESET"
         error "git submodule update --init --recursive" "Git failed to update the submodules" "$PROCESS_STATUS"
-    fi
-else
-    echo -e "${FAILCOLOUR} FAIL! ${RESETCOLOUR}"
+    }
+} || {
+    echo -e "$C_FGRED_BOLD FAIL! $C_RESET"
     error "git submodule foreach git fetch --all" "Git failed to fetch the submodules from their respective remotes" "$PROCESS_STATUS"
-fi
+}
 
 # run 'git checkout origin/master' on each submodule
-echo -n -e "${HEADINGCOLOUR} ${RESETCOLOUR}${SUBHEADINGCOLOUR} + Checking Out Updates:${RESETCOLOUR}"
-PROCESS_STATUS=$(git submodule foreach git checkout -f origin/master 2>&1)
-if [ $? = 0 ]; then
-    echo -e "${SUCCESSCOLOUR} SUCCESS! ${RESETCOLOUR}"
-else
-    echo -e "${FAILCOLOUR} FAIL! ${RESETCOLOUR}"
+echo -ne "$C_BGBLUE $C_RESET$C_BGYELLOW + Checking Out Updates:$C_RESET"
+PROCESS_STATUS="$(git submodule foreach git checkout -f origin/master 2>&1)"
+[[ $? = 0 ]] && {
+    echo -e "$C_FGGREEN_BOLD SUCCESS! $C_RESET"
+} || {
+    echo -e "$C_FGRED_BOLD FAIL! $C_RESET"
     error "git submodule foreach git checkout -f origin/master" "Git failed to checkout the submodules into origin/master" "$PROCESS_STATUS"
-fi
+}
 
 # clean plugin directories and remove plugins no longer in the repo
-echo -e "\n${HEADINGCOLOUR} >> Cleaning Plugin Directories >> ${RESETCOLOUR}"
-echo -n -e "${HEADINGCOLOUR} ${RESETCOLOUR}${SUBHEADINGCOLOUR} + Removing Untracked Files:${RESETCOLOUR}"
-git submodule foreach git clean -dxf > /dev/null 2>&1 && echo -e "${SUCCESSCOLOUR} SUCCESS! ${RESETCOLOUR}" || echo -e "${FAILCOLOUR} FAIL! ${RESETCOLOUR}"
-[[ -f .gitmodules ]] && for each in vim/bundle/*; do
-    if [ -d "$each" ]; then
-        if [ -f "${each}/.git" ]; then
-            FILE=$(echo $each | grep -o -e "[^\/]*$")
-            if [ $(cat .gitmodules | grep "path = " |  grep -o -e "[^\/]*$" | grep -c -e "${FILE}$") = 0 ]; then
-                [[ -z "$FIRST_OLD" ]] && export FIRST_OLD=1 && echo -n -e "${HEADINGCOLOUR} ${RESETCOLOUR}${SUBHEADINGCOLOUR} + Removing Old Plugins: ${RESETCOLOUR}\n"
-                PROCESS_STATUS=$(rm -rf "$each")
-                if [ $? = 0 ]; then
-                    echo -e "${HEADINGCOLOUR} ${RESETCOLOUR}${SUBHEADINGCOLOUR} = ${RESETCOLOUR}$(echo ${each}\  | sed -re 's|^(.*)/([^/]*)$|\\e\[1;37m\1/\\e\[1;31m\2\\e\[0m|')"
-                else
-                    error "rm -rf ${each}" "Folder couldn't be deleted" "$PROCESS_STATUS"
+echo -e "\n$C_BGBLUE >> Cleaning Plugin Directories >> $C_RESET"
+echo -ne "$C_BGBLUE $C_RESET$C_BGYELLOW + Removing Untracked Files:$C_RESET"
+
+git submodule foreach git clean -dxf >/dev/null \
+    && echo -e "$C_FGGREEN_BOLD SUCCESS! $C_RESET" \
+    || echo -e "$C_FGRED_BOLD FAIL! $C_RESET"
+
+[[ -f '.gitmodules' ]] && {
+    for plugin in vim/bundle/*; do
+        [[ -f "$plugin/.git" ]] && {
+            FILE=$(echo $plugin | grep -o -e "[^\/]*$")
+            [[ $(cat .gitmodules | grep "path = " |  grep -o -e "[^\/]*$" | grep -c -e "${FILE}$") = 0 ]] && {
+                [[ -z "$FIRST_OLD" ]] && export FIRST_OLD=1 && echo -ne "$C_BGBLUE $C_RESET$C_BGYELLOW + Removing Old Plugins: $C_RESET\n"
+                PROCESS_STATUS=$(rm -rf "$plugin")
+                [[ $? = 0 ]] && {
+                    echo -e "$C_BGBLUE $C_RESET$C_BGYELLOW = $C_RESET$(echo $plugin\  | sed -re 's|^(.*)/([^/]*)$|\\e\[1;37m\1/\\e\[1;31m\2\\e\[0m|')"
+                } || {
+                    error "rm -rf $plugin" "Folder couldn't be deleted" "$PROCESS_STATUS"
                     exit 1
-                fi
-            fi
-        fi
-    fi
-done && echo
-### END: SUBMODULE UPDATE ###
+                }
+            }
+        }
+    done
+    echo
+}
 
-### BEGIN: USER PLUGIN UPDATE ###
-if [ -d vim/bundle.user ]; then
-    if [ ! $(find vim/bundle.user | grep ".git/config" | wc -l) = 0 ]; then
-        echo -e "${HEADINGCOLOUR} >> Updating User Plugins >> ${RESETCOLOUR}"
-        pushd vim/bundle.user > /dev/null 2>&1
-            for each in *; do
-                if [ -d "$each" ]; then
-                    pushd "$each" > /dev/null 2>&1
-                        if [ -d .git  ]; then
-                            echo -n -e "${HEADINGCOLOUR} ${RESETCOLOUR}${SUBHEADINGCOLOUR} + Updating 'vim/bundle.user/${each}':${RESETCOLOUR}"
-                            PROCESS_STATUS=$(git pull origin master 2>&1)
-                            if [ $? = 0 ]; then
-                                if [ $(echo $PROCESS_STATUS | grep -c "Already up-to-date") = 0 ]; then
-                                    echo -e "${SUCCESSCOLOUR} SUCCESS! ${RESETCOLOUR}"
-                                else
-                                    echo -e "${NOACTIONCOLOUR} UP TO DATE ${RESETCOLOUR}"
-                                fi
-                            else
-                                error "git pull origin master" "Failed pulling changes for ${each}" "$PROCESS_STATUS"
-                            fi
-                        fi
-                    popd > /dev/null 2>&1
-                fi
-            done
-        popd > /dev/null 2>&1
-        echo
-    fi
-fi
-### END: USER PLUGIN UPDATE ###
+### USER PLUGIN UPDATE
+[[ -d vim/bundle.user ]] && [[ $(find vim/bundle.user -mindepth 3 -maxdepth 3 -name config | grep '.git/config') ]] && {
+    echo -e "$C_BGBLUE >> Updating User Plugins >> $C_RESET"
+    pushd vim/bundle.user >/dev/null
+    for plugin in *; do
+        [[ -d "$plugin/.git" ]] && {
+            pushd "$plugin" >/dev/null
+            echo -ne "$C_BGBLUE $C_RESET$C_BGYELLOW + Updating 'vim/bundle.user/$plugin':$C_RESET"
+            PROCESS_STATUS=$(git pull origin master 2>&1)
+            [[ $? = 0 ]] && {
+                [[ $(echo $PROCESS_STATUS | grep -c "Already up-to-date") = 0 ]] \
+                    && echo -e "$C_FGGREEN_BOLD SUCCESS! $C_RESET" \
+                    || echo -e "$C_FGWHITE_BOLD UP TO DATE $C_RESET"
+            } || error "git pull origin master" "Failed pulling changes for $plugin" "$PROCESS_STATUS"
+            popd >/dev/null
+        }
+    done
+    popd >/dev/null
+    echo
+}
 
-### BEGIN: GENERATE PLUGIN HELPTAGS ###
-if [ $(type -P vim) ]; then
-    echo -n -e "${HEADINGCOLOUR} >> Generating Plugin Help:${RESETCOLOUR}"
-    timeout --foreground 2m vim -u "${PWD}/vimrc" -c "Helptags|qa!" &> /dev/null
-    if [ $? = 0 ]; then
-        echo -e "${SUCCESSCOLOUR} SUCCESS! ${RESETCOLOUR}"
-    else
+### GENERATE PLUGIN HELP
+[[ $(type -P vim) ]] && {
+    echo -ne "$C_BGBLUE >> Generating Plugin Help:$C_RESET"
+    timeout --foreground 2m vim -u "$SCRIPT_HOME/vimrc" -c "Helptags|qa!" &> /dev/null
+    [[ $? = 0 ]] && {
+        echo -e "$C_FGGREEN_BOLD SUCCESS! $C_RESET"
+    } || {
         reset -I
-        echo -e "${FAILCOLOUR} FAIL! ${RESETCOLOUR}"
-        error "vim -u \"${PWD}/vimrc\" -c \"Helptags|qa!\"" "Generating helpdocs for the submodules failed"
-    fi
-fi
-### END: GENERATE PLUGIN HELPTAGS ###
+        echo -e "$C_FGRED_BOLD FAIL! $C_RESET"
+        error "vim -u \"$SCRIPT_HOME/vimrc\" -c \"Helptags|qa!\"" "Generating helpdocs for the submodules failed"
+    }
+}
 
-echo -e "\n${TITLECOLOUR} ~~~ Update Complete ~~~ ${RESETCOLOUR}\n"
-exit 0
+echo -e "\n$C_BGBLACK ~~~ Update Complete ~~~ $C_RESET\n"
+
