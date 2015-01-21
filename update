@@ -88,7 +88,7 @@ echo -e "\n$C_BGBLACK ~~~ DarkCloud Vimconfig Update Tool ~~~ $C_RESET"
 
 # create vim/bundle.user if it doesn't exist
 [[ ! -d 'vim/bundle.user' ]] && {
-    echo -ne "\n$C_BGBLUE >> Creating User Plugin Directory:$C_RESET"
+    echo -ne "\n$C_BGBLUE >> Creating user plugin directory:$C_RESET"
     PROCESS_STATUS="$(install -d 'vim/bundle.user' 2>&1)"
     [[ $? = 0 ]] && {
         echo -e "$C_FGGREEN_BOLD SUCCESS! $C_RESET"
@@ -100,7 +100,7 @@ echo -e "\n$C_BGBLACK ~~~ DarkCloud Vimconfig Update Tool ~~~ $C_RESET"
 
 # create vim/vimrc.user if it doesn't exist
 [[ ! -e 'vim/vimrc.user' ]] && {
-    echo -ne "\n$C_BGBLUE >> Creating User Config File:$C_RESET"
+    echo -ne "\n$C_BGBLUE >> Creating user config file:$C_RESET"
     PROCESS_STATUS="$(touch 'vim/vimrc.user' 2>&1)"
     [[ $? = 0 ]] && {
         echo -e '"Autostart Filer in empty buffers: (*1:filer loads in new empty buffers | 0:filer must be triggered)\n"let g:autostartfiler=1\n' >> vim/vimrc.user
@@ -118,29 +118,29 @@ echo -e "\n$C_BGBLACK ~~~ DarkCloud Vimconfig Update Tool ~~~ $C_RESET"
 }
 
 ### REPO UPDATE
-echo -ne "\n$C_BGBLUE >> Updating Repository:$C_RESET"
+echo -ne "\n$C_BGBLUE >> Updating darkcloud-vimconfig:$C_RESET"
 PROCESS_STATUS="$(git pull origin master 2>&1)"
 [[ $? = 0 ]] && {
     echo -e "$C_FGGREEN_BOLD SUCCESS! $C_RESET"
 } || {
     echo -e "$C_FGRED_BOLD FAIL! $C_RESET"
-    error "git pull origin master" "Git failed to sync the repo" "$PROCESS_STATUS"
+    error 'git pull origin master' 'Git failed to sync the repo' "$PROCESS_STATUS"
     exit 1
 }
 
 ### SUBMODULE UPDATE {
-echo -e "\n$C_BGBLUE >> Updating Plugin Submodules >> $C_RESET"
-echo -ne "$C_BGBLUE $C_RESET$C_BGYELLOW + Updating Plugin URLs:$C_RESET"
+echo -e "\n$C_BGBLUE >> Updating plugin submodules >> $C_RESET"
+echo -ne "$C_BGBLUE $C_RESET$C_BGYELLOW + Updating plugin URLs:$C_RESET"
 PROCESS_STATUS="$(git submodule sync 2>&1)"
 [[ $? = 0 ]] && {
     echo -e "$C_FGGREEN_BOLD SUCCESS! $C_RESET"
 } || {
     echo -e "$C_FGRED_BOLD FAIL! $C_RESET"
-    error "git submodule sync" "Git failed to sync the submodules" "$PROCESS_STATUS"
+    error 'git submodule sync' 'Git failed to sync the submodules' "$PROCESS_STATUS"
 }
 
 # update each submodule to the new head and run 'git fetch --all'
-echo -ne "$C_BGBLUE $C_RESET$C_BGYELLOW + Fetching Updates:$C_RESET"
+echo -ne "$C_BGBLUE $C_RESET$C_BGYELLOW + Fetching updates:$C_RESET"
 PROCESS_STATUS="$(git submodule foreach git fetch --all 2>&1)"
 [[ $? = 0 ]] && {
     PROCESS_STATUS=$(git submodule update --init --recursive 2>&1)
@@ -148,38 +148,44 @@ PROCESS_STATUS="$(git submodule foreach git fetch --all 2>&1)"
         echo -e "$C_FGGREEN_BOLD SUCCESS! $C_RESET"
     } || {
         echo -e "$C_FGRED_BOLD FAIL! $C_RESET"
-        error "git submodule update --init --recursive" "Git failed to update the submodules" "$PROCESS_STATUS"
+        error 'git submodule update --init --recursive' 'Git failed to update the submodules' "$PROCESS_STATUS"
     }
 } || {
     echo -e "$C_FGRED_BOLD FAIL! $C_RESET"
-    error "git submodule foreach git fetch --all" "Git failed to fetch the submodules from their respective remotes" "$PROCESS_STATUS"
+    error 'git submodule foreach git fetch --all' "Git failed to fetch the submodules from their respective remotes" "$PROCESS_STATUS"
 }
 
 # run 'git checkout origin/master' on each submodule
-echo -ne "$C_BGBLUE $C_RESET$C_BGYELLOW + Checking Out Updates:$C_RESET"
+echo -ne "$C_BGBLUE $C_RESET$C_BGYELLOW + Checkout updates:$C_RESET"
 PROCESS_STATUS="$(git submodule foreach git checkout -f origin/master 2>&1)"
 [[ $? = 0 ]] && {
     echo -e "$C_FGGREEN_BOLD SUCCESS! $C_RESET"
 } || {
     echo -e "$C_FGRED_BOLD FAIL! $C_RESET"
-    error "git submodule foreach git checkout -f origin/master" "Git failed to checkout the submodules into origin/master" "$PROCESS_STATUS"
+    error 'git submodule foreach git checkout -f origin/master' 'Git failed to checkout the submodules into origin/master' "$PROCESS_STATUS"
 }
 
 # clean plugin directories and remove plugins no longer in the repo
-echo -e "\n$C_BGBLUE >> Cleaning Plugin Directories >> $C_RESET"
-echo -ne "$C_BGBLUE $C_RESET$C_BGYELLOW + Removing Untracked Files:$C_RESET"
-
-git submodule foreach git clean -dxf >/dev/null \
-    && echo -e "$C_FGGREEN_BOLD SUCCESS! $C_RESET" \
-    || echo -e "$C_FGRED_BOLD FAIL! $C_RESET"
+echo -e "\n$C_BGBLUE >> Clean plugin directories >> $C_RESET"
+echo -ne "$C_BGBLUE $C_RESET$C_BGYELLOW + Remove untracked files:$C_RESET"
+PROCESS_STATUS="$(git submodule foreach git clean -dxf 2>&1)"
+[[ $? = 0 ]] && {
+    echo -e "$C_FGGREEN_BOLD SUCCESS! $C_RESET"
+} || {
+    echo -e "$C_FGRED_BOLD FAIL! $C_RESET"
+    error 'git submodule foreach git clean -dxf' 'Git failed to remove untracked files' "$PROCESS_STATUS"
+}
 
 [[ -f '.gitmodules' ]] && {
     for plugin in vim/bundle/*; do
         [[ -f "$plugin/.git" ]] && {
             FILE=$(echo $plugin | grep -o -e "[^\/]*$")
             [[ $(cat .gitmodules | grep "path = " |  grep -o -e "[^\/]*$" | grep -c -e "${FILE}$") = 0 ]] && {
-                [[ -z "$FIRST_OLD" ]] && export FIRST_OLD=1 && echo -ne "$C_BGBLUE $C_RESET$C_BGYELLOW + Removing Old Plugins: $C_RESET\n"
-                PROCESS_STATUS=$(rm -rf "$plugin")
+                [[ -z "$FIRST_OLD" ]] && {
+                    FIRST_OLD=1
+                    echo -ne "$C_BGBLUE $C_RESET$C_BGYELLOW + Removing old plugins: $C_RESET\n"
+                }
+                PROCESS_STATUS="$(rm -rf "$plugin")"
                 [[ $? = 0 ]] && {
                     echo -e "$C_BGBLUE $C_RESET$C_BGYELLOW = $C_RESET$(echo $plugin\  | sed -re 's|^(.*)/([^/]*)$|\\e\[1;37m\1/\\e\[1;31m\2\\e\[0m|')"
                 } || {
@@ -194,18 +200,18 @@ git submodule foreach git clean -dxf >/dev/null \
 
 ### USER PLUGIN UPDATE
 [[ -d vim/bundle.user ]] && [[ $(find vim/bundle.user -mindepth 3 -maxdepth 3 -name config | grep '.git/config') ]] && {
-    echo -e "$C_BGBLUE >> Updating User Plugins >> $C_RESET"
-    pushd vim/bundle.user >/dev/null
+    echo -e "$C_BGBLUE >> Updating user plugins >> $C_RESET"
+    pushd 'vim/bundle.user' >/dev/null
     for plugin in *; do
         [[ -d "$plugin/.git" ]] && {
             pushd "$plugin" >/dev/null
             echo -ne "$C_BGBLUE $C_RESET$C_BGYELLOW + Updating 'vim/bundle.user/$plugin':$C_RESET"
-            PROCESS_STATUS=$(git pull origin master 2>&1)
+            PROCESS_STATUS="$(git pull origin master 2>&1)"
             [[ $? = 0 ]] && {
                 [[ $(echo $PROCESS_STATUS | grep -c "Already up-to-date") = 0 ]] \
                     && echo -e "$C_FGGREEN_BOLD SUCCESS! $C_RESET" \
                     || echo -e "$C_FGWHITE_BOLD UP TO DATE $C_RESET"
-            } || error "git pull origin master" "Failed pulling changes for $plugin" "$PROCESS_STATUS"
+            } || error 'git pull origin master' "Failed pulling changes for $plugin" "$PROCESS_STATUS"
             popd >/dev/null
         }
     done
@@ -215,16 +221,17 @@ git submodule foreach git clean -dxf >/dev/null \
 
 ### GENERATE PLUGIN HELP
 [[ $(type -P vim) ]] && {
-    echo -ne "$C_BGBLUE >> Generating Plugin Help:$C_RESET"
-    timeout --foreground 2m vim -u "$SCRIPT_HOME/vimrc" -c "Helptags|qa!" &> /dev/null
+    echo -ne "$C_BGBLUE >> Generating plugin help:$C_RESET"
+    timeout --preserve-status --foreground 1m vim -u "./vimrc" -c "Helptags|qa!"
     [[ $? = 0 ]] && {
         echo -e "$C_FGGREEN_BOLD SUCCESS! $C_RESET"
     } || {
         reset -I
         echo -e "$C_FGRED_BOLD FAIL! $C_RESET"
-        error "vim -u \"$SCRIPT_HOME/vimrc\" -c \"Helptags|qa!\"" "Generating helpdocs for the submodules failed"
+        error 'vim -u "./vimrc" -c "Helptags|qa!"' 'Generating helpdocs for the submodules failed'
     }
 }
 
+### FINISH
 echo -e "\n$C_BGBLACK ~~~ Update Complete ~~~ $C_RESET\n"
 
