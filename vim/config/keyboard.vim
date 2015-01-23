@@ -327,12 +327,6 @@
 
     "-unmap the suspend function
     map <C-z> <Nop>
-
-    "unmap mousewheel combos to ensure the old behaviour stays gone
-    map <C-ScrollWheelUp> <Nop>
-    map <C-ScrollWheelDown> <Nop>
-    map <A-ScrollWheelUp> <Nop>
-    map <A-ScrollWheelDown> <Nop>
 "}}}
 
 "ALIASES: COMMAND SHORTCUTS {{{
@@ -369,59 +363,93 @@
         "hold ctrl to scroll left/right instead of up/down
         nnoremap <C-ScrollWheelUp> 4zl
         xnoremap <C-ScrollWheelUp> 4zl
+        snoremap <C-ScrollWheelUp> 4zl
+        vnoremap <C-ScrollWheelUp> 4zl
         inoremap <C-ScrollWheelUp> <C-O>4zl
+
         nnoremap <C-ScrollWheelDown> 4zh
         xnoremap <C-ScrollWheelDown> 4zh
+        snoremap <C-ScrollWheelDown> 4zh
+        vnoremap <C-ScrollWheelDown> 4zh
         inoremap <C-ScrollWheelDown> <C-O>4zh
 
         "hold alt to scroll left/right more precisely
         nnoremap <A-ScrollWheelUp> zl
         xnoremap <A-ScrollWheelUp> zl
+        snoremap <A-ScrollWheelUp> zl
+        vnoremap <A-ScrollWheelUp> zl
         inoremap <A-ScrollWheelUp> <C-O>zl
+
         nnoremap <A-ScrollWheelDown> zh
         xnoremap <A-ScrollWheelDown> zh
+        snoremap <A-ScrollWheelDown> zh
+        vnoremap <A-ScrollWheelDown> zh
         inoremap <A-ScrollWheelDown> <C-O>zh
 
         "middle & ctrl+left = select from cursor
         nnoremap <MiddleMouse> <RightMouse>
         xnoremap <MiddleMouse> <RightMouse>
+        snoremap <MiddleMouse> <RightMouse>
+        vnoremap <MiddleMouse> <RightMouse>
         inoremap <MiddleMouse> <RightMouse>
+
         nnoremap <C-LeftMouse> <RightMouse>
         xnoremap <C-LeftMouse> <RightMouse>
+        snoremap <C-LeftMouse> <RightMouse>
+        vnoremap <C-LeftMouse> <RightMouse>
         inoremap <C-LeftMouse> <RightMouse>
 
         "alt+left = line
         nnoremap <A-LeftMouse> <LeftMouse>V
         xnoremap <A-LeftMouse> <RightMouse>$
+        snoremap <A-LeftMouse> <RightMouse>$
+        vnoremap <A-LeftMouse> <RightMouse>$
         inoremap <A-LeftMouse> <Esc><LeftMouse>V
 
         "ctrl+alt+left = select paragraph
         nnoremap <C-A-LeftMouse> <LeftMouse>vip
         xnoremap <C-A-LeftMouse> <RightMouse>ip$
+        snoremap <C-A-LeftMouse> <RightMouse>ip$
+        vnoremap <C-A-LeftMouse> <RightMouse>ip$
         inoremap <C-A-LeftMouse> <Esc><LeftMouse>vip
 
         "ctrl+(middle/right) = copy
         nnoremap <C-RightMouse> <LeftMouse>Vy
+        xnoremap <C-RightMouse> y
+        snoremap <C-RightMouse> y
         vnoremap <C-RightMouse> y
         inoremap <C-RightMouse> <C-0>y
+
         nnoremap <C-MiddleMouse> <LeftMouse>Vy
+        xnoremap <C-MiddleMouse> y
+        snoremap <C-MiddleMouse> y
         vnoremap <C-MiddleMouse> y
         inoremap <C-MiddleMouse> <C-0>y
 
         "alt+(middle/right) = cut
         nnoremap <A-RightMouse> x
         xnoremap <A-RightMouse> x
+        snoremap <A-RightMouse> x
+        vnoremap <A-RightMouse> x
         inoremap <A-RightMouse> <C-O>x
+
         nnoremap <A-MiddleMouse> x
         xnoremap <A-MiddleMouse> x
+        snoremap <A-MiddleMouse> x
+        vnoremap <A-MiddleMouse> x
         inoremap <A-MiddleMouse> <C-O>x
 
         "ctrl+alt+(middle/right) = paste
         nnoremap <C-A-RightMouse> p
         xnoremap <C-A-RightMouse> p
+        snoremap <C-A-RightMouse> p
+        vnoremap <C-A-RightMouse> p
         inoremap <C-A-RightMouse> <C-O>p
+
         nnoremap <C-A-MiddleMouse> p
         xnoremap <C-A-MiddleMouse> p
+        snoremap <C-A-MiddleMouse> p
+        vnoremap <C-A-MiddleMouse> p
         inoremap <C-A-MiddleMouse> <C-O>p
 
         "configure middle click to paste from X
