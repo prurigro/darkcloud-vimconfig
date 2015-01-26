@@ -181,7 +181,9 @@ scriptencoding utf-8
                 \ 'cannot find symbol.*',
                 \ '.*method does not override or implement a method from a supertype.*',
                 \ '.*fatal error:[^:]*: No such file or directory.*',
-                \ '.*line too long.*'
+                \ '.*line too long.*',
+                \ 'trailing whitespace \[W291\]',
+                \ 'blank line contains whitespace \[W293\]'
             \ ]}
 
         let g:syntastic_check_on_wq=0
