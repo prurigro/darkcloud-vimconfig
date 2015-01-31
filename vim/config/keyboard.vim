@@ -50,10 +50,10 @@
 "
 " Mappings:
 "  (mouse)
-"    <Ctrl-ScrollUp>          | (A) -> scroll right quickly
-"    <Ctrl-ScrollDown>        | (A) -> scroll left quickly
-"    <Alt-ScrollUp>           | (A) -> scroll right slowly
-"    <Alt-ScrollDown>         | (A) -> scroll left slowly
+"    <Ctrl-ScrollUp>          | (A) -> scroll right
+"    <Alt-ScrollUp>           | (A) -> scroll right
+"    <Ctrl-ScrollDown>        | (A) -> scroll left
+"    <Alt-ScrollDown>         | (A) -> scroll left
 "
 "    <MiddleClick>            | (A) -> selects from the cursor
 "    <Ctrl-LeftClick>         | (A) -> selects from the cursor
@@ -361,30 +361,31 @@
 "MAPPINGS: GENERAL KEYBINDINGS AND REBINDINGS {{{
     "MOUSE:{
         "hold ctrl to scroll left/right instead of up/down
+        noremap <C-ScrollWheelUp> 4zl
         nnoremap <C-ScrollWheelUp> 4zl
         xnoremap <C-ScrollWheelUp> 4zl
         snoremap <C-ScrollWheelUp> 4zl
         vnoremap <C-ScrollWheelUp> 4zl
         inoremap <C-ScrollWheelUp> <C-O>4zl
+        noremap <A-ScrollWheelUp> 4zl
+        nnoremap <A-ScrollWheelUp> 4zl
+        xnoremap <A-ScrollWheelUp> 4zl
+        snoremap <A-ScrollWheelUp> 4zl
+        vnoremap <A-ScrollWheelUp> 4zl
+        inoremap <A-ScrollWheelUp> <C-O>4zl
 
+        noremap <C-ScrollWheelDown> 4zh
         nnoremap <C-ScrollWheelDown> 4zh
         xnoremap <C-ScrollWheelDown> 4zh
         snoremap <C-ScrollWheelDown> 4zh
         vnoremap <C-ScrollWheelDown> 4zh
         inoremap <C-ScrollWheelDown> <C-O>4zh
-
-        "hold alt to scroll left/right more precisely
-        nnoremap <A-ScrollWheelUp> zl
-        xnoremap <A-ScrollWheelUp> zl
-        snoremap <A-ScrollWheelUp> zl
-        vnoremap <A-ScrollWheelUp> zl
-        inoremap <A-ScrollWheelUp> <C-O>zl
-
-        nnoremap <A-ScrollWheelDown> zh
-        xnoremap <A-ScrollWheelDown> zh
-        snoremap <A-ScrollWheelDown> zh
-        vnoremap <A-ScrollWheelDown> zh
-        inoremap <A-ScrollWheelDown> <C-O>zh
+        noremap <A-ScrollWheelDown> 4zh
+        nnoremap <A-ScrollWheelDown> 4zh
+        xnoremap <A-ScrollWheelDown> 4zh
+        snoremap <A-ScrollWheelDown> 4zh
+        vnoremap <A-ScrollWheelDown> 4zh
+        inoremap <A-ScrollWheelDown> <C-O>4zh
 
         "middle & ctrl+left = select from cursor
         nnoremap <MiddleMouse> <RightMouse>
