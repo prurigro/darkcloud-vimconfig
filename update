@@ -213,7 +213,7 @@ fi
             process_status="$(git pull origin master 2>&1)"
             if [[ $? = 0 ]]; then
                 if ! grep -q "Already up-to-date" <<< "$process_status"; then
-                    printf '%s\n'"$cfg_green_bold SUCCESS! $c_reset"
+                    printf '%s\n' "$cfg_green_bold SUCCESS! $c_reset"
                 else
                     printf '%s\n' "$cfg_white_bold UP TO DATE $c_reset"
                 fi
