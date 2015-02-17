@@ -183,6 +183,7 @@ scriptencoding utf-8
                 \ '.*fatal error:[^:]*: No such file or directory.*',
                 \ '.*line too long.*',
                 \ 'Expressions don.t expand in single quotes, use double quotes for that\. \[SC2016\]',
+                \ 'Shebang (#!) missing\. Assuming Bash\. \[SC2148\]',
                 \ 'trailing whitespace \[W291\]',
                 \ 'blank line contains whitespace \[W293\]'
             \ ]}
