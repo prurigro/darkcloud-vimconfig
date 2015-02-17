@@ -182,6 +182,7 @@ scriptencoding utf-8
                 \ '.*method does not override or implement a method from a supertype.*',
                 \ '.*fatal error:[^:]*: No such file or directory.*',
                 \ '.*line too long.*',
+                \ 'Expressions don.t expand in single quotes, use double quotes for that\. \[SC2016\]',
                 \ 'trailing whitespace \[W291\]',
                 \ 'blank line contains whitespace \[W293\]'
             \ ]}
