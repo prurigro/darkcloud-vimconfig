@@ -31,14 +31,15 @@ endif
     "set given filenames to various filetypes
     autocmd BufNewFile,BufRead *.aspx,*.asmx,*.ascx,*.master setlocal ft=aspnet
     autocmd BufNewFile,BufRead *.gradle setlocal ft=groovy
-    autocmd BufNewFile,BufRead *muttrc setlocal ft=muttrc
-    autocmd BufNewFile,BufRead *vimpagerrc setlocal ft=vim
-    autocmd BufNewFile,BufRead *ircd.conf setlocal ft=json
-    autocmd BufNewFile,BufRead *pacman.conf,*yaourtrc setlocal ft=sh
     autocmd BufNewFile,BufRead *cjdroute.conf,*cjdmaid.conf setlocal ft=json
+    autocmd BufNewFile,BufRead *ircd.conf setlocal ft=json
+    autocmd BufNewFile,BufRead *muttrc setlocal ft=muttrc
+    autocmd BufNewFile,BufRead *pacman.conf setlocal ft=conf
+    autocmd BufNewFile,BufRead *vimpagerrc setlocal ft=vim
+    autocmd BufNewFile,BufRead *yaourtrc setlocal ft=sh
 
     "filename specific settings
-    autocmd BufNewFile,BufRead PKGBUILD setlocal iskeyword-=.
+    autocmd BufEnter,FileType sh setlocal iskeyword-=.
 
     "filtype specific settings
     autocmd Filetype text,mkd,mkdc,gitcommit,notes,mail,notmuch,rst,taskreport setlocal nonumber spell nolist linebreak breakat&vim breakat-=* breakat-=. breakat-=/ breakat-=? breakat-=, breakat-=: breakat-=; breakat-=! "set some defaults for word processing
