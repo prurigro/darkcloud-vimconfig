@@ -183,6 +183,10 @@ scriptencoding utf-8
             let g:syntastic_check_on_open=0
         endif
 
+        let g:syntastic_sh_bashate_quiet_messages={
+            \ 'regex':[
+                \ 'Indent not multiple of 4'
+            \ ]}
         let g:syntastic_sh_shellcheck_quiet_messages={
             \ 'regex':[
                 \ '.*appears unused\. Verify it or export it\. \[SC2034\]',
