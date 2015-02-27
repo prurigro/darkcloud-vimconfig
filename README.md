@@ -100,13 +100,12 @@ As usual, to have your system use `vimpager` in place of `less`, you'll need to 
 
 #### Sidebars ####
 
-| Binding                        | Mode | Action                                        |
-|--------------------------------|------|-----------------------------------------------|
-| Ctrl or Alt+F1 or Backslash+\[ | ALL  | Toggle **vimfiler** file manager sidebar      |
-| Ctrl or Alt+F2 or Backslash+\] | ALL  | Toggle the **gundo** undo history sidebar     |
-| Ctrl or Alt+F3 or Backslash+{  | ALL  | Toggle the **tagbar** source code tag sidebar |
-| Ctrl or Alt+F4 or Backslash+}  | ALL  | Toggle the **extradite** git history window   |
-| Ctrl or Alt+F12                | ALL  | Toggle the **goyo** distraction-free mode     |
+| Binding                        | Mode | Action                              |
+|--------------------------------|------|-------------------------------------|
+| F9 and Backslash+\[  | ALL  | Toggle **vimfiler** file manager sidebar      |
+| F10 and Backslash+\] | ALL  | Toggle the **tagbar** source code tag sidebar |
+| F11 and Backslash+}  | ALL  | Toggle the **extradite** git history window   |
+| F12 and Backslash+{  | ALL  | Toggle the **gundo** undo history sidebar     |
 
 #### Toggles ####
 
@@ -120,15 +119,13 @@ As usual, to have your system use `vimpager` in place of `less`, you'll need to 
 | F4              | ALL  | Toggle external-paste mode                       |
 |                 |      |                                                  |
 | \`              | N    | Toggle gutter (left bar with line numbers etc.)  |
-| Backslash+F1    | N    | Toggle the **vim** reference manual              |
-| Backslash+Space | N    | Toggle the **goyo** distraction-free UI          |
-| ?+Space         | N    | Toggle the **spellcheck** bottom bar of mistakes |
+| Backslash+\`    | N    | Toggle the **goyo** distraction-free UI          |
+| Backslash+?     | N    | Toggle the **vim** reference manual              |
 
 #### Spell Check ####
 
 | Binding | Mode | Action                                        |
 |---------|------|-----------------------------------------------|
-| ?+Space | N    | Toggle spellcheck error list                  |
 | ?+      | N    | Add the selected word to the local dictionary |
 | ??      | N    | Show spelling suggestions for selected word   |
 | ?N      | N    | Go to the next spelling mistake               |
