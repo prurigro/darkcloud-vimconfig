@@ -27,6 +27,9 @@ if has("autocmd") && exists("+omnifunc")
     autocmd VimEnter,Filetype * if &omnifunc == ""|setlocal omnifunc=syntaxcomplete#Complete|endif
 endif
 
+"prevent warnings when changing read-only files
+autocmd FileChangedRO * nested set noreadonly
+
 "FILETPE AND SYNTAX: {{{
     "set given filenames to various filetypes
     autocmd BufNewFile,BufRead *.aspx,*.asmx,*.ascx,*.master setlocal ft=aspnet

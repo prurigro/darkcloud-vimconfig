@@ -168,26 +168,38 @@ scriptencoding utf-8
         let g:autostartchecker=0
     else
         if (g:autostartchecker == 1)
-            let g:syntastic_mode_map={'mode':'active','active_filetypes':[],'passive_filetypes':[]}
+            let g:syntastic_mode_map={
+                \ 'mode':'active',
+                \ 'active_filetypes':[],
+                \ 'passive_filetypes':[]
+            \ }
             let g:syntastic_check_on_open=1
         else
-            let g:syntastic_mode_map={'mode':'passive','active_filetypes':[],'passive_filetypes':[]}
+            let g:syntastic_mode_map={
+                \ 'mode':'passive',
+                \ 'active_filetypes':[],
+                \ 'passive_filetypes':[]
+            \ }
             let g:syntastic_check_on_open=0
         endif
 
-        let g:syntastic_quiet_messages={
+        let g:syntastic_sh_shellcheck_quiet_messages={
             \ 'regex':[
-                \ 'package\ [^\ ]*\ does not exist.*',
-                \ 'cannot find symbol.*',
-                \ '.*method does not override or implement a method from a supertype.*',
-                \ '.*fatal error:[^:]*: No such file or directory.*',
-                \ '.*line too long.*',
                 \ '.*appears unused\. Verify it or export it\. \[SC2034\]',
-                \ 'Expressions don.t expand in single quotes, use double quotes for that\. \[SC2016\]',
-                \ 'Shebang (#!) missing\. Assuming Bash\. \[SC2148\]',
-                \ 'trailing whitespace \[W291\]',
+                \ 'Expressions don.t expand in single quotes, use double quotes for that\. \[SC2016\]'
+            \ ]}
+        let g:syntastic_java_javac_quiet_messages={
+            \ 'regex':[
+                \ 'cannot find symbol.*',
+                \ 'method does not override or implement a method from a supertype.*',
+                \ 'package [^\ ]* does not exist.*'
+            \ ]}
+        let g:syntastic_python_flake8_quiet_messages={
+            \ 'regex':[
+                \ 'line too long ([^)]*) \[E501\]',
                 \ 'blank line contains whitespace \[W293\]'
             \ ]}
+        autocmd BufNewFile,BufRead PKGBUILD,bash.bashrc,.bashrc let g:syntastic_quiet_messages={"level":"warnings"}
 
         let g:syntastic_check_on_wq=0
         let g:syntastic_always_populate_loc_list=1
