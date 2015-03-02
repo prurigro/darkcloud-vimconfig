@@ -183,14 +183,16 @@ scriptencoding utf-8
             let g:syntastic_check_on_open=0
         endif
 
+        "configure warnings/errors that should be silenced by module
         let g:syntastic_sh_bashate_quiet_messages={
             \ 'regex':[
                 \ 'Indent not multiple of 4'
             \ ]}
         let g:syntastic_sh_shellcheck_quiet_messages={
             \ 'regex':[
-                \ '.*appears unused\. Verify it or export it\. \[SC2034\]',
-                \ 'Expressions don.t expand in single quotes, use double quotes for that\. \[SC2016\]'
+                \ '.*\[SC1001\]',
+                \ '.*\[SC2016\]',
+                \ '.*\[SC2034\]'
             \ ]}
         let g:syntastic_java_javac_quiet_messages={
             \ 'regex':[
@@ -200,8 +202,8 @@ scriptencoding utf-8
             \ ]}
         let g:syntastic_python_flake8_quiet_messages={
             \ 'regex':[
-                \ 'line too long ([^)]*) \[E501\]',
-                \ 'blank line contains whitespace \[W293\]'
+                \ '.*\[W293\]',
+                \ '.*\[E501\]'
             \ ]}
         autocmd BufNewFile,BufRead PKGBUILD,bash.bashrc,.bashrc let g:syntastic_quiet_messages={"level":"warnings"}
 
