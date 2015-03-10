@@ -192,6 +192,7 @@ scriptencoding utf-8
             \ 'regex':[
                 \ '.*\[SC1001\]',
                 \ '.*\[SC2016\]',
+                \ '.*\[SC2029\]',
                 \ '.*\[SC2034\]'
             \ ]}
         let g:syntastic_java_javac_quiet_messages={
