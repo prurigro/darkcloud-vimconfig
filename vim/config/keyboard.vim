@@ -113,22 +113,22 @@
 "    <Space>_                 | (N) -> unopen all folds
 "    <Space>0                 | (N) -> reset all folds using default fold level
 "
-"    <F9>                     | (A) -> toggle vimfiler sidebar
-"    <Ctrl-F9>                | (A) -> toggle vimfiler sidebar
-"    <Alt-F9>                 | (A) -> toggle vimfiler sidebar
-"    <Leader>[                | (N) -> toggle vimfiler sidebar
+"    <F9>                     | (A) -> toggle extradite git commit history
+"    <Ctrl-F9>                | (A) -> toggle extradite git commit history
+"    <Alt-F9>                 | (A) -> toggle extradite git commit history
+"    <Leader>}                | (N) -> toggle extradite git commit history
 "    <F10>                    | (A) -> toggle the tagbar sidebar
 "    <Ctrl-F10>               | (A) -> toggle the tagbar sidebar
 "    <Alt-F10>                | (A) -> toggle the tagbar sidebar
-"    <Leader>]                | (N) -> toggle the tagbar sidebar
-"    <F11>                    | (A) -> toggle extradite git commit history
-"    <Ctrl-F11>               | (A) -> toggle extradite git commit history
-"    <Alt-F11>                | (A) -> toggle extradite git commit history
-"    <Leader>}                | (N) -> toggle extradite git commit history
-"    <F12>                    | (A) -> toggle the gundo sidebar
-"    <Ctrl-F12>               | (A) -> toggle the gundo sidebar
-"    <Alt-F12>                | (A) -> toggle the gundo sidebar
-"    <Leader>{                | (N) -> toggle the gundo sidebar
+"    <Leader>{                | (N) -> toggle the tagbar sidebar
+"    <F11>                    | (A) -> toggle the gundo sidebar
+"    <Ctrl-F11>               | (A) -> toggle the gundo sidebar
+"    <Alt-F11>                | (A) -> toggle the gundo sidebar
+"    <Leader>]                | (N) -> toggle the gundo sidebar
+"    <F12>                    | (A) -> toggle vimfiler sidebar
+"    <Ctrl-F12>               | (A) -> toggle vimfiler sidebar
+"    <Alt-F12>                | (A) -> toggle vimfiler sidebar
+"    <Leader>[                | (N) -> toggle vimfiler sidebar
 "
 "    <F1>                     | (A) -> toggle line wrapping
 "    <Ctrl-F1>                | (A) -> toggle line wrapping
@@ -533,17 +533,17 @@
         "reset all folds to the default fold level
         nnoremap <silent><expr> <Space>0 'zX:echo "all folds have been reset"<CR>'
 
-        "trigger vimfiler
-        nnoremap <silent><expr> <F9> ':VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
-        xnoremap <silent><expr> <F9> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
-        inoremap <silent><expr> <F9> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
-        nnoremap <silent><expr> <C-F9> ':VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
-        xnoremap <silent><expr> <C-F9> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
-        inoremap <silent><expr> <C-F9> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
-        nnoremap <silent><expr> <A-F9> ':VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
-        xnoremap <silent><expr> <A-F9> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
-        inoremap <silent><expr> <A-F9> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
-        nnoremap <silent><expr> <Leader>[ ':VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
+        "view commit history and diffs
+        nnoremap <expr><silent> <F9> ':SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        xnoremap <expr><silent> <F9> '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        inoremap <expr><silent> <F9> '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        nnoremap <expr><silent> <C-F9> ':SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        xnoremap <expr><silent> <C-F9> '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        inoremap <expr><silent> <C-F9> '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        nnoremap <expr><silent> <A-F9> ':SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        xnoremap <expr><silent> <A-F9> '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        inoremap <expr><silent> <A-F9> '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        nnoremap <silent><expr> <Leader>} ':SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
 
         "bindings to trigger the tagbar list of tags
         nnoremap <silent><expr> <F10> ':TagbarToggle<CR>:echo "tagbar toggled"<CR>'
@@ -555,31 +555,31 @@
         nnoremap <silent><expr> <A-F10> ':TagbarToggle<CR>:echo "tagbar toggled"<CR>'
         xnoremap <silent><expr> <A-F10> '<Esc>:TagbarToggle<CR>gv'
         inoremap <silent><expr> <A-F10> '<C-O>:TagbarToggle<CR>'
-        nnoremap <silent><expr> <Leader>] ':TagbarToggle<CR>:echo "tagbar toggled"<CR>'
-
-        "view commit history and diffs
-        nnoremap <expr><silent> <F11> ':SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        xnoremap <expr><silent> <F11> '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        inoremap <expr><silent> <F11> '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        nnoremap <expr><silent> <C-F11> ':SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        xnoremap <expr><silent> <C-F11> '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        inoremap <expr><silent> <C-F11> '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        nnoremap <expr><silent> <A-F11> ':SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        xnoremap <expr><silent> <A-F11> '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        inoremap <expr><silent> <A-F11> '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        nnoremap <silent><expr> <Leader>} ':SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        nnoremap <silent><expr> <Leader>{ ':TagbarToggle<CR>:echo "tagbar toggled"<CR>'
 
         "bindings to trigger the gundo undo history
-        nnoremap <silent><expr> <F12> ':GundoToggle<CR>:echo "undo history sidebar toggled"<CR>'
-        xnoremap <silent><expr> <F12> '<Esc>:GundoToggle<CR>'
-        inoremap <silent><expr> <F12> '<Esc>:GundoToggle<CR>'
-        nnoremap <silent><expr> <C-F12> ':GundoToggle<CR>:echo "undo history sidebar toggled"<CR>'
-        xnoremap <silent><expr> <C-F12> '<Esc>:GundoToggle<CR>'
-        inoremap <silent><expr> <C-F12> '<Esc>:GundoToggle<CR>'
-        nnoremap <silent><expr> <A-F12> ':GundoToggle<CR>:echo "undo history sidebar toggled"<CR>'
-        xnoremap <silent><expr> <A-F12> '<Esc>:GundoToggle<CR>'
-        inoremap <silent><expr> <A-F12> '<Esc>:GundoToggle<CR>'
-        nnoremap <silent><expr> <Leader>{ ':GundoToggle<CR>:echo "undo history sidebar toggled"<CR>'
+        nnoremap <silent><expr> <F11> ':GundoToggle<CR>:echo "undo history sidebar toggled"<CR>'
+        xnoremap <silent><expr> <F11> '<Esc>:GundoToggle<CR>'
+        inoremap <silent><expr> <F11> '<Esc>:GundoToggle<CR>'
+        nnoremap <silent><expr> <C-F11> ':GundoToggle<CR>:echo "undo history sidebar toggled"<CR>'
+        xnoremap <silent><expr> <C-F11> '<Esc>:GundoToggle<CR>'
+        inoremap <silent><expr> <C-F11> '<Esc>:GundoToggle<CR>'
+        nnoremap <silent><expr> <A-F11> ':GundoToggle<CR>:echo "undo history sidebar toggled"<CR>'
+        xnoremap <silent><expr> <A-F11> '<Esc>:GundoToggle<CR>'
+        inoremap <silent><expr> <A-F11> '<Esc>:GundoToggle<CR>'
+        nnoremap <silent><expr> <Leader>] ':GundoToggle<CR>:echo "undo history sidebar toggled"<CR>'
+
+        "trigger vimfiler
+        nnoremap <silent><expr> <F12> ':VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
+        xnoremap <silent><expr> <F12> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
+        inoremap <silent><expr> <F12> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
+        nnoremap <silent><expr> <C-F12> ':VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
+        xnoremap <silent><expr> <C-F12> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
+        inoremap <silent><expr> <C-F12> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
+        nnoremap <silent><expr> <A-F12> ':VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
+        xnoremap <silent><expr> <A-F12> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
+        inoremap <silent><expr> <A-F12> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
+        nnoremap <silent><expr> <Leader>[ ':VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
 
         "toggle line wrapping (and bottom bar if using the gui)
         nnoremap <silent><expr> <F1> ':set wrap!<CR>:echo "line wrapping toggled"<CR>'
@@ -825,9 +825,10 @@
     autocmd FileType extradite map <buffer> l j
     autocmd FileType extradite map <buffer> <Left> <Up>
     autocmd FileType extradite map <buffer> h k
-    autocmd FileType extradite map <buffer> <F11> q
-    autocmd FileType extradite map <buffer> <A-F11> q
-    autocmd FileType extradite map <buffer> <A-F11> q
+    autocmd FileType extradite map <buffer> <F9> q
+    autocmd FileType extradite map <buffer> <C-F9> q
+    autocmd FileType extradite map <buffer> <A-F9> q
+    autocmd FileType extradite map <buffer> <Leader>} q
 
     "gundo
     autocmd FileType gundo map <buffer> <LeftMouse> <LeftMouse>0l
@@ -889,18 +890,22 @@
 "MAPPINGS DISABLED FOR GIVEN FILETYPES: {{{
     "remove incompatible toggles from specific file types
     autocmd Filetype extradite,gundo,help,tagbar,qf,vimfiler noremap <buffer> ` <Nop>
-    autocmd Filetype extradite,gundo,help,tagbar,qf noremap <buffer> <F9> <Nop>
-    autocmd Filetype extradite,gundo,help,tagbar,qf noremap <buffer> <C-F9> <Nop>
-    autocmd Filetype extradite,gundo,help,tagbar,qf noremap <buffer> <A-F9> <Nop>
+    autocmd Filetype gundo,help,tagbar,qf,vimfiler,diff noremap <buffer> <F9> <Nop>
+    autocmd Filetype gundo,help,tagbar,qf,vimfiler,diff noremap <buffer> <C-F9> <Nop>
+    autocmd Filetype gundo,help,tagbar,qf,vimfiler,diff noremap <buffer> <A-F9> <Nop>
+    autocmd Filetype gundo,help,tagbar,qf,vimfiler,diff noremap <buffer> <Leader>} <Nop>
     autocmd Filetype extradite,gundo,help,qf,vimfiler noremap <buffer> <F10> <Nop>
     autocmd Filetype extradite,gundo,help,qf,vimfiler noremap <buffer> <C-F10> <Nop>
     autocmd Filetype extradite,gundo,help,qf,vimfiler noremap <buffer> <A-F10> <Nop>
-    autocmd Filetype gundo,help,tagbar,qf,vimfiler,diff noremap <buffer> <F11> <Nop>
-    autocmd Filetype gundo,help,tagbar,qf,vimfiler,diff noremap <buffer> <C-F11> <Nop>
-    autocmd Filetype gundo,help,tagbar,qf,vimfiler,diff noremap <buffer> <A-F11> <Nop>
-    autocmd Filetype extradite,help,tagbar,qf,vimfiler noremap <buffer> <F12> <Nop>
-    autocmd Filetype extradite,help,tagbar,qf,vimfiler noremap <buffer> <C-F12> <Nop>
-    autocmd Filetype extradite,help,tagbar,qf,vimfiler noremap <buffer> <A-F12> <Nop>
+    autocmd Filetype extradite,gundo,help,qf,vimfiler noremap <buffer> <Leader>{ <Nop>
+    autocmd Filetype extradite,help,tagbar,qf,vimfiler noremap <buffer> <F11> <Nop>
+    autocmd Filetype extradite,help,tagbar,qf,vimfiler noremap <buffer> <C-F11> <Nop>
+    autocmd Filetype extradite,help,tagbar,qf,vimfiler noremap <buffer> <A-F11>] <Nop>
+    autocmd Filetype extradite,help,tagbar,qf,vimfiler noremap <buffer> <Leader> <Nop>
+    autocmd Filetype extradite,gundo,help,tagbar,qf noremap <buffer> <F12> <Nop>
+    autocmd Filetype extradite,gundo,help,tagbar,qf noremap <buffer> <C-F12> <Nop>
+    autocmd Filetype extradite,gundo,help,tagbar,qf noremap <buffer> <A-F12> <Nop>
+    autocmd Filetype extradite,gundo,help,tagbar,qf noremap <buffer> <Leader>[ <Nop>
 
     "disable modifier keys with directions that would interfere with logic
     autocmd Filetype qf,gundo,vimfiler noremap <buffer> <C-Up> <Nop>

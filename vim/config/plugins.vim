@@ -274,6 +274,8 @@ scriptencoding utf-8
     let g:tagbar_singleclick=1
     let g:tagbar_width=35
     let g:tagbar_autofocus=1
+
+    autocmd FileType tagbar setlocal nocursorcolumn
 "}}}
 
 "TCOMMAND: {{{

@@ -100,12 +100,12 @@ As usual, to have your system use `vimpager` in place of `less`, you'll need to 
 
 #### Sidebars ####
 
-| Binding                        | Mode | Action                              |
-|--------------------------------|------|-------------------------------------|
-| F9 and Backslash+\[  | ALL  | Toggle **vimfiler** file manager sidebar      |
-| F10 and Backslash+\] | ALL  | Toggle the **tagbar** source code tag sidebar |
-| F11 and Backslash+}  | ALL  | Toggle the **extradite** git history window   |
-| F12 and Backslash+{  | ALL  | Toggle the **gundo** undo history sidebar     |
+| Binding              | Mode | Action                                        |
+|----------------------|------|-----------------------------------------------|
+| F9 and Backslash+}   | ALL  | Toggle the **extradite** git history window   |
+| F10 and Backslash+{  | ALL  | Toggle the **tagbar** source code tag sidebar |
+| F11 and Backslash+\] | ALL  | Toggle the **gundo** undo history sidebar     |
+| F12 and Backslash+\[ | ALL  | Toggle **vimfiler** file manager sidebar      |
 
 #### Toggles ####
 
