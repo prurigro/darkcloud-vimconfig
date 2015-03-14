@@ -9,7 +9,14 @@
 #
 
 script_name="${0//*\/}"
-script_home="${0%/*}"
+script_home="${0%$script_name}"
+if [[ -z "$script_home" ]]; then
+    script_home="$PWD"
+else
+    pushd "$script_home" >/dev/null
+    script_home="$PWD"
+    popd >/dev/null
+fi
 repo_version="$(printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)")"
 error_log='update-errors.log'
 
@@ -26,7 +33,7 @@ error_log='update-errors.log'
     cbg_blue='#'
 
 # error: output and log error
-function error() {
+function error {
     printf '%s\n' "$cbg_blue $c_reset$cbg_red_bold ! ERROR: $c_reset$cfg_red_bold $2 " >&2
     printf '%s\n' "$cbg_blue $c_reset$cbg_red_bold ! COMMAND: $c_reset ${cfg_white_bold}=> $1$c_reset" >&2
     [[ -n "$3" ]] \
@@ -40,12 +47,12 @@ function error() {
 }
 
 # show_version: displays version information
-function show_version() {
+function show_version {
     printf '%s\n' "$script_name: darkcloud-vimconfig update tool (version: $repo_version)"
 }
 
 # show_help: this function displays help output
-function show_help() {
+function show_help {
     printf '\n%s\n' 'USAGE'
     printf '  %s\n\n' "./$script_name [OPTION]"
     printf '%s\n' 'OPTIONS'
@@ -88,7 +95,7 @@ printf '\n%s\n' "$cbg_black ~~~ DarkCloud Vimconfig Update Tool ~~~ $c_reset"
 [[ -d 'vim/bundle.user' ]] || {
     printf '\n%s' "$cbg_blue >> Creating user plugin directory:$c_reset"
     process_status="$(install -d 'vim/bundle.user' 2>&1)"
-    if [[ $? = 0 ]]; then
+    if (( ! $? )); then
         printf '%s\n' "$cfg_green_bold SUCCESS! $c_reset"
     else
         printf '%s\n' "$cfg_red_bold FAIL! $c_reset"
@@ -100,7 +107,7 @@ printf '\n%s\n' "$cbg_black ~~~ DarkCloud Vimconfig Update Tool ~~~ $c_reset"
 [[ -e 'vim/vimrc.user' ]] || {
     printf '\n%s' "$cbg_blue >> Creating user config file:$c_reset"
     process_status="$(touch 'vim/vimrc.user' 2>&1)"
-    if [[ $? = 0 ]]; then
+    if (( ! $? )); then
         {
             printf '%s\n%s\n\n' '"Autostart Filer in empty buffers: (*1:filer loads in new empty buffers | 0:filer must be triggered)' '"let g:autostartfiler=1'
             printf '%s\n%s\n\n' '"Autocheck syntax checking: (1:start toggled on | *0:start toggled off)' '"let g:autostartchecker=0'
@@ -124,7 +131,7 @@ printf '\n%s\n' "$cbg_black ~~~ DarkCloud Vimconfig Update Tool ~~~ $c_reset"
 ### REPO UPDATE
 printf '\n%s' "$cbg_blue >> Updating darkcloud-vimconfig:$c_reset"
 process_status="$(git pull origin master 2>&1)"
-if [[ $? = 0 ]]; then
+if (( ! $? )); then
     printf '%s\n' "$cfg_green_bold SUCCESS! $c_reset"
 else
     printf '%s\n' "$cfg_red_bold FAIL! $c_reset"
@@ -136,7 +143,7 @@ fi
 printf '\n%s\n' "$cbg_blue >> Updating plugin submodules >> $c_reset"
 printf '%s' "$cbg_blue $c_reset$cbg_yellow + Updating plugin URLs:$c_reset"
 process_status="$(git submodule sync 2>&1)"
-if [[ $? = 0 ]]; then
+if (( ! $? )); then
     printf '%s\n' "$cfg_green_bold SUCCESS! $c_reset"
 else
     printf '%s\n' "$cfg_red_bold FAIL! $c_reset"
@@ -146,9 +153,9 @@ fi
 # update each submodule to the new head and run 'git fetch --all'
 printf '%s' "$cbg_blue $c_reset$cbg_yellow + Fetching updates:$c_reset"
 process_status="$(git submodule foreach git fetch --all 2>&1)"
-if [[ $? = 0 ]]; then
+if (( ! $? )); then
     process_status=$(git submodule update --init --recursive 2>&1)
-    if [[ $? = 0 ]]; then
+    if (( ! $? )); then
         printf '%s\n' "$cfg_green_bold SUCCESS! $c_reset"
     else
         printf '%s\n' "$cfg_red_bold FAIL! $c_reset"
@@ -162,7 +169,7 @@ fi
 # run 'git checkout origin/master' on each submodule
 printf '%s' "$cbg_blue $c_reset$cbg_yellow + Checkout updates:$c_reset"
 process_status="$(git submodule foreach git checkout -f origin/master 2>&1)"
-if [[ $? = 0 ]]; then
+if (( ! $? )); then
     printf '%s\n' "$cfg_green_bold SUCCESS! $c_reset"
 else
     printf '%s\n' "$cfg_red_bold FAIL! $c_reset"
@@ -173,7 +180,7 @@ fi
 printf '\n%s\n' "$cbg_blue >> Clean plugin directories >> $c_reset"
 printf '%s' "$cbg_blue $c_reset$cbg_yellow + Remove untracked files:$c_reset"
 process_status="$(git submodule foreach git clean -dxf 2>&1)"
-if [[ $? = 0 ]]; then
+if (( ! $? )); then
     printf '%s\n' "$cfg_green_bold SUCCESS! $c_reset"
 else
     printf '%s\n' "$cfg_red_bold FAIL! $c_reset"
@@ -190,7 +197,7 @@ fi
                     printf '%s\n' "$cbg_blue $c_reset$cbg_yellow + Removing old plugins: $c_reset"
                 }
                 process_status="$(rm -rf "${plugin:?}")"
-                if [[ $? = 0 ]]; then
+                if (( ! $? )); then
                     printf '%s\n' "$cbg_blue $c_reset$cbg_yellow = $c_reset$(printf '%s\n' "$plugin " | sed -re 's|^(.*)/([^/]*)$|\\e\[1;37m\1/\\e\[1;31m\2\\e\[0m|')"
                 else
                     error "rm -rf $plugin" "Folder couldn't be deleted" "$process_status"
@@ -211,7 +218,7 @@ fi
             pushd "$plugin" >/dev/null
             printf '%s' "$cbg_blue $c_reset$cbg_yellow + Updating 'vim/bundle.user/$plugin':$c_reset"
             process_status="$(git pull origin master 2>&1)"
-            if [[ $? = 0 ]]; then
+            if (( ! $? )); then
                 if ! grep -q "Already up-to-date" <<< "$process_status"; then
                     printf '%s\n' "$cfg_green_bold SUCCESS! $c_reset"
                 else
@@ -231,7 +238,7 @@ fi
 [[ $(type -P vim) ]] && {
     printf '%s' "$cbg_blue >> Generating plugin help:$c_reset"
     timeout --preserve-status --foreground 1m vim -u "./vimrc" -c "Helptags|qa!"
-    if [[ $? = 0 ]]; then
+    if (( ! $? )); then
         printf '%s\n' "$cfg_green_bold SUCCESS! $c_reset"
     else
         reset -I
