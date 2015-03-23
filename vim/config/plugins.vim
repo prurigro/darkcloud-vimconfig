@@ -194,6 +194,17 @@ scriptencoding utf-8
                 \ 'method does not override or implement a method from a supertype.*',
                 \ 'package [^\ ]* does not exist.*'
             \ ]}
+        let g:syntastic_javascript_eslint_quiet_messages={
+            \ 'regex':[
+                \ '.* is defined but never used',
+                \ "'[^']*' is not defined",
+                \ 'Missing "use strict" statement'
+            \ ]}
+        let g:syntastic_javascript_standard_quiet_messages={
+            \ 'regex':[
+                \ '.* is defined but never used',
+                \ "'[^']*' is not defined"
+            \ ]}
         let g:syntastic_python_flake8_quiet_messages={
             \ 'regex':[
                 \ '.*\[W293\]',
