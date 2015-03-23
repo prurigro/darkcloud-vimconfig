@@ -184,16 +184,9 @@ scriptencoding utf-8
         endif
 
         "configure warnings/errors that should be silenced by module
-        let g:syntastic_sh_bashate_quiet_messages={
+        let g:syntastic_less_lessc_quiet_messages={
             \ 'regex':[
-                \ 'Indent not multiple of 4'
-            \ ]}
-        let g:syntastic_sh_shellcheck_quiet_messages={
-            \ 'regex':[
-                \ '.*\[SC1001\]',
-                \ '.*\[SC2016\]',
-                \ '.*\[SC2029\]',
-                \ '.*\[SC2034\]'
+                \ 'NameError: variable @[^ ]* is undefined.*'
             \ ]}
         let g:syntastic_java_javac_quiet_messages={
             \ 'regex':[
@@ -205,6 +198,17 @@ scriptencoding utf-8
             \ 'regex':[
                 \ '.*\[W293\]',
                 \ '.*\[E501\]'
+            \ ]}
+        let g:syntastic_sh_bashate_quiet_messages={
+            \ 'regex':[
+                \ 'Indent not multiple of 4'
+            \ ]}
+        let g:syntastic_sh_shellcheck_quiet_messages={
+            \ 'regex':[
+                \ '.*\[SC1001\]',
+                \ '.*\[SC2016\]',
+                \ '.*\[SC2029\]',
+                \ '.*\[SC2034\]'
             \ ]}
         autocmd BufNewFile,BufRead PKGBUILD,bash.bashrc,.bashrc let g:syntastic_quiet_messages={"level":"warnings"}
 
