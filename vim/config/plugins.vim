@@ -198,7 +198,8 @@ scriptencoding utf-8
             \ 'regex':[
                 \ '.* is defined but never used',
                 \ "'[^']*' is not defined",
-                \ 'Missing "use strict" statement'
+                \ 'Missing "use strict" statement',
+                \ 'Unexpected [^ ]* statement.*'
             \ ]}
         let g:syntastic_javascript_standard_quiet_messages={
             \ 'regex':[
