@@ -729,8 +729,8 @@
         nnoremap <silent><expr> <Leader>F ':Autoformat<CR>:echo "The document has been formatted with :Autoformat"<CR>'
 
         "convert tabs to spaces and spaces to tabs
-        nnoremap <silent><expr> <Leader>t ':set expandtab<CR>:retab!<CR>:echo "Tabs have been converted to spaces"<CR>'
-        nnoremap <silent><expr> <Leader>T ':set noexpandtab<CR>:%retab!<CR>:echo "Spaces have been converted to tabs"<CR>'
+        nnoremap <silent><expr> <Leader>t ':let b:et=&expandtab<CR>:set expandtab<CR>:retab!<CR>:let &expandtab=b:et<CR>:echo "Tabs have been converted to spaces"<CR>'
+        nnoremap <silent><expr> <Leader>T ':let b:et=&expandtab<CR>:set noexpandtab<CR>:%retab!<CR>:let &expandtab=b:et<CR>:echo "Spaces have been converted to tabs"<CR>'
 
         "remove trailing whitespace
         nnoremap <silent><expr> <Leader>w ':FixWhitespace<CR>:echo "Trailing whitespace has been removed"<CR>'
