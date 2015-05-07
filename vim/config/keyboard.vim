@@ -593,13 +593,13 @@
         inoremap <silent><expr> <A-F1> '<C-O>:set wrap!<CR>'
 
         "toggle show spelling errors
-        nnoremap <silent><expr> <F2> ':set spell!<CR>:echo "spell checking toggled"<CR>'
+        nnoremap <silent><expr> <F2> ':set spell!<CR>:if &spell =~ "0"<Bar>echo "spellcheck toggled off"<Bar>else<Bar>echo "spellcheck toggled on"<Bar>endif<CR>'
         xnoremap <silent><expr> <F2> '<Esc>:set spell!<CR>gv'
         inoremap <silent><expr> <F2> '<C-O>:set spell!<CR>'
-        nnoremap <silent><expr> <C-F2> ':set spell!<CR>:echo "spell checking toggled"<CR>'
+        nnoremap <silent><expr> <C-F2> ':set spell!<CR>:if &spell =~ "0"<Bar>echo "spellcheck toggled off"<Bar>else<Bar>echo "spellcheck toggled on"<Bar>endif<CR>'
         xnoremap <silent><expr> <C-F2> '<Esc>:set spell!<CR>gv'
         inoremap <silent><expr> <C-F2> '<C-O>:set spell!<CR>'
-        nnoremap <silent><expr> <A-F2> ':set spell!<CR>:echo "spell checking toggled"<CR>'
+        nnoremap <silent><expr> <A-F2> ':set spell!<CR>:if &spell =~ "0"<Bar>echo "spellcheck toggled off"<Bar>else<Bar>echo "spellcheck toggled on"<Bar>endif<CR>'
         xnoremap <silent><expr> <A-F2> '<Esc>:set spell!<CR>gv'
         inoremap <silent><expr> <A-F2> '<C-O>:set spell!<CR>'
 
