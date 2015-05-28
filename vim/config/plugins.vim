@@ -220,7 +220,8 @@ scriptencoding utf-8
                 \ '.*\[SC1001\]',
                 \ '.*\[SC2016\]',
                 \ '.*\[SC2029\]',
-                \ '.*\[SC2034\]'
+                \ '.*\[SC2034\]',
+                \ '.*\[SC2148\]'
             \ ]}
         autocmd BufNewFile,BufRead PKGBUILD,bash.bashrc,.bashrc let g:syntastic_quiet_messages={"level":"warnings"}
 
