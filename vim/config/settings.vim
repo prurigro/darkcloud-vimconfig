@@ -28,7 +28,9 @@
     if has('unnamedplus')|set clipboard+=unnamedplus|endif
 
     "fancy mouse reporting with xterm2 fallback
-    if has("mouse_sgr")|set ttymouse=sgr|else|set ttymouse=xterm2|endif
+    if !has('nvim')
+        if has("mouse_sgr")|set ttymouse=sgr|else|set ttymouse=xterm2|endif
+    endif
     set mouse=a "enables mouse functionality with extended capabilities
 
     "8 colours in $TERM=linux, 256 elsewhere
