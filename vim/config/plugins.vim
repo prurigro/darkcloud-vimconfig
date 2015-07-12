@@ -186,7 +186,8 @@ scriptencoding utf-8
         "configure warnings/errors that should be silenced by module
         let g:syntastic_less_lessc_quiet_messages={
             \ 'regex':[
-                \ 'NameError:.* is undefined'
+                \ 'NameError:.* is undefined',
+                \ 'FileError:.*'
             \ ]}
         let g:syntastic_java_javac_quiet_messages={
             \ 'regex':[
