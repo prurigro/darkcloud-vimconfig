@@ -46,7 +46,7 @@ A theme, config and collection of plugins for Vim.
 
 ### Vimpager ###
 
-Once darkcloud-vimconfig has been set up, you can configure `vimpager` to use it by running (assuming the default path @ _"/etc/darkcloud-vimconfig"_):
+Once darkcloud-vimconfig has been set up, you can configure `vimpager` _1.x_ to use it by running (assuming the default path @ _"/etc/darkcloud-vimconfig"_):
 
 `ln -s /etc/darkcloud-vimconfig/vimpagerrc /etc/vimpagerrc` (for a system-wide configuration), or:
 
