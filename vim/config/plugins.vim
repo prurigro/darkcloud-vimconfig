@@ -207,6 +207,10 @@ scriptencoding utf-8
                 \ '.* is defined but never used',
                 \ "'[^']*' is not defined"
             \ ]}
+        let g:syntastic_markdown_mdl_quiet_messages={
+            \ 'regex':[
+                \ '.*MD013.*'
+            \ ]}
         let g:syntastic_python_flake8_quiet_messages={
             \ 'regex':[
                 \ '.*\[W293\]',
