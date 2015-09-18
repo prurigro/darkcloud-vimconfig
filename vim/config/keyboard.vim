@@ -338,6 +338,9 @@
 
     "-unmap the suspend function
     map <C-z> <Nop>
+
+    "-unmap ex mode
+    nnoremap Q <Nop>
 "}}}
 
 "ALIASES: COMMAND SHORTCUTS {{{
