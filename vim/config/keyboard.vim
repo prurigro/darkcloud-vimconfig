@@ -32,6 +32,7 @@
 "  :iK                        | (C) -> remove following character from keywords
 "
 " Reference: (view plugin documentation for the full list of commands each offers)
+"   <Ctrl-y>,                 | (A) -> enter after emmet 'word' (ie: html:5)
 "   <Ctrl-_><Ctrl-_>          | (A) -> comment selection/create an empty comment
 "   <Ctrl-_>b                 | (A) -> comment the current block(s)
 "   <Ctrl-_>r                 | (A) -> comment everything on the line to the right
@@ -189,7 +190,6 @@
 "      <Ctrl-Y>               | (I) -> paste what's been cut during input
 "
 "  (autocompletion)
-"    <Alt-m>,                 | (A) -> enter after emmet 'word' (ie: html:5)
 "    <Enter>                  | (I) -> (neocomp) close the popup and <Enter>
 "    <Tab>                    | (I) -> (neocomp) select/cycle popup completion
 "    <Backspace>              | (I) -> (neocomp) close the popup and <Backspace>
@@ -699,9 +699,6 @@
     "}
 
     "AUTOCOMPLETION:{
-        "emmet switch triggerkey from ctrl-y
-        let g:user_emmet_leader_key='<C-m>'
-
         "neocomplcache close popup and save indent
         inoremap <silent> <CR> <C-r>=<SID>neocompl_cr()<CR>
         function! s:neocompl_cr()

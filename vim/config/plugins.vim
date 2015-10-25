@@ -67,9 +67,8 @@ scriptencoding utf-8
     let g:user_emmet_install_global=0
     let g:use_emmet_complete_tag=1
     let g:user_emmet_mode='a'
-    let g:user_emmet_leader_key='<A-m>'
 
-    autocmd FileType aspnet,html,xhtml,php,css,javascript,json EmmetInstall
+    autocmd FileType aspnet,blade,html,xhtml,php,css,javascript,json EmmetInstall
 
     if filereadable("~/.vim/snippets.json")
         let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.vim/snippets.json')), "\n"))
