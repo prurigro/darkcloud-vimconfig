@@ -216,6 +216,10 @@ scriptencoding utf-8
                 \ '.*\[W293\]',
                 \ '.*\[E501\]'
             \ ]}
+        let g:syntastic_php_phpmd_quiet_messages={
+            \ 'regex':[
+                \ 'Avoid using short method names like.*'
+            \ ]}
         let g:syntastic_sh_bashate_quiet_messages={
             \ 'regex':[
                 \ 'Indent not multiple of 4'
