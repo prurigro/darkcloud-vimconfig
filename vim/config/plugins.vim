@@ -218,7 +218,8 @@ scriptencoding utf-8
             \ ]}
         let g:syntastic_php_phpmd_quiet_messages={
             \ 'regex':[
-                \ 'Avoid using short method names like.*'
+                \ 'Avoid using short method names like.*',
+                \ 'Avoid variables with short names like.*'
             \ ]}
         let g:syntastic_sh_bashate_quiet_messages={
             \ 'regex':[
