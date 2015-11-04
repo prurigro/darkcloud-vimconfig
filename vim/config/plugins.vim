@@ -219,7 +219,10 @@ scriptencoding utf-8
         let g:syntastic_php_phpmd_quiet_messages={
             \ 'regex':[
                 \ 'Avoid using short method names like.*',
-                \ 'Avoid variables with short names like.*'
+                \ 'Avoid variables with short names like.*',
+                \ 'The method.*has a Cyclomatic Complexity.*',
+                \ 'The method.*has an NPath complexity.*',
+                \ 'The method.*has [0-9][0-9]* lines of code.*'
             \ ]}
         let g:syntastic_sh_bashate_quiet_messages={
             \ 'regex':[
