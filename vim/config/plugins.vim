@@ -201,6 +201,10 @@ scriptencoding utf-8
                 \ 'Missing "use strict" statement',
                 \ 'Unexpected [^ ]* statement.*'
             \ ]}
+        let g:syntastic_javascript_jshint_quiet_messages={
+            \ 'regex':[
+                \ 'Expected an assignment or function call and instead saw an expression.'
+            \ ]}
         let g:syntastic_javascript_standard_quiet_messages={
             \ 'regex':[
                 \ '.* is defined but never used',
