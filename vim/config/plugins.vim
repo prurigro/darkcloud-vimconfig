@@ -225,8 +225,9 @@ scriptencoding utf-8
                 \ 'Avoid using short method names like.*',
                 \ 'Avoid variables with short names like.*',
                 \ 'The method.*has a Cyclomatic Complexity.*',
+                \ 'The method.*has [0-9][0-9]* lines of code.*',
                 \ 'The method.*has an NPath complexity.*',
-                \ 'The method.*has [0-9][0-9]* lines of code.*'
+                \ 'The function.*has an NPath complexity.*'
             \ ]}
         let g:syntastic_sh_bashate_quiet_messages={
             \ 'regex':[
