@@ -228,7 +228,8 @@ scriptencoding utf-8
                 \ 'The method.*has a Cyclomatic Complexity.*',
                 \ 'The method.*has an NPath complexity.*',
                 \ 'The function.*has a Cyclomatic Complexity.*',
-                \ 'The function.*has an NPath complexity.*'
+                \ 'The function.*has an NPath complexity.*',
+                \ 'The function.*Avoid really long methods\.'
             \ ]}
         let g:syntastic_sh_bashate_quiet_messages={
             \ 'regex':[
