@@ -11,13 +11,9 @@ A theme, config and collection of plugins for Vim.
 
 ## Optional Requirements ##
 
-* **Artistic Style**: Required by the _autoformat_ plugin to format C, C++, C++/CLI, C#, and Java source ([astyle website](http://astyle.sourceforge.net)).
-* **autopep8**: Required by the _autoformat_ plugin to format Python using the PEP 8 style guide ([autopep8 repo](https://github.com/hhatto/autopep8)).
 * **Compilers and Runtimes**: The syntastic plugin can use the compiler or runtime for most languages to provide real-time syntax checking.
 * **CTags**: Required by the _tagbar_ and _neocomplcache_ plugins as well as the _gentags_ script ([ctags website](http://ctags.sourceforge.net)).
-* **JS Beautifier**: Required by the _autoformat_ plugin to format Javascript source and HTML ([js-beautify repo](https://github.com/Chiel92/vim-autoformat)).
 * **Powerline Fonts**: Required to enable the fancier looking status line ([powerline-fonts repo](https://github.com/Lokaltog/powerline-fonts)).
-* **Tidy**: Required by the _autoformat_ plugin to format XHTML and XML ([tidy website](http://tidy.sourceforge.net)).
 
 ## Distribution Features ##
 
@@ -137,8 +133,7 @@ As usual, to have your system use `vimpager` in place of `less`, you'll need to 
 |----------|------|---------------------------------------------------------------|
 | Leader+J | N+V  | Format line/selected lines to a max width of the _textwidth_  |
 | Leader+f | N+V  | Format document/selection alignment using Vim syntax          |
-| Leader+F | N    | Format based on file-type using Autoformat                    |
-| Leader+F | N+V  | (Markdown) Format table cursor is currently on                |
+| Leader+f | N+V  | (Markdown) Format table cursor is currently on                |
 | Leader+t | N    | Convert all tabs into spaces and continue session with spaces |
 | Leader+T | N    | Convert all spaces into tabs and continue session with tabs   |
 | Leader+w | N    | Remove all trailing whitespace                                |
@@ -159,7 +154,6 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 
 ## Plugins ##
 
-* [auto-autoformat](https://github.com/Chiel92/vim-autoformat): Provides easy code formatting in Vim by integrating existing code formatters.
 * [autoswap.vim](https://github.com/vim-scripts/autoswap.vim): Switch to open editor window instead of asking what to do with swapfile.
 * [emmet-vim](https://github.com/mattn/emmet-vim): Support for expanding abbreviations.
   * [webapi-vim](https://github.com/mattn/webapi-vim): A web library used by emmet to provide support for custom snippets.

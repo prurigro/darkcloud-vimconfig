@@ -61,9 +61,6 @@
 [submodule "vim/bundle/autoswap.vim"]
 	path = vim/bundle/autoswap.vim
 	url = https://github.com/vim-scripts/autoswap.vim.git
-[submodule "vim/bundle/vim-autoformat"]
-	path = vim/bundle/vim-autoformat
-	url = https://github.com/Chiel92/vim-autoformat.git
 [submodule "vim/bundle/vim-polyglot-darkcloud"]
 	path = vim/bundle/vim-polyglot-darkcloud
 	url = https://github.com/prurigro/vim-polyglot-darkcloud.git

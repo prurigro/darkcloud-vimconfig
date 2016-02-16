@@ -201,7 +201,6 @@
 "    <Leader>J                | (V) -> split selection into lines of tw or 80
 "    <Leader>f                | (N) -> format document and return to cursor
 "    <Leader>f                | (V) -> format the selection and return to cursor
-"    <Leader>F                | (N) -> format document using :Autoformat
 "    <Leader>t                | (N) -> convert tabs into spaces
 "    <Leader>T                | (N) -> convert spaces into tabs
 "    <Leader>w                | (N) -> remove whitespace
@@ -726,7 +725,6 @@
         "format by Vim syntax + by Autoformat tool syntax
         nnoremap <Leader>f mzgg=G`z<CR>:echo "The document has been formatted"<CR>
         vnoremap <Leader>f mz=`z<CR>:echo "The selection has been formatted"<CR>
-        nnoremap <silent><expr> <Leader>F ':Autoformat<CR>:echo "The document has been formatted with :Autoformat"<CR>'
 
         "convert tabs to spaces and spaces to tabs
         nnoremap <silent><expr> <Leader>t ':let b:et=&expandtab<CR>:set expandtab<CR>:retab!<CR>:let &expandtab=b:et<CR>:echo "Tabs have been converted to spaces"<CR>'
@@ -846,13 +844,9 @@
         autocmd FileType help map <buffer> <silent><expr> <Leader>? ':q<CR>'
     endif
 
-    "html
-    "after running autoformat, remove linebreaks that aren't between tags
-    autocmd FileType html,xhtml nnoremap <buffer> <silent><expr> <Leader>F ':Autoformat<CR>:%s/\n\s*\([^<\ ]\)/ \1/g<CR>:echo "The document has been formatted with :Autoformat"<CR>'
-
     "markdown
-    autocmd FileType mkd nnoremap <buffer> <silent><expr> <Leader>F ':TableFormat<CR>'
-    autocmd FileType mkd xnoremap <buffer> <silent><expr> <Leader>F '<Esc>:TableFormat<CR>gv'
+    autocmd FileType mkd nnoremap <buffer> <silent><expr> <Leader>f ':TableFormat<CR>'
+    autocmd FileType mkd xnoremap <buffer> <silent><expr> <Leader>f '<Esc>:TableFormat<CR>gv'
 
     "qf-sidebar
     autocmd FileType qf map <buffer> <LeftMouse> <LeftMouse>0
