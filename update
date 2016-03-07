@@ -198,7 +198,7 @@ fi
                 }
                 process_status="$(rm -rf "${plugin:?}")"
                 if (( ! $? )); then
-                    printf '%s\n' "$cbg_blue $c_reset$cbg_yellow = $c_reset$(printf '%s\n' "$plugin " | sed -re 's|^(.*)/([^/]*)$|\\e\[1;37m\1/\\e\[1;31m\2\\e\[0m|')"
+                    printf '%s\n' "$cbg_blue $c_reset$cbg_yellow = $cfg_white_bold$plugin$c_reset"
                 else
                     error "rm -rf $plugin" "Folder couldn't be deleted" "$process_status"
                     exit 1
