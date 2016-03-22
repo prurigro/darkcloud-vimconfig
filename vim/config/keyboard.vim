@@ -190,10 +190,10 @@
 "      <Ctrl-Y>               | (I) -> paste what's been cut during input
 "
 "  (autocompletion)
-"    <Enter>                  | (I) -> (neocomp) close the popup and <Enter>
-"    <Tab>                    | (I) -> (neocomp) select/cycle popup completion
-"    <Backspace>              | (I) -> (neocomp) close the popup and <Backspace>
-"    <Ctrl-u>                 | (I) -> (neocomp) undo the most recent completion
+"    <Enter>                  | (I) -> (neocomplete) close the popup and <Enter>
+"    <Tab>                    | (I) -> (neocomplete) select/cycle popup completion
+"    <Backspace>              | (I) -> (neocomplete) close the popup and <Backspace>
+"    <Ctrl-u>                 | (I) -> (neocomplete) undo the most recent completion
 "
 "  (formatting)
 "    <Backspace>              | (V) -> deletes currently selected text
@@ -698,20 +698,20 @@
     "}
 
     "AUTOCOMPLETION:{
-        "neocomplcache close popup and save indent
-        inoremap <silent> <CR> <C-r>=<SID>neocompl_cr()<CR>
-        function! s:neocompl_cr()
-            return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+        "neocomplete close popup and save indent
+        inoremap <silent> <CR> <C-r>=<SID>neocache_cr()<CR>
+        function! s:neocache_cr()
+            return pumvisible() ? "\<C-y>" : "\<CR>"
         endfunction
 
-        "neocomplcache tab completion
-        inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+        "neocomplete tab completion
+        inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 
-        "neocomplcache : undo completion
-        inoremap <expr><Backspace> neocomplcache#smart_close_popup()."\<C-h>"
+        "neocomplete close popup
+        inoremap <expr><Backspace> neocomplete#smart_close_popup()."\<C-h>"
 
-        "neocomplcache undo completion
-        inoremap <expr><C-u> neocomplcache#undo_completion()
+        "neocomplete undo completion
+        inoremap <expr><C-u> neocomplete#undo_completion()
     "}
 
     "FORMATTING:{

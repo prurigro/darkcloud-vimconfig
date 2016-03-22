@@ -12,7 +12,7 @@ A theme, config and collection of plugins for Vim.
 ## Optional Requirements ##
 
 * **Compilers and Runtimes**: The syntastic plugin can use the compiler or runtime for most languages to provide real-time syntax checking.
-* **CTags**: Required by the _tagbar_ and _neocomplcache_ plugins as well as the _gentags_ script ([ctags website](http://ctags.sourceforge.net)).
+* **CTags**: Required by the _tagbar_ and _neocomplete_ plugins as well as the _gentags_ script ([ctags website](http://ctags.sourceforge.net)).
 * **Powerline Fonts**: Required to enable the fancier looking status line ([powerline-fonts repo](https://github.com/Lokaltog/powerline-fonts)).
 
 ## Distribution Features ##
@@ -157,12 +157,13 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [autoswap.vim](https://github.com/vim-scripts/autoswap.vim): Switch to open editor window instead of asking what to do with swapfile.
 * [emmet-vim](https://github.com/mattn/emmet-vim): Support for expanding abbreviations.
   * [webapi-vim](https://github.com/mattn/webapi-vim): A web library used by emmet to provide support for custom snippets.
+* [FastFold](https://github.com/Konfekt/FastFold): Speed up Vim by updating folds only when called-for.
 * [goyo.vim](https://github.com/junegunn/goyo.vim): Distraction-free writing in Vim.
 * [gundo.vim](https://github.com/sjl/gundo.vim): Sidebar to visualize your undo tree and browse the differences of each change.
 * [incsearch.vim](https://github.com/haya14busa/incsearch.vim): Improved incremental searching for Vim.
 * [lightline.vim](https://github.com/itchyny/lightline.vim): A light and configurable statusline/tabline for Vim.
 * [MatchTagAlways](https://github.com/Valloric/MatchTagAlways): A Vim plugin that always highlights the enclosing html/xml tags.
-* [neocomplcache.vim](https://github.com/Shougo/neocomplcache.vim): The '*ultimate*' auto-completion system for Vim.
+* [neocomplete.vim](https://github.com/Shougo/neocomplete.vim): Next generation completion framework after neocomplcache.
 * [patchreview-vim](https://github.com/junkblocker/patchreview-vim): A Vim plugin for doing single, multi-patch or diff code reviews.
 * [rename.vim](https://github.com/danro/rename.vim): Rename the current file in the vim buffer + retain relative path.
 * [ReplaceWithRegister](https://github.com/vim-scripts/ReplaceWithRegister): Replace text with the contents of a register (for paste+replace without writing over the buffer).

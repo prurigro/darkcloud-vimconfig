@@ -110,41 +110,35 @@ scriptencoding utf-8
     let g:mta_filetypes = {'aspnet':1, 'html':1, 'xhtml':1, 'php':1, 'xml':1, 'jinja':1}
 "}}}
 
-"NEOCOMPLCACHE AUTOCOMPLETION PLUGIN: {{{
-    let g:neocomplcache_enable_at_startup=1
-    let g:neocomplcache_enable_smart_case=1
-    let g:neocomplcache_min_syntax_length=3
-    let g:neocomplcache_enable_insert_char_pre=0
-    let g:neocomplcache_enable_underbar_completion=1
-    let g:neocomplcache_wildcard_characters={'_': '-'}
+"NEOCOMPLETE AUTOCOMPLETION PLUGIN: {{{
+    let g:neocomplete#enable_at_startup=1
+    let g:neocomplete#enable_smart_case=1
+    let g:neocomplete#sources#syntax#min_keyword_length=3
 
-    if !exists('g:neocomplcache_omni_patterns')
-        let g:neocomplcache_omni_patterns = {}
-    endif
-    if !exists('g:neocomplcache_force_omni_patterns')
-        let g:neocomplcache_force_omni_patterns = {}
+    if !exists('g:neocomplete#sources#omni#input_patterns')
+        let g:neocomplete#sources#omni#input_patterns = {}
     endif
 
-    let g:neocomplcache_omni_patterns.c='[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
-    let g:neocomplcache_omni_patterns.cpp='[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-    let g:neocomplcache_omni_patterns.xml='<[^>]*'
-    let g:neocomplcache_omni_patterns.html='<[^>]*'
-    let g:neocomplcache_omni_patterns.xhtml='<[^>]*'
-    let g:neocomplcache_omni_patterns.markdown='<[^>]*'
-    let g:neocomplcache_omni_patterns.css='^\s\+\w+\|\w+[):;]?\s\+\|[@!]'
-    let g:neocomplcache_omni_patterns.less='^\s\+\w+\|\w+[):;]?\s\+\|[@!]'
-    let g:neocomplcache_omni_patterns.javascript='[^. \t]\.\%(\h\w*\)\?'
-    let g:neocomplcache_omni_patterns.json='[^. \t]\.\%(\h\w*\)\?'
-    let g:neocomplcache_omni_patterns.python='[^. *\t]\.\h\w*\|\h\w*::'
-    let g:neocomplcache_omni_patterns.ruby='[^. *\t]\.\w*\|\h\w*::'
-    let g:neocomplcache_omni_patterns.php='[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-    let g:neocomplcache_omni_patterns.actionscript='[^. \t][.:]\h\w*'
-    let g:neocomplcache_omni_patterns.python3='[^. *\t]\.\h\w*\|\h\w*::'
-    let g:neocomplcache_omni_patterns.go='\h\w*\%.'
-    let g:neocomplcache_omni_patterns.perl='\h\w*->\h\w*\|\h\w*::'
-    let g:neocomplcache_omni_patterns.java='\%(\h\w*\|)\)\.'
-    let g:neocomplcache_omni_patterns.objc='\h\w\+\|\h\w*\%(\.\|->\)\h\w*'
-    let g:neocomplcache_omni_patterns.objj='[\[ \.]\w\+$\|:\w*$'
+    let g:neocomplete#sources#omni#input_patterns.c='[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
+    let g:neocomplete#sources#omni#input_patterns.cpp='[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+    let g:neocomplete#sources#omni#input_patterns.xml='<[^>]*'
+    let g:neocomplete#sources#omni#input_patterns.html='<[^>]*'
+    let g:neocomplete#sources#omni#input_patterns.xhtml='<[^>]*'
+    let g:neocomplete#sources#omni#input_patterns.markdown='<[^>]*'
+    let g:neocomplete#sources#omni#input_patterns.css='^\s\+\w+\|\w+[):;]?\s\+\|[@!]'
+    let g:neocomplete#sources#omni#input_patterns.less='^\s\+\w+\|\w+[):;]?\s\+\|[@!]'
+    let g:neocomplete#sources#omni#input_patterns.javascript='[^. \t]\.\%(\h\w*\)\?'
+    let g:neocomplete#sources#omni#input_patterns.json='[^. \t]\.\%(\h\w*\)\?'
+    let g:neocomplete#sources#omni#input_patterns.python='[^. *\t]\.\h\w*\|\h\w*::'
+    let g:neocomplete#sources#omni#input_patterns.ruby='[^. *\t]\.\w*\|\h\w*::'
+    let g:neocomplete#sources#omni#input_patterns.php='[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+    let g:neocomplete#sources#omni#input_patterns.actionscript='[^. \t][.:]\h\w*'
+    let g:neocomplete#sources#omni#input_patterns.python3='[^. *\t]\.\h\w*\|\h\w*::'
+    let g:neocomplete#sources#omni#input_patterns.go='\h\w*\%.'
+    let g:neocomplete#sources#omni#input_patterns.perl='\h\w*->\h\w*\|\h\w*::'
+    let g:neocomplete#sources#omni#input_patterns.java='\%(\h\w*\|)\)\.'
+    let g:neocomplete#sources#omni#input_patterns.objc='\h\w\+\|\h\w*\%(\.\|->\)\h\w*'
+    let g:neocomplete#sources#omni#input_patterns.objj='[\[ \.]\w\+$\|:\w*$'
 "}}}
 
 "SIGNIFY: {{{
