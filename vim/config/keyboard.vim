@@ -223,20 +223,25 @@
 "    =                        | (N) -> go to the first char on the next line
 "    _                        | (N) -> go to the first char on the previous line
 "
-"    <Ctrl-Up>                | (A) -> scroll up
-"    <Ctrl-Down>              | (A) -> scroll down
-"    <Ctrl-Right>             | (A) -> scroll right
-"    <Ctrl-Left>              | (A) -> scroll left
+"    <Ctrl-Up>                | (N) -> move four lines up
+"    <Ctrl-Down>              | (N) -> move four lines down
+"    <Ctrl-Right>             | (N) -> move one word right
+"    <Ctrl-Left>              | (N) -> move one word left
+"
+"    <Alt-Up>                 | (A) -> scroll up
+"    <Alt-Down>               | (A) -> scroll down
+"    <Alt-Right>              | (A) -> scroll right
+"    <Alt-Left>               | (A) -> scroll left
 "
 "    <Shift-Up>               | (N) -> move to the beginning of the document
 "    <Shift-Down>             | (N) -> move to the end of the document
 "    <Shift-Right>            | (N) -> move to the end of the line
 "    <Shift-Left>             | (N) -> move to the beginning of the non-whitespace
 "
-"    <Alt+Up>                 | (V) -> move a block up one line
-"    <Alt+Down>               | (V) -> move a block down one line
-"    <Alt+Up>                 | (N) -> move a line up one line
-"    <Alt+Down>               | (N) -> move a line down one line
+"    <Shift+Ctrl+Up>          | (V) -> move a block up one line
+"    <Shift+Ctrl+Down>        | (V) -> move a block down one line
+"    <Shift+Ctrl+Up>          | (N) -> move a line up one line
+"    <Shift+Ctrl+Down>        | (N) -> move a line down one line
 "
 "    <Alt+Left>               | (V) -> move a block up a half page
 "    <Alt+Right>              | (V) -> move a block down a half page
@@ -763,30 +768,35 @@
         nnoremap _ -
 
         "map ctrl+direction to shifting the screen in that direction
-        noremap <C-Up> <ScrollWheelUp>
-        nnoremap <C-Up> <ScrollWheelUp>
-        xnoremap <C-Up> <ScrollWheelUp>
-        snoremap <C-Up> <ScrollWheelUp>
-        vnoremap <C-Up> <ScrollWheelUp>
-        inoremap <C-Up> <ScrollWheelUp>
-        noremap <C-Down> <ScrollWheelDown>
-        nnoremap <C-Down> <ScrollWheelDown>
-        xnoremap <C-Down> <ScrollWheelDown>
-        snoremap <C-Down> <ScrollWheelDown>
-        vnoremap <C-Down> <ScrollWheelDown>
-        inoremap <C-Down> <ScrollWheelDown>
-        noremap <C-Right> 4zl
-        nnoremap <C-Right> 4zl
-        xnoremap <C-Right> 4zl
-        snoremap <C-Right> 4zl
-        vnoremap <C-Right> 4zl
-        inoremap <C-Right> <C-O>4zl
-        noremap <C-Left> 4zh
-        nnoremap <C-Left> 4zh
-        xnoremap <C-Left> 4zh
-        snoremap <C-Left> 4zh
-        vnoremap <C-Left> 4zh
-        inoremap <C-Left> <C-O>4zh
+        nnoremap <C-Up> 4k
+        nnoremap <C-Down> 4j
+        nnoremap <C-Right> <S-Right>
+        nnoremap <C-Left> <S-Left>
+
+        noremap <A-Up> <ScrollWheelUp>
+        nnoremap <A-Up> <ScrollWheelUp>
+        xnoremap <A-Up> <ScrollWheelUp>
+        snoremap <A-Up> <ScrollWheelUp>
+        vnoremap <A-Up> <ScrollWheelUp>
+        inoremap <A-Up> <ScrollWheelUp>
+        noremap <A-Down> <ScrollWheelDown>
+        nnoremap <A-Down> <ScrollWheelDown>
+        xnoremap <A-Down> <ScrollWheelDown>
+        snoremap <A-Down> <ScrollWheelDown>
+        vnoremap <A-Down> <ScrollWheelDown>
+        inoremap <A-Down> <ScrollWheelDown>
+        noremap <A-Right> 4zl
+        nnoremap <A-Right> 4zl
+        xnoremap <A-Right> 4zl
+        snoremap <A-Right> 4zl
+        vnoremap <A-Right> 4zl
+        inoremap <A-Right> <C-O>4zl
+        noremap <A-Left> 4zh
+        nnoremap <A-Left> 4zh
+        xnoremap <A-Left> 4zh
+        snoremap <A-Left> 4zh
+        vnoremap <A-Left> 4zh
+        inoremap <A-Left> <C-O>4zh
 
         "remap keys to scroll to the end in a direction
         nnoremap <S-Up> gg0
@@ -795,20 +805,10 @@
         nnoremap <S-Left> ^
 
         "remap alt+up/down to move blocks up/down a line
-        vmap <A-Up> <Plug>MoveBlockUp
-        vmap <A-Down> <Plug>MoveBlockDown
-        nmap <A-Up> <Plug>MoveLineUp
-        nmap <A-Down> <Plug>MoveLineDown
-
-        "remap alt+left/right/h/l to move blocks up/down a half page
-        vmap <A-Left> <Plug>MoveBlockHalfPageUp
-        vmap <A-Right> <Plug>MoveBlockHalfPageDown
-        nmap <A-Left> <Plug>MoveLineHalfPageUp
-        nmap <A-Right> <Plug>MoveLineHalfPageDown
-        vmap <A-h> <Plug>MoveBlockHalfPageUp
-        vmap <A-l> <Plug>MoveBlockHalfPageDown
-        nmap <A-h> <Plug>MoveLineHalfPageUp
-        nmap <A-l> <Plug>MoveLineHalfPageDown
+        vmap <S-C-Up> <Plug>MoveBlockUp
+        vmap <S-C-Down> <Plug>MoveBlockDown
+        nmap <S-C-Up> <Plug>MoveLineUp
+        nmap <S-C-Down> <Plug>MoveLineDown
 
         "map signify to ]c and [c
         let g:signify_mapping_next_hunk = ']c'
