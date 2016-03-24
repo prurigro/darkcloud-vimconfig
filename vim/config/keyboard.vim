@@ -222,15 +222,16 @@
 "  (movement)
 "    =                        | (N) -> go to the first char on the next line
 "    _                        | (N) -> go to the first char on the previous line
+"
+"    <Ctrl-Up>                | (A) -> scroll up
+"    <Ctrl-Down>              | (A) -> scroll down
+"    <Ctrl-Right>             | (A) -> scroll right
+"    <Ctrl-Left>              | (A) -> scroll left
+"
 "    <Shift-Up>               | (N) -> move to the beginning of the document
 "    <Shift-Down>             | (N) -> move to the end of the document
 "    <Shift-Right>            | (N) -> move to the end of the line
 "    <Shift-Left>             | (N) -> move to the beginning of the non-whitespace
-"
-"    <Ctrl-Up>                | (N) -> move four lines up
-"    <Ctrl-Down>              | (N) -> move four lines down
-"    <Ctrl-Right>             | (N) -> move one word right
-"    <Ctrl-Left>              | (N) -> move one word left
 "
 "    <Alt+Up>                 | (V) -> move a block up one line
 "    <Alt+Down>               | (V) -> move a block down one line
@@ -761,11 +762,31 @@
         nnoremap = +
         nnoremap _ -
 
-        "remap keys for speedier movement
-        nnoremap <C-Up> 4k
-        nnoremap <C-Down> 4j
-        nnoremap <C-Right> <S-Right>
-        nnoremap <C-Left> <S-Left>
+        "map ctrl+direction to shifting the screen in that direction
+        noremap <C-Up> <ScrollWheelUp>
+        nnoremap <C-Up> <ScrollWheelUp>
+        xnoremap <C-Up> <ScrollWheelUp>
+        snoremap <C-Up> <ScrollWheelUp>
+        vnoremap <C-Up> <ScrollWheelUp>
+        inoremap <C-Up> <ScrollWheelUp>
+        noremap <C-Down> <ScrollWheelDown>
+        nnoremap <C-Down> <ScrollWheelDown>
+        xnoremap <C-Down> <ScrollWheelDown>
+        snoremap <C-Down> <ScrollWheelDown>
+        vnoremap <C-Down> <ScrollWheelDown>
+        inoremap <C-Down> <ScrollWheelDown>
+        noremap <C-Right> 4zl
+        nnoremap <C-Right> 4zl
+        xnoremap <C-Right> 4zl
+        snoremap <C-Right> 4zl
+        vnoremap <C-Right> 4zl
+        inoremap <C-Right> <C-O>4zl
+        noremap <C-Left> 4zh
+        nnoremap <C-Left> 4zh
+        xnoremap <C-Left> 4zh
+        snoremap <C-Left> 4zh
+        vnoremap <C-Left> 4zh
+        inoremap <C-Left> <C-O>4zh
 
         "remap keys to scroll to the end in a direction
         nnoremap <S-Up> gg0
