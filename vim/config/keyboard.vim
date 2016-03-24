@@ -704,20 +704,22 @@
     "}
 
     "AUTOCOMPLETION:{
-        "neocomplete close popup and save indent
-        inoremap <silent> <CR> <C-r>=<SID>neocache_cr()<CR>
-        function! s:neocache_cr()
-            return pumvisible() ? "\<C-y>" : "\<CR>"
-        endfunction
+        if !has('nvim')
+            "neocomplete close popup and save indent
+            inoremap <silent> <CR> <C-r>=<SID>neocache_cr()<CR>
+            function! s:neocache_cr()
+                return pumvisible() ? "\<C-y>" : "\<CR>"
+            endfunction
 
-        "neocomplete tab completion
-        inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
+            "neocomplete tab completion
+            inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 
-        "neocomplete close popup
-        inoremap <expr><Backspace> neocomplete#smart_close_popup()."\<C-h>"
+            "neocomplete close popup
+            inoremap <expr><Backspace> neocomplete#smart_close_popup()."\<C-h>"
 
-        "neocomplete undo completion
-        inoremap <expr><C-u> neocomplete#undo_completion()
+            "neocomplete undo completion
+            inoremap <expr><C-u> neocomplete#undo_completion()
+        endif
     "}
 
     "FORMATTING:{
