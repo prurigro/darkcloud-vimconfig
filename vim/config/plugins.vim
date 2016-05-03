@@ -204,7 +204,8 @@ scriptencoding utf-8
         let g:syntastic_markdown_mdl_quiet_messages={
             \ 'regex':[
                 \ '.*MD013.*',
-                \ '.*MD002.*'
+                \ '.*MD002.*',
+                \ '.*MD029.*'
             \ ]}
         let g:syntastic_python_flake8_quiet_messages={
             \ 'regex':[
