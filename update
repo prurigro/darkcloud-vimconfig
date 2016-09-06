@@ -62,7 +62,7 @@ function show_help {
 }
 
 ### SETUP
-cd "$script_home"
+cd "$script_home" || exit
 
 # delete old error log if it exists
 [[ -f "$error_log" ]] \
@@ -152,6 +152,7 @@ fi
 
 # update each submodule to the new head and run 'git fetch --all'
 printf '%s' "$cbg_blue $c_reset$cbg_yellow + Fetching updates:$c_reset"
+git submodule foreach git reset --hard >/dev/null 2>&1
 process_status="$(git submodule foreach git fetch --all 2>&1)"
 if (( ! $? )); then
     process_status=$(git submodule update --init --recursive 2>&1)
