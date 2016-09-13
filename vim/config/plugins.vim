@@ -235,7 +235,8 @@ scriptencoding utf-8
                 \ '.*\[SC2016\]',
                 \ '.*\[SC2029\]',
                 \ '.*\[SC2034\]',
-                \ '.*\[SC2148\]'
+                \ '.*\[SC2148\]',
+                \ '.*follow non-constant source'
             \ ]}
         autocmd BufNewFile,BufRead PKGBUILD,bash.bashrc,.bashrc let g:syntastic_quiet_messages={"level":"warnings"}
 
