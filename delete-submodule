@@ -22,4 +22,3 @@ else
     printf '%s\n' "Couldn't run 'rm -rf .git/modules/vim/bundle/$1', does not exist" >&2
     exit 1
 fi
-
