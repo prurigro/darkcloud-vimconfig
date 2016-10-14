@@ -232,6 +232,7 @@ scriptencoding utf-8
         let g:syntastic_sh_shellcheck_quiet_messages={
             \ 'regex':[
                 \ '.*\[SC1001\]',
+                \ '.*\[SC2015\]',
                 \ '.*\[SC2016\]',
                 \ '.*\[SC2029\]',
                 \ '.*\[SC2034\]',
