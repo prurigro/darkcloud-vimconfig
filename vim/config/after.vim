@@ -31,6 +31,9 @@ endif
 autocmd FileChangedRO * nested set noreadonly
 
 "FILETPE AND SYNTAX: {{{
+    "enable more accurate syntax synchronization
+    autocmd BufEnter * :syntax sync fromstart
+
     "set given filenames to various filetypes
     autocmd BufNewFile,BufRead *.aspx,*.asmx,*.ascx,*.master setlocal ft=aspnet
     autocmd BufNewFile,BufRead *.gradle setlocal ft=groovy
@@ -41,10 +44,8 @@ autocmd FileChangedRO * nested set noreadonly
     autocmd BufNewFile,BufRead *vimpagerrc setlocal ft=vim
     autocmd BufNewFile,BufRead *yaourtrc setlocal ft=sh
 
-    "filename specific settings
-    autocmd BufEnter,FileType sh setlocal iskeyword-=.
-
     "filtype specific settings
+    autocmd BufEnter,FileType sh setlocal iskeyword-=.
     autocmd Filetype text,mkd,mkdc,gitcommit,notes,mail,notmuch,rst,taskreport setlocal nonumber spell nolist linebreak breakat&vim breakat-=* breakat-=. breakat-=/ breakat-=? breakat-=, breakat-=: breakat-=; breakat-=! "set some defaults for word processing
     autocmd Filetype text,gitcommit,notes,mail,notmuch,rst,taskreport setlocal wrap
     autocmd FileType tmux,taskrc setlocal commentstring=#\ %s "set the comment string to #

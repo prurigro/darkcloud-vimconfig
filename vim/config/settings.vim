@@ -47,7 +47,7 @@
 "}}}
 
 "GENERAL SETTINGS: {{{
-    "FILETYPES: {{{
+    "FILE: {{{
         filetype plugin indent on "enable filetype-based auto-indentation
         syntax on "enable syntax highlighting
         set formatoptions=roqnl12 "how automatic formatting is to be done
