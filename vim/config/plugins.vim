@@ -439,8 +439,8 @@ scriptencoding utf-8
         let g:lightline = {
         \   'colorscheme': 'darkcloud',
         \   'active': {
-        \       'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], ['tagbar'] ],
-        \       'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+        \       'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], [ 'tagbar' ] ],
+        \       'right': [ [ 'syntastic', 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
         \   },
         \   'component_function': {
         \       'fugitive': 'LLFugitive',
@@ -466,8 +466,8 @@ scriptencoding utf-8
         let g:lightline = {
         \   'colorscheme': 'darkcloud',
         \   'active': {
-        \       'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], ['tagbar'] ],
-        \       'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+        \       'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], [ 'tagbar' ] ],
+        \       'right': [ [ 'syntastic', 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
         \   },
         \   'component_function': {
         \       'fugitive': 'LLFugitive',
