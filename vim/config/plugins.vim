@@ -187,6 +187,10 @@ scriptencoding utf-8
                 \ 'NameError:.* is undefined',
                 \ 'FileError:.*'
             \ ]}
+        let g:syntastic_scss_sass_quiet_messages={
+            \ 'regex':[
+                \ 'File to import not found or unreadable.*'
+            \ ]}
         let g:syntastic_java_javac_quiet_messages={
             \ 'regex':[
                 \ 'cannot find symbol.*',
