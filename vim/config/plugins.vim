@@ -114,7 +114,8 @@ scriptencoding utf-8
         \ 'php':1,
         \ 'xml':1,
         \ 'jinja':1,
-        \ 'vue':1
+        \ 'vue':1,
+        \ 'vue.html.javascript.css':1
     \ }
 "}}}
 
