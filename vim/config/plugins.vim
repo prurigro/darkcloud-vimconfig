@@ -365,11 +365,11 @@ scriptencoding utf-8
     let g:vimfiler_force_overwrite_statusline = 0
 
     function! LLModified()
-        return &ft =~ 'help' ? '' : &modified ? '💾 ' : &modifiable ? '' : '-'
+        return &ft =~ 'help' ? '' : &modified ? '💾' : &modifiable ? '' : '-'
     endfunction
 
     function! LLReadonly()
-        return &ft !~? 'help' && &readonly ? '🔒' : ''
+        return &ft !~? 'help' && &readonly ? '🔏' : ''
     endfunction
 
     function! LLFilename()
