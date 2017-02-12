@@ -36,7 +36,19 @@
     runtime config/settings.vim
 
     "Init Plugin Loader:
-    if has('nvim')|let pathogen_disabled=['vim-fixkey', 'neocomplete.vim']|endif " disable incompatible plugins for neovim
+    let pathogen_disabled=[]
+
+    " disable incompatible plugins
+    if has('nvim')
+        call add(pathogen_disabled, 'vim-fixkey')
+        call add(pathogen_disabled, 'neocomplete.vim')
+    endif
+    if !has('python')
+        call add(pathogen_disabled, 'MatchTagAlways')
+    endif
+    if !has('lua')
+        call add(pathogen_disabled, 'neocomplete.vim')
+    endif
     runtime bundle/vim-pathogen/autoload/pathogen.vim
 
     "Load Keymappings:
