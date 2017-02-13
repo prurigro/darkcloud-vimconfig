@@ -8,7 +8,8 @@ A theme, config and collection of plugins for Vim.
 * **Bash**: Required by the _update_ and _gentags_ scripts.
 * **Coreutils**: Required by the _update_ script.
 * **Git**: Required by the _update_ script and git-related plugins.
-* **Python**: Required by the _gundo_ and _MatchTagAlways_ plugins.
+* **Python**: Required by the _gundo.vim_ and _MatchTagAlways_ plugins.
+* **Lua**: Required by the _neocomplete.vim_ plugin.
 
 ## Optional Requirements ##
 
