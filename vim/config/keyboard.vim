@@ -700,7 +700,7 @@
     "}
 
     "AUTOCOMPLETION:{
-        if !has('nvim')
+        if !has('nvim') && has('lua')
             "neocomplete close popup and save indent
             inoremap <silent> <CR> <C-r>=<SID>neocache_cr()<CR>
             function! s:neocache_cr()
