@@ -43,6 +43,7 @@ autocmd FileChangedRO * nested set noreadonly
     autocmd BufNewFile,BufRead *pacman.conf setlocal ft=conf
     autocmd BufNewFile,BufRead *vimpagerrc setlocal ft=vim
     autocmd BufNewFile,BufRead *yaourtrc setlocal ft=sh
+    autocmd BufNewFile,BufRead *.vue setlocal ft=vue.javascript
 
     "filtype specific settings
     autocmd BufEnter,FileType sh setlocal iskeyword-=.
