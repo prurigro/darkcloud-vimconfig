@@ -236,7 +236,8 @@ scriptencoding utf-8
                 \ 'The function.*has an NPath complexity.*',
                 \ 'The function.*Avoid really long methods\.',
                 \ 'The class.*has an overall complexity.*',
-                \ 'The class.*has.*public methods.*'
+                \ 'The class.*has.*public methods.*',
+                \ 'The class.*lines of code'
             \ ]}
         let g:syntastic_sh_bashate_quiet_messages={
             \ 'regex':[
