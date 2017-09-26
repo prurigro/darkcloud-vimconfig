@@ -251,6 +251,7 @@ scriptencoding utf-8
                 \ '.*\[SC2029\]',
                 \ '.*\[SC2034\]',
                 \ '.*\[SC2148\]',
+                \ '.*\[SC2181\]',
                 \ '.*follow non-constant source',
                 \ 'Not following:'
             \ ]}
