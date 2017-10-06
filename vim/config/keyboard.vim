@@ -260,6 +260,8 @@
 "    <Shift-Right>            | (V) -> select all text to the right
 "    <Shift-Left>             | (V) -> select all text to the left up to the indent
 "
+"    t                        | (N) -> select to the end of the word
+"
 "    <Ctrl-Up>                | (V) -> select four lines up
 "    <Ctrl-Down>              | (V) -> select four lines down
 "    <Ctrl-Right>             | (V) -> select one word right
@@ -821,6 +823,9 @@
         "ctrl-a to select all
         nnoremap <C-a> gg0vG$
         xnoremap <C-a> <Esc>gg0vG$
+
+        "t to select to the end of the word
+        nnoremap t ve
 
         "map remap keys for speedier text selection
         xnoremap <C-Up> 4k
