@@ -196,7 +196,6 @@
 "    <Ctrl-u>                 | (I) -> (neocomplete) undo the most recent completion
 "
 "  (formatting)
-"    <Backspace>              | (V) -> deletes currently selected text
 "    <Leader>J                | (N) -> split document into lines of tw or 80
 "    <Leader>J                | (V) -> split selection into lines of tw or 80
 "    <Leader>f                | (N) -> format document and return to cursor
@@ -721,9 +720,6 @@
     "}
 
     "FORMATTING:{
-        "have backspace delete the selected text
-        vnoremap <Backspace> "_x
-
         "format width to text width (or 80 chars if text width is 0)
         nnoremap <silent><expr> <Leader>J ':let b:tw=&textwidth<CR>:if (b:tw == 0)<Bar>set tw=80<Bar>endif<CR>gg0vG$gq:if (b:tw == 0)<Bar>set tw=0<Bar>let b:tw=80<Bar>endif<CR>:echo "Document has been formatted to a width of ".b:tw." characters"<CR>'
         vnoremap <silent><expr> <Leader>J '<Esc>:let b:tw=&textwidth<CR>:if (b:tw == 0)<Bar>set tw=80<Bar>endif<CR>gvgq:if (b:tw == 0)<Bar>set tw=0<Bar>let b:tw=80<Bar>endif<CR>:echo "Selection has been formatted to a width of ".b:tw." characters"<CR>'
