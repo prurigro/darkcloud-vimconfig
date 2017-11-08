@@ -115,3 +115,6 @@
 [submodule "vim/bundle/FastFold"]
 	path = vim/bundle/FastFold
 	url = https://github.com/Konfekt/FastFold.git
+[submodule "vim/bundle/editorconfig-vim"]
+	path = vim/bundle/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim

@@ -157,6 +157,7 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 ## Plugins ##
 
 * [autoswap.vim](https://github.com/vim-scripts/autoswap.vim): Switch to open editor window instead of asking what to do with swapfile.
+* [editorconfig-vim](https://github.com/editorconfig/editorconfig-vim): EditorConfig plugin for Vim that auto-configures certain settings when a .editorconfig file is present
 * [emmet-vim](https://github.com/mattn/emmet-vim): Support for expanding abbreviations.
   * [webapi-vim](https://github.com/mattn/webapi-vim): A web library used by emmet to provide support for custom snippets.
 * [FastFold](https://github.com/Konfekt/FastFold): Speed up Vim by updating folds only when called-for.
