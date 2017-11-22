@@ -121,3 +121,6 @@
 [submodule "vim/bundle/cosco.vim"]
 	path = vim/bundle/cosco.vim
 	url = https://github.com/lfilho/cosco.vim
+[submodule "vim/bundle/splitjoin.vim"]
+	path = vim/bundle/splitjoin.vim
+	url = https://github.com/AndrewRadev/splitjoin.vim

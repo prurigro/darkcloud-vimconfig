@@ -171,6 +171,7 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [patchreview-vim](https://github.com/junkblocker/patchreview-vim): A Vim plugin for doing single, multi-patch or diff code reviews.
 * [rename.vim](https://github.com/danro/rename.vim): Rename the current file in the vim buffer + retain relative path.
 * [ReplaceWithRegister](https://github.com/vim-scripts/ReplaceWithRegister): Replace text with the contents of a register (for paste+replace without writing over the buffer).
+* [splitjoin.vim](https://github.com/AndrewRadev/splitjoin.vim): Simplifies the transition between multiline and single-line code
 * [SudoEdit.vim](https://github.com/vim-scripts/SudoEdit.vim): Read and write files without the necessary permissions through the use of sudo.
 * [syntastic](https://github.com/scrooloose/syntastic): Uses system compilers and parsers to check syntax either on-the-fly or after saving a compatible document.
 * [tabular](https://github.com/godlygeek/tabular): Vim script for text filtering and alignment.
