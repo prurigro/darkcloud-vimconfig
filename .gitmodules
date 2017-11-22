@@ -118,3 +118,6 @@
 [submodule "vim/bundle/editorconfig-vim"]
 	path = vim/bundle/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim
+[submodule "vim/bundle/cosco.vim"]
+	path = vim/bundle/cosco.vim
+	url = https://github.com/lfilho/cosco.vim

@@ -217,6 +217,7 @@
 "    <Shift-Tab>              | (N) -> un-indent the current line
 "    <Leader><                | (V) -> un-indent all the lines currently selected
 "    <Leader><                | (N) -> un-indent the current line
+"    ;;                       | (N) -> (cosco.vim) add comma/semicolon to the eol
 "
 "  (movement)
 "    =                        | (N) -> go to the first char on the next line
@@ -756,6 +757,9 @@
         nnoremap <S-Tab> v<gv<Esc>
         vnoremap <Leader>< <gv
         nnoremap <Leader>< v<gv<Esc>
+
+        "add comma or semicolon to the end of the line
+        nmap <silent> ;; <Plug>(cosco-commaOrSemiColon)
     "}
 
     "MOVEMENT:{
