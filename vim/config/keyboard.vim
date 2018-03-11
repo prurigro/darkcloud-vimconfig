@@ -31,24 +31,6 @@
 "  :ik                        | (C) -> add following character to keywords
 "  :iK                        | (C) -> remove following character from keywords
 "
-" Reference: (view plugin documentation for the full list of commands each offers)
-"   <Ctrl-y>,                 | (A) -> enter after emmet 'word' (ie: html:5)
-"   <Ctrl-_><Ctrl-_>          | (A) -> comment selection/create an empty comment
-"   <Ctrl-_>b                 | (A) -> comment the current block(s)
-"   <Ctrl-_>r                 | (A) -> comment everything on the line to the right
-"   <Ctrl-_>p                 | (A) -> comment the current paragraph
-"
-"  (surround)
-"    S"                       | (V) -> surround selection with quotes
-"    S<a href="">             | (V) -> surround <a href="">selection</a>
-"    ds"                      | (N) -> delete surrounding ""
-"    dst                      | (N) -> delete surrounding tag (ie: <strong></strong>)
-"    cs'"                     | (N) -> change surrounding '' to "" (any delimiters)
-"    cs"<q>                   | (N) -> change surrounding "" to the tag: <q></q>
-"    cst"                     | (N) -> change any surrounding tag to ""
-"    ysiw'                    | (N) -> surround the current word with ''
-"    yss'                     | (N) -> surround non-whitespace of current line with ''
-"
 " Mappings:
 "  (mouse)
 "    <Ctrl-ScrollUp>          | (A) -> scroll right

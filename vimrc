@@ -38,15 +38,6 @@
     "Init Plugin Loader:
     let pathogen_disabled=[]
 
-    " disable incompatible plugins
-    if has('nvim')
-        call add(pathogen_disabled, 'vim-fixkey')
-    endif
-
-    if has('nvim') || !has('lua')
-        call add(pathogen_disabled, 'neocomplete.vim')
-    endif
-
     if !has('python')
         call add(pathogen_disabled, 'gundo.vim')
         call add(pathogen_disabled, 'MatchTagAlways')
