@@ -14,15 +14,15 @@ script_home="${0%$script_name}"
 if [[ -z "$script_home" ]]; then
     script_home="$PWD"
 else
-    pushd "$script_home" >/dev/null
+    pushd "$script_home" >/dev/null || exit
     script_home="$PWD"
-    popd >/dev/null
+    popd >/dev/null || exit
 fi
 
 repo_version="$(printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)")"
 error_log='update-errors.log'
 
-[[ -t 1 ]] && {
+if [[ -t 1 ]]; then
     cbg_blue=$'\e[44m'
     cbg_red_bold=$'\e[1;41m'
     cbg_black=$'\e[40m'
@@ -31,22 +31,17 @@ error_log='update-errors.log'
     cfg_red_bold=$'\e[1;31m'
     cfg_white_bold=$'\e[1;37m'
     c_reset=$'\e[0m'
-} || \
+else
     cbg_blue='#'
+fi
 
 # error: output and log error
 function error {
     printf '%s\n' "$cbg_blue $c_reset$cbg_red_bold ! ERROR: $c_reset$cfg_red_bold $2 " >&2
     printf '%s\n' "$cbg_blue $c_reset$cbg_red_bold ! COMMAND: $c_reset ${cfg_white_bold}=> $1$c_reset" >&2
-
-    [[ -n "$3" ]] \
-        && printf '%s\n' "$cbg_blue $c_reset$cbg_red_bold ! OUTPUT: $c_reset$cfg_white_bold $3" >&2
-
+    [[ -n "$3" ]] && printf '%s\n' "$cbg_blue $c_reset$cbg_red_bold ! OUTPUT: $c_reset$cfg_white_bold $3" >&2
     printf '%s\n%s\n%s\n' "DATE: @ $(date)" "ERROR: $2" "COMMAND: $1" >> "$script_home/$error_log"
-
-    [[ -n "$3" ]] \
-        && printf '%s\n' "OUTPUT: $3" >> "$script_home/$error_log"
-
+    [[ -n "$3" ]] && printf '%s\n' "OUTPUT: $3" >> "$script_home/$error_log"
     printf '\n' >> "$script_home/$error_log"
 }
 
@@ -78,8 +73,7 @@ fi
 cd "$script_home" || exit
 
 # delete old error log if it exists
-[[ -f "$error_log" ]] \
-    && rm "$script_home/$error_log"
+[[ -f "$error_log" ]] && rm "$script_home/$error_log"
 
 # parse for arguments (then handle them below)
 [[ -n "$1" ]] && {
@@ -215,7 +209,7 @@ fi
         [[ -f "$plugin/.git" ]] && {
             plugin_dirname="${plugin/*\/}"
 
-            grep 'path = ' .gitmodules | egrep -o '[^\/]*$' | egrep -q "$plugin_dirname$" || {
+            grep 'path = ' .gitmodules | grep -o -e '[^\/]*$' | grep -q -e "$plugin_dirname$" || {
                 [[ -z "$first_found" ]] && {
                     first_found=1
                     printf '%s\n' "$cbg_blue $c_reset$cbg_yellow + Removing old plugins: $c_reset"
@@ -239,11 +233,11 @@ fi
 ### USER PLUGIN UPDATE
 [[ -d vim/bundle.user ]] && find vim/bundle.user -mindepth 3 -maxdepth 3 -name config | grep -q '.git/config' && {
     printf '%s\n' "$cbg_blue >> Updating user plugins >> $c_reset"
-    pushd 'vim/bundle.user' >/dev/null
+    pushd 'vim/bundle.user' >/dev/null || exit
 
     for plugin in *; do
         [[ -d "$plugin/.git" ]] && {
-            pushd "$plugin" >/dev/null
+            pushd "$plugin" >/dev/null || exit
             printf '%s' "$cbg_blue $c_reset$cbg_yellow + Updating 'vim/bundle.user/$plugin':$c_reset"
             process_status="$(git pull origin master 2>&1)"
 
@@ -257,11 +251,11 @@ fi
                 error 'git pull origin master' "Failed pulling changes for $plugin" "$process_status"
             fi
 
-            popd >/dev/null
+            popd >/dev/null || exit
         }
     done
 
-    popd >/dev/null
+    popd >/dev/null || exit
     printf '\n'
 }
 
