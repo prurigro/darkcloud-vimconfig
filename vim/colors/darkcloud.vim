@@ -481,9 +481,6 @@ hi SpellLocal guisp=NONE gui=NONE guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NON
 "}}}
 
 "MISC: {{{
-    "bookmarks
-    call s:X("BookmarkSign","#87d7ff","","bold","Blue","")
-
     "email
     hi! link mailHeaderKey Identifier
 
