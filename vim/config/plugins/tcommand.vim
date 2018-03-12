@@ -1,1 +1,1 @@
-let g:tcommand#include_history=0
+let g:tcommand#include_history = 0

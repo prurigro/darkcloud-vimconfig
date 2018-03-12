@@ -32,7 +32,6 @@ function! LLFugitive()
             return strlen(_) ? mark._ : ''
         endif
     catch
-
     endtry
 
     return ''
@@ -80,7 +79,7 @@ endfunction
 
 "status bar config with and without powerline fonts (default: 0)
 if !exists("g:powerlinefonts")
-    let g:powerlinefonts=0
+    let g:powerlinefonts = 0
 endif
 
 if (g:powerlinefonts == 1)

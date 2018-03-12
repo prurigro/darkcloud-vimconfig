@@ -25,12 +25,20 @@
 
     "use the '*' register as well as the the '+' register if it's available too
     set clipboard=unnamed
-    if has('unnamedplus')|set clipboard+=unnamedplus|endif
+
+    if has('unnamedplus')
+        set clipboard+=unnamedplus
+    endif
 
     "fancy mouse reporting with xterm2 fallback
     if !has('nvim')
-        if has("mouse_sgr")|set ttymouse=sgr|else|set ttymouse=xterm2|endif
+        if has("mouse_sgr")
+            set ttymouse=sgr
+        else
+            set ttymouse=xterm2
+        endif
     endif
+
     set mouse=a "enables mouse functionality with extended capabilities
 
     "8 colours in $TERM=linux, 256 elsewhere
@@ -39,10 +47,14 @@
 
     "configure to primarily use utf8
     if has("multi_byte")
-        if &termencoding == ""|let &termencoding = &encoding|endif
+        if &termencoding == ""
+            let &termencoding = &encoding
+        endif
+
         set encoding=utf-8
         setglobal fileencoding=utf-8
     endif
+
     set fileformats=unix,dos,mac "set compatible line endings in order of preference
 "}}}
 
@@ -72,7 +84,7 @@
         set list listchars=tab:>-,trail:- "display tabs as: >--- and trailing spaces as: -
         set showmatch "show matching open bracket when closed bracket is inserted
         set matchtime=5 "the amount of time before the matching bracket will highlight
-        let &showbreak="" "character to prepend to wrapped lines when linewrapping is enabled
+        let &showbreak = "" "character to prepend to wrapped lines when linewrapping is enabled
 
         "enable tab completion in command mode and configure how it handles extensions
         set completeopt=longest,menuone
@@ -91,7 +103,10 @@
         set ttimeout ttimeoutlen=100 "how long before timing out for terminal key codes
 
         "create ~/.vim/swap if necessary, then use as default swap file location
-        if !isdirectory($HOME.'/.vim/swap')|call mkdir($HOME.'/.vim/swap','p')|endif
+        if exists('*mkdir') && !isdirectory($HOME.'/.vim/swap')
+            call mkdir($HOME.'/.vim/swap','p')
+        endif
+
         set directory=$HOME/.vim/swap,.,/var/tmp,/tmp
 
         "FUNCTIONS: {{{
@@ -100,10 +115,14 @@
                 if !exists('*s:MakeNewDir')
                     function s:MakeNewDir(fullpath, buf)
                         if empty(getbufvar(a:buf,'&buftype')) && a:fullpath!~#'\v^\w+\:\/'
-                            let dirpath=fnamemodify(a:fullpath,':h')
-                            if !isdirectory(dirpath)|call mkdir(dirpath,'p')|endif
+                            let dirpath = fnamemodify(a:fullpath,':h')
+
+                            if !isdirectory(dirpath)
+                                call mkdir(dirpath,'p')
+                            endif
                         endif
                     endfunction
+
                     augroup WriteDir
                         autocmd!
                         autocmd BufWritePre * :call s:MakeNewDir(expand('<afile>'),+expand('<abuf>'))
@@ -121,26 +140,34 @@
             function s:SPResize33()
                 sp|wincmd =|q
             endfunction
+
             function s:sp33()
                 sp|call s:SPResize33()|wincmd j
             endfunction
+
             command! -buffer SP33 call s:sp33()
+
             function s:sp66()
                 sp|wincmd j|call s:SPResize33()
             endfunction
+
             command! -buffer SP66 call s:sp66()
 
             "functions to create a vertical split using 33% and 66% width
             function s:VSResize66()
                 vs|wincmd =|q
             endfunction
+
             function s:vs66()
                 vs|call s:VSResize66()
             endfunction
+
             command! -buffer VS66 call s:vs66()
+
             function s:vs33()
                 vs|wincmd h|call s:VSResize66()|wincmd l
             endfunction
+
             command! -buffer VS33 call s:vs33()
         "}}}
     "}}}

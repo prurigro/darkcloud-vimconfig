@@ -16,8 +16,9 @@ endif
 
 "when enabled, this will override each file type default and disable all line breaks (default: 1)
 if !exists("g:disablelinebreaks")
-    let g:disablelinebreaks=1
+    let g:disablelinebreaks = 1
 endif
+
 if (g:disablelinebreaks == 1)
     autocmd VimEnter * set textwidth=0
 endif
