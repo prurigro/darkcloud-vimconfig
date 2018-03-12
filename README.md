@@ -4,7 +4,7 @@ A theme, config and collection of plugins for Vim.
 
 ## Requirements ##
 
-* **Vim**: The latest [vim](http://www.vim.org) should be installed to use this distribution (versions 7.3 and below aren't tested or guaranteed to work).
+* **Vim**: The latest [vim](http://www.vim.org) should be installed to use this distribution.
 * **Bash**: Required by the _update_ and _gentags_ scripts.
 * **Coreutils**: Required by the _update_ script.
 * **Git**: Required by the _update_ script and git-related plugins.
