@@ -110,31 +110,29 @@
         set directory=$HOME/.vim/swap,.,/var/tmp,/tmp
 
         "FUNCTIONS: {{{
-            if has('autocmd')
-                "enable the auto-creation of missing folders in a save path
-                if !exists('*s:MakeNewDir')
-                    function s:MakeNewDir(fullpath, buf)
-                        if empty(getbufvar(a:buf,'&buftype')) && a:fullpath!~#'\v^\w+\:\/'
-                            let dirpath = fnamemodify(a:fullpath,':h')
+            "enable the auto-creation of missing folders in a save path
+            if !exists('*s:MakeNewDir')
+                function s:MakeNewDir(fullpath, buf)
+                    if empty(getbufvar(a:buf,'&buftype')) && a:fullpath!~#'\v^\w+\:\/'
+                        let dirpath = fnamemodify(a:fullpath,':h')
 
-                            if !isdirectory(dirpath)
-                                call mkdir(dirpath,'p')
-                            endif
+                        if !isdirectory(dirpath)
+                            call mkdir(dirpath,'p')
                         endif
-                    endfunction
+                    endif
+                endfunction
 
-                    augroup WriteDir
-                        autocmd!
-                        autocmd BufWritePre * :call s:MakeNewDir(expand('<afile>'),+expand('<abuf>'))
-                    augroup END
-                endif
-
-                "update the current filetype when a file is renamed
-                augroup RenameCheckFiletype
+                augroup WriteDir
                     autocmd!
-                    autocmd BufFilePost * filetype detect
+                    autocmd BufWritePre * :call s:MakeNewDir(expand('<afile>'),+expand('<abuf>'))
                 augroup END
             endif
+
+            "update the current filetype when a file is renamed
+            augroup RenameCheckFiletype
+                autocmd!
+                autocmd BufFilePost * filetype detect
+            augroup END
 
             "functions to create a split using 33% and 66% of the height
             function s:SPResize33()
