@@ -157,6 +157,7 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 
 ## Plugins ##
 
+* [ale](https://github.com/w0rp/ale): Asynchronous Lint Engine
 * [autoswap.vim](https://github.com/vim-scripts/autoswap.vim): Switch to open editor window instead of asking what to do with swapfile.
 * [cosco.vim](https://github.com/lfilho/cosco.vim): VIM colon and semicolon insertion bliss
 * [editorconfig-vim](https://github.com/editorconfig/editorconfig-vim): EditorConfig plugin for Vim that auto-configures certain settings when a .editorconfig file is present
@@ -174,7 +175,6 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [ReplaceWithRegister](https://github.com/vim-scripts/ReplaceWithRegister): Replace text with the contents of a register (for paste+replace without writing over the buffer).
 * [splitjoin.vim](https://github.com/AndrewRadev/splitjoin.vim): Simplifies the transition between multiline and single-line code
 * [SudoEdit.vim](https://github.com/vim-scripts/SudoEdit.vim): Read and write files without the necessary permissions through the use of sudo.
-* [syntastic](https://github.com/scrooloose/syntastic): Uses system compilers and parsers to check syntax either on-the-fly or after saving a compatible document.
 * [tabular](https://github.com/godlygeek/tabular): Vim script for text filtering and alignment.
 * [tagbar](https://github.com/majutsushi/tagbar): Uses ctags to generate a sidebar of the tags for the current file.
 * [tcommand_vim](https://github.com/tomtom/tcommand_vim): Select commands, menu items etc. from a list.
