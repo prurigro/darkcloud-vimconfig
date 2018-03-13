@@ -113,8 +113,8 @@ As usual, to have your system use `vimpager` in place of `less`, you'll need to 
 |                 |      |                                                  |
 | F1              | ALL  | Toggle line wrapping                             |
 | F2              | ALL  | Toggle highlighting of spelling mistakes         |
-| F3              | ALL  | Toggle source code syntax checking               |
-| F4              | ALL  | Toggle external-paste mode                       |
+| F3              | ALL  | Toggle external-paste mode                       |
+| F4              | ALL  | Toggle source code syntax checking               |
 |                 |      |                                                  |
 | \`              | N    | Toggle gutter (left bar with line numbers etc.)  |
 | Backslash+\`    | N    | Toggle the **goyo** distraction-free UI          |
