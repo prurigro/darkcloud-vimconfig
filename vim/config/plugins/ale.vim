@@ -8,6 +8,9 @@ let g:ale_enabled = g:autostartchecker
 " open list of warnings and errors when they exist
 let g:ale_open_list = 1
 
+" size of the list
+let g:ale_list_window_size = 5
+
 " don't fix on save
 let g:ale_fix_on_save = 0
 
