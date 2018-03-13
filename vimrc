@@ -48,6 +48,10 @@
         call add(pathogen_disabled, 'MatchTagAlways')
     endif
 
+    if !has('lua')
+        call add(pathogen_disabled, 'neocomplete.vim')
+    endif
+
     runtime bundle/vim-pathogen/autoload/pathogen.vim
 
     "Load Keymappings:
