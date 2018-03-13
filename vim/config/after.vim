@@ -24,7 +24,7 @@ if (g:disablelinebreaks == 1)
 endif
 
 "enable omnicompletion for any filetype without that has syntax highlighting
-if has("autocmd") && exists("+omnifunc")
+if exists("+omnifunc")
     autocmd VimEnter,Filetype * if &omnifunc == ""|setlocal omnifunc=syntaxcomplete#Complete|endif
 endif
 
