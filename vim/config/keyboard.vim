@@ -171,12 +171,6 @@
 "      <Ctrl-D>               | (I) -> cut line before cursor during input
 "      <Ctrl-Y>               | (I) -> paste what's been cut during input
 "
-"  (autocompletion)
-"    <Enter>                  | (I) -> (neocomplete) close the popup and <Enter>
-"    <Tab>                    | (I) -> (neocomplete) select/cycle popup completion
-"    <Backspace>              | (I) -> (neocomplete) close the popup and <Backspace>
-"    <Ctrl-u>                 | (I) -> (neocomplete) undo the most recent completion
-"
 "  (fixing-and-formatting)
 "    <Leader>J                | (N) -> split document into lines of tw or 80
 "    <Leader>J                | (V) -> split selection into lines of tw or 80
@@ -682,25 +676,6 @@
         "remap ctrl-u and ctrl-w to safer alternatives
         inoremap <C-u> <C-g>u<C-u>
         inoremap <C-w> <C-g>u<C-w>
-    "}
-
-    "AUTOCOMPLETION:{
-        if !has('nvim') && has('lua')
-            "neocomplete close popup and save indent
-            inoremap <silent> <CR> <C-r>=<SID>neocache_cr()<CR>
-            function! s:neocache_cr()
-                return pumvisible() ? "\<C-y>" : "\<CR>"
-            endfunction
-
-            "neocomplete tab completion
-            inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
-
-            "neocomplete close popup
-            inoremap <expr><Backspace> neocomplete#smart_close_popup()."\<C-h>"
-
-            "neocomplete undo completion
-            inoremap <expr><C-u> neocomplete#undo_completion()
-        endif
     "}
 
     "FIXING AND FORMATTING:{

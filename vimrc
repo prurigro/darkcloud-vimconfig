@@ -35,10 +35,27 @@
     "Load Settings:
     runtime config/settings.vim
 
-    "Init Plugin Loader:
+    "Initialize Plugins:
     let pathogen_disabled = []
 
-    " disable incompatible plugins
+    " configure pythonx and the python_neovim variable to determine whether deoplete should be loaded
+    if has('python3')
+        set pyxversion=3
+
+        redir => python_neovim_check
+        silent pythonx exec("import pkgutil\nneovim = pkgutil.find_loader('neovim')\nfound = neovim is not None\nprint(found)")
+        redir END
+
+        if substitute(python_neovim_check, '^\n*\([^\n]*\)\n*$', '\1', '') == 'True'
+            let g:python_neovim = 1
+        else
+            let g:python_neovim = 0
+        endif
+    else
+        let g:python_neovim = 0
+    endif
+
+    " disable incompatible/unnecessary plugins
     if has('nvim')
         call add(pathogen_disabled, 'vim-fixkey')
     endif
@@ -48,10 +65,17 @@
         call add(pathogen_disabled, 'MatchTagAlways')
     endif
 
-    if !has('lua')
-        call add(pathogen_disabled, 'neocomplete.vim')
+    if !g:python_neovim
+        call add(pathogen_disabled, 'deoplete.nvim')
+        call add(pathogen_disabled, 'neco-syntax')
+        call add(pathogen_disabled, 'nvim-yarp')
+        call add(pathogen_disabled, 'vim-hug-neovim-rpc')
+    elseif has('nvim')
+        call add(pathogen_disabled, 'nvim-yarp')
+        call add(pathogen_disabled, 'vim-hug-neovim-rpc')
     endif
 
+    " use pathogen to load plugins that haven't been disabled
     runtime bundle/vim-pathogen/autoload/pathogen.vim
 
     "Load Keymappings:

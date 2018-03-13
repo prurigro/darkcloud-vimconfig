@@ -103,9 +103,6 @@
 [submodule "vim/bundle/ReplaceWithRegister"]
 	path = vim/bundle/ReplaceWithRegister
 	url = https://github.com/prurigro/ReplaceWithRegister.git
-[submodule "vim/bundle/neocomplete.vim"]
-	path = vim/bundle/neocomplete.vim
-	url = https://github.com/Shougo/neocomplete.vim
 [submodule "vim/bundle/FastFold"]
 	path = vim/bundle/FastFold
 	url = https://github.com/Konfekt/FastFold.git
@@ -124,3 +121,15 @@
 [submodule "vim/bundle/lightline-ale"]
 	path = vim/bundle/lightline-ale
 	url = https://github.com/maximbaz/lightline-ale
+[submodule "vim/bundle/deoplete.nvim"]
+	path = vim/bundle/deoplete.nvim
+	url = https://github.com/Shougo/deoplete.nvim
+[submodule "vim/bundle/nvim-yarp"]
+	path = vim/bundle/nvim-yarp
+	url = https://github.com/roxma/nvim-yarp
+[submodule "vim/bundle/vim-hug-neovim-rpc"]
+	path = vim/bundle/vim-hug-neovim-rpc
+	url = https://github.com/roxma/vim-hug-neovim-rpc
+[submodule "vim/bundle/neco-syntax"]
+	path = vim/bundle/neco-syntax
+	url = https://github.com/Shougo/neco-syntax.git

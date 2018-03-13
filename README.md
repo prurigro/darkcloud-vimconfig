@@ -9,13 +9,13 @@ A theme, config and collection of plugins for Vim.
 * **Coreutils**: Required by the _update_ script.
 * **Git**: Required by the _update_ script and git-related plugins.
 * **Python**: Required by the _gundo.vim_ and _MatchTagAlways_ plugins.
-* **Lua**: Required by the _neocomplete.vim_ plugin.
 
 ## Optional Requirements ##
 
 * **Compilers, Linters and Runtimes**: The ale plugin can use compilers, linters and runtimes to provide real-time syntax checking.
-* **CTags**: Required by the _tagbar_ and _neocomplete_ plugins as well as the _gentags_ script ([ctags website](http://ctags.sourceforge.net)).
+* **CTags**: Required by the _tagbar_ and _deoplete_ plugins as well as the _gentags_ script ([ctags website](http://ctags.sourceforge.net)).
 * **Powerline Fonts**: Required to enable the fancier looking status line ([powerline-fonts repo](https://github.com/Lokaltog/powerline-fonts)).
+* **Python 3 and Neovim Python Module**: Required for _deoplete_ autocompletion
 
 ## Distribution Features ##
 
@@ -60,6 +60,7 @@ As usual, to have your system use `vimpager` in place of `less`, you'll need to 
   * `g:autostartfiler`: **1** = Start the filer file manager when vim is run and the buffer is empty | **0** = Do nothing when vim is run and the buffer is empty (_default_: **1**)
   * `g:autostartchecker`: **1** = Check syntax once an appropriate file is loaded | **0** = Check syntax only after syntax checking is toggled on (_default_: **0**)
   * `g:autostarttagbar`: **1** = Have the tagbar load automatically when a compatible format is run | **0** = The tagbar will stay hidden until triggered on demand with its toggle (_default_: **0**)
+  * `g:disablecompletion`: **1** = Disable _deoplete_ autocompletion | **0** = Enable _deoplete _autocompletion_ if the requirements are met (_default_: **0**)
   * `g:disableautotags`: **1** = Prevent tags from being automatically generated and highlighted | **0** = Automatically generate and highlight tags (_default_: **0**)
   * `g:disablelinebreaks`: **1** = Override filetype plugins so linebreaks never occur | **0** = Linebreaks are disabled by default, but filetype plugins can override this setting (_default_: **0**)
   * `g:powerlinefonts`: **1** = Render the statusline using characters available with powerline-patched fonts | **0** = Render the statusbar with less attractive but more compatible characters available in all fonts (_default_: **0**)
@@ -160,6 +161,10 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [ale](https://github.com/w0rp/ale): Asynchronous Lint Engine
 * [autoswap.vim](https://github.com/vim-scripts/autoswap.vim): Switch to open editor window instead of asking what to do with swapfile.
 * [cosco.vim](https://github.com/lfilho/cosco.vim): VIM colon and semicolon insertion bliss
+* [deoplete.nvim](https://github.com/Shougo/deoplete.nvim): Dark powered asynchronous completion framework for neovim/Vim8
+  * [neco-syntax](https://github.com/Shougo/neco-syntax): Syntax source for neocomplete/deoplete/ncm
+  * [nvim-yarp](https://github.com/roxma/nvim-yarp): Yet Another Remote Plugin Framework for Neovim
+  * [vim-hug-neovim-rpc](https://github.com/roxma/vim-hug-neovim-rpc): A compatibility layer for neovim rpc client working on vim8
 * [editorconfig-vim](https://github.com/editorconfig/editorconfig-vim): EditorConfig plugin for Vim that auto-configures certain settings when a .editorconfig file is present
 * [emmet-vim](https://github.com/mattn/emmet-vim): Support for expanding abbreviations.
   * [webapi-vim](https://github.com/mattn/webapi-vim): A web library used by emmet to provide support for custom snippets.
@@ -169,7 +174,6 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [incsearch.vim](https://github.com/haya14busa/incsearch.vim): Improved incremental searching for Vim.
 * [lightline.vim](https://github.com/itchyny/lightline.vim): A light and configurable statusline/tabline for Vim.
 * [MatchTagAlways](https://github.com/Valloric/MatchTagAlways): A Vim plugin that always highlights the enclosing html/xml tags.
-* [neocomplete.vim](https://github.com/Shougo/neocomplete.vim): Next generation completion framework after neocomplcache.
 * [patchreview-vim](https://github.com/junkblocker/patchreview-vim): A Vim plugin for doing single, multi-patch or diff code reviews.
 * [rename.vim](https://github.com/danro/rename.vim): Rename the current file in the vim buffer + retain relative path.
 * [ReplaceWithRegister](https://github.com/vim-scripts/ReplaceWithRegister): Replace text with the contents of a register (for paste+replace without writing over the buffer).
