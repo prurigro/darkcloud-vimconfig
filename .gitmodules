@@ -31,9 +31,6 @@
 [submodule "vim/bundle/vimfiler.vim"]
 	path = vim/bundle/vimfiler.vim
 	url = https://github.com/Shougo/vimfiler.vim.git
-[submodule "vim/bundle/syntastic"]
-	path = vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
 [submodule "vim/bundle/tcomment_vim"]
 	path = vim/bundle/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
@@ -121,3 +118,9 @@
 [submodule "vim/bundle/splitjoin.vim"]
 	path = vim/bundle/splitjoin.vim
 	url = https://github.com/AndrewRadev/splitjoin.vim
+[submodule "vim/bundle/ale"]
+	path = vim/bundle/ale
+	url = https://github.com/w0rp/ale
+[submodule "vim/bundle/lightline-ale"]
+	path = vim/bundle/lightline-ale
+	url = https://github.com/maximbaz/lightline-ale

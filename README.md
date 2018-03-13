@@ -129,13 +129,14 @@ As usual, to have your system use `vimpager` in place of `less`, you'll need to 
 | ?N      | N    | Go to the next spelling mistake               |
 | ?P      | N    | Go to the previous spelling mistake           |
 
-#### Formatting ####
+#### Fixing and Formatting ####
 
 | Binding  | Mode | Action                                                        |
 |----------|------|---------------------------------------------------------------|
 | Leader+J | N+V  | Format line/selected lines to a max width of the _textwidth_  |
 | Leader+f | N+V  | Format document/selection alignment using Vim syntax          |
 | Leader+f | N+V  | (Markdown) Format table cursor is currently on                |
+| Leader+F | N    | Fix document with available ale fixers                        |
 | Leader+t | N    | Convert all tabs into spaces and continue session with spaces |
 | Leader+T | N    | Convert all spaces into tabs and continue session with tabs   |
 | Leader+w | N    | Remove all trailing whitespace                                |

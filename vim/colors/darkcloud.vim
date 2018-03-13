@@ -531,15 +531,9 @@ hi SpellLocal guisp=NONE gui=NONE guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NON
     hi! link SignifyLineDelete DiffDelete
     hi! link SignifyLineChange DiffChange
 
-    "syntastic
-    call s:X("SyntasticError","#d75f5f","","standout,bold","Red","")
-    call s:X("SyntasticWarning","#ffd787","","standout,bold","Yellow","")
-    hi! link SyntasticErrorLine SyntasticError
-    hi! link SyntasticWarningLine SyntasticWarning
-    hi! link SyntasticErrorSign SyntasticError
-    hi! link SyntasticWarningSign SyntasticWarning
-    hi! link qfSeparator Delimiter
-    hi! link qfLineNr SyntasticError
+    "ale
+    call s:X("ALEErrorSign","#d75f5f","","standout,bold","Red","")
+    call s:X("ALEWarningSign","#ffd787","","standout,bold","Yellow","")
 
     "taglist
     hi! link TagListFileName Directory

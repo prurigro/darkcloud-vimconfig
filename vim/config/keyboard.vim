@@ -177,11 +177,12 @@
 "    <Backspace>              | (I) -> (neocomplete) close the popup and <Backspace>
 "    <Ctrl-u>                 | (I) -> (neocomplete) undo the most recent completion
 "
-"  (formatting)
+"  (fixing-and-formatting)
 "    <Leader>J                | (N) -> split document into lines of tw or 80
 "    <Leader>J                | (V) -> split selection into lines of tw or 80
 "    <Leader>f                | (N) -> format document and return to cursor
 "    <Leader>f                | (V) -> format the selection and return to cursor
+"    <Leader>F                | (N) -> run available ale fixers on the document
 "    <Leader>t                | (N) -> convert tabs into spaces
 "    <Leader>T                | (N) -> convert spaces into tabs
 "    <Leader>w                | (N) -> remove whitespace
@@ -522,16 +523,16 @@
         nnoremap <silent><expr> <Space>0 'zX:echo "all folds have been reset"<CR>'
 
         "view commit history and diffs
-        nnoremap <expr><silent> <F9> ':SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        xnoremap <expr><silent> <F9> '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        inoremap <expr><silent> <F9> '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        nnoremap <expr><silent> <C-F9> ':SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        xnoremap <expr><silent> <C-F9> '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        inoremap <expr><silent> <C-F9> '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        nnoremap <expr><silent> <A-F9> ':SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        xnoremap <expr><silent> <A-F9> '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        inoremap <expr><silent> <A-F9> '<Esc>:SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        nnoremap <silent><expr> <Leader>} ':SyntasticToggleOff<CR>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        nnoremap <expr><silent> <F9> ':Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        xnoremap <expr><silent> <F9> '<Esc>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        inoremap <expr><silent> <F9> '<Esc>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        nnoremap <expr><silent> <C-F9> ':Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        xnoremap <expr><silent> <C-F9> '<Esc>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        inoremap <expr><silent> <C-F9> '<Esc>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        nnoremap <expr><silent> <A-F9> ':Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        xnoremap <expr><silent> <A-F9> '<Esc>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        inoremap <expr><silent> <A-F9> '<Esc>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
+        nnoremap <silent><expr> <Leader>} ':Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
 
         "bindings to trigger the tagbar list of tags
         nnoremap <silent><expr> <F10> ':TagbarToggle<CR>:echo "tagbar toggled"<CR>'
@@ -595,15 +596,15 @@
         set pastetoggle=<F3>
 
         "toggle syntax checking
-        nnoremap <silent><expr> <F4> ':SyntasticToggleAll<CR>'
-        xnoremap <silent><expr> <F4> '<Esc>:SyntasticToggleAll<CR>gv'
-        inoremap <silent><expr> <F4> '<C-O>:SyntasticToggleAll<CR>'
-        nnoremap <silent><expr> <C-F4> ':SyntasticToggleAll<CR>'
-        xnoremap <silent><expr> <C-F4> '<Esc>:SyntasticToggleAll<CR>gv'
-        inoremap <silent><expr> <C-F4> '<C-O>:SyntasticToggleAll<CR>'
-        nnoremap <silent><expr> <A-F4> ':SyntasticToggleAll<CR>'
-        xnoremap <silent><expr> <A-F4> '<Esc>:SyntasticToggleAll<CR>gv'
-        inoremap <silent><expr> <A-F4> '<C-O>:SyntasticToggleAll<CR>'
+        nnoremap <silent><expr> <F4> ':ALEToggle<CR>'
+        xnoremap <silent><expr> <F4> '<Esc>:ALEToggle<CR>gv'
+        inoremap <silent><expr> <F4> '<C-O>:ALEToggle<CR>'
+        nnoremap <silent><expr> <C-F4> ':ALEToggle<CR>'
+        xnoremap <silent><expr> <C-F4> '<Esc>:ALEToggle<CR>gv'
+        inoremap <silent><expr> <C-F4> '<C-O>:ALEToggle<CR>'
+        nnoremap <silent><expr> <A-F4> ':ALEToggle<CR>'
+        xnoremap <silent><expr> <A-F4> '<Esc>:ALEToggle<CR>gv'
+        inoremap <silent><expr> <A-F4> '<C-O>:ALEToggle<CR>'
 
         "toggle goyo
         nnoremap <silent><expr> <Leader>` ':Goyo<CR>'
@@ -702,14 +703,17 @@
         endif
     "}
 
-    "FORMATTING:{
+    "FIXING AND FORMATTING:{
         "format width to text width (or 80 chars if text width is 0)
         nnoremap <silent><expr> <Leader>J ':let b:tw=&textwidth<CR>:if (b:tw == 0)<Bar>set tw=80<Bar>endif<CR>gg0vG$gq:if (b:tw == 0)<Bar>set tw=0<Bar>let b:tw=80<Bar>endif<CR>:echo "Document has been formatted to a width of ".b:tw." characters"<CR>'
         vnoremap <silent><expr> <Leader>J '<Esc>:let b:tw=&textwidth<CR>:if (b:tw == 0)<Bar>set tw=80<Bar>endif<CR>gvgq:if (b:tw == 0)<Bar>set tw=0<Bar>let b:tw=80<Bar>endif<CR>:echo "Selection has been formatted to a width of ".b:tw." characters"<CR>'
 
-        "format by Vim syntax + by Autoformat tool syntax
+        "format by Vim syntax
         nnoremap <Leader>f mzgg=G`z<CR>:echo "The document has been formatted"<CR>
         vnoremap <Leader>f mz=`z<CR>:echo "The selection has been formatted"<CR>
+
+        "fix with ale
+        nnoremap <silent><expr> <Leader>F ':ALEFix<CR>:echo "Available ale fixers have been run on the document"<CR>'
 
         "convert tabs to spaces and spaces to tabs
         nnoremap <silent><expr> <Leader>t ':let b:et=&expandtab<CR>:set expandtab<CR>:retab!<CR>:let &expandtab=b:et<CR>:echo "Tabs have been converted to spaces"<CR>'

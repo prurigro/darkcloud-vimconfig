@@ -27,14 +27,13 @@ endfunction
 function! LLFugitive()
     try
         if expand('%:t') !~? 'Tagbar\|Gundo' && &ft !~? 'vimfiler' && exists('*fugitive#head')
-            let mark = ''  " edit here for cool mark
+            let mark = '' " edit here for cool mark
             let _ = fugitive#head()
             return strlen(_) ? mark._ : ''
         endif
     catch
+        return ''
     endtry
-
-    return ''
 endfunction
 
 function! LLFileformat()
@@ -67,15 +66,45 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
     return lightline#statusline(0)
 endfunction
 
-augroup AutoSyntastic
-    autocmd!
-    autocmd BufWritePost * call s:syntastic()
-augroup END
+let g:lightline = {}
 
-function! s:syntastic()
-    SyntasticCheck
-    call lightline#update()
-endfunction
+let g:lightline.colorscheme = 'darkcloud'
+let g:lightline#ale#indicator_checking = ""
+let g:lightline#ale#indicator_warnings = "W:"
+let g:lightline#ale#indicator_errors = "E:"
+let g:lightline#ale#indicator_ok = "OK"
+
+let g:lightline.component_function = {
+    \     'fugitive': 'LLFugitive',
+    \     'filename': 'LLFilename',
+    \     'fileformat': 'LLFileformat',
+    \     'filetype': 'LLFiletype',
+    \     'fileencoding': 'LLFileencoding',
+    \     'mode': 'LLMode'
+    \ }
+
+let g:lightline.component_expand = {
+    \     'linter_checking': 'lightline#ale#checking',
+    \     'linter_warnings': 'lightline#ale#warnings',
+    \     'linter_errors': 'lightline#ale#errors',
+    \     'linter_ok': 'lightline#ale#ok'
+    \ }
+
+let g:lightline.component_type = {
+    \     'linter_checking': 'left',
+    \     'linter_warnings': 'warning',
+    \     'linter_errors': 'error',
+    \     'linter_ok': 'left'
+    \ }
+
+let g:lightline.component = {
+    \     'tagbar': '%{tagbar#currenttag("[%s]", "", "f")}'
+    \ }
+
+let g:lightline.active = {
+    \     'left': [[ 'mode', 'paste' ], [ 'fugitive', 'filename' ], [ 'tagbar' ]],
+    \     'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ], [ 'lineinfo', 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ]]
+    \ }
 
 "status bar config with and without powerline fonts (default: 0)
 if !exists("g:powerlinefonts")
@@ -83,59 +112,11 @@ if !exists("g:powerlinefonts")
 endif
 
 if (g:powerlinefonts == 1)
-    let g:lightline = {
-    \   'colorscheme': 'darkcloud',
-    \   'active': {
-    \       'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], [ 'tagbar' ] ],
-    \       'right': [ [ 'syntastic', 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
-    \   },
-    \   'component_function': {
-    \       'fugitive': 'LLFugitive',
-    \       'filename': 'LLFilename',
-    \       'fileformat': 'LLFileformat',
-    \       'filetype': 'LLFiletype',
-    \       'fileencoding': 'LLFileencoding',
-    \       'mode': 'LLMode',
-    \   },
-    \   'component_expand': {
-    \       'syntastic': 'SyntasticStatuslineFlag',
-    \   },
-    \   'component_type': {
-    \       'syntastic': 'error',
-    \   },
-    \   'separator': {'left': '', 'right': ''},
-    \   'subseparator': {'left': '', 'right': ''},
-    \   'component': {
-    \       'tagbar': '%{tagbar#currenttag("[%s]", "", "f")}',
-    \   },
-    \ }
+    let g:lightline.separator = { 'left': '', 'right': '' }
+    let g:lightline.subseparator = { 'left': '', 'right': '' }
 else
-    let g:lightline = {
-    \   'colorscheme': 'darkcloud',
-    \   'active': {
-    \       'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], [ 'tagbar' ] ],
-    \       'right': [ [ 'syntastic', 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ]
-    \   },
-    \   'component_function': {
-    \       'fugitive': 'LLFugitive',
-    \       'filename': 'LLFilename',
-    \       'fileformat': 'LLFileformat',
-    \       'filetype': 'LLFiletype',
-    \       'fileencoding': 'LLFileencoding',
-    \       'mode': 'LLMode',
-    \   },
-    \   'component_expand': {
-    \       'syntastic': 'SyntasticStatuslineFlag',
-    \   },
-    \   'component_type': {
-    \       'syntastic': 'error',
-    \   },
-    \   'separator': {'left': '', 'right': ''},
-    \   'subseparator': {'left': '|', 'right': '|'},
-    \   'component': {
-    \       'tagbar': '%{tagbar#currenttag("[%s]", "", "f")}',
-    \   }
-    \ }
+    let g:lightline.separator = { 'left': '', 'right': '' }
+    let g:lightline.subseparator = { 'left': '|', 'right': '|' }
 endif
 
 "ligtline theme {{{
@@ -151,24 +132,24 @@ endif
     let s:ycol = '#ffd787'
     let s:bcol = '#87d7ff'
 
-    let s:p = {'normal':{},'inactive':{},'insert':{},'replace':{},'visual':{},'tabline':{}}
+    let s:p = { 'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {} }
 
-    let s:p.normal.left = [[ s:bcol,s:base1 ],[ s:base6,s:base0 ]]
-    let s:p.normal.right = [[ s:base4,s:base1 ],[ s:base6,s:base0 ]]
-    let s:p.inactive.left =  [[ s:base6,s:base0 ],[ s:base4,s:base1 ]]
-    let s:p.inactive.right = [[ s:base4,s:base1 ],[ s:base6,s:base0 ]]
-    let s:p.insert.left = [[ s:rcol,s:base1 ],[ s:base6,s:base0 ]]
-    let s:p.replace.left = [[ s:base1,s:rcol ],[ s:base6,s:base0 ]]
-    let s:p.visual.left = [[ s:ycol,s:base1 ],[ s:base6,s:base0 ]]
+    let s:p.normal.left = [[ s:bcol, s:base1 ], [ s:base6, s:base0 ]]
+    let s:p.normal.right = [[ s:base4, s:base1 ], [ s:base6, s:base0 ]]
+    let s:p.inactive.left =  [[ s:base6, s:base0 ], [ s:base4, s:base1 ]]
+    let s:p.inactive.right = [[ s:base4, s:base1 ], [ s:base6, s:base0 ]]
+    let s:p.insert.left = [[ s:rcol, s:base1 ], [ s:base6, s:base0 ]]
+    let s:p.replace.left = [[ s:base1, s:rcol ], [ s:base6, s:base0 ]]
+    let s:p.visual.left = [[ s:ycol, s:base1 ], [ s:base6, s:base0 ]]
 
-    let s:p.normal.middle = [[ s:base4,s:base1 ]]
-    let s:p.inactive.abmiddle = [[ s:base3,s:base1 ]]
-    let s:p.tabline.left = [[ s:base5,s:base0 ]]
-    let s:p.tabline.tabsel = [[ s:base5,s:base1 ]]
-    let s:p.tabline.middle = [[ s:base0,s:base4 ]]
+    let s:p.normal.middle = [[ s:base4, s:base1 ]]
+    let s:p.inactive.abmiddle = [[ s:base3, s:base1 ]]
+    let s:p.tabline.left = [[ s:base5, s:base0 ]]
+    let s:p.tabline.tabsel = [[ s:base5, s:base1 ]]
+    let s:p.tabline.middle = [[ s:base0, s:base4 ]]
     let s:p.tabline.right = copy(s:p.normal.right)
-    let s:p.normal.error = [[ s:rcol,s:base1 ]]
-    let s:p.normal.warning = [[ s:ycol,s:base1 ]]
+    let s:p.normal.error = [[ s:rcol, s:base1 ]]
+    let s:p.normal.warning = [[ s:ycol, s:base1 ]]
 
     let g:lightline#colorscheme#darkcloud#palette = lightline#colorscheme#fill(s:p)
 "}}}
