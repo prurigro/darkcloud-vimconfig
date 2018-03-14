@@ -10,12 +10,12 @@
 "============================================================"
 
 "darkcloud vim config folder path: {{{
-    " if you want to use darkcloud-vimconfig as a package without symlinking
-    " the vim folder or placing it @ /etc/darkcloud-vimconfig, create a file
-    " @ ~/.vim/darkcloud-path.vim and in it place the following, except with
-    " the path pointing to the cloned repo:
+    "if you want to use darkcloud-vimconfig as a package without symlinking
+    "the vim folder or placing it @ /etc/darkcloud-vimconfig, create a file
+    "@ ~/.vim/darkcloud-path.vim and in it place the following, except with
+    "the path pointing to the cloned repo:
     "
-    " let g:darkcloudpath = "/etc/darkcloud-vimconfig"
+    "let g:darkcloudpath = "/etc/darkcloud-vimconfig"
 
     if filereadable(glob("~/.vim/darkcloud-path.vim"))
         source ~/.vim/darkcloud-path.vim
@@ -29,7 +29,7 @@
     let &runtimepath = printf('%s,%s/vim,%s/vim/after',&runtimepath,g:darkcloudpath,g:darkcloudpath)
 
     "Load Colour Scheme:
-    colorscheme default " hack to fix vimrc colorschemes in some versions of vim
+    colorscheme default "hack to fix vimrc colorschemes in some versions of vim
     colorscheme darkcloud
 
     "Load Settings:
@@ -38,7 +38,7 @@
     "Initialize Plugins:
     let pathogen_disabled = []
 
-    " configure pythonx and the python_neovim variable to determine whether deoplete should be loaded
+    "configure pythonx and the python_neovim variable to determine whether deoplete should be loaded
     if has('python3')
         set pyxversion=3
 
@@ -55,7 +55,7 @@
         let g:python_neovim = 0
     endif
 
-    " disable incompatible/unnecessary plugins
+    "disable incompatible/unnecessary plugins
     if has('nvim')
         call add(pathogen_disabled, 'vim-fixkey')
     endif
@@ -75,7 +75,7 @@
         call add(pathogen_disabled, 'vim-hug-neovim-rpc')
     endif
 
-    " use pathogen to load plugins that haven't been disabled
+    "use pathogen to load plugins that haven't been disabled
     runtime bundle/vim-pathogen/autoload/pathogen.vim
 
     "Load Keymappings:

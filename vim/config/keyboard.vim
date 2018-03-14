@@ -9,10 +9,7 @@
 "                                                            "
 "============================================================"
 "
-" Note:
-"  *The default <Leader> key is: \
-"
-"  Aliases:
+"Aliases:
 "  :GitLog & :gitlog          | (C) -> show a navigatable log of commit history
 "  :GitDiff & :gitdiff        | (C) -> current file and last commit in vimdiff
 "  :GitStatus & :gitstatus    | (C) -> shows the output of git status
@@ -31,7 +28,7 @@
 "  :ik                        | (C) -> add following character to keywords
 "  :iK                        | (C) -> remove following character from keywords
 "
-" Mappings:
+"Mappings:
 "  (mouse)
 "    <Ctrl-ScrollUp>          | (A) -> scroll right
 "    <Alt-ScrollUp>           | (A) -> scroll right
@@ -248,7 +245,7 @@
 "      <Ctrl-u>               | (I) -> undo-able equivalent
 "      <Ctrl-w>               | (I) -> undo-able equivalent
 "
-" Filetype Specific Mappings:
+"Filetype Specific Mappings:
 "  (extradite)
 "    <Ctrl-F4>                | (A) -> close the dialog
 "    <Alt-F4>                 | (A) -> close the dialog
@@ -302,7 +299,6 @@
 "    <Left>                   | (A) -> map to h, which goes up one directory
 "    '                        | (A) -> edit the selected file
 "    n                        | (A) -> start editing a new file
-"
 
 "DISABLED DEFAULT MAPPING: UNSET SHORTCUTS {{{
     "-unmapping tabbing from < and > for use with diff

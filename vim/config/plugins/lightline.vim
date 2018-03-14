@@ -27,7 +27,7 @@ endfunction
 function! LLFugitive()
     try
         if expand('%:t') !~? 'Tagbar\|Gundo' && &ft !~? 'vimfiler' && exists('*fugitive#head')
-            let mark = '' " edit here for cool mark
+            let mark = '' "edit here for cool mark
             let _ = fugitive#head()
             return strlen(_) ? mark._ : ''
         endif
@@ -62,7 +62,7 @@ endfunction
 let g:tagbar_status_func = 'TagbarStatusFunc'
 
 function! TagbarStatusFunc(current, sort, fname, ...) abort
-    let g:lightline.fname = 'tags' "a:fname
+    let g:lightline.fname = 'tags'
     return lightline#statusline(0)
 endfunction
 

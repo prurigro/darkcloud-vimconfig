@@ -9,7 +9,7 @@
 "                                                            "
 "============================================================"
 
-" Undo unwanted less.vim keymappings
+"Undo Unwanted Keymappings:
 map v <Nop>
 noremap w <S-Right>
 noremap <PageDown> <C-F>
@@ -17,7 +17,7 @@ noremap <kPageDown> <C-F>
 noremap <PageUp> <C-B>
 noremap <kPageUp> <C-B>
 
-" Main Settings:
+"Main Settings:
 set nocursorline nocursorcolumn "disable cursor column/line highlighting
 set nofoldenable "disable the fold column
 set noru laststatus=0 noshowmode "remove statusline
@@ -29,11 +29,11 @@ autocmd CursorHold * checktime "use CursorHold events to trigger checktime
 set conceallevel=2 "enable the conceal feature to hide unnecessary elements
 set concealcursor=n "conceal text in the cursor line while in normal mode
 
-" Override Filetypes:
+"Override Filetypes:
 runtime bundle.pager/vim-markdown-concealed/ftdetect/mkdc.vim
 
-" Mappings:
-" Mouse
+"Mappings:
+"mouse
 map <C-ScrollWheelUp> <Nop>
 map <C-ScrollWheelDown> <Nop>
 map <A-ScrollWheelUp> <Nop>
@@ -43,7 +43,7 @@ noremap <C-ScrollWheelDown> 4zh
 noremap <A-ScrollWheelUp> zl
 noremap <A-ScrollWheelDown> zh
 
-" Movement
+"movement
 noremap <Home> 0
 noremap <kHome> <Home>
 noremap <End> $
@@ -63,7 +63,7 @@ noremap <S-Down> G$
 noremap <S-Right> $
 noremap <S-Left> ^
 
-" Copy/Paste
+"copy/paste
 nnoremap y vy<Esc>
 vnoremap y y
 nnoremap <C-c> y
@@ -71,19 +71,19 @@ vnoremap <C-c> y
 nnoremap T vg_y
 vnoremap T g_y
 
-" Search
+"search
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 nnoremap <silent><expr> // '<Esc>:noh<CR>'
 
-" Selection
+"selection
 nnoremap <C-a> gg0vG$
 xnoremap <C-a> <Esc>gg0vG$
 nnoremap <Leader>a gg0vG$
 xnoremap <Leader>a <Esc>gg0vG$
 
-" Toggles
+"toggles
 nnoremap <silent><expr> <F1> ':set wrap!<CR>:echo "line wrapping toggled"<CR>'
 xnoremap <silent><expr> <F1> '<Esc>:set wrap!<CR>gv'
 nnoremap <silent><expr> <F2> ':set spell!<CR>:echo "spell checking toggled"<CR>'
