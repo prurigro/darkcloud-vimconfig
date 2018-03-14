@@ -105,6 +105,7 @@ As usual, to have your system use `vimpager` in place of `less`, you'll need to 
 | F10 and Backslash+{  | ALL  | Toggle the **tagbar** source code tag sidebar |
 | F11 and Backslash+\] | ALL  | Toggle the **gundo** undo history sidebar     |
 | F12 and Backslash+\[ | ALL  | Toggle **vimfiler** file manager sidebar      |
+| Backslash+Backslash  | N    | Toggle the location list for **ale** issues   |
 
 #### Toggles ####
 
@@ -197,7 +198,7 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [vim-signify](https://github.com/mhinz/vim-signify): When a version controlled file is changed, this displays a column showing where and how, and allows for navigation to and between differences.
 * [vim-surround](https://github.com/tpope/vim-surround): Provides functionality to exchange surrounding delimiters and xml-style tags with another, or simply remove them.
   * [vim-repeat](https://github.com/tpope/vim-repeat): A library used by vim-surround to allow its delimiter-switching functions to be repeated with the `.` command.
-* [vim-togglelist](https://github.com/milkypostman/vim-togglelist): Supplies toggle functions for the *location* and *error* lists, which are used by a number of plugins and normally require separate open and close commands.
+* [vim-togglelist](https://github.com/milkypostman/vim-togglelist): A simple plugin for vim that allows you to bind a key to toggle the Location List and the Quickfix List.
 * [vim-trailing-whitespace](https://github.com/bronson/vim-trailing-whitespace): Highlights and allows for the easy removal of trailing whitespace in documents.
 * [vim-unimpaired](https://github.com/tpope/vim-unimpaired): Pairs of handy bracket mappings.
 

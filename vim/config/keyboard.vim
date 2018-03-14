@@ -490,6 +490,9 @@
         nmap <expr><silent> <Leader>k ':execute "setlocal iskeyword+=".getline(".")[col(".")-1]<CR>:echo "The character ".getline(".")[col(".")-1]." has been added to iskeyword"<CR>'
         nmap <expr><silent> <Leader>K ':execute "setlocal iskeyword-=".getline(".")[col(".")-1]<CR>:echo "The character ".getline(".")[col(".")-1]." has been removed from iskeyword"<CR>'
 
+        "toggle the location list
+        nnoremap <silent><expr> <Leader><Leader> ':call ToggleLocationList()<CR>'
+
         "toggle the command reference box
         nnoremap <silent><expr> ~ ':TCommand<CR>'
 
@@ -590,15 +593,25 @@
         set pastetoggle=<F3>
 
         "toggle syntax checking
-        nnoremap <silent><expr> <F4> ':ALEToggle<CR>'
-        xnoremap <silent><expr> <F4> '<Esc>:ALEToggle<CR>gv'
-        inoremap <silent><expr> <F4> '<C-O>:ALEToggle<CR>'
-        nnoremap <silent><expr> <C-F4> ':ALEToggle<CR>'
-        xnoremap <silent><expr> <C-F4> '<Esc>:ALEToggle<CR>gv'
-        inoremap <silent><expr> <C-F4> '<C-O>:ALEToggle<CR>'
-        nnoremap <silent><expr> <A-F4> ':ALEToggle<CR>'
-        xnoremap <silent><expr> <A-F4> '<Esc>:ALEToggle<CR>gv'
-        inoremap <silent><expr> <A-F4> '<C-O>:ALEToggle<CR>'
+        function! ToggleAle()
+            ALEToggle
+
+            if g:ale_enabled
+                set scl=yes
+            else
+                set scl=auto
+            endif
+        endfunction
+
+        nnoremap <silent><expr> <F4> ':call ToggleAle()<CR>'
+        xnoremap <silent><expr> <F4> '<Esc>:call ToggleAle()<CR>gv'
+        inoremap <silent><expr> <F4> '<C-O>:call ToggleAle()<CR>'
+        nnoremap <silent><expr> <C-F4> ':call ToggleAle()<CR>'
+        xnoremap <silent><expr> <C-F4> '<Esc>:call ToggleAle()<CR>gv'
+        inoremap <silent><expr> <C-F4> '<C-O>:call ToggleAle()<CR>'
+        nnoremap <silent><expr> <A-F4> ':call ToggleAle()<CR>'
+        xnoremap <silent><expr> <A-F4> '<Esc>:call ToggleAle()<CR>gv'
+        inoremap <silent><expr> <A-F4> '<C-O>:call ToggleAle()<CR>'
 
         "toggle goyo
         nnoremap <silent><expr> <Leader>` ':Goyo<CR>'
