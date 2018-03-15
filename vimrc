@@ -40,10 +40,12 @@
 
     "configure pythonx and the python_neovim variable to determine whether deoplete should be loaded
     if has('python3')
-        set pyxversion=3
+        if !has('nvim')
+            set pyxversion=3
+        endif
 
         redir => python_neovim_check
-        silent pythonx exec("import pkgutil\nneovim = pkgutil.find_loader('neovim')\nfound = neovim is not None\nprint(found)")
+        silent python3 exec("import pkgutil\nneovim = pkgutil.find_loader('neovim')\nfound = neovim is not None\nprint(found)")
         redir END
 
         if substitute(python_neovim_check, '^\n*\([^\n]*\)\n*$', '\1', '') == 'True'
