@@ -5,6 +5,5 @@ let g:mta_filetypes = {
     \ 'php':1,
     \ 'xml':1,
     \ 'jinja':1,
-    \ 'vue':1,
-    \ 'vue.javascript':1
+    \ 'vue':1
 \ }
