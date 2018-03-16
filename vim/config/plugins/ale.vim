@@ -28,7 +28,8 @@ let g:ale_lint_on_insert_leave = 1
 
 "list of ale fixers
 let g:ale_fixers = {
-    \     'javascript': [ 'eslint' ]
+    \     'javascript': [ 'eslint' ],
+    \     'vue': [ 'eslint' ]
     \ }
 
 "don't run ale on minified files
