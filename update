@@ -182,17 +182,6 @@ else
     error 'git submodule foreach git fetch --all' "Git failed to fetch the submodules from their respective remotes" "$process_status"
 fi
 
-# run 'git checkout origin/master' on each submodule
-printf '%s' "$cbg_blue $c_reset$cbg_yellow + Checkout updates:$c_reset"
-process_status="$(git submodule foreach git checkout -f origin/master 2>&1)"
-
-if (( ! $? )); then
-    printf '%s\n' "$cfg_green_bold SUCCESS! $c_reset"
-else
-    printf '%s\n' "$cfg_red_bold FAIL! $c_reset"
-    error 'git submodule foreach git checkout -f origin/master' 'Git failed to checkout the submodules into origin/master' "$process_status"
-fi
-
 # clean plugin directories and remove plugins no longer in the repo
 printf '\n%s\n' "$cbg_blue >> Clean plugin directories >> $c_reset"
 printf '%s' "$cbg_blue $c_reset$cbg_yellow + Remove untracked files:$c_reset"
