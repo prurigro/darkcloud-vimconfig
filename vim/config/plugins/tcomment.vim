@@ -3,3 +3,4 @@ let g:tcomment#rstrip_on_uncomment = 2
 
 "use // to comment in vue files
 call tcomment#type#Define('vue', '// %s')
+call tcomment#type#Define('blade', '{{-- %s --}}')
