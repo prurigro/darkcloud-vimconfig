@@ -62,6 +62,7 @@
     "FILE: {{{
         filetype plugin indent on "enable filetype-based auto-indentation
         syntax on "enable syntax highlighting
+        set synmaxcol=300 "disable syntax highlighting on a given line after 300 characters
         set formatoptions=roqnl12 "how automatic formatting is to be done
         set diffopt=foldcolumn:0,filler "vimdiff default settings
         set foldmethod=syntax foldcolumn=1 foldlevel=2 "fold layers 3 and deeper
