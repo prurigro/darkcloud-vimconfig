@@ -64,7 +64,8 @@
         syntax on "enable syntax highlighting
         set formatoptions=roqnl12 "how automatic formatting is to be done
         set diffopt=foldcolumn:0,filler "vimdiff default settings
-        set foldmethod=syntax foldcolumn=1 foldlevel=9 "fold layers 10 and deeper
+        set foldmethod=syntax foldcolumn=1 foldlevel=2 "fold layers 3 and deeper
+        set nofoldenable "disable folds by default
         set tw=80 "set the default text width to 80 when nothing overrides this
     "}}}
 
