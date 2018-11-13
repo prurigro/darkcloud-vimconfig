@@ -38,12 +38,10 @@ autocmd FileChangedRO * nested set noreadonly
     "set given filenames to various filetypes
     autocmd BufNewFile,BufRead *.aspx,*.asmx,*.ascx,*.master setlocal ft=aspnet
     autocmd BufNewFile,BufRead *.gradle setlocal ft=groovy
-    autocmd BufNewFile,BufRead *cjdroute.conf,*cjdmaid.conf setlocal ft=json
-    autocmd BufNewFile,BufRead *ircd.conf setlocal ft=json
+    autocmd BufNewFile,BufRead cjdroute.conf,ircd.conf,.eslintrc setlocal ft=json
     autocmd BufNewFile,BufRead *muttrc setlocal ft=muttrc
     autocmd BufNewFile,BufRead *pacman.conf setlocal ft=conf
     autocmd BufNewFile,BufRead *vimpagerrc setlocal ft=vim
-    autocmd BufNewFile,BufRead *yaourtrc setlocal ft=sh
 
     "filtype specific settings
     autocmd BufEnter,FileType sh setlocal iskeyword-=.
