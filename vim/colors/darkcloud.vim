@@ -381,7 +381,7 @@ hi SpellLocal guisp=NONE gui=NONE guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NON
     call s:X("htmlArg","#d75f5f","","bold","Red","")
     call s:X("htmlTagName","#ffd787","","bold","Yellow","")
     call s:X("htmlTag","#87d7ff","","bold","Blue","")
-    call s:X("htmlLink","#d75f5f","","underline","Red","")
+    call s:X("htmlLink","#d75f5f","","","Red","")
     call s:X("htmlBold","#ffffff","","bold","White","")
 
     "markdown
