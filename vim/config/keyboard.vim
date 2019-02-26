@@ -839,8 +839,8 @@
     endif
 
     "markdown
-    autocmd FileType mkd nnoremap <buffer> <silent><expr> <Leader>f ':TableFormat<CR>'
-    autocmd FileType mkd xnoremap <buffer> <silent><expr> <Leader>f '<Esc>:TableFormat<CR>gv'
+    autocmd FileType markdown nnoremap <buffer> <silent><expr> <Leader>f ':TableFormat<CR>'
+    autocmd FileType markdown xnoremap <buffer> <silent><expr> <Leader>f '<Esc>:TableFormat<CR>gv'
 
     "qf-sidebar
     autocmd FileType qf map <buffer> <LeftMouse> <LeftMouse>0

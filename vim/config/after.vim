@@ -45,7 +45,7 @@ autocmd FileChangedRO * nested set noreadonly
 
     "filtype specific settings
     autocmd BufEnter,FileType sh setlocal iskeyword-=.
-    autocmd Filetype text,mkd,mkdc,gitcommit,notes,mail,notmuch,rst,taskreport setlocal nonumber spell nolist linebreak breakat&vim breakat-=* breakat-=. breakat-=/ breakat-=? breakat-=, breakat-=: breakat-=; breakat-=! "set some defaults for word processing
+    autocmd Filetype text,markdown,mkdc,gitcommit,notes,mail,notmuch,rst,taskreport setlocal nonumber spell nolist linebreak tabstop=2 shiftwidth=2 breakat&vim breakat-=* breakat-=. breakat-=/ breakat-=? breakat-=, breakat-=: breakat-=; breakat-=! "set some defaults for word processing
     autocmd Filetype text,gitcommit,notes,mail,notmuch,rst,taskreport setlocal wrap
     autocmd FileType tmux,taskrc setlocal commentstring=#\ %s "set the comment string to #
     autocmd FileType slrnrc setlocal commentstring=%%\ %s "set the comment string to %
