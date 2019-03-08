@@ -25,9 +25,9 @@ A theme, config and collection of plugins for Vim.
 * **Plugins**: A set of plugins have been included and configured to provide support for most normally-unsupported filetypes, and a set of features useful when using Vim as an editor.
 * **Custom Configuration**: A second vimrc and bundle folder are included that aren't maintained as part of the repo, making custom plugins and configuration easy to add.
 
-![Darkcloud Vim Distribution Theme](http://i.imgur.com/oIqgie0.png)
+![Darkcloud Vim Distribution Theme](https://i.imgur.com/oIqgie0.png)
 
-![Darkcloud Vimconfig Update Tool](http://i.imgur.com/AOXSL7S.png)
+![Darkcloud Vimconfig Update Tool](https://i.imgur.com/AOXSL7S.png)
 
 ## Installation ##
 
