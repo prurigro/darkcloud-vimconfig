@@ -118,7 +118,6 @@ printf '\n%s\n' "$cbg_black ~~~ DarkCloud Vimconfig Update Tool ~~~ $c_reset"
 
     if (( ! $? )); then
         {
-            printf '%s\n%s\n\n' '"Autostart Filer in empty buffers: (*1:filer loads in new empty buffers | 0:filer must be triggered)' '"let g:autostartfiler = 1'
             printf '%s\n%s\n\n' '"Autocheck syntax checking: (1:start toggled on | *0:start toggled off)' '"let g:autostartchecker = 0'
             printf '%s\n%s\n\n' '"Autoload Tagbar: (1:start open | *0:start closed)' '"let g:autostarttagbar = 0'
             printf '%s\n%s\n\n' '"Disable Completion: (1:disable completion | *0:enable completion if requirements are met)' '"let g:disablecompletion = 0'

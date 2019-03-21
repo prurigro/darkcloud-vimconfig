@@ -1,12 +1,3 @@
-"autostart filer when vim opens to an empty buffer (default: 1)
-if !exists("g:autostartfiler")
-    let g:autostartfiler = 1
-endif
-
-if (g:autostartfiler == 1)
-    autocmd VimEnter * if !argc() | VimFiler -quit -project | endif
-endif
-
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
 let g:vimfiler_enable_auto_cd = 1

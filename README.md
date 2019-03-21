@@ -57,7 +57,6 @@ As usual, to have your system use `vimpager` in place of `less`, you'll need to 
 ## Configuration ##
 
 * **Configure Variables**: The following variables can be added to _vim/vimrc.user_ and have their values set to the values you require:
-  * `g:autostartfiler`: **1** = Start the filer file manager when vim is run and the buffer is empty | **0** = Do nothing when vim is run and the buffer is empty (_default_: **1**)
   * `g:autostartchecker`: **1** = Check syntax once an appropriate file is loaded | **0** = Check syntax only after syntax checking is toggled on (_default_: **0**)
   * `g:autostarttagbar`: **1** = Have the tagbar load automatically when a compatible format is run | **0** = The tagbar will stay hidden until triggered on demand with its toggle (_default_: **0**)
   * `g:disablecompletion`: **1** = Disable _deoplete_ autocompletion | **0** = Enable _deoplete _autocompletion_ if the requirements are met (_default_: **0**)
