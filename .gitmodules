@@ -49,9 +49,6 @@
 [submodule "vim/bundle/vim-repeat"]
 	path = vim/bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
-[submodule "vim/bundle/vim-extradite"]
-	path = vim/bundle/vim-extradite
-	url = https://github.com/int3/vim-extradite.git
 [submodule "vim/bundle/autoswap.vim"]
 	path = vim/bundle/autoswap.vim
 	url = https://github.com/vim-scripts/autoswap.vim.git
@@ -133,3 +130,6 @@
 [submodule "vim/bundle/neco-syntax"]
 	path = vim/bundle/neco-syntax
 	url = https://github.com/Shougo/neco-syntax.git
+[submodule "vim/bundle/vim-extradite"]
+	path = vim/bundle/vim-extradite
+	url = https://github.com/tap349/vim-extradite.git
