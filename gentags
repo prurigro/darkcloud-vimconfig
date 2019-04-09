@@ -1,22 +1,26 @@
 #!/usr/bin/env bash
 
-TAGS_FILE="${HOME}/.vim/tags"
-CTAGS_CMD="ctags --fields=+l --c-kinds=+p --c++-kinds=+p -R -f ${TAGS_FILE}"
+tags_file="$HOME/.vim/tags"
+ctags_cmd="ctags --fields=+l --c-kinds=+p --c++-kinds=+p -R -f $tags_file"
 
-function generate_tags(){
-    echo -e "\nRecursively generating tags for the following paths:"
+function generate_tags() {
+    printf '%s\n' 'Recursively generating tags for the following paths:'
+
     for path in "$@"; do
-        echo "   ${path}"
+        printf '%s\n' "   $path"
     done
-    RESULT=$($CTAGS_CMD "$@" >/dev/null 2>&1) && echo -e "Done!\n" || echo -e "Failed! Look at ${TAGS_FILE}.log for details.\n"
-    if [[ -n "$RESULT" ]]; then
-        echo "$RESULT" >> "${TAGS_FILE}.log"
+
+    if $ctags_cmd "$@" >/dev/null 2>&1; then
+        printf '%s\n' 'Done!'
+    else
+        printf '%s\n' 'Failed!'
+        exit 1
     fi
 }
 
-if [[ $(type -P ctags) ]]; then
+if command -v ctags >/dev/null; then
     [[ -n "$1" ]] && generate_tags "$@" || generate_tags "$PWD"
 else
-    echo 'Error: cannot find the ctags binary in $PATH'
+    printf '%s\n' 'Error: cannot find the ctags binary in $PATH'
     exit 1
 fi
