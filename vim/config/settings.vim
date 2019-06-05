@@ -103,6 +103,7 @@
         set hlsearch incsearch ignorecase smartcase "configure how search behaves
         set timeout timeoutlen=500 "how long before timing out for mappings
         set ttimeout ttimeoutlen=100 "how long before timing out for terminal key codes
+        set nomodeline "disable the use of file-based modelines as these are insecure
 
         "create ~/.vim/swap if necessary, then use as default swap file location
         if exists('*mkdir') && !isdirectory($HOME.'/.vim/swap')
