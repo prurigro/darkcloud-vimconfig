@@ -317,6 +317,9 @@
 
     "-unmap ex mode
     nnoremap Q <Nop>
+
+    "unmap shift+k opening help
+    nnoremap <S-k> <Nop>
 "}}}
 
 "ALIASES: COMMAND SHORTCUTS {{{
