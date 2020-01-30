@@ -14,7 +14,6 @@ function! LLFilename()
 
     return
     \   fname == '__Tagbar__' ? g:lightline.fname :
-    \   fname =~ '__Gundo' ? '' :
     \   &ft == 'vimfiler' ? vimfiler#get_status_string() :
     \   &ft == 'unite' ? unite#get_status_string() :
     \   &ft == 'qf' ? '[Error/Location List]' :
@@ -26,7 +25,7 @@ endfunction
 
 function! LLFugitive()
     try
-        if expand('%:t') !~? 'Tagbar\|Gundo' && &ft !~? 'vimfiler' && exists('*fugitive#head')
+        if expand('%:t') !~? 'Tagbar' && &ft !~? 'vimfiler' && exists('*fugitive#head')
             let mark = '' "edit here for cool mark
             let _ = fugitive#head()
             return strlen(_) ? mark._ : ''
@@ -52,8 +51,6 @@ function! LLMode()
     let fname = expand('%:t')
 
     return fname == '__Tagbar__' ? 'Tagbar' :
-    \   fname == '__Gundo__' ? 'Gundo' :
-    \   fname == '__Gundo_Preview__' ? 'Gundo Preview' :
     \   &ft == 'unite' ? 'Unite' :
     \   &ft == 'vimfiler' ? 'VimFiler' :
     \   winwidth(0) > 60 ? lightline#mode() : ''

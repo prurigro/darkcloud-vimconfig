@@ -8,14 +8,14 @@ A theme, config and collection of plugins for Vim.
 * **Bash**: Required by the _update_ and _gentags_ scripts.
 * **Coreutils**: Required by the _update_ script.
 * **Git**: Required by the _update_ script and git-related plugins.
-* **Python**: Required by the _gundo.vim_ and _MatchTagAlways_ plugins.
+* **Python**: Required by the _deoplete_ and _MatchTagAlways_ plugins.
 
 ## Optional Requirements ##
 
 * **Compilers, Linters and Runtimes**: The ale plugin can use compilers, linters and runtimes to provide real-time syntax checking.
 * **CTags**: Required by the _tagbar_ and _deoplete_ plugins as well as the _gentags_ script ([ctags website](http://ctags.sourceforge.net)).
 * **Powerline Fonts**: Required to enable the fancier looking status line ([powerline-fonts repo](https://github.com/Lokaltog/powerline-fonts)).
-* **Python 3 and Neovim Python Module**: Required for _deoplete_ autocompletion
+* **Neovim Python Module**: Required for _deoplete_ autocompletion
 
 ## Distribution Features ##
 
@@ -102,7 +102,6 @@ As usual, to have your system use `vimpager` in place of `less`, you'll need to 
 |----------------------|------|-----------------------------------------------|
 | F9 and Backslash+}   | ALL  | Toggle the **extradite** git history window   |
 | F10 and Backslash+{  | ALL  | Toggle the **tagbar** source code tag sidebar |
-| F11 and Backslash+\] | ALL  | Toggle the **gundo** undo history sidebar     |
 | F12 and Backslash+\[ | ALL  | Toggle **vimfiler** file manager sidebar      |
 | Backslash+Backslash  | N    | Toggle the location list for **ale** issues   |
 
@@ -170,7 +169,6 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
   * [webapi-vim](https://github.com/mattn/webapi-vim): A web library used by emmet to provide support for custom snippets.
 * [FastFold](https://github.com/Konfekt/FastFold): Speed up Vim by updating folds only when called-for.
 * [goyo.vim](https://github.com/junegunn/goyo.vim): Distraction-free writing in Vim.
-* [gundo.vim](https://github.com/sjl/gundo.vim): Sidebar to visualize your undo tree and browse the differences of each change.
 * [incsearch.vim](https://github.com/haya14busa/incsearch.vim): Improved incremental searching for Vim.
 * [lightline.vim](https://github.com/itchyny/lightline.vim): A light and configurable statusline/tabline for Vim.
 * [MatchTagAlways](https://github.com/Valloric/MatchTagAlways): A Vim plugin that always highlights the enclosing html/xml tags.

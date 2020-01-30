@@ -63,7 +63,6 @@
     endif
 
     if !has('python')
-        call add(pathogen_disabled, 'gundo.vim')
         call add(pathogen_disabled, 'MatchTagAlways')
     endif
 
