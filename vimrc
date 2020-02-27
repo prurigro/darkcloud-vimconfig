@@ -62,7 +62,7 @@
         call add(pathogen_disabled, 'vim-fixkey')
     endif
 
-    if !has('python')
+    if !has('python') && !has('python3')
         call add(pathogen_disabled, 'MatchTagAlways')
     endif
 
