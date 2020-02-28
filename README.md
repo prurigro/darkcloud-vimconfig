@@ -8,14 +8,15 @@ A theme, config and collection of plugins for Vim.
 * **Bash**: Required by the _update_ and _gentags_ scripts.
 * **Coreutils**: Required by the _update_ script.
 * **Git**: Required by the _update_ script and git-related plugins.
-* **Python**: Required by the _deoplete_ and _MatchTagAlways_ plugins.
 
 ## Optional Requirements ##
 
 * **Compilers, Linters and Runtimes**: The ale plugin can use compilers, linters and runtimes to provide real-time syntax checking.
 * **CTags**: Required by the _tagbar_ and _deoplete_ plugins as well as the _gentags_ script ([ctags website](http://ctags.sourceforge.net)).
 * **Powerline Fonts**: Required to enable the fancier looking status line ([powerline-fonts repo](https://github.com/Lokaltog/powerline-fonts)).
-* **Neovim Python Module**: Required for _deoplete_ autocompletion
+* **Python**: Required for _deoplete_ autocompletion and _MatchTagAlways_ functionality.
+* **Neovim Python Module**: Required for _deoplete_ autocompletion.
+* **Python Msgpack**: Required for _deoplete_ autocompletion.
 
 ## Distribution Features ##
 
