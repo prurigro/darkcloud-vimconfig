@@ -71,6 +71,7 @@
     "}}}
 
     "USER INTERFACE: {{{
+        set updatetime=100 "set updates to occur every 100ms
         set laststatus=2 showcmd statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v] "statusline init and config
         set winheight=1 winminheight=1 "set the minimum window height to 1 lines
         set winwidth=1 winminwidth=1 "set the minimum window width to 1 columns
