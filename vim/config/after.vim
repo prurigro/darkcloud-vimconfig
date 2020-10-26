@@ -50,6 +50,7 @@ autocmd FileChangedRO * nested set noreadonly
     autocmd Filetype text,gitcommit,mail setlocal wrap
     autocmd FileType tmux,taskrc setlocal commentstring=#\ %s "set the comment string to #
     autocmd FileType slrnrc setlocal commentstring=%%\ %s "set the comment string to %
+    autocmd FileType scss setlocal iskeyword+=$
 
     "special side/bottom-bar settings to apply when opened
     autocmd BufEnter,FileType taskreport,qf,help* setlocal nowrap nocursorcolumn "disable text wrapping and the vertical cursor line
