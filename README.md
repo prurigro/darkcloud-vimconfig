@@ -169,7 +169,6 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [incsearch.vim](https://github.com/haya14busa/incsearch.vim): Improved incremental searching for Vim.
 * [lightline.vim](https://github.com/itchyny/lightline.vim): A light and configurable statusline/tabline for Vim.
 * [MatchTagAlways](https://github.com/Valloric/MatchTagAlways): A Vim plugin that always highlights the enclosing html/xml tags.
-* [patchreview-vim](https://github.com/junkblocker/patchreview-vim): A Vim plugin for doing single, multi-patch or diff code reviews.
 * [rename.vim](https://github.com/danro/rename.vim): Rename the current file in the vim buffer + retain relative path.
 * [ReplaceWithRegister](https://github.com/vim-scripts/ReplaceWithRegister): Replace text with the contents of a register (for paste+replace without writing over the buffer).
 * [splitjoin.vim](https://github.com/AndrewRadev/splitjoin.vim): Simplifies the transition between multiline and single-line code
