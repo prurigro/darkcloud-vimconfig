@@ -22,10 +22,6 @@ scriptencoding utf-8
         new|silent e ~/.vim/tags|silent w|q
     endif
 
-    if !filereadable(glob("~/.vim/snippets.json"))
-        new|silent e ~/.vim/snippets.json|silent w|q
-    endif
-
     if !filereadable(glob("~/.vim/filetypes.vim"))
         new|silent e ~/.vim/filetypes.vim|silent w|q
     endif

@@ -66,7 +66,6 @@ As usual, to have your system use `vimpager` in place of `less`, you'll need to 
   * `g:powerlinefonts`: **1** = Render the statusline using characters available with powerline-patched fonts | **0** = Render the statusbar with less attractive but more compatible characters available in all fonts (_default_: **0**)
 * **Custom Settings**: Settings with priority over those set by darkcloud-vimconfig can be added to a file named _vimrc.user_, located in _darkcloud-vimconfig/vim/_ or any of the folders in the runtimepath.
 * **Custom Plugins**: Pathogen compatible plugins can be cloned or extracted to "darkcloud-vimconfig/vim/bundle.user/", or a folder named "bundle" or "bundle.user" in any of the folders in the runtimepath.
-* **Custom Snippets**: To add or override Emmet snippets, create _~/.vim/snippets.json_ and add your own definitions using json like shown in the [Emmet Documentation](http://docs.emmet.io/customization/snippets/).
 * **File Associations**: To use the file manager in vim to run files with external programs, create "~/.vim/filetypes.vim" and on each line, write an association between a file extension and the program to launch files of that type that looks like: `call vimfiler#set_execute_file('mp4','xdg-open')`.
 * **Update Script**: (requires: bash+git) Use this to update the project and submodules, as well as handle any required maintenance, generate docs from the pathogen plugins and create missing config scripts with preset values.
 * **Generate System Tags**: (requires: bash+ctags) Generate a list of ctags for your system libraries in _/usr/include_ and _/usr/local/include_ as well as any folders passed as arguments by running the _gentags_ script.
@@ -165,8 +164,6 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
   * [nvim-yarp](https://github.com/roxma/nvim-yarp): Yet Another Remote Plugin Framework for Neovim
   * [vim-hug-neovim-rpc](https://github.com/roxma/vim-hug-neovim-rpc): A compatibility layer for neovim rpc client working on vim8
 * [editorconfig-vim](https://github.com/editorconfig/editorconfig-vim): EditorConfig plugin for Vim that auto-configures certain settings when a .editorconfig file is present
-* [emmet-vim](https://github.com/mattn/emmet-vim): Support for expanding abbreviations.
-  * [webapi-vim](https://github.com/mattn/webapi-vim): A web library used by emmet to provide support for custom snippets.
 * [FastFold](https://github.com/Konfekt/FastFold): Speed up Vim by updating folds only when called-for.
 * [goyo.vim](https://github.com/junegunn/goyo.vim): Distraction-free writing in Vim.
 * [incsearch.vim](https://github.com/haya14busa/incsearch.vim): Improved incremental searching for Vim.

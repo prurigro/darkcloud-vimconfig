@@ -16,9 +16,6 @@
 [submodule "vim/bundle/tagbar"]
 	path = vim/bundle/tagbar
 	url = git://github.com/majutsushi/tagbar
-[submodule "vim/bundle/emmet-vim"]
-	path = vim/bundle/emmet-vim
-	url = https://github.com/mattn/emmet-vim.git
 [submodule "vim/bundle/vim-togglelist"]
 	path = vim/bundle/vim-togglelist
 	url = https://github.com/milkypostman/vim-togglelist.git
@@ -31,9 +28,6 @@
 [submodule "vim/bundle/tcomment_vim"]
 	path = vim/bundle/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
-[submodule "vim/bundle/webapi-vim"]
-	path = vim/bundle/webapi-vim
-	url = https://github.com/mattn/webapi-vim.git
 [submodule "vim/bundle/vim-fugitive"]
 	path = vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
