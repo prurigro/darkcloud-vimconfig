@@ -160,7 +160,6 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 
 * [ale](https://github.com/w0rp/ale): Asynchronous Lint Engine
 * [autoswap.vim](https://github.com/vim-scripts/autoswap.vim): Switch to open editor window instead of asking what to do with swapfile.
-* [cosco.vim](https://github.com/lfilho/cosco.vim): VIM colon and semicolon insertion bliss
 * [deoplete.nvim](https://github.com/Shougo/deoplete.nvim): Dark powered asynchronous completion framework for neovim/Vim8
   * [neco-syntax](https://github.com/Shougo/neco-syntax): Syntax source for neocomplete/deoplete/ncm
   * [nvim-yarp](https://github.com/roxma/nvim-yarp): Yet Another Remote Plugin Framework for Neovim
@@ -192,7 +191,7 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [vim-fugitive](https://github.com/tpope/vim-fugitive): A wrapper integrating git into vim in such a way as to provide features neither of them could offer on their own.
 * [vim-move](https://github.com/matze/vim-move): Provides a few convenient ways to move selected text.
 * [vim-pathogen](https://github.com/tpope/vim-pathogen): A plugin to load other plugins while keeping them isolated in their own directory structure rather than all dumped together.
-* [vim-polyglot](https://github.com/prurigro/vim-polyglot): The darkcloud-vimconfig fork of a meta-package that attempts to provide the best syntax plugins for each file type.
+* [vim-polyglot-darkcloud](https://github.com/prurigro/vim-polyglot-darkcloud): The darkcloud-vimconfig fork of a meta-package that attempts to provide the best syntax plugins for each file type.
 * [vim-signify](https://github.com/mhinz/vim-signify): When a version controlled file is changed, this displays a column showing where and how, and allows for navigation to and between differences.
 * [vim-surround](https://github.com/tpope/vim-surround): Provides functionality to exchange surrounding delimiters and xml-style tags with another, or simply remove them.
   * [vim-repeat](https://github.com/tpope/vim-repeat): A library used by vim-surround to allow its delimiter-switching functions to be repeated with the `.` command.
