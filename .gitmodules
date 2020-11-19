@@ -118,6 +118,6 @@
 [submodule "vim/bundle/neco-syntax"]
 	path = vim/bundle/neco-syntax
 	url = https://github.com/Shougo/neco-syntax.git
-[submodule "vim/bundle/vim-extradite-tap349"]
-	path = vim/bundle/vim-extradite-tap349
-	url = https://github.com/tap349/vim-extradite.git
+[submodule "vim/bundle/vim-extradite"]
+	path = vim/bundle/vim-extradite
+	url = https://github.com/int3/vim-extradite
