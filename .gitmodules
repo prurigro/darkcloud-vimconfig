@@ -40,9 +40,6 @@
 [submodule "vim/bundle/vim-repeat"]
 	path = vim/bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
-[submodule "vim/bundle/autoswap.vim"]
-	path = vim/bundle/autoswap.vim
-	url = https://github.com/vim-scripts/autoswap.vim.git
 [submodule "vim/bundle/vim-polyglot-darkcloud"]
 	path = vim/bundle/vim-polyglot-darkcloud
 	url = https://github.com/prurigro/vim-polyglot-darkcloud.git

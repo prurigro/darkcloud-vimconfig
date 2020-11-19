@@ -158,7 +158,6 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 ## Plugins ##
 
 * [ale](https://github.com/w0rp/ale): Asynchronous Lint Engine
-* [autoswap.vim](https://github.com/vim-scripts/autoswap.vim): Switch to open editor window instead of asking what to do with swapfile.
 * [deoplete.nvim](https://github.com/Shougo/deoplete.nvim): Dark powered asynchronous completion framework for neovim/Vim8
   * [neco-syntax](https://github.com/Shougo/neco-syntax): Syntax source for neocomplete/deoplete/ncm
   * [nvim-yarp](https://github.com/roxma/nvim-yarp): Yet Another Remote Plugin Framework for Neovim
