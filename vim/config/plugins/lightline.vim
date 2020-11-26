@@ -77,7 +77,8 @@ let g:lightline.component_function = {
     \     'fileformat': 'LLFileformat',
     \     'filetype': 'LLFiletype',
     \     'fileencoding': 'LLFileencoding',
-    \     'mode': 'LLMode'
+    \     'mode': 'LLMode',
+    \     'scrollstatus': 'ScrollStatus'
     \ }
 
 let g:lightline.component_expand = {
@@ -100,7 +101,7 @@ let g:lightline.component = {
 
 let g:lightline.active = {
     \     'left': [[ 'mode', 'paste' ], [ 'fugitive', 'filename' ], [ 'tagbar' ]],
-    \     'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ], [ 'lineinfo', 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ]]
+    \     'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ], [ 'fileformat', 'fileencoding', 'filetype' ], [ 'percent', 'lineinfo' ], [ 'scrollstatus' ]]
     \ }
 
 "status bar config with and without powerline fonts (default: 0)
