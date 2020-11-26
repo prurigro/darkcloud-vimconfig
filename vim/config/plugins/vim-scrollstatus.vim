@@ -1,1 +1,1 @@
-let g:scrollstatus_size = 10
+let g:scrollstatus_size = 15
