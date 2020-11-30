@@ -186,7 +186,6 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [vim-move](https://github.com/matze/vim-move): Provides a few convenient ways to move selected text.
 * [vim-pathogen](https://github.com/tpope/vim-pathogen): A plugin to load other plugins while keeping them isolated in their own directory structure rather than all dumped together.
 * [vim-polyglot-darkcloud](https://github.com/prurigro/vim-polyglot-darkcloud): The darkcloud-vimconfig fork of a meta-package that attempts to provide the best syntax plugins for each file type.
-* [vim-scrollstatus](https://github.com/ojroques/vim-scrollstatus): A scrollbar for Vim statusline.
 * [vim-signify](https://github.com/mhinz/vim-signify): When a version controlled file is changed, this displays a column showing where and how, and allows for navigation to and between differences.
 * [vim-surround](https://github.com/tpope/vim-surround): Provides functionality to exchange surrounding delimiters and xml-style tags with another, or simply remove them.
   * [vim-repeat](https://github.com/tpope/vim-repeat): A library used by vim-surround to allow its delimiter-switching functions to be repeated with the `.` command.

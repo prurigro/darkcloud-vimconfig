@@ -112,6 +112,3 @@
 [submodule "vim/bundle/vim-extradite"]
 	path = vim/bundle/vim-extradite
 	url = https://github.com/int3/vim-extradite
-[submodule "vim/bundle/vim-scrollstatus"]
-	path = vim/bundle/vim-scrollstatus
-	url = https://github.com/ojroques/vim-scrollstatus
