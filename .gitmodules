@@ -111,4 +111,4 @@
 	url = https://github.com/Shougo/neco-syntax.git
 [submodule "vim/bundle/vim-extradite"]
 	path = vim/bundle/vim-extradite
-	url = https://github.com/int3/vim-extradite
+	url = https://github.com/tap349/vim-extradite
