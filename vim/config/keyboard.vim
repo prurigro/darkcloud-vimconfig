@@ -612,7 +612,7 @@
         nnoremap ?+ zg
 
         "display a list of suggestions for the selected mispelled word
-        nnoremap ?? hei<C-X><C-S>
+        nnoremap ?? hea<C-X>s
 
         "go to the next mispelled word
         nnoremap ?N ]s
