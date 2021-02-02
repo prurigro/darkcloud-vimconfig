@@ -228,7 +228,7 @@ fi
         [[ -d "$plugin/.git" ]] && {
             pushd "$plugin" >/dev/null || exit
             printf '%s' "$cbg_blue $c_reset$cbg_yellow + Updating 'vim/bundle.user/$plugin':$c_reset"
-            process_status="$(git pull origin master 2>&1)"
+            process_status="$(git pull 2>&1)"
 
             if (( ! $? )); then
                 if ! grep -q "Already up-to-date" <<< "$process_status"; then
@@ -237,7 +237,7 @@ fi
                     printf '%s\n' "$cfg_white_bold UP TO DATE $c_reset"
                 fi
             else
-                error 'git pull origin master' "Failed pulling changes for $plugin" "$process_status"
+                error 'git pull' "Failed pulling changes for $plugin" "$process_status"
             fi
 
             popd >/dev/null || exit
