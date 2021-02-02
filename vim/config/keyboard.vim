@@ -197,25 +197,20 @@
 "    <Ctrl-Right>             | (N) -> move one word right
 "    <Ctrl-Left>              | (N) -> move one word left
 "
-"    <Alt-Up>                 | (A) -> scroll up
-"    <Alt-Down>               | (A) -> scroll down
-"    <Alt-Right>              | (A) -> scroll right
-"    <Alt-Left>               | (A) -> scroll left
+"    <Alt-Up>                 | (A) -> move the screen up
+"    <Alt-Down>               | (A) -> move the screen down
+"    <Alt-Right>              | (A) -> move the screen to the right
+"    <Alt-Left>               | (A) -> move the screen to the left
 "
 "    <Shift-Up>               | (N) -> move to the beginning of the document
 "    <Shift-Down>             | (N) -> move to the end of the document
 "    <Shift-Right>            | (N) -> move to the end of the line
 "    <Shift-Left>             | (N) -> move to the beginning of the non-whitespace
 "
-"    <Alt+Up>                 | (A) -> move the screen up
-"    <Alt+Down>               | (A) -> move the screen down
-"    <Alt+Right>              | (A) -> move the screen to the right
-"    <Alt+Left>               | (A) -> move the screen to the left
-"
-"    <Shift+Ctrl+Up>          | (V) -> move a block up one line
-"    <Shift+Ctrl+Down>        | (V) -> move a block down one line
-"    <Shift+Ctrl+Up>          | (N) -> move a line up one line
-"    <Shift+Ctrl+Down>        | (N) -> move a line down one line
+"    <Shift-Ctrl-Up>          | (V) -> vim-move: move a block up one line
+"    <Shift-Ctrl-Down>        | (V) -> vim-move: move a block down one line
+"    <Shift-Ctrl-Up>          | (N) -> vim-move: move a line up one line
+"    <Shift-Ctrl-Down>        | (N) -> vim-move: move a line down one line
 "
 "    >>                       | (N) -> next difference (vimdiff/signify)
 "    <<                       | (N) -> previous difference (vimdiff/signify)
@@ -748,7 +743,7 @@
         nnoremap <S-Right> $
         nnoremap <S-Left> ^
 
-        "remap shift+ctrl+up/down to move blocks up/down a line
+        "remap shift+ctrl+up/down to move blocks up/down a line with vim-move
         vmap <S-C-Up> <Plug>MoveBlockUp
         vmap <S-C-Down> <Plug>MoveBlockDown
         nmap <S-C-Up> <Plug>MoveLineUp
