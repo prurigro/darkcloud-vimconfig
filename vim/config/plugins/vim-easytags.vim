@@ -27,3 +27,6 @@ else
     let g:easytags_auto_update = 1
     let g:easytags_auto_highlight = 1
 endif
+
+"run asynchronously
+let g:easytags_async = 1
