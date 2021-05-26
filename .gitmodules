@@ -111,4 +111,4 @@
 	url = https://github.com/tap349/vim-extradite
 [submodule "vim/bundle/vim-fixkey"]
 	path = vim/bundle/vim-fixkey
-	url = https://github.com/prurigro/vim-fixkey
+	url = https://github.com/drmikehenry/vim-fixkey
