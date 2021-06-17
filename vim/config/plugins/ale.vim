@@ -26,6 +26,9 @@ let g:ale_lint_on_filetype_changed = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_insert_leave = 1
 
+"show which linter is complaining
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
 "list of ale fixers
 let g:ale_fixers = {
     \     'javascript': [ 'eslint' ],
