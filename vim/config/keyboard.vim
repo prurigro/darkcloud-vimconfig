@@ -188,6 +188,9 @@
 "    <Leader><                | (V) -> un-indent all the lines currently selected
 "    <Leader><                | (N) -> un-indent the current line
 "
+"  (macros)
+"    '                        | (N) -> run a macro
+"
 "  (movement)
 "    =                        | (N) -> go to the first char on the next line
 "    _                        | (N) -> go to the first char on the previous line
@@ -699,6 +702,10 @@
         nnoremap <S-Tab> v<gv<Esc>
         vnoremap <Leader>< <gv
         nnoremap <Leader>< v<gv<Esc>
+    "}
+
+    "MACROS:{
+        nnoremap ' @
     "}
 
     "MOVEMENT:{
