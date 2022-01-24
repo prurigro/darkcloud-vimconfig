@@ -109,6 +109,3 @@
 [submodule "vim/bundle/vim-extradite"]
 	path = vim/bundle/vim-extradite
 	url = https://github.com/tap349/vim-extradite
-[submodule "vim/bundle/vim-fixkey"]
-	path = vim/bundle/vim-fixkey
-	url = https://github.com/prurigro/vim-fixkey

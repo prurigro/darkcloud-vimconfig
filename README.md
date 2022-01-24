@@ -181,7 +181,6 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [vim-extradite-tap349](https://github.com/tap349/vim-extradite): A git commit browser extending vim-fugitive that displays differences and optionally loads old revisions.
 * [vimfiler.vim](https://github.com/Shougo/vimfiler.vim): A curses-style file manager for vim that runs on it's own or in a sidebar and can associate handlers for file types.
   * [unite.vim](https://github.com/Shougo/unite.vim): A library used by Vim Filer to help build its user interface.
-* [vim-fixkey](https://github.com/drmikehenry/vim-fixkey): A set of keyboard mappings that override differences in different environments that might normally break consistency or compatibility.
 * [vim-fugitive](https://github.com/tpope/vim-fugitive): A wrapper integrating git into vim in such a way as to provide features neither of them could offer on their own.
 * [vim-move](https://github.com/matze/vim-move): Provides a few convenient ways to move selected text.
 * [vim-pathogen](https://github.com/tpope/vim-pathogen): A plugin to load other plugins while keeping them isolated in their own directory structure rather than all dumped together.
