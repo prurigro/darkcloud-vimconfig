@@ -15,7 +15,7 @@
 	url = https://github.com/tpope/vim-surround.git
 [submodule "vim/bundle/tagbar"]
 	path = vim/bundle/tagbar
-	url = git://github.com/majutsushi/tagbar
+	url = https://github.com/majutsushi/tagbar
 [submodule "vim/bundle/vim-togglelist"]
 	path = vim/bundle/vim-togglelist
 	url = https://github.com/milkypostman/vim-togglelist.git
@@ -57,7 +57,7 @@
 	url = https://github.com/tomtom/tcommand_vim.git
 [submodule "vim/bundle/tlib_vim"]
 	path = vim/bundle/tlib_vim
-	url = git://github.com/tomtom/tlib_vim.git
+	url = https://github.com/tomtom/tlib_vim.git
 [submodule "vim/bundle/goyo.vim"]
 	path = vim/bundle/goyo.vim
 	url = https://github.com/junegunn/goyo.vim.git
