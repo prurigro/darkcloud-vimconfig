@@ -341,30 +341,124 @@
     "MOUSE:{
         "hold ctrl to scroll left/right instead of up/down
         noremap <C-ScrollWheelUp> 4zl
+        noremap <C-2-ScrollWheelUp> 4zl
+        noremap <C-3-ScrollWheelUp> 4zl
+        noremap <C-4-ScrollWheelUp> 4zl
+
         nnoremap <C-ScrollWheelUp> 4zl
+        nnoremap <C-2-ScrollWheelUp> 4zl
+        nnoremap <C-3-ScrollWheelUp> 4zl
+        nnoremap <C-4-ScrollWheelUp> 4zl
+
         xnoremap <C-ScrollWheelUp> 4zl
+        xnoremap <C-2-ScrollWheelUp> 4zl
+        xnoremap <C-3-ScrollWheelUp> 4zl
+        xnoremap <C-4-ScrollWheelUp> 4zl
+
         snoremap <C-ScrollWheelUp> 4zl
+        snoremap <C-2-ScrollWheelUp> 4zl
+        snoremap <C-3-ScrollWheelUp> 4zl
+        snoremap <C-4-ScrollWheelUp> 4zl
+
         vnoremap <C-ScrollWheelUp> 4zl
+        vnoremap <C-2-ScrollWheelUp> 4zl
+        vnoremap <C-3-ScrollWheelUp> 4zl
+        vnoremap <C-4-ScrollWheelUp> 4zl
+
         inoremap <C-ScrollWheelUp> <C-O>4zl
+        inoremap <C-2-ScrollWheelUp> <C-O>4zl
+        inoremap <C-3-ScrollWheelUp> <C-O>4zl
+        inoremap <C-4-ScrollWheelUp> <C-O>4zl
+
         noremap <A-ScrollWheelUp> 4zl
+        noremap <A-2-ScrollWheelUp> 4zl
+        noremap <A-3-ScrollWheelUp> 4zl
+        noremap <A-4-ScrollWheelUp> 4zl
+
         nnoremap <A-ScrollWheelUp> 4zl
+        nnoremap <A-2-ScrollWheelUp> 4zl
+        nnoremap <A-3-ScrollWheelUp> 4zl
+        nnoremap <A-4-ScrollWheelUp> 4zl
+
         xnoremap <A-ScrollWheelUp> 4zl
+        xnoremap <A-2-ScrollWheelUp> 4zl
+        xnoremap <A-3-ScrollWheelUp> 4zl
+        xnoremap <A-4-ScrollWheelUp> 4zl
+
         snoremap <A-ScrollWheelUp> 4zl
+        snoremap <A-2-ScrollWheelUp> 4zl
+        snoremap <A-3-ScrollWheelUp> 4zl
+        snoremap <A-4-ScrollWheelUp> 4zl
+
         vnoremap <A-ScrollWheelUp> 4zl
+        vnoremap <A-2-ScrollWheelUp> 4zl
+        vnoremap <A-3-ScrollWheelUp> 4zl
+        vnoremap <A-4-ScrollWheelUp> 4zl
+
         inoremap <A-ScrollWheelUp> <C-O>4zl
+        inoremap <A-2-ScrollWheelUp> <C-O>4zl
+        inoremap <A-3-ScrollWheelUp> <C-O>4zl
+        inoremap <A-4-ScrollWheelUp> <C-O>4zl
 
         noremap <C-ScrollWheelDown> 4zh
+        noremap <C-2-ScrollWheelDown> 4zh
+        noremap <C-3-ScrollWheelDown> 4zh
+        noremap <C-4-ScrollWheelDown> 4zh
+
         nnoremap <C-ScrollWheelDown> 4zh
+        nnoremap <C-2-ScrollWheelDown> 4zh
+        nnoremap <C-3-ScrollWheelDown> 4zh
+        nnoremap <C-4-ScrollWheelDown> 4zh
+
         xnoremap <C-ScrollWheelDown> 4zh
+        xnoremap <C-2-ScrollWheelDown> 4zh
+        xnoremap <C-3-ScrollWheelDown> 4zh
+        xnoremap <C-4-ScrollWheelDown> 4zh
+
         snoremap <C-ScrollWheelDown> 4zh
+        snoremap <C-2-ScrollWheelDown> 4zh
+        snoremap <C-3-ScrollWheelDown> 4zh
+        snoremap <C-4-ScrollWheelDown> 4zh
+
         vnoremap <C-ScrollWheelDown> 4zh
+        vnoremap <C-2-ScrollWheelDown> 4zh
+        vnoremap <C-3-ScrollWheelDown> 4zh
+        vnoremap <C-4-ScrollWheelDown> 4zh
+
         inoremap <C-ScrollWheelDown> <C-O>4zh
+        inoremap <C-2-ScrollWheelDown> <C-O>4zh
+        inoremap <C-3-ScrollWheelDown> <C-O>4zh
+        inoremap <C-4-ScrollWheelDown> <C-O>4zh
+
         noremap <A-ScrollWheelDown> 4zh
+        noremap <A-2-ScrollWheelDown> 4zh
+        noremap <A-3-ScrollWheelDown> 4zh
+        noremap <A-4-ScrollWheelDown> 4zh
+
         nnoremap <A-ScrollWheelDown> 4zh
+        nnoremap <A-2-ScrollWheelDown> 4zh
+        nnoremap <A-3-ScrollWheelDown> 4zh
+        nnoremap <A-4-ScrollWheelDown> 4zh
+
         xnoremap <A-ScrollWheelDown> 4zh
+        xnoremap <A-2-ScrollWheelDown> 4zh
+        xnoremap <A-3-ScrollWheelDown> 4zh
+        xnoremap <A-4-ScrollWheelDown> 4zh
+
         snoremap <A-ScrollWheelDown> 4zh
+        snoremap <A-2-ScrollWheelDown> 4zh
+        snoremap <A-3-ScrollWheelDown> 4zh
+        snoremap <A-4-ScrollWheelDown> 4zh
+
         vnoremap <A-ScrollWheelDown> 4zh
+        vnoremap <A-2-ScrollWheelDown> 4zh
+        vnoremap <A-3-ScrollWheelDown> 4zh
+        vnoremap <A-4-ScrollWheelDown> 4zh
+
         inoremap <A-ScrollWheelDown> <C-O>4zh
+        inoremap <A-2-ScrollWheelDown> <C-O>4zh
+        inoremap <A-3-ScrollWheelDown> <C-O>4zh
+        inoremap <A-4-ScrollWheelDown> <C-O>4zh
 
         "middle & ctrl+left = select from cursor
         nnoremap <MiddleMouse> <RightMouse>
