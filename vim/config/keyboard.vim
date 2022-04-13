@@ -136,7 +136,8 @@
 "    <Leader>p                | (N) -> view the paste buffers and register contents
 "    P                        | (V) -> save selection to the buffer and paste over
 "    p                        | (V) -> preserve the buffer pasting over selected text
-"    y                        | (N) -> copy the character the cursor is on
+"    y                        | (N) -> copy the character the cursor is on in normal mode
+"    Y                        | (N) -> copy the line in normal mode
 "    <Ctrl-p>Direction        | (N) -> paste in the direction entered
 "    T                        | (N) -> copy to the end of the line
 "    T                        | (V) -> copy to the end of the line
@@ -723,6 +724,9 @@
 
         "copy the current character in normal mode
         nnoremap y vy
+
+        "copy the line in normal mode
+        nnoremap Y vY
 
         "copy to the end of the line
         nnoremap T vg_y
