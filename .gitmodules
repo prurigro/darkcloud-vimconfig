@@ -58,9 +58,6 @@
 [submodule "vim/bundle/tlib_vim"]
 	path = vim/bundle/tlib_vim
 	url = https://github.com/tomtom/tlib_vim.git
-[submodule "vim/bundle/goyo.vim"]
-	path = vim/bundle/goyo.vim
-	url = https://github.com/junegunn/goyo.vim.git
 [submodule "vim/bundle/tabular"]
 	path = vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular

@@ -119,8 +119,6 @@
 "    <Ctrl-F4>                | (A) -> toggle syntax checking
 "    <Alt-F4>                 | (A) -> toggle syntax checking
 "
-"    <Leader>`                | (A) -> toggle goyo (distraction-free mode)
-"
 "  (gvim toggles)
 "    <Leader><F1>             | (A) -> toggle the menubar
 "    <Leader><F2>             | (A) -> toggle the toolbar
@@ -678,9 +676,6 @@
         nnoremap <silent><expr> <A-F4> ':call ToggleAle()<CR>'
         xnoremap <silent><expr> <A-F4> '<Esc>:call ToggleAle()<CR>gv'
         inoremap <silent><expr> <A-F4> '<C-O>:call ToggleAle()<CR>'
-
-        "toggle goyo
-        nnoremap <silent><expr> <Leader>` ':Goyo<CR>'
     "}
 
     "GVIM TOGGLES:{

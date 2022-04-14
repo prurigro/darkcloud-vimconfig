@@ -117,7 +117,6 @@ As usual, to have your system use `vimpager` in place of `less`, you'll need to 
 | F4              | ALL  | Toggle source code syntax checking               |
 |                 |      |                                                  |
 | \`              | N    | Toggle gutter (left bar with line numbers etc.)  |
-| Backslash+\`    | N    | Toggle the **goyo** distraction-free UI          |
 | Backslash+?     | N    | Toggle the **vim** reference manual              |
 
 #### Spell Check ####
@@ -164,7 +163,6 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
   * [vim-hug-neovim-rpc](https://github.com/roxma/vim-hug-neovim-rpc): A compatibility layer for neovim rpc client working on vim8
 * [editorconfig-vim](https://github.com/editorconfig/editorconfig-vim): EditorConfig plugin for Vim that auto-configures certain settings when a .editorconfig file is present
 * [FastFold](https://github.com/Konfekt/FastFold): Speed up Vim by updating folds only when called-for.
-* [goyo.vim](https://github.com/junegunn/goyo.vim): Distraction-free writing in Vim.
 * [incsearch.vim](https://github.com/haya14busa/incsearch.vim): Improved incremental searching for Vim.
 * [lightline.vim](https://github.com/itchyny/lightline.vim): A light and configurable statusline/tabline for Vim.
 * [MatchTagAlways](https://github.com/Valloric/MatchTagAlways): A Vim plugin that always highlights the enclosing html/xml tags.
