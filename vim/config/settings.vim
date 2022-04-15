@@ -94,7 +94,7 @@
         set completeopt=longest,menuone
         set wildmenu
         set wildmode=list:longest,full
-        set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
+        set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.pdf,*.ico,*.jpg,*.gif,*.png,*.webp,*.mp4,*.webm,*.mov,*.eot,*.otf,*.ttf,*.woff,*.woff2
         set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
     "}}}
 
