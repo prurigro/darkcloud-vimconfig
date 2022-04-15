@@ -229,10 +229,6 @@
 "    <Ctrl-Right>             | (V) -> select one word right
 "    <Ctrl-Left>              | (V) -> select one word left
 "
-"    (remap dangerous functions that skip undo)
-"      <Ctrl-u>               | (I) -> undo-able equivalent
-"      <Ctrl-w>               | (I) -> undo-able equivalent
-"
 "Filetype Specific Mappings:
 "  (extradite)
 "    <Ctrl-F4>                | (A) -> close the dialog
@@ -738,10 +734,6 @@
         inoremap <silent> <C-W> <C-\><C-O>db
         inoremap <silent> <C-D> <C-\><C-O>d0
         inoremap <silent> <C-Y> <C-R>"
-
-        "remap ctrl-u and ctrl-w to safer alternatives
-        inoremap <C-u> <C-g>u<C-u>
-        inoremap <C-w> <C-g>u<C-w>
     "}
 
     "FIXING AND FORMATTING:{
