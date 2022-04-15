@@ -54,8 +54,8 @@ autocmd FileChangedRO * nested set noreadonly
     autocmd FileType vue setlocal spell
 
     "special side/bottom-bar settings to apply when opened
-    autocmd BufEnter,FileType taskreport,qf,help* setlocal nowrap nocursorcolumn "disable text wrapping and the vertical cursor line
-    autocmd BufEnter,FileType extradite setlocal number "enable line numbers in extradite
+    autocmd BufEnter,FileType qf,help* setlocal nowrap nocursorcolumn "disable text wrapping and the vertical cursor line
+    autocmd BufEnter,FileType qf setlocal scrolloff=0 "don't scroll when clicking near the top or bottom of the list
     autocmd BufEnter,FileType help* setlocal nocursorline "remove the horizontal cursor line
 
     "load in an 80 char vertical split if the window is wider than 140 characters
