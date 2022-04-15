@@ -64,12 +64,7 @@ noremap <S-Right> $
 noremap <S-Left> ^
 
 "copy/paste
-nnoremap y vy<Esc>
-vnoremap y y
-nnoremap <C-c> y
-vnoremap <C-c> y
-nnoremap T vg_y
-vnoremap T g_y
+nnoremap Y vg_y
 
 "search
 map /  <Plug>(incsearch-forward)
