@@ -14,12 +14,8 @@ scriptencoding utf-8
 
 "INITIALIZE PLUGINS: {{{
     "create missing plugin config files and directories
-    if exists('*mkdir') && !isdirectory(glob("~/.vim/tags_by_filetype"))
-        call mkdir(glob("~/.vim/tags_by_filetype"),'p')
-    endif
-
-    if !filereadable(glob("~/.vim/tags"))
-        new|silent e ~/.vim/tags|silent w|q
+    if exists('*mkdir') && !isdirectory(glob("~/.vim/gutentags"))
+        call mkdir(glob("~/.vim/gutentags"),'p')
     endif
 
     if !filereadable(glob("~/.vim/filetypes.vim"))
@@ -28,9 +24,6 @@ scriptencoding utf-8
 
     "load plugins in vim/bundle/ and vim/bundle.user/
     execute pathogen#infect('bundle/{}', 'bundle.user/{}')
-
-    "set the locations for gutentags, tagbar and other plugins to look for tag files
-    set tags=./.tags;,~/.vim/tags
 "}}}
 
 runtime! config/plugins/*
