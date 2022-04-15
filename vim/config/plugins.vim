@@ -29,7 +29,7 @@ scriptencoding utf-8
     "load plugins in vim/bundle/ and vim/bundle.user/
     execute pathogen#infect('bundle/{}', 'bundle.user/{}')
 
-    "set the locations for easytags, tagbar and other plugins to look for tag files
+    "set the locations for gutentags, tagbar and other plugins to look for tag files
     set tags=./.tags;,~/.vim/tags
 "}}}
 

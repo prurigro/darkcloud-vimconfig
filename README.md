@@ -174,11 +174,10 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [tcommand_vim](https://github.com/tomtom/tcommand_vim): Select commands, menu items etc. from a list.
   * [tlib_vim](https://github.com/tomtom/tlib_vim): Some utility functions for VIM.
 * [tcomment_vim](https://github.com/tomtom/tcomment_vim): File-type sensible comments that can be easily toggled on and off for blocks of text.
-* [vim-easytags](https://github.com/xolox/vim-easytags): Automated tag file generation and syntax highlighting of tags in Vim.
-  * [vim-misc](https://github.com/xolox/vim-misc): Miscellaneous auto-load Vim scripts required by vim-easytags.
 * [vimfiler.vim](https://github.com/Shougo/vimfiler.vim): A curses-style file manager for vim that runs on it's own or in a sidebar and can associate handlers for file types.
   * [unite.vim](https://github.com/Shougo/unite.vim): A library used by Vim Filer to help build its user interface.
 * [vim-fugitive](https://github.com/tpope/vim-fugitive): A wrapper integrating git into vim in such a way as to provide features neither of them could offer on their own.
+* [vim-gutentags](https://github.com/xolox/vim-easytags): A plugin that takes care of the much needed management of tags files in Vim.
 * [vim-move](https://github.com/matze/vim-move): Provides a few convenient ways to move selected text.
 * [vim-pathogen](https://github.com/tpope/vim-pathogen): A plugin to load other plugins while keeping them isolated in their own directory structure rather than all dumped together.
 * [vim-polyglot-darkcloud](https://github.com/prurigro/vim-polyglot-darkcloud): The darkcloud-vimconfig fork of a meta-package that attempts to provide the best syntax plugins for each file type.
