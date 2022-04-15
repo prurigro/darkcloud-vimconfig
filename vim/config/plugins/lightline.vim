@@ -17,7 +17,6 @@ function! LLFilename()
     \   &ft == 'vimfiler' ? vimfiler#get_status_string() :
     \   &ft == 'unite' ? unite#get_status_string() :
     \   &ft == 'qf' ? '[Error/Location List]' :
-    \   &ft == 'extradite' ? '[Commit History]' :
     \       ('' != LLReadonly() ? LLReadonly() . ' ' : '') .
     \       ('' != fname ? fname : '[NEW]') .
     \       ('' != LLModified() ? ' ' . LLModified() : '')

@@ -93,31 +93,19 @@
 "    <Space>_                 | (N) -> unopen all folds
 "    <Space>0                 | (N) -> reset all folds using default fold level
 "
-"    <F9>                     | (A) -> toggle extradite git commit history
-"    <Ctrl-F9>                | (A) -> toggle extradite git commit history
-"    <Alt-F9>                 | (A) -> toggle extradite git commit history
-"    <Leader>}                | (N) -> toggle extradite git commit history
-"    <F10>                    | (A) -> toggle the tagbar sidebar
-"    <Ctrl-F10>               | (A) -> toggle the tagbar sidebar
-"    <Alt-F10>                | (A) -> toggle the tagbar sidebar
-"    <Leader>{                | (N) -> toggle the tagbar sidebar
-"    <F12>                    | (A) -> toggle vimfiler sidebar
-"    <Ctrl-F12>               | (A) -> toggle vimfiler sidebar
-"    <Alt-F12>                | (A) -> toggle vimfiler sidebar
-"    <Leader>[                | (N) -> toggle vimfiler sidebar
-"
 "    <F1>                     | (A) -> toggle line wrapping
-"    <Ctrl-F1>                | (A) -> toggle line wrapping
-"    <Alt-F1>                 | (A) -> toggle line wrapping
 "    <F2>                     | (A) -> toggle spell check
-"    <Ctrl-F2>                | (A) -> toggle spell check
-"    <Alt-F2>                 | (A) -> toggle spell check
 "    <F3>                     | (A) -> toggle external-paste mode
-"    <Ctrl-F3>                | (A) -> toggle external-paste mode
-"    <Alt-F3>                 | (A) -> toggle external-paste mode
 "    <F4>                     | (A) -> toggle syntax checking
-"    <Ctrl-F4>                | (A) -> toggle syntax checking
-"    <Alt-F4>                 | (A) -> toggle syntax checking
+"
+"    <F9>                     | (A) -> toggle git commit history
+"    <Leader>}                | (N) -> toggle git commit history
+"    <F10>                    | (A) -> toggle the tagbar sidebar
+"    <Leader>{                | (N) -> toggle the tagbar sidebar
+"    <F11>                    | (A) -> toggle the location list
+"    <Leader><Leader>         | (N) -> toggle the location list
+"    <F12>                    | (A) -> toggle vimfiler sidebar
+"    <Leader>[                | (N) -> toggle vimfiler sidebar
 "
 "  (gvim toggles)
 "    <Leader><F1>             | (A) -> toggle the menubar
@@ -136,7 +124,7 @@
 "    p                        | (V) -> preserve the buffer pasting over selected text
 "    Y                        | (N) -> copy to the end of the line
 "
-"    (delete/cut functions)
+"    (delete/cut operations that don't replace the paste buffer)
 "      <Leader>x              | (N) -> delete the char(s) under and the cursor
 "      <Leader>x              | (V) -> delete the currently selected text
 "      <Leader>X              | (N) -> delete the char(s) before the cursor
@@ -146,18 +134,6 @@
 "      <Leader>dw             | (N) -> delete from the cursor to end of the word
 "      <Leader>dd             | (N) -> delete current line
 "      <Leader>d              | (V) -> delete selected text
-"
-"    (improved copy and paste shortcuts)
-"      <Ctrl-v>               | (N) -> paste from buffer
-"      <Ctrl-v>               | (V) -> paste buffer in place of selection
-"      <Ctrl-v>               | (I) -> paste from buffer then return to input
-"      <Ctrl-c>               | (N) -> copy character
-"      <Ctrl-c>               | (V) -> copy selection
-"      <Ctrl-x>               | (N) -> cut character
-"      <Ctrl-x>               | (V) -> cut selection
-"      <Ctrl-W>               | (I) -> cut previous word during input
-"      <Ctrl-D>               | (I) -> cut line before cursor during input
-"      <Ctrl-Y>               | (I) -> paste what's been cut during input
 "
 "  (fixing-and-formatting)
 "    <Leader>J                | (N) -> split document into lines of tw or 80
@@ -230,30 +206,24 @@
 "    <Ctrl-Left>              | (V) -> select one word left
 "
 "Filetype Specific Mappings:
-"  (extradite)
-"    <Ctrl-F4>                | (A) -> close the dialog
-"    <Alt-F4>                 | (A) -> close the dialog
-"    <Right>                  | (A) -> same as down
-"    l                        | (A) -> same as j
-"    <Left>                   | (A) -> same as Up
-"    h                        | (A) -> same as k
-"
 "  (help)
 "    q                        | (A) -> close the dialog
 "    <Leader>?                | (A) -> close the dialog
 "    ?>                       | (A) -> close the dialog
 "    ?<                       | (A) -> close the dialog
 "
-"  (qf sidebar mappings)
-"    <LClick>                 | (A) -> left click + left justify the cursor
-"    <MClick>                 | (A) -> same as the left click
-"    <RClick>                 | (A) -> same as the left click
-"    <LClick><LClick>         | (A) -> select entry
-"    <Space>                  | (A) -> select entry but remain in qf sidebar
+"  (markdown)
+"    <Leader>f                | (N) -> format a table
+"    <Leader>f                | (V) -> format a table
+"
+"  (error/location list)
 "    <Left>                   | (A) -> up
 "    <Right>                  | (A) -> down
-"    h                        | (A) -> j
 "    l                        | (A) -> k
+"    h                        | (A) -> j
+"    <LClick><LClick>         | (A) -> select entry
+"    <Space>                  | (A) -> select entry but remain in qf sidebar
+"    q                        | (A) -> close the list
 "
 "  (vimdiff)
 "    <Leader><>               | (N) -> update differences
@@ -299,8 +269,6 @@
 
 "ALIASES: COMMAND SHORTCUTS {{{
     "shortcuts to git commands
-    cabbrev <expr><silent> GitLog ':Extradite<CR>:wincmd x<CR>:wincmd j<CR>:resize 10<CR>'
-    cabbrev <expr><silent> gitlog ':Extradite<CR>:wincmd x<CR>:wincmd j<CR>:resize 10<CR>'
     cabbrev <expr><silent> GitDiff ':Gdiff<CR>'
     cabbrev <expr><silent> gitdiff ':Gdiff<CR>'
     cabbrev <expr><silent> GitStatus ':Gstatus<CR>'
@@ -558,9 +526,6 @@
         nmap <expr><silent> <Leader>k ':execute "setlocal iskeyword+=".getline(".")[col(".")-1]<CR>:echo "The character ".getline(".")[col(".")-1]." has been added to iskeyword"<CR>'
         nmap <expr><silent> <Leader>K ':execute "setlocal iskeyword-=".getline(".")[col(".")-1]<CR>:echo "The character ".getline(".")[col(".")-1]." has been removed from iskeyword"<CR>'
 
-        "toggle the location list
-        nnoremap <silent><expr> <Leader><Leader> ':call ToggleLocationList()<CR>'
-
         "toggle the command reference box
         nnoremap <silent><expr> ~ ':TCommand<CR>'
 
@@ -587,63 +552,15 @@
         "reset all folds to the default fold level
         nnoremap <silent><expr> <Space>0 'zX:echo "all folds have been reset"<CR>'
 
-        "view commit history and diffs
-        nnoremap <expr><silent> <F9> ':Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        xnoremap <expr><silent> <F9> '<Esc>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        inoremap <expr><silent> <F9> '<Esc>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        nnoremap <expr><silent> <C-F9> ':Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        xnoremap <expr><silent> <C-F9> '<Esc>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        inoremap <expr><silent> <C-F9> '<Esc>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        nnoremap <expr><silent> <A-F9> ':Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        xnoremap <expr><silent> <A-F9> '<Esc>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        inoremap <expr><silent> <A-F9> '<Esc>:Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-        nnoremap <silent><expr> <Leader>} ':Extradite!<CR>:resize 10<CR>:wincmd x<CR>:wincmd b<CR>:wincmd H<CR>:wincmd b<CR>'
-
-        "bindings to trigger the tagbar list of tags
-        nnoremap <silent><expr> <F10> ':TagbarToggle<CR>:echo "tagbar toggled"<CR>'
-        xnoremap <silent><expr> <F10> '<Esc>:TagbarToggle<CR>gv'
-        inoremap <silent><expr> <F10> '<C-O>:TagbarToggle<CR>'
-        nnoremap <silent><expr> <C-F10> ':TagbarToggle<CR>:echo "tagbar toggled"<CR>'
-        xnoremap <silent><expr> <C-F10> '<Esc>:TagbarToggle<CR>gv'
-        inoremap <silent><expr> <C-F10> '<C-O>:TagbarToggle<CR>'
-        nnoremap <silent><expr> <A-F10> ':TagbarToggle<CR>:echo "tagbar toggled"<CR>'
-        xnoremap <silent><expr> <A-F10> '<Esc>:TagbarToggle<CR>gv'
-        inoremap <silent><expr> <A-F10> '<C-O>:TagbarToggle<CR>'
-        nnoremap <silent><expr> <Leader>{ ':TagbarToggle<CR>:echo "tagbar toggled"<CR>'
-
-        "trigger vimfiler
-        nnoremap <silent><expr> <F12> ':VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
-        xnoremap <silent><expr> <F12> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
-        inoremap <silent><expr> <F12> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
-        nnoremap <silent><expr> <C-F12> ':VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
-        xnoremap <silent><expr> <C-F12> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
-        inoremap <silent><expr> <C-F12> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
-        nnoremap <silent><expr> <A-F12> ':VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
-        xnoremap <silent><expr> <A-F12> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
-        inoremap <silent><expr> <A-F12> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
-        nnoremap <silent><expr> <Leader>[ ':VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
-
         "toggle line wrapping (and bottom bar if using the gui)
         nnoremap <silent><expr> <F1> ':set wrap!<CR>:echo "line wrapping toggled"<CR>'
         xnoremap <silent><expr> <F1> '<Esc>:set wrap!<CR>gv'
         inoremap <silent><expr> <F1> '<C-O>:set wrap!<CR>'
-        nnoremap <silent><expr> <C-F1> ':set wrap!<CR>:echo "line wrapping toggled"<CR>'
-        xnoremap <silent><expr> <C-F1> '<Esc>:set wrap!<CR>gv'
-        inoremap <silent><expr> <C-F1> '<C-O>:set wrap!<CR>'
-        nnoremap <silent><expr> <A-F1> ':set wrap!<CR>:echo "line wrapping toggled"<CR>'
-        xnoremap <silent><expr> <A-F1> '<Esc>:set wrap!<CR>gv'
-        inoremap <silent><expr> <A-F1> '<C-O>:set wrap!<CR>'
 
         "toggle show spelling errors
         nnoremap <silent><expr> <F2> ':set spell!<CR>:if &spell =~ "0"<Bar>echo "spellcheck toggled off"<Bar>else<Bar>echo "spellcheck toggled on"<Bar>endif<CR>'
         xnoremap <silent><expr> <F2> '<Esc>:set spell!<CR>gv'
         inoremap <silent><expr> <F2> '<C-O>:set spell!<CR>'
-        nnoremap <silent><expr> <C-F2> ':set spell!<CR>:if &spell =~ "0"<Bar>echo "spellcheck toggled off"<Bar>else<Bar>echo "spellcheck toggled on"<Bar>endif<CR>'
-        xnoremap <silent><expr> <C-F2> '<Esc>:set spell!<CR>gv'
-        inoremap <silent><expr> <C-F2> '<C-O>:set spell!<CR>'
-        nnoremap <silent><expr> <A-F2> ':set spell!<CR>:if &spell =~ "0"<Bar>echo "spellcheck toggled off"<Bar>else<Bar>echo "spellcheck toggled on"<Bar>endif<CR>'
-        xnoremap <silent><expr> <A-F2> '<Esc>:set spell!<CR>gv'
-        inoremap <silent><expr> <A-F2> '<C-O>:set spell!<CR>'
 
         "toggle external-paste mode
         set pastetoggle=<F3>
@@ -662,12 +579,30 @@
         nnoremap <silent><expr> <F4> ':call ToggleAle()<CR>'
         xnoremap <silent><expr> <F4> '<Esc>:call ToggleAle()<CR>gv'
         inoremap <silent><expr> <F4> '<C-O>:call ToggleAle()<CR>'
-        nnoremap <silent><expr> <C-F4> ':call ToggleAle()<CR>'
-        xnoremap <silent><expr> <C-F4> '<Esc>:call ToggleAle()<CR>gv'
-        inoremap <silent><expr> <C-F4> '<C-O>:call ToggleAle()<CR>'
-        nnoremap <silent><expr> <A-F4> ':call ToggleAle()<CR>'
-        xnoremap <silent><expr> <A-F4> '<Esc>:call ToggleAle()<CR>gv'
-        inoremap <silent><expr> <A-F4> '<C-O>:call ToggleAle()<CR>'
+
+        "view commit history and diffs
+        nnoremap <expr><silent> <F9> ':vs<CR>:0Gclog<CR>:wincmd b<CR>'
+        xnoremap <expr><silent> <F9> '<Esc>:vs<CR>:0Gclog<CR>:wincmd b<CR>'
+        inoremap <expr><silent> <F9> '<Esc>:vs<CR>:0Gclog<CR>:wincmd b<CR>'
+        nnoremap <silent><expr> <Leader>} ':vs<CR>:0Gclog<CR>:wincmd b<CR>'
+
+        "bindings to trigger the tagbar list of tags
+        nnoremap <silent><expr> <F10> ':TagbarToggle<CR>:echo "tagbar toggled"<CR>'
+        xnoremap <silent><expr> <F10> '<Esc>:TagbarToggle<CR>gv'
+        inoremap <silent><expr> <F10> '<C-O>:TagbarToggle<CR>'
+        nnoremap <silent><expr> <Leader>{ ':TagbarToggle<CR>:echo "tagbar toggled"<CR>'
+
+        "toggle the location list
+        nnoremap <silent><expr> <F11> ':call ToggleLocationList()<CR>'
+        xnoremap <silent><expr> <F11> '<Esc>:call ToggleLocationList()<CR>'
+        inoremap <silent><expr> <F11> '<C-O>:call ToggleLocationList()<CR>'
+        nnoremap <silent><expr> <Leader><Leader> ':call ToggleLocationList()<CR>'
+
+        "trigger vimfiler
+        nnoremap <silent><expr> <F12> ':VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
+        xnoremap <silent><expr> <F12> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
+        inoremap <silent><expr> <F12> '<Esc>:VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
+        nnoremap <silent><expr> <Leader>[ ':VimFiler -split -simple -toggle -no-quit -direction=topleft -winwidth=45<CR>'
     "}
 
     "GVIM TOGGLES:{
@@ -712,7 +647,7 @@
         "copy to the end of the line
         nnoremap Y vg_y
 
-        "Alternatives to cut/deletion commands that don't replace the buffer
+        "delete/cut operations that don't replace the paste buffer
         nnoremap <Leader>x "_x
         vnoremap <Leader>x "_x
         nnoremap <Leader>X "_X
@@ -722,18 +657,6 @@
         nnoremap <Leader>dd "_dd
         nnoremap <Leader>dw "_dw
         vnoremap <Leader>d "_d
-
-        "map copy/paste shortcuts to more typical ones
-        nnoremap <C-v> P
-        xmap <C-v> <Plug>ReplaceWithRegisterVisual
-        inoremap <C-v> <C-O>p
-        nnoremap <C-c> vy
-        vnoremap <C-c> y
-        nnoremap <C-x> x
-        vnoremap <C-x> x
-        inoremap <silent> <C-W> <C-\><C-O>db
-        inoremap <silent> <C-D> <C-\><C-O>d0
-        inoremap <silent> <C-Y> <C-R>"
     "}
 
     "FIXING AND FORMATTING:{
@@ -862,16 +785,6 @@
 "}}}
 
 "FILETYPE SPECIFIC MAPPINGS: {{{
-    "extradite
-    autocmd FileType extradite map <buffer> <Right> <Down>
-    autocmd FileType extradite map <buffer> l j
-    autocmd FileType extradite map <buffer> <Left> <Up>
-    autocmd FileType extradite map <buffer> h k
-    autocmd FileType extradite map <buffer> <F9> q
-    autocmd FileType extradite map <buffer> <C-F9> q
-    autocmd FileType extradite map <buffer> <A-F9> q
-    autocmd FileType extradite map <buffer> <Leader>} q
-
     "help
     if !&diff
         autocmd FileType help map <buffer> <silent><expr> q ':q<CR>'
@@ -883,17 +796,14 @@
     autocmd FileType markdown nnoremap <buffer> <silent><expr> <Leader>f ':TableFormat<CR>'
     autocmd FileType markdown xnoremap <buffer> <silent><expr> <Leader>f '<Esc>:TableFormat<CR>gv'
 
-    "qf-sidebar
-    autocmd FileType qf map <buffer> <LeftMouse> <LeftMouse>0
-    autocmd FileType qf map <buffer> <MiddleMouse> <LeftMouse>
-    autocmd FileType qf map <buffer> <RightMouse> <LeftMouse>
-    autocmd FileType qf map <buffer> <2-LeftMouse> <CR>
-    autocmd FileType qf map <buffer> <Space> <CR><C-w>p
+    "error/location list
     autocmd FileType qf map <buffer> <Left> <Up>
     autocmd FileType qf map <buffer> <Right> <Down>
-    autocmd FileType qf map <buffer> h j
-    autocmd FileType qf map <buffer> l k
-    autocmd FileType qf map <buffer> <silent><expr> q ':call ToggleQuickfixList()<CR>'
+    autocmd FileType qf map <buffer> l j
+    autocmd FileType qf map <buffer> h k
+    autocmd FileType qf map <buffer> <2-LeftMouse> <CR>
+    autocmd FileType qf map <buffer> <Space> <CR><C-w>p
+    autocmd FileType qf if getwininfo(win_getid())[0]['loclist'] == 0|map <buffer> <silent><expr> q ':call ToggleQuickfixList()<CR>'|else|map <buffer> <silent><expr> q ':call ToggleLocationList()<CR>'|endif
 
     "vimdiff
     autocmd FilterWritePre * if &diff|nmap <buffer> <silent><expr> <Leader><> ':diffu<CR>'|endif
@@ -918,47 +828,47 @@
 
 "MAPPINGS DISABLED FOR GIVEN FILETYPES: {{{
     "remove incompatible toggles from specific file types
-    autocmd Filetype extradite,help,tagbar,qf,vimfiler noremap <buffer> ` <Nop>
+    autocmd Filetype help,tagbar,qf,vimfiler noremap <buffer> ` <Nop>
     autocmd Filetype help,tagbar,qf,vimfiler,diff noremap <buffer> <F9> <Nop>
     autocmd Filetype help,tagbar,qf,vimfiler,diff noremap <buffer> <C-F9> <Nop>
     autocmd Filetype help,tagbar,qf,vimfiler,diff noremap <buffer> <A-F9> <Nop>
     autocmd Filetype help,tagbar,qf,vimfiler,diff noremap <buffer> <Leader>} <Nop>
-    autocmd Filetype extradite,help,qf,vimfiler noremap <buffer> <F10> <Nop>
-    autocmd Filetype extradite,help,qf,vimfiler noremap <buffer> <C-F10> <Nop>
-    autocmd Filetype extradite,help,qf,vimfiler noremap <buffer> <A-F10> <Nop>
-    autocmd Filetype extradite,help,qf,vimfiler noremap <buffer> <Leader>{ <Nop>
-    autocmd Filetype extradite,help,tagbar,qf,vimfiler noremap <buffer> <F11> <Nop>
-    autocmd Filetype extradite,help,tagbar,qf,vimfiler noremap <buffer> <C-F11> <Nop>
-    autocmd Filetype extradite,help,tagbar,qf,vimfiler noremap <buffer> <A-F11>] <Nop>
-    autocmd Filetype extradite,help,tagbar,qf,vimfiler noremap <buffer> <Leader> <Nop>
-    autocmd Filetype extradite,help,tagbar,qf noremap <buffer> <F12> <Nop>
-    autocmd Filetype extradite,help,tagbar,qf noremap <buffer> <C-F12> <Nop>
-    autocmd Filetype extradite,help,tagbar,qf noremap <buffer> <A-F12> <Nop>
-    autocmd Filetype extradite,help,tagbar,qf noremap <buffer> <Leader>[ <Nop>
+    autocmd Filetype help,qf,vimfiler noremap <buffer> <F10> <Nop>
+    autocmd Filetype help,qf,vimfiler noremap <buffer> <C-F10> <Nop>
+    autocmd Filetype help,qf,vimfiler noremap <buffer> <A-F10> <Nop>
+    autocmd Filetype help,qf,vimfiler noremap <buffer> <Leader>{ <Nop>
+    autocmd Filetype help,tagbar,qf,vimfiler noremap <buffer> <F11> <Nop>
+    autocmd Filetype help,tagbar,qf,vimfiler noremap <buffer> <C-F11> <Nop>
+    autocmd Filetype help,tagbar,qf,vimfiler noremap <buffer> <A-F11>] <Nop>
+    autocmd Filetype help,tagbar,qf,vimfiler noremap <buffer> <Leader> <Nop>
+    autocmd Filetype help,tagbar,qf noremap <buffer> <F12> <Nop>
+    autocmd Filetype help,tagbar,qf noremap <buffer> <C-F12> <Nop>
+    autocmd Filetype help,tagbar,qf noremap <buffer> <A-F12> <Nop>
+    autocmd Filetype help,tagbar,qf noremap <buffer> <Leader>[ <Nop>
 
     "disable modifier keys with directions that would interfere with logic
     autocmd Filetype qf,vimfiler noremap <buffer> <C-Up> <Nop>
     autocmd Filetype qf,vimfiler noremap <buffer> <C-k> <Nop>
     autocmd Filetype qf,vimfiler noremap <buffer> <C-Down> <Nop>
     autocmd Filetype qf,vimfiler noremap <buffer> <C-j> <Nop>
-    autocmd Filetype qf,vimfiler,extradite noremap <buffer> <C-Right> <Nop>
-    autocmd Filetype qf,vimfiler,extradite noremap <buffer> <C-l> <Nop>
-    autocmd Filetype qf,vimfiler,extradite noremap <buffer> <C-Left> <Nop>
-    autocmd Filetype qf,vimfiler,extradite noremap <buffer> <C-h> <Nop>
-    autocmd Filetype qf,vimfiler,extradite noremap <buffer> <A-Up> <Nop>
-    autocmd Filetype qf,vimfiler,extradite noremap <buffer> <A-k> <Nop>
-    autocmd Filetype qf,vimfiler,extradite noremap <buffer> <A-Down> <Nop>
-    autocmd Filetype qf,vimfiler,extradite noremap <buffer> <A-j> <Nop>
-    autocmd Filetype qf,vimfiler,extradite noremap <buffer> <A-Right> <Nop>
-    autocmd Filetype qf,vimfiler,extradite noremap <buffer> <A-l> <Nop>
-    autocmd Filetype qf,vimfiler,extradite noremap <buffer> <A-Left> <Nop>
-    autocmd Filetype qf,vimfiler,extradite noremap <buffer> <A-h> <Nop>
+    autocmd Filetype qf,vimfiler noremap <buffer> <C-Right> <Nop>
+    autocmd Filetype qf,vimfiler noremap <buffer> <C-l> <Nop>
+    autocmd Filetype qf,vimfiler noremap <buffer> <C-Left> <Nop>
+    autocmd Filetype qf,vimfiler noremap <buffer> <C-h> <Nop>
+    autocmd Filetype qf,vimfiler noremap <buffer> <A-Up> <Nop>
+    autocmd Filetype qf,vimfiler noremap <buffer> <A-k> <Nop>
+    autocmd Filetype qf,vimfiler noremap <buffer> <A-Down> <Nop>
+    autocmd Filetype qf,vimfiler noremap <buffer> <A-j> <Nop>
+    autocmd Filetype qf,vimfiler noremap <buffer> <A-Right> <Nop>
+    autocmd Filetype qf,vimfiler noremap <buffer> <A-l> <Nop>
+    autocmd Filetype qf,vimfiler noremap <buffer> <A-Left> <Nop>
+    autocmd Filetype qf,vimfiler noremap <buffer> <A-h> <Nop>
     autocmd Filetype qf,vimfiler noremap <buffer> <S-Up> <Nop>
     autocmd Filetype qf,vimfiler noremap <buffer> <S-k> <Nop>
     autocmd Filetype qf,vimfiler noremap <buffer> <S-Down> <Nop>
     autocmd Filetype qf,vimfiler noremap <buffer> <S-j> <Nop>
-    autocmd Filetype qf,vimfiler,extradite noremap <buffer> <S-Right> <Nop>
-    autocmd Filetype qf,vimfiler,extradite noremap <buffer> <S-l> <Nop>
-    autocmd Filetype qf,vimfiler,extradite noremap <buffer> <S-Left> <Nop>
-    autocmd Filetype qf,vimfiler,extradite noremap <buffer> <S-h> <Nop>
+    autocmd Filetype qf,vimfiler noremap <buffer> <S-Right> <Nop>
+    autocmd Filetype qf,vimfiler noremap <buffer> <S-l> <Nop>
+    autocmd Filetype qf,vimfiler noremap <buffer> <S-Left> <Nop>
+    autocmd Filetype qf,vimfiler noremap <buffer> <S-h> <Nop>
 "}}}
