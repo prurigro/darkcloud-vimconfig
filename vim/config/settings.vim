@@ -27,7 +27,11 @@
     set clipboard=unnamed
 
     if has('unnamedplus')
-        set clipboard+=unnamedplus
+        if has('nvim')
+            set clipboard=unnamedplus
+        else
+            set clipboard+=unnamedplus
+        endif
     endif
 
     "fancy mouse reporting with xterm2 fallback
