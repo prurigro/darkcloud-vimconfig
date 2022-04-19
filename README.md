@@ -162,7 +162,6 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
   * [nvim-yarp](https://github.com/roxma/nvim-yarp): Yet Another Remote Plugin Framework for Neovim
   * [vim-hug-neovim-rpc](https://github.com/roxma/vim-hug-neovim-rpc): A compatibility layer for neovim rpc client working on vim8
 * [editorconfig-vim](https://github.com/editorconfig/editorconfig-vim): EditorConfig plugin for Vim that auto-configures certain settings when a .editorconfig file is present
-* [FastFold](https://github.com/Konfekt/FastFold): Speed up Vim by updating folds only when called-for.
 * [incsearch.vim](https://github.com/haya14busa/incsearch.vim): Improved incremental searching for Vim.
 * [lightline.vim](https://github.com/itchyny/lightline.vim): A light and configurable statusline/tabline for Vim.
 * [MatchTagAlways](https://github.com/Valloric/MatchTagAlways): A Vim plugin that always highlights the enclosing html/xml tags.
