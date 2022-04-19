@@ -87,11 +87,6 @@
 "    `                        | (A) -> toggle the gutter(numbers+folds+signify)
 "
 "    <Space><Space>           | (N) -> toggle selected fold
-"    <Space>=                 | (N) -> open all folds
-"    <Space>+                 | (N) -> open all folds
-"    <Space>-                 | (N) -> unopen all folds
-"    <Space>_                 | (N) -> unopen all folds
-"    <Space>0                 | (N) -> reset all folds using default fold level
 "
 "    <F1>                     | (A) -> toggle line wrapping
 "    <F2>                     | (A) -> toggle spell check
@@ -538,17 +533,6 @@
 
         "toggle folded code at foldpoints
         nnoremap <Space><Space> za
-
-        "open all folds
-        nnoremap <silent><expr> <Space>= 'zn:echo "all folds have been opened"<CR>'
-        nnoremap <silent><expr> <Space>+ 'zn:echo "all folds have been opened"<CR>'
-
-        "close folds set to be closed
-        nnoremap <silent><expr> <Space>- 'zN:echo "all opened folds have been closed"<CR>'
-        nnoremap <silent><expr> <Space>_ 'zN:echo "all opened folds have been closed"<CR>'
-
-        "reset all folds to the default fold level
-        nnoremap <silent><expr> <Space>0 'zX:echo "all folds have been reset"<CR>'
 
         "toggle line wrapping (and bottom bar if using the gui)
         nnoremap <silent><expr> <F1> ':set wrap!<CR>:echo "line wrapping toggled"<CR>'
