@@ -72,6 +72,11 @@
         let g:python_msgpack = 0
     endif
 
+    "don't load vim-gutentags if ctags can't be found
+    if !executable('ctags')
+        call add(pathogen_disabled, 'vim-gutentags')
+    endif
+
     if !g:python_neovim || !g:python_msgpack
         "don't load deoplete if either of its python dependencies are missing
         call add(pathogen_disabled, 'deoplete.nvim')
