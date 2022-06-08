@@ -74,27 +74,23 @@ As usual, to have your system use `vimpager` in place of `less`, you'll need to 
 
 ### Mouse ###
 
-| Binding              | Mode | Action                                       |
-|----------------------|------|----------------------------------------------|
-| Ctrl+ScrollUp        | ALL  | Scroll right a few characters at a time      |
-| Ctrl+ScrollDown      | ALL  | Scroll left a few characters at a time       |
-| Alt+ScrollUp         | ALL  | Scroll right one character at a time         |
-| Alt+ScrollDown       | ALL  | Scroll left one character at a time          |
-| Shift+ScrollUp       | ALL  | Scroll right one character at a time         |
-| Shift+ScrollDown     | ALL  | Scroll left one character at a time          |
-|                      |      |                                              |
-| MiddleClick          | ALL  | Select between the cursor and the mouse      |
-| Ctrl+LeftClick       | ALL  | Select between the cursor and the mouse      |
-| Alt+LeftClick        | ALL  | Select the line at the mouse                 |
-| Ctrl+Alt+LeftClick   | ALL  | Select the paragraph at the mouse            |
-|                      |      |                                              |
-| Ctrl+RightClick      | ALL  | Copy selection or character under the cursor |
-| Ctrl+MiddleClick     | ALL  | Copy selection or character under the cursor |
-| Alt+RightClick       | ALL  | Cut selection or character under the cursor  |
-| Alt+MiddleClick      | ALL  | Cut selection or character under the cursor  |
-| Ctrl+Alt+RightClick  | ALL  | Paste at the cursor                          |
-| Ctrl+Alt+MiddleClick | ALL  | Paste at the cursor                          |
-| Shift+MiddleClick    | ALL  | Paste the contents of the xorg buffer        |
+| Binding                       | Mode | Action                                       |
+|-------------------------------|------|----------------------------------------------|
+| (Ctrl\|Alt\|Shift)+ScrollUp   | ALL  | Scroll left a few characters at a time       |
+| (Ctrl\|Alt\|Shift)+ScrollDown | ALL  | Scroll right a few characters at a time      |
+|                               |      |                                              |
+| MiddleClick                   | ALL  | Select between the cursor and the mouse      |
+| Ctrl+LeftClick                | ALL  | Select between the cursor and the mouse      |
+| Alt+LeftClick                 | ALL  | Select the line at the mouse                 |
+| Ctrl+Alt+LeftClick            | ALL  | Select the paragraph at the mouse            |
+|                               |      |                                              |
+| Ctrl+RightClick               | ALL  | Copy selection or character under the cursor |
+| Ctrl+MiddleClick              | ALL  | Copy selection or character under the cursor |
+| Alt+RightClick                | ALL  | Cut selection or character under the cursor  |
+| Alt+MiddleClick               | ALL  | Cut selection or character under the cursor  |
+| Ctrl+Alt+RightClick           | ALL  | Paste at the cursor                          |
+| Ctrl+Alt+MiddleClick          | ALL  | Paste at the cursor                          |
+| Shift+MiddleClick             | ALL  | Paste the contents of the xorg buffer        |
 
 ### Keyboard ###
 
