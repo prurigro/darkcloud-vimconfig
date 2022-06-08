@@ -80,6 +80,8 @@ As usual, to have your system use `vimpager` in place of `less`, you'll need to 
 | Ctrl+ScrollDown      | ALL  | Scroll left a few characters at a time       |
 | Alt+ScrollUp         | ALL  | Scroll right one character at a time         |
 | Alt+ScrollDown       | ALL  | Scroll left one character at a time          |
+| Shift+ScrollUp       | ALL  | Scroll right one character at a time         |
+| Shift+ScrollDown     | ALL  | Scroll left one character at a time          |
 |                      |      |                                              |
 | MiddleClick          | ALL  | Select between the cursor and the mouse      |
 | Ctrl+LeftClick       | ALL  | Select between the cursor and the mouse      |
