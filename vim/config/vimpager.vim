@@ -38,10 +38,12 @@ map <C-ScrollWheelUp> <Nop>
 map <C-ScrollWheelDown> <Nop>
 map <A-ScrollWheelUp> <Nop>
 map <A-ScrollWheelDown> <Nop>
-noremap <C-ScrollWheelUp> 4zl
-noremap <C-ScrollWheelDown> 4zh
-noremap <A-ScrollWheelUp> zl
-noremap <A-ScrollWheelDown> zh
+noremap <C-ScrollWheelUp> 4zh
+noremap <A-ScrollWheelUp> 4zh
+noremap <S-ScrollWheelUp> 4zh
+noremap <C-ScrollWheelDown> 4zl
+noremap <A-ScrollWheelDown> 4zl
+noremap <S-ScrollWheelDown> 4zl
 
 "movement
 noremap <Home> 0
