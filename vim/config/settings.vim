@@ -34,8 +34,11 @@
         endif
     endif
 
-    "fancy mouse reporting with xterm2 fallback
-    if !has('nvim')
+    if has('nvim')
+        "extend selection instead of showing the right click menu in neovim
+        set mousemodel=extend
+    else
+        "fancy mouse in vim reporting with xterm2 fallback
         if has("mouse_sgr")
             set ttymouse=sgr
         else
