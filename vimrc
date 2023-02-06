@@ -89,6 +89,14 @@
         call add(pathogen_disabled, 'vim-hug-neovim-rpc')
     endif
 
+    "disable autocompletion logic when running in vimpager mode
+    if exists('g:vimpager.enabled')
+        call add(pathogen_disabled, 'deoplete.nvim')
+        call add(pathogen_disabled, 'neco-syntax')
+        call add(pathogen_disabled, 'nvim-yarp')
+        call add(pathogen_disabled, 'vim-hug-neovim-rpc')
+    endif
+
     "if neovim is being used we should disable plugins that aren't compatible or necessary
     if has('nvim')
         call add(pathogen_disabled, 'vim-fixkey')
