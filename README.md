@@ -169,7 +169,6 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [tcommand_vim](https://github.com/tomtom/tcommand_vim): Select commands, menu items etc. from a list.
   * [tlib_vim](https://github.com/tomtom/tlib_vim): Some utility functions for VIM.
 * [tcomment_vim](https://github.com/tomtom/tcomment_vim): File-type sensible comments that can be easily toggled on and off for blocks of text.
-* [vimfiler.vim](https://github.com/Shougo/vimfiler.vim): A curses-style file manager for vim that runs on it's own or in a sidebar and can associate handlers for file types.
   * [unite.vim](https://github.com/Shougo/unite.vim): A library used by Vim Filer to help build its user interface.
 * [vim-fugitive](https://github.com/tpope/vim-fugitive): A wrapper integrating git into vim in such a way as to provide features neither of them could offer on their own.
 * [vim-gutentags](https://github.com/xolox/vim-easytags): A plugin that takes care of the much needed management of tags files in Vim.
@@ -182,6 +181,8 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [vim-togglelist](https://github.com/milkypostman/vim-togglelist): A simple plugin for vim that allows you to bind a key to toggle the Location List and the Quickfix List.
 * [vim-trailing-whitespace](https://github.com/bronson/vim-trailing-whitespace): Highlights and allows for the easy removal of trailing whitespace in documents.
 * [vim-unimpaired](https://github.com/tpope/vim-unimpaired): Pairs of handy bracket mappings.
+* [vimfiler.vim](https://github.com/Shougo/vimfiler.vim): A curses-style file manager for vim that runs on it's own or in a sidebar and can associate handlers for file types.
+* [vimpager](https://github.com/rkitover/vimpager): Pager using vim and less.vim
 
 ## Credits ##
 
