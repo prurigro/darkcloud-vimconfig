@@ -45,15 +45,13 @@ A theme, config and collection of plugins for Vim.
 
 ### Vimpager ###
 
-Once darkcloud-vimconfig has been set up, you can configure `vimpager` _1.x_ to use it by running (assuming the default path @ _"/etc/darkcloud-vimconfig"_):
+You can configure your PAGER to use darkcloud-vimconfig using vimpager by adding the following to your bashrc (assuming the default path @ _"/etc/darkcloud-vimconfig"_):
 
-`ln -s /etc/darkcloud-vimconfig/vimpagerrc /etc/vimpagerrc` (for a system-wide configuration), or:
-
-`ln -s /etc/darkcloud-vimconfig/vimpagerrc ~/.vimpagerrc` (for a given user).
-
-As usual, to have your system use `vimpager` in place of `less`, you'll need to set the **$PAGER** environment variable to `vimpager`:
-
-`export PAGER=vimpager`, and configure aliases for less in _"/etc/bash.bashrc"_ or _"~/.bashrc"_: `alias less='vimpager'`
+```
+export PAGER=/etc/darkcloud-vimconfig/vim/bundle/vimpager/vimpager
+alias less="$PAGER"
+alias zless="$PAGER"
+```
 
 ## Configuration ##
 
