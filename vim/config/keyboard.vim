@@ -83,7 +83,6 @@
 "    iK                       | (N) -> remove cursor character as a keyword
 "
 "    ~                        | (N) -> popup a command reference
-"    ,                        | (N) -> display tag information in echo area
 "    <Leader><F1>             | (N) -> toggle the vim reference manual
 "    <Leader>?                | (N) -> toggle the vim reference manual
 "    `                        | (A) -> toggle the gutter(numbers+folds+signify)
@@ -445,9 +444,6 @@
 
         "toggle the command reference box
         nnoremap <silent><expr> ~ ':TCommand<CR>'
-
-        "display tag information in the gutter
-        noremap <buffer> <silent><expr> , ':TTagechoWord<CR>'
 
         "toggle the vim reference manual
         nnoremap <silent><expr> <Leader>? ':h index.txt<CR>'

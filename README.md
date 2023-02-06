@@ -160,6 +160,7 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [editorconfig-vim](https://github.com/editorconfig/editorconfig-vim): EditorConfig plugin for Vim that auto-configures certain settings when a .editorconfig file is present
 * [incsearch.vim](https://github.com/haya14busa/incsearch.vim): Improved incremental searching for Vim.
 * [lightline.vim](https://github.com/itchyny/lightline.vim): A light and configurable statusline/tabline for Vim.
+  * [lightline-ale](https://github.com/maximbaz/lightline-ale): Provides ALE indicator for the lightline vim plugin.
 * [MatchTagAlways](https://github.com/Valloric/MatchTagAlways): A Vim plugin that always highlights the enclosing html/xml tags.
 * [ReplaceWithRegister](https://github.com/vim-scripts/ReplaceWithRegister): Replace text with the contents of a register (for paste+replace without writing over the buffer).
 * [splitjoin.vim](https://github.com/AndrewRadev/splitjoin.vim): Simplifies the transition between multiline and single-line code
