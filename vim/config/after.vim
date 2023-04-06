@@ -51,7 +51,7 @@ autocmd FileChangedRO * nested set noreadonly
     autocmd FileType tmux,taskrc setlocal commentstring=#\ %s "set the comment string to #
     autocmd FileType slrnrc setlocal commentstring=%%\ %s "set the comment string to %
     autocmd FileType scss setlocal iskeyword+=$
-    autocmd FileType javascript setlocal iskeyword+=-
+    autocmd FileType javascript setlocal iskeyword+=- iskeyword+=.
     autocmd FileType vue setlocal spell
 
     "special side/bottom-bar settings to apply when opened
