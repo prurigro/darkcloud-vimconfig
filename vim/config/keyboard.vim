@@ -465,7 +465,7 @@
         inoremap <silent><expr> <F2> '<C-O>:set spell!<CR>'
 
         "toggle external-paste mode
-        set pastetoggle=<F3>
+        nnoremap <silent><expr> <F3> ':if &paste<Bar>set paste!<Bar>else<Bar>set paste<Bar>endif<CR>'
 
         "toggle syntax checking
         function! ToggleAle()
