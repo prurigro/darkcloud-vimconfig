@@ -227,6 +227,7 @@ endfun
 
     "sh
     call s:C("shVariable",g:cBlue,"","bold")
+    call s:C("shAlias",g:cBlue,"","bold")
 
     "systemd unit files
     hi! link sdBindIPv6 sdValue
