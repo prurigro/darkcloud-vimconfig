@@ -107,7 +107,7 @@ endfun
     call s:C("Boolean",g:cYellow,"","bold")
     call s:C("Comment",g:cLightGrayFg,"","italic")
     call s:C("Conditional",g:cYellow,"","")
-    call s:C("Constant",g:cYellow,"","bold")
+    call s:C("Constant",g:cBlue,"","bold")
     call s:C("Delimiter",g:cWhite,"","")
     call s:C("Directory",g:cBlue,"","")
     call s:C("Function",g:cBlue,"","")
@@ -253,10 +253,6 @@ endfun
 "MISC: {{{
     "email
     hi! link mailHeaderKey Identifier
-
-    "git
-    hi! link ExtraditeLogName Type
-    hi! link gitconfigAssignment Label
 
     "signify
     call s:C("SignifySignAdd",g:cYellow,"","bold")
