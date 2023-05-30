@@ -115,7 +115,7 @@ endfun
     call s:C("Keyword",g:cYellow,"","bold")
     call s:C("Label",g:cRed,"","")
     call s:C("NonText",g:cBlue,"","")
-    call s:C("Number",g:cYellow,"","bold")
+    call s:C("Number",g:cRed,"","bold")
     call s:C("Operator",g:cRed,"","")
     call s:C("PreProc",g:cYellow,"","")
     call s:C("Question",g:cBlue,"","")
