@@ -71,6 +71,7 @@ endfun
     hi LineNr ctermfg=239
 
     call s:C("Visual","",g:cDarkGrayBg,"standout")
+    call s:C("VertSplit",g:cDarkText,"","")
     call s:C("MatchParen","",g:cLightGrayBg,"bold")
 
     "whitespace
