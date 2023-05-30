@@ -28,6 +28,9 @@
     "Add Config Directory: (distro-agnostic system-wide)
     let &runtimepath = printf('%s,%s/vim,%s/vim/after',&runtimepath,g:darkcloudpath,g:darkcloudpath)
 
+    "Load Colours
+    runtime colors/palette.vim
+
     "Load Colour Scheme:
     colorscheme default "hack to fix vimrc colorschemes in some versions of vim
     colorscheme darkcloud
