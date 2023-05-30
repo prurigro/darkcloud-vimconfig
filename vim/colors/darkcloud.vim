@@ -49,8 +49,8 @@ endfun
 "SYNTAX COLORS:
 
 "SPELL CHECKING UNDERLINE: (blue, yellow, none, none) {{{
-    call s:C("SpellBad",g:cBlue,"","bold,underline")
-    call s:C("SpellCap",g:cYellow,"","underline")
+    call s:C("SpellBad",g:cRed,"","italic,underline")
+    call s:C("SpellCap",g:cYellow,"","italic,underline")
     call s:C("SpellRare","","","")
     call s:C("SpellLocal","","","")
 "}}}
@@ -105,7 +105,7 @@ endfun
     "syntax style
     call s:C("Boolean",g:cBlue,"","bold")
     call s:C("Comment",g:cLightGrayFg,"","italic")
-    call s:C("Conditional",g:cRed,"","bold")
+    call s:C("Conditional",g:cYellow,"","")
     call s:C("Constant",g:cBlue,"","bold")
     call s:C("Delimiter",g:cWhite,"","")
     call s:C("Directory",g:cBlue,"","")
@@ -161,8 +161,6 @@ endfun
     call s:C("htmlLink",g:cRed,"","")
     call s:C("htmlSpecialChar","","","italic")
     call s:C("htmlTagName",g:cYellow,"","bold")
-    hi! link htmlTag Tag
-    hi! link htmlTitle Title
 
     "markdown
     call s:C("mkdCode",g:cYellow,g:cLightGrayBg,"")
@@ -171,11 +169,7 @@ endfun
 
     "php
     hi! link phpArrayPair Operator
-    hi! link phpBoolean Constant
-    hi! link phpFunctions Function
     hi! link phpNull Constant
-    hi! link phpQuoteDouble StringDelimiter
-    hi! link phpQuoteSingle StringDelimiter
     hi! link phpSuperglobal Identifier
 
     "javaScript
@@ -198,9 +192,7 @@ endfun
     call s:C("cBraces",g:cYellow,"","")
     hi! link cBlock String
     hi! link cBlock cBraces
-    hi! link cCharacter String
     hi! link cNumbersCom Number
-    hi! link cOperator cBraces
 
     "dosini
     hi! link dosiniLabel Function
@@ -221,18 +213,11 @@ endfun
     call s:C("rubyGlobalVariable","","","bold")
     hi! link rubyClass Type
     hi! link rubyConstant Type
-    hi! link rubyFunction Function
     hi! link rubyGlobalVariable rubyInstanceVariable
-    hi! link rubyIdentifier Identifier
     hi! link rubyInterpolationDelimiter Identifier
     hi! link rubyModule rubyClass
     hi! link rubyPredefinedIdentifier PreProc
     hi! link rubySharpBang Comment
-    hi! link rubyString String
-    hi! link rubyStringDelimiter StringDelimiter
-
-    "lua
-    hi! link luaOperator Conditional
 
     "systemd unit files
     hi! link sdBindIPv6 sdValue
