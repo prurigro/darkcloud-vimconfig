@@ -225,6 +225,9 @@ endfun
     hi! link rubyPredefinedIdentifier PreProc
     hi! link rubySharpBang Comment
 
+    "sh
+    call s:C("shVariable",g:cBlue,"","bold")
+
     "systemd unit files
     hi! link sdBindIPv6 sdValue
     hi! link sdBool sdValue
