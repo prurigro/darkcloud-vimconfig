@@ -117,19 +117,19 @@ endif
 "ligtline theme {{{
     let s:p = { 'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {} }
 
-    let s:p.normal.left = [[ g:cBlue, g:cDarkGrayBg ], [ g:cNormalText, g:cLightGrayBg ]]
-    let s:p.inactive.left = [[ g:cBlue, g:cDarkGrayBg ], [ g:cNormalText, g:cLightGrayBg ]]
-    let s:p.normal.right = [[ g:cDarkText, g:cDarkGrayBg ], [ g:cNormalText, g:cLightGrayBg ], [ g:cDarkText, g:cDarkGrayBg ]]
-    let s:p.inactive.right = [[ g:cDarkText, g:cDarkGrayBg ], [ g:cNormalText, g:cLightGrayBg ], [ g:cDarkText, g:cDarkGrayBg ]]
+    let s:p.normal.left = [[ g:cBlue, g:cDarkGrayBg ], [ g:cLightText, g:cLightGrayBg ]]
+    let s:p.inactive.left = [[ g:cBlue, g:cDarkGrayBg ], [ g:cLightText, g:cLightGrayBg ]]
+    let s:p.normal.right = [[ g:cGray, g:cDarkGrayBg ], [ g:cLightText, g:cLightGrayBg ], [ g:cGray, g:cDarkGrayBg ]]
+    let s:p.inactive.right = [[ g:cGray, g:cDarkGrayBg ], [ g:cLightText, g:cLightGrayBg ], [ g:cGray, g:cDarkGrayBg ]]
 
-    let s:p.insert.left = [[ g:cRed, g:cLightGrayBg ], [ g:cDarkText, g:cDarkGrayBg ]]
-    let s:p.replace.left = [[ g:cLightGrayBg, g:cRed ], [ g:cDarkText, g:cDarkGrayBg ]]
-    let s:p.visual.left = [[ g:cYellow, g:cLightGrayBg ], [ g:cDarkText, g:cDarkGrayBg ]]
+    let s:p.insert.left = [[ g:cRed, g:cLightGrayBg ], [ g:cGray, g:cDarkGrayBg ]]
+    let s:p.replace.left = [[ g:cLightGrayBg, g:cRed ], [ g:cGray, g:cDarkGrayBg ]]
+    let s:p.visual.left = [[ g:cYellow, g:cLightGrayBg ], [ g:cGray, g:cDarkGrayBg ]]
 
-    let s:p.normal.middle = [[ g:cNormalText, g:cLightGrayBg ]]
-    let s:p.tabline.left = [[ g:cDarkText, g:cDarkGrayBg ]]
-    let s:p.tabline.tabsel = [[ g:cDarkText, g:cLightGrayBg ]]
-    let s:p.tabline.middle = [[ g:cDarkGrayBg, g:cDarkText ]]
+    let s:p.normal.middle = [[ g:cLightText, g:cLightGrayBg ]]
+    let s:p.tabline.left = [[ g:cGray, g:cDarkGrayBg ]]
+    let s:p.tabline.tabsel = [[ g:cGray, g:cLightGrayBg ]]
+    let s:p.tabline.middle = [[ g:cDarkGrayBg, g:cGray ]]
     let s:p.tabline.right = copy(s:p.normal.right)
     let s:p.normal.error = [[ g:cRed, g:cLightGrayBg ]]
     let s:p.normal.warning = [[ g:cYellow, g:cLightGrayBg ]]

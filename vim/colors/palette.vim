@@ -1,14 +1,15 @@
 if has("gui_running")
     let g:cBlack = "#000000"
     let g:cWhite = "#ffffff"
+    let g:cGray = "#dadada"
 
     let g:cBlue = "#87d7ff"
     let g:cRed = "#d75f5f"
     let g:cYellow = "#ffd787"
 
-    let g:cDarkBlue = "#5fafd7"
-    let g:cDarkRed = "#af5f5f"
-    let g:cDarkYellow = "#d7af5f"
+    let g:cDarkBlue = "#6caccc"
+    let g:cDarkRed = "#a34848"
+    let g:cDarkYellow = "#ccac6c"
 
     let g:cDarkGrayBg = "#262626"
     let g:cLightGrayBg = "#303030"
@@ -16,12 +17,12 @@ if has("gui_running")
     let g:cDarkGrayFg = "#4e4e4e"
     let g:cLightGrayFg = "#6c6c6c"
 
-    let g:cLightText = "#c6c6c6"
-    let g:cNormalText = "#eeeeee"
-    let g:cDarkText = "#d0d0d0"
+    let g:cDarkText = "#c6c6c6"
+    let g:cLightText = "#eeeeee"
 elseif &t_Co >= 256
     let g:cBlack = '0' "#000000
     let g:cWhite = '15' "#ffffff
+    let g:cGray = '253' "#dadada
 
     let g:cBlue = '117' "#87d7ff
     let g:cRed = '167' "#d75f5f
@@ -37,12 +38,12 @@ elseif &t_Co >= 256
     let g:cDarkGrayFg = '239' "#4e4e4e
     let g:cLightGrayFg = '242' "#6c6c6c
 
-    let g:cLightText = '251' "#c6c6c6
-    let g:cNormalText = '255' "#eeeeee
-    let g:cDarkText = '252' "#d0d0d0
+    let g:cDarkText = '251' "#c6c6c6
+    let g:cLightText = '255' "#eeeeee
 else
     let g:cBlack = '0' "#000000
     let g:cWhite = '15' "#ffffff
+    let g:cGray = '15' "#ffffff
 
     let g:cBlue = '12' "#0000ff
     let g:cRed = '9' "#ff0000
@@ -58,7 +59,6 @@ else
     let g:cDarkGrayFg = '15' "#ffffff
     let g:cLightGrayFg = '15' "#ffffff
 
-    let g:cLightText = '15' "#ffffff
-    let g:cNormalText = '15' "#ffffff
     let g:cDarkText = '15' "#ffffff
+    let g:cLightText = '15' "#ffffff
 endif

@@ -48,15 +48,15 @@ endfun
 
 "SYNTAX COLORS:
 
-"SPELL CHECKING UNDERLINE: (blue, yellow, none, none) {{{
-    call s:C("SpellBad",g:cRed,"","italic,underline")
-    call s:C("SpellCap",g:cYellow,"","italic,underline")
+"SPELL CHECKING UNDERLINE: {{{
+    call s:C("SpellBad","","","italic,underline")
+    call s:C("SpellCap","","","italic,underline")
     call s:C("SpellRare","","","")
     call s:C("SpellLocal","","","")
 "}}}
 
 "CORE: {{{
-    call s:C("Normal",g:cNormalText,g:cDarkGrayBg,"")
+    call s:C("Normal",g:cLightText,g:cDarkGrayBg,"")
     hi Normal ctermfg=254 ctermbg=235
     hi! link Conceal Normal
 
@@ -71,13 +71,13 @@ endfun
     hi LineNr ctermfg=239
 
     call s:C("Visual","",g:cDarkGrayBg,"standout")
-    call s:C("VertSplit",g:cDarkText,"","")
+    call s:C("VertSplit",g:cGray,"","")
     call s:C("MatchParen","",g:cLightGrayBg,"bold")
 
     "whitespace
     call s:C("TabLine","",g:cBlack,"")
     call s:C("TabLineFill","",g:cBlack,"")
-    call s:C("TabLineSel",g:cBlack,g:cDarkText,"")
+    call s:C("TabLineSel",g:cBlack,g:cGray,"")
     call s:C("ExtraWhiteSpace",g:cDarkRed,g:cDarkGrayBg,"")
 
     "menu call
@@ -95,23 +95,23 @@ endfun
     "status line
     call s:C("StatusLine","",g:cLightGrayBg,"")
     hi! link StatusLineNC StatusLine
-    call s:C("WildMenu",g:cDarkText,g:cLightGrayBg,"")
+    call s:C("WildMenu",g:cGray,g:cLightGrayBg,"")
 
     "folding
     call s:C("Folded",g:cBlue,g:cLightGrayBg,"bold")
-    call s:C("FoldColumn",g:cNormalText,"","bold")
+    call s:C("FoldColumn",g:cLightText,"","bold")
     call s:C("SignColumn",g:cRed,"","bold")
     hi! link ColorColumn SignColumn
 
     "syntax style
-    call s:C("Boolean",g:cBlue,"","bold")
+    call s:C("Boolean",g:cYellow,"","bold")
     call s:C("Comment",g:cLightGrayFg,"","italic")
     call s:C("Conditional",g:cYellow,"","")
-    call s:C("Constant",g:cBlue,"","bold")
+    call s:C("Constant",g:cYellow,"","bold")
     call s:C("Delimiter",g:cWhite,"","")
     call s:C("Directory",g:cBlue,"","")
     call s:C("Function",g:cBlue,"","")
-    call s:C("Identifier",g:cBlue,"","bold")
+    call s:C("Identifier",g:cDarkText,"","bold")
     call s:C("Keyword",g:cYellow,"","bold")
     call s:C("Label",g:cRed,"","")
     call s:C("NonText",g:cBlue,"","")
@@ -124,10 +124,10 @@ endfun
     call s:C("Statement",g:cYellow,"","")
     call s:C("String",g:cWhite,"","bold")
     call s:C("StringDelimiter",g:cDarkText,"","")
-    call s:C("Tag",g:cBlue,"","bold")
+    call s:C("Tag",g:cYellow,"","")
     call s:C("Title",g:cRed,"","bold")
     call s:C("Todo",g:cRed,"","bold")
-    call s:C("Type",g:cRed,"","bold")
+    call s:C("Type",g:cDarkText,"","bold")
     call s:C("Typedef",g:cRed,"","bold")
     hi! link Character String
     hi! link Float Number
@@ -146,10 +146,27 @@ endfun
     call s:C("DiffAdd",g:cYellow,"","standout")
     call s:C("DiffChange",g:cBlue,"","standout")
     call s:C("DiffDelete",g:cRed,"","standout")
-    call s:C("DiffText",g:cLightText,"","standout")
+    call s:C("DiffText",g:cDarkText,"","standout")
 "}}}
 
-"SYNTAX: {{{
+"LANGUAGE: {{{
+    "c
+    call s:C("cBraces",g:cYellow,"","")
+    hi! link cBlock String
+    hi! link cBlock cBraces
+    hi! link cNumbersCom Number
+
+    "coffeeScript
+    hi! link coffeeRegExp javaScriptRegexpString
+
+    "dosini
+    hi! link dosiniLabel Function
+
+    "gitcommit
+    call s:C("gitcommitSummary",g:cLightText,"","")
+    call s:C("gitcommitType",g:cBlue,"","")
+    call s:C("gitcommitFile",g:cRed,"","")
+
     "html
     call s:C("htmlArg",g:cRed,"","bold")
     call s:C("htmlBold",g:cWhite,"","bold")
@@ -162,16 +179,6 @@ endfun
     call s:C("htmlLink",g:cRed,"","")
     call s:C("htmlSpecialChar","","","italic")
     call s:C("htmlTagName",g:cYellow,"","bold")
-
-    "markdown
-    call s:C("mkdCode",g:cYellow,g:cLightGrayBg,"")
-    call s:C("mkdURL",g:cLightGrayFg,"","")
-    hi! link mkdIndentCode mkdCode
-
-    "php
-    hi! link phpArrayPair Operator
-    hi! link phpNull Constant
-    hi! link phpSuperglobal Identifier
 
     "javaScript
     hi! link javaScriptBraces Delimiter
@@ -186,17 +193,10 @@ endfun
     autocmd BufEnter,FileType json hi! link Number Todo
     autocmd BufEnter,FileType json hi! link String Statement
 
-    "coffeeScript
-    hi! link coffeeRegExp javaScriptRegexpString
-
-    "c
-    call s:C("cBraces",g:cYellow,"","")
-    hi! link cBlock String
-    hi! link cBlock cBraces
-    hi! link cNumbersCom Number
-
-    "dosini
-    hi! link dosiniLabel Function
+    "markdown
+    call s:C("mkdCode",g:cYellow,g:cLightGrayBg,"")
+    call s:C("mkdURL",g:cLightGrayFg,"","")
+    hi! link mkdIndentCode mkdCode
 
     "objective-c/cocoa
     hi! link cocoaClass objcClass
@@ -209,6 +209,11 @@ endfun
     hi! link objcStatement Constant
     hi! link objcSubclass objcClass
     hi! link objcSuperclass objcClass
+
+    "php
+    hi! link phpArrayPair Operator
+    hi! link phpNull Constant
+    hi! link phpSuperglobal Identifier
 
     "ruby
     call s:C("rubyGlobalVariable","","","bold")
