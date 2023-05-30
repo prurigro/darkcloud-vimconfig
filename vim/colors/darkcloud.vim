@@ -112,7 +112,7 @@ endfun
     call s:C("Directory",g:cBlue,"","")
     call s:C("Function",g:cBlue,"","")
     call s:C("Identifier",g:cDarkText,"","bold")
-    call s:C("Keyword",g:cYellow,"","bold")
+    call s:C("Keyword",g:cBlue,"","bold")
     call s:C("Label",g:cRed,"","")
     call s:C("NonText",g:cBlue,"","")
     call s:C("Number",g:cRed,"","bold")
@@ -127,7 +127,7 @@ endfun
     call s:C("Tag",g:cYellow,"","")
     call s:C("Title",g:cRed,"","bold")
     call s:C("Todo",g:cRed,"","bold")
-    call s:C("Type",g:cDarkText,"","bold")
+    call s:C("Type",g:cRed,"","bold")
     call s:C("Typedef",g:cRed,"","bold")
     hi! link Character String
     hi! link Float Number
