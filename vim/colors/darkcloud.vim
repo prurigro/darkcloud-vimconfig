@@ -57,18 +57,13 @@ endfun
 
 "CORE: {{{
     call s:C("Normal",g:cLightText,g:cDarkGrayBg,"")
-    hi Normal ctermfg=254 ctermbg=235
     hi! link Conceal Normal
 
     call s:C("Cursor","",g:cDarkGrayBg,"standout")
     call s:C("CursorColumn","",g:cLightGrayBg,"")
-    hi CursorColumn ctermbg=236
     call s:C("CursorLine","",g:cLightGrayBg,"")
-    hi CursorLine ctermbg=236
     call s:C("CursorLineNr",g:cBlue,g:cLightGrayBg,"bold")
-    hi CursorLineNr ctermbg=236
     call s:C("LineNr",g:cDarkGrayFg,"","bold")
-    hi LineNr ctermfg=239
 
     call s:C("Visual","",g:cDarkGrayBg,"standout")
     call s:C("VertSplit",g:cGray,"","")
@@ -110,8 +105,8 @@ endfun
     call s:C("Constant",g:cBlue,"","bold")
     call s:C("Delimiter",g:cWhite,"","")
     call s:C("Directory",g:cBlue,"","")
-    call s:C("Function",g:cBlue,"","")
-    call s:C("Identifier",g:cDarkText,"","bold")
+    call s:C("Function",g:cBlue,"","bold")
+    call s:C("Identifier",g:cBlue,"","bold")
     call s:C("Keyword",g:cBlue,"","bold")
     call s:C("Label",g:cRed,"","")
     call s:C("NonText",g:cBlue,"","")
@@ -272,6 +267,75 @@ endfun
 
     "taglist
     hi! link TagListFileName Directory
+"}}}
+
+"TREESITTER: {{{
+    if has('nvim')
+        call s:C("@attribute",g:cRed,"","")
+        call s:C("@boolean",g:cBlue,"","bold")
+        call s:C("@character",g:cWhite,"","bold")
+        call s:C("@constant",g:cDarkText,"","")
+        call s:C("@constant.builtin",g:cDarkText,"","")
+        call s:C("@constant.macro",g:cDarkText,"","")
+        call s:C("@constructor",g:cDarkText,"","")
+        call s:C("@danger",g:cRed,"","bold")
+        call s:C("@error",g:cRed,"","bold")
+        call s:C("@exception",g:cRed,"","")
+        call s:C("@float",g:cYellow,"","bold")
+        call s:C("@function",g:cBlue,"","bold")
+        call s:C("@function.builtin",g:cBlue,"","bold")
+        call s:C("@function.macro",g:cBlue,"","italic")
+        call s:C("@include",g:cBlue,"","bold")
+        call s:C("@keyword",g:cRed,"","bold")
+        call s:C("@keyword.function",g:cRed,"","bold")
+        call s:C("@keyword.operator","","","bold")
+        call s:C("@label",g:cWhite,"","")
+        call s:C("@namespace",g:cDarkText,"","")
+        call s:C("@none",g:cLightText,"","")
+        call s:C("@number",g:cYellow,"","")
+        call s:C("@operator",g:cRed,"","")
+        call s:C("@parameter",g:cYellow,"","")
+        call s:C("@parameter.reference",g:cYellow,"","bold")
+        call s:C("@property",g:cBlue,"","")
+        call s:C("@punctuation.bracket",g:cDarkText,"","")
+        call s:C("@punctuation.delimiter",g:cDarkText,"","")
+        call s:C("@punctuation.special",g:cDarkText,"","bold")
+        call s:C("@repeat",g:cBlue,"","")
+        call s:C("@string",g:cWhite,"","bold")
+        call s:C("@string.escape",g:cDarkText,"","")
+        call s:C("@string.regex","","","italic")
+        call s:C("@symbol",g:cRed,"","")
+        call s:C("@tag",g:cYellow,"","bold")
+        call s:C("@tag.attribute",g:cBlue,"","bold")
+        call s:C("@tag.delimiter",g:cBlue,"","bold")
+        call s:C("@text",g:cLightText,"","")
+        call s:C("@text.diff.add",g:cYellow,"","")
+        call s:C("@text.diff.change",g:cBlue,"","")
+        call s:C("@text.diff.delete",g:cRed,"","")
+        call s:C("@text.emphasis","","","italic")
+        call s:C("@text.environment",g:cWhite,"","")
+        call s:C("@text.environment.name",g:cWhite,"","")
+        call s:C("@text.literal",g:cLightText,"","")
+        call s:C("@text.math","","","bold,italic")
+        call s:C("@text.reference",g:cWhite,"","")
+        call s:C("@text.strike","","","strikethrough")
+        call s:C("@text.strong","","","bold")
+        call s:C("@text.title","","","")
+        call s:C("@text.todo",g:cDarkText,"","")
+        call s:C("@text.underline","","","underline")
+        call s:C("@text.uri","","","bold,underline")
+        call s:C("@type",g:cYellow,"","bold")
+        call s:C("@type.builtin",g:cYellow,"","bold")
+        call s:C("@variable",g:cYellow,"","")
+        call s:C("@variable.builtin",g:cYellow,"","bold")
+        call s:C("@warning",g:cRed,"","")
+        hi! link @annotation @comment
+        hi! link @comment Comment
+        hi! link @conditional Conditional
+        hi! link @field @function
+        hi! link @method @function
+        hi! link @note @comment
+    endif
 "}}}
 
 "cleanup {{{
