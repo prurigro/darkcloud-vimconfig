@@ -302,7 +302,7 @@ endfun
         call s:C("@punctuation.special",g:cDarkText,"","bold")
         call s:C("@repeat",g:cBlue,"","")
         call s:C("@string",g:cWhite,"","bold")
-        call s:C("@string.escape",g:cDarkText,"","")
+        call s:C("@string.escape",g:cYellow,"","")
         call s:C("@string.regex","","","italic")
         call s:C("@symbol",g:cRed,"","")
         call s:C("@tag",g:cYellow,"","bold")
