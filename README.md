@@ -1,15 +1,15 @@
-# darkcloud-vimconfig #
+# darkcloud-vimconfig
 
 A theme, config and collection of plugins for Vim.
 
-## Requirements ##
+## Requirements
 
 * **Vim**: The latest [vim](http://www.vim.org) should be installed to use this distribution.
 * **Bash**: Required by the _update_ and _gentags_ scripts.
 * **Coreutils**: Required by the _update_ script.
 * **Git**: Required by the _update_ script and git-related plugins.
 
-## Optional Requirements ##
+## Optional Requirements
 
 * **Compilers, Linters and Runtimes**: The ale plugin can use compilers, linters and runtimes to provide real-time syntax checking.
 * **CTags**: Required by the _tagbar_ and _deoplete_ plugins as well as the _gentags_ script ([ctags website](http://ctags.sourceforge.net)).
@@ -18,7 +18,7 @@ A theme, config and collection of plugins for Vim.
 * **Neovim Python Module**: Required for _deoplete_ autocompletion.
 * **Python Msgpack**: Required for _deoplete_ autocompletion.
 
-## Distribution Features ##
+## Distribution Features
 
 * **Default Configuration**: A complete set of defaults, focusing on the most modern settings that still provide a compatible experience.
 * **Custom theme**: An original colour scheme with explicit values set to optimize the look of individual filetypes.
@@ -30,7 +30,7 @@ A theme, config and collection of plugins for Vim.
 
 ![Darkcloud Vimconfig Update Tool](https://i.imgur.com/AOXSL7S.png)
 
-## Installation ##
+## Installation
 
 1. Clone the darkcloud-vimconfig repo and use the _update_ script to install the plugins:
   * `git clone https://github.com/prurigro/darkcloud-vimconfig.git`
@@ -43,7 +43,7 @@ A theme, config and collection of plugins for Vim.
   * Place _darkcloud-vimconfig_ in the default location @ _/etc/darkcloud-vimconfig_.
   * Create your own vimrc and have that set the _g:darkcloudpath_ variable before sourcing the included vimrc.
 
-### Vimpager ###
+### Vimpager
 
 You can configure your PAGER to use darkcloud-vimconfig using vimpager by adding the following to your bashrc (assuming the default path @ _"/etc/darkcloud-vimconfig"_):
 
@@ -53,7 +53,7 @@ alias less="$PAGER"
 alias zless="$PAGER"
 ```
 
-## Configuration ##
+## Configuration
 
 * **Configure Variables**: The following variables can be added to _vim/vimrc.user_ and have their values set to the values you require:
   * `g:autostartchecker`: **1** = Check syntax once an appropriate file is loaded | **0** = Check syntax only after syntax checking is toggled on (_default_: **0**)
@@ -68,9 +68,9 @@ alias zless="$PAGER"
 * **Update Script**: (requires: bash+git) Use this to update the project and submodules, as well as handle any required maintenance, generate docs from the pathogen plugins and create missing config scripts with preset values.
 * **Generate System Tags**: (requires: bash+ctags) Generate a list of ctags for your system libraries in _/usr/include_ and _/usr/local/include_ as well as any folders passed as arguments by running the _gentags_ script.
 
-## Mappings ##
+## Mappings
 
-### Mouse ###
+### Mouse
 
 | Binding                       | Mode | Action                                       |
 |-------------------------------|------|----------------------------------------------|
@@ -90,9 +90,9 @@ alias zless="$PAGER"
 | Ctrl+Alt+MiddleClick          | ALL  | Paste at the cursor                          |
 | Shift+MiddleClick             | ALL  | Paste the contents of the xorg buffer        |
 
-### Keyboard ###
+### Keyboard
 
-#### Sidebars ####
+#### Sidebars
 
 | Binding    | Mode     | Action                                        |
 |------------|----------|-----------------------------------------------|
@@ -101,7 +101,7 @@ alias zless="$PAGER"
 | F11 or \+\ | ALL or N | Toggle the location list for **ale** issues   |
 | F12 or \+[ | ALL or N | Toggle **vimfiler** file manager sidebar      |
 
-#### Toggles ####
+#### Toggles
 
 | Binding         | Mode | Action                                           |
 |-----------------|------|--------------------------------------------------|
@@ -115,7 +115,7 @@ alias zless="$PAGER"
 | \`              | N    | Toggle gutter (left bar with line numbers etc.)  |
 | Backslash+?     | N    | Toggle the **vim** reference manual              |
 
-#### Spell Check ####
+#### Spell Check
 
 | Binding | Mode | Action                                        |
 |---------|------|-----------------------------------------------|
@@ -124,7 +124,7 @@ alias zless="$PAGER"
 | ?N      | N    | Go to the next spelling mistake               |
 | ?P      | N    | Go to the previous spelling mistake           |
 
-#### Fixing and Formatting ####
+#### Fixing and Formatting
 
 | Binding  | Mode | Action                                                        |
 |----------|------|---------------------------------------------------------------|
@@ -138,7 +138,7 @@ alias zless="$PAGER"
 | Leader+A | N+V  | Align comments in document/selection                          |
 | Leader+a | N+V  | Align comments following non-comments in document/selection   |
 
-#### GVim ####
+#### GVim
 
 | Binding      | Mode | Action                |
 |--------------|------|-----------------------|
@@ -146,11 +146,11 @@ alias zless="$PAGER"
 | Backslash+F2 | ALL  | Toggle the toolbar    |
 | Backslash+F3 | ALL  | Toggle the scrollbars |
 
-### Complete Reference ###
+### Complete Reference
 
 For a complete list of mappings specific to **darkcloud-vimconfig**, check the list in the comments at the top of [vim/config/keyboard.vim](https://github.com/prurigro/darkcloud-vimconfig/blob/master/vim/config/keyboard.vim).
 
-## Plugins ##
+## Plugins
 
 * [ale](https://github.com/w0rp/ale): Asynchronous Lint Engine
 * [deoplete.nvim](https://github.com/Shougo/deoplete.nvim): Dark powered asynchronous completion framework for neovim/Vim8
@@ -185,12 +185,12 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [vimfiler.vim](https://github.com/Shougo/vimfiler.vim): A curses-style file manager for vim that runs on it's own or in a sidebar and can associate handlers for file types.
 * [vimpager](https://github.com/rkitover/vimpager): Pager using vim and less.vim
 
-## Credits ##
+## Credits
 
 * By Kevin MacMartin: [GitHub Projects](https://github.com/prurigro?tab=repositories) | [Arch Linux AUR Packages](https://aur.archlinux.org/packages/?SeB=m&K=prurigro)
 * The jellybean theme for Vim by [NanoTech](http://nanotech.nanotechcorp.net) was stripped down and used as a starting point to build the darkcloud theme included in this project.
 * The [vim-markdown](https://github.com/plasticboy/vim-markdown) plugin **TableFormat** command, used to format tables in markdown files, was pulled into [plugins.vim](https://github.com/prurigro/darkcloud-vimconfig/blob/master/vim/config/plugins.vim) from [ftplugin/mkd](https://github.com/plasticboy/vim-markdown/blob/master/ftplugin/mkd.vim).
 
-## License ##
+## License
 
 Licensed under the [MIT license](http://opensource.org/licenses/MIT).
