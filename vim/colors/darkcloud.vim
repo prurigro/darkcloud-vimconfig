@@ -292,7 +292,7 @@ endfun
         call s:C("@label",g:cWhite,"","")
         call s:C("@namespace",g:cDarkText,"","")
         call s:C("@none",g:cLightText,"","")
-        call s:C("@number",g:cYellow,"","")
+        call s:C("@number",g:cWhite,"","")
         call s:C("@operator",g:cRed,"","")
         call s:C("@parameter",g:cYellow,"","")
         call s:C("@parameter.reference",g:cYellow,"","bold")
