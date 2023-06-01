@@ -188,7 +188,6 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 ## Credits
 
 * By Kevin MacMartin: [GitHub Projects](https://github.com/prurigro?tab=repositories) | [Arch Linux AUR Packages](https://aur.archlinux.org/packages/?SeB=m&K=prurigro)
-* The jellybean theme for Vim by [NanoTech](http://nanotech.nanotechcorp.net) was stripped down and used as a starting point to build the darkcloud theme included in this project.
 * The [vim-markdown](https://github.com/plasticboy/vim-markdown) plugin **TableFormat** command, used to format tables in markdown files, was pulled into [plugins.vim](https://github.com/prurigro/darkcloud-vimconfig/blob/master/vim/config/plugins.vim) from [ftplugin/mkd](https://github.com/plasticboy/vim-markdown/blob/master/ftplugin/mkd.vim).
 
 ## License
