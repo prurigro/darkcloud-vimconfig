@@ -140,8 +140,6 @@
 "    <Leader>t                | (N) -> convert tabs into spaces
 "    <Leader>T                | (N) -> convert spaces into tabs
 "    <Leader>w                | (N) -> remove whitespace
-"    <Leader>c                | (N) -> comment/uncomment current line
-"    <Leader>c                | (V) -> comment/uncomment selection
 "    <Leader>A                | (N) -> aligns comments using the comment symbol
 "    <Leader>A                | (V) -> aligns selected comments
 "    <Leader>a                | (N) -> aligns all comments after text
@@ -579,10 +577,6 @@
 
         "remove trailing whitespace
         nnoremap <silent><expr> <Leader>w ':FixWhitespace<CR>:echo "Trailing whitespace has been removed"<CR>'
-
-        "commant/uncomment current line/selection using tcomment
-        nmap <Leader>c gcc
-        vmap <Leader>c gc
 
         "align comments
         nnoremap <Leader>A :exe "%Tabular" '/^[^'.matchstr(&commentstring, '[^%]*').']*\zs'.matchstr(&commentstring, '[^%]*').'.*'<CR>:redraw!<CR>
