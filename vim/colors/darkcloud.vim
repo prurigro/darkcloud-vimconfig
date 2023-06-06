@@ -323,7 +323,7 @@ endfun
         call s:C("@text.title","","","")
         call s:C("@text.todo",g:cDarkText,"","")
         call s:C("@text.underline","","","underline")
-        call s:C("@text.uri","","","bold,underline")
+        call s:C("@text.uri","","","bold")
         call s:C("@type",g:cYellow,"","bold")
         call s:C("@type.builtin",g:cYellow,"","bold")
         call s:C("@variable",g:cYellow,"","")
