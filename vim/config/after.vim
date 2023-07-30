@@ -67,4 +67,9 @@ autocmd FileChangedRO * nested set noreadonly
 
     "disable the whitespace plugin for vimfiler
     autocmd BufEnter,FileType vimfiler,mail hi ExtraWhitespace ctermbg=NONE guibg=NONE
+
+    "vimpager settings
+    if exists('g:vimpager.enabled')
+        set nonumber
+    endif
 "}}}
