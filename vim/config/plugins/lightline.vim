@@ -61,8 +61,6 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
 endfunction
 
 let g:lightline = {
-    \ 'colorscheme': 'darkcloud',
-    \
     \ 'component_function': {
     \     'fugitive': 'LLFugitive',
     \     'filename': 'LLFilename',
@@ -118,6 +116,8 @@ endif
     let s:p = { 'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {} }
 
     if &term != "linux"
+        let g:lightline.colorscheme = 'darkcloud'
+
         let s:p.normal.left = [[ g:cBlue, g:cDarkGrayBg ], [ g:cLightText, g:cLightGrayBg ]]
         let s:p.inactive.left = [[ g:cLightGrayFg, g:cDarkGrayBg ], [ g:cLightGrayFg, g:cLightGrayBg ]]
         let s:p.normal.right = [[ g:cLightText, g:cDarkGrayBg ], [ g:cLightText, g:cLightGrayBg ], [ g:cLightText, g:cDarkGrayBg ]]
