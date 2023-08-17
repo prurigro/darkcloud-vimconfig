@@ -29,11 +29,13 @@
     let &runtimepath = printf('%s,%s/vim,%s/vim/after',&runtimepath,g:darkcloudpath,g:darkcloudpath)
 
     "Load Colours
-    runtime colors/palette.vim
+    if &term != "linux"
+        runtime colors/palette.vim
 
-    "Load Colour Scheme:
-    colorscheme default "hack to fix vimrc colorschemes in some versions of vim
-    colorscheme darkcloud
+        "Load Colour Scheme:
+        colorscheme default "hack to fix vimrc colorschemes in some versions of vim
+        colorscheme darkcloud
+    endif
 
     "Load Settings:
     runtime config/settings.vim
