@@ -251,14 +251,28 @@ fi
 ### GENERATE PLUGIN HELP
 type -P vim >/dev/null && {
     printf '%s' "$cbg_blue >> Generating plugin help:$c_reset"
-    $timeout_command --preserve-status --foreground 1m vim -u "./vimrc" -c "Helptags|qa!"
+    $timeout_command --preserve-status --foreground 1m vim -u ./vimrc -c 'Helptags|qa!'
 
     if (( ! $? )); then
         printf '%s\n' "$cfg_green_bold SUCCESS! $c_reset"
     else
         reset -I
         printf '%s\n' "$cfg_red_bold FAIL! $c_reset"
-        error 'vim -u "./vimrc" -c "Helptags|qa!"' 'Generating helpdocs for the submodules failed'
+        error "vim -u './vimrc' -c 'Helptags|qa!'" 'Generating helpdocs for the submodules failed'
+    fi
+}
+
+### UPDATE REMOTE PLUGINS IN NEOVIM
+type -P nvim >/dev/null && {
+    printf '%s' "$cbg_blue >> Updating remote plugins for neovim:$c_reset"
+    $timeout_command --preserve-status --foreground 1m nvim -u ./vimrc -c ':UpdateRemotePlugins|qa!'
+
+    if (( ! $? )); then
+        printf '%s\n' "$cfg_green_bold SUCCESS! $c_reset"
+    else
+        reset -I
+        printf '%s\n' "$cfg_red_bold FAIL! $c_reset"
+        error "nvim -u ./vimrc -c ':UpdateRemotePlugins|qa!'" 'Updating remote plugins for neovim failed'
     fi
 }
 
