@@ -22,9 +22,6 @@
 "  :sp66                      | (C) -> create a split using 66% of the height
 "  :diff                      | (C) -> open a new file in diff mode
 "
-"  :wsudo & :sudow            | (C) -> write the file as root using sudo
-"  :esudo & :sudoe            | (C) -> read a file as root using sudo
-"
 "  :ik                        | (C) -> add following character to keywords
 "  :iK                        | (C) -> remove following character from keywords
 "
@@ -274,14 +271,6 @@
     cabbrev <expr><silent> sp33 ':SP33<CR>'
     cabbrev <expr><silent> sp66 ':SP66<CR>'
     cabbrev diff vertical diffsplit
-
-    "read/write file with sudo
-    cabbrev sudow SudoWrite
-    cabbrev wsudo SudoWrite
-    cabbrev ws SudoWrite
-    cabbrev sudoe SudoRead
-    cabbrev esudo SudoRead
-    cabbrev es SudoRead
 
     "add/remove character as keyword
     cabbrev ik setlocal iskeyword+=

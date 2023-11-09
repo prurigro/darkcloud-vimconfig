@@ -164,7 +164,6 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [MatchTagAlways](https://github.com/Valloric/MatchTagAlways): A Vim plugin that always highlights the enclosing html/xml tags.
 * [ReplaceWithRegister](https://github.com/vim-scripts/ReplaceWithRegister): Replace text with the contents of a register (for paste+replace without writing over the buffer).
 * [splitjoin.vim](https://github.com/AndrewRadev/splitjoin.vim): Simplifies the transition between multiline and single-line code
-* [SudoEdit.vim](https://github.com/vim-scripts/SudoEdit.vim): Read and write files without the necessary permissions through the use of sudo.
 * [tabular](https://github.com/godlygeek/tabular): Vim script for text filtering and alignment.
 * [tagbar](https://github.com/majutsushi/tagbar): Uses ctags to generate a sidebar of the tags for the current file.
 * [tcommand_vim](https://github.com/tomtom/tcommand_vim): Select commands, menu items etc. from a list.
