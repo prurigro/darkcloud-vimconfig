@@ -128,7 +128,7 @@ endfun
     hi! link Float Number
     hi! link Include Keyword
     hi! link MoreMsg Special
-    hi! link SpecialChar Special
+    hi! link SpecialChar String
     hi! link StorageClass Type
     hi! link Structure PreProc
 
