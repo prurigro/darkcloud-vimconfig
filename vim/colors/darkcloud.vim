@@ -176,12 +176,20 @@ endfun
     call s:C("htmlTagName",g:cYellow,"","bold")
 
     "javaScript
-    hi! link javaScriptBraces Delimiter
-    hi! link javaScriptParens Delimiter
-    hi! link javaScriptValue Constant
-    hi! link javascriptDomElemAttrs javaScriptSpecial
-    hi! link javascriptDomElemFuncs javaScriptFunction
-    hi! link javascriptHtmlEvents javaScriptSpecial
+    call s:C("jsImport",g:cRed,"","bold")
+    call s:C("jsModuleKeyword",g:cYellow,"","bold")
+    call s:C("jsFrom",g:cRed,"","bold")
+    call s:C("jsExport",g:cRed,"","bold")
+    call s:C("jsFuncBlock",g:cBlue,"","")
+    call s:C("jsObjectKey",g:cBlue,"","")
+    call s:C("jsObjectProp",g:cBlue,"","")
+    call s:C("jsBracket",g:cYellow,"","bold")
+    call s:C("jsReturn",g:cRed,"","bold")
+    hi! link jsBraces Delimiter
+    hi! link jsParens Delimiter
+    hi! link jsDomElemAttrs jsSpecial
+    hi! link jsDomElemFuncs jsFunction
+    hi! link jsHtmlEvents jsSpecial
 
     "json
     autocmd BufEnter,FileType json hi! link Label Constant
