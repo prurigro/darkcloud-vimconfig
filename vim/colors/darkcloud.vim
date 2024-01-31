@@ -290,9 +290,10 @@ endfun
         call s:C("@error",g:cRed,"","bold")
         call s:C("@exception",g:cRed,"","")
         call s:C("@float",g:cYellow,"","bold")
-        call s:C("@function",g:cBlue,"","bold")
+        call s:C("@function",g:cLightText,"","")
         call s:C("@function.builtin",g:cBlue,"","bold")
         call s:C("@function.macro",g:cBlue,"","italic")
+        call s:C("@field",g:cBlue,"","italic")
         call s:C("@include",g:cBlue,"","bold")
         call s:C("@keyword",g:cRed,"","bold")
         call s:C("@keyword.function",g:cRed,"","bold")
@@ -334,13 +335,12 @@ endfun
         call s:C("@text.uri","","","bold")
         call s:C("@type",g:cYellow,"","bold")
         call s:C("@type.builtin",g:cYellow,"","bold")
-        call s:C("@variable",g:cYellow,"","")
+        call s:C("@variable",g:cBlue,"","")
         call s:C("@variable.builtin",g:cYellow,"","bold")
         call s:C("@warning",g:cRed,"","")
         hi! link @annotation @comment
         hi! link @comment Comment
         hi! link @conditional Conditional
-        hi! link @field @function
         hi! link @method @function
         hi! link @note @comment
     endif
