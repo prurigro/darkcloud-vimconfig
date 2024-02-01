@@ -56,51 +56,51 @@ endfun
 "}}}
 
 "CORE: {{{
-    call s:C("Normal",g:cLightText,g:cDarkGrayBg,"")
+    call s:C("Normal",g:cWhite,g:cDarkBg,"")
     hi! link Conceal Normal
 
-    call s:C("Cursor","",g:cDarkGrayBg,"standout")
-    call s:C("CursorColumn","",g:cLightGrayBg,"")
-    call s:C("CursorLine","",g:cLightGrayBg,"")
-    call s:C("CursorLineNr",g:cBlue,g:cLightGrayBg,"bold")
-    call s:C("LineNr",g:cDarkGrayFg,"","bold")
+    call s:C("Cursor","",g:cDarkBg,"standout")
+    call s:C("CursorColumn","",g:cLightBg,"")
+    call s:C("CursorLine","",g:cLightBg,"")
+    call s:C("CursorLineNr",g:cBlue,g:cLightBg,"bold")
+    call s:C("LineNr",g:cGray4,"","bold")
 
-    call s:C("Visual","",g:cDarkGrayBg,"standout")
-    call s:C("VertSplit",g:cGray,"","")
-    call s:C("MatchParen","",g:cLightGrayBg,"bold")
+    call s:C("Visual","",g:cDarkBg,"standout")
+    call s:C("VertSplit",g:cGray1,"","")
+    call s:C("MatchParen","",g:cLightBg,"bold")
 
     "whitespace
     call s:C("TabLine","",g:cBlack,"")
     call s:C("TabLineFill","",g:cBlack,"")
-    call s:C("TabLineSel",g:cBlack,g:cGray,"")
-    call s:C("ExtraWhiteSpace",g:cDarkRed,g:cDarkGrayBg,"")
+    call s:C("TabLineSel",g:cBlack,g:cGray1,"")
+    call s:C("ExtraWhiteSpace",g:cDarkRed,g:cDarkBg,"")
 
     "menu call
-    call s:C("Pmenu",g:cBlue,g:cLightGrayBg,"")
-    call s:C("PmenuSel",g:cBlue,g:cLightGrayBg,"bold")
+    call s:C("Pmenu",g:cBlue,g:cLightBg,"")
+    call s:C("PmenuSel",g:cBlue,g:cLightBg,"bold")
 
     "search
-    call s:C("Search","",g:cDarkGrayBg,"standout")
+    call s:C("Search","",g:cDarkBg,"standout")
     hi! link IncSearchMatch Search
     hi! link IncSearchMatchReverse Search
-    call s:C("IncSearch","",g:cDarkGrayBg,"standout")
+    call s:C("IncSearch","",g:cDarkBg,"standout")
     hi! link IncSearchOnCursor IncSearch
     hi! link IncSearchCursor IncSearchOnCursor
 
     "status line
-    call s:C("StatusLine","",g:cLightGrayBg,"")
+    call s:C("StatusLine","",g:cLightBg,"")
     hi! link StatusLineNC StatusLine
-    call s:C("WildMenu",g:cGray,g:cLightGrayBg,"")
+    call s:C("WildMenu",g:cGray1,g:cLightBg,"")
 
     "folding
-    call s:C("Folded",g:cBlue,g:cLightGrayBg,"bold")
-    call s:C("FoldColumn",g:cLightText,"","bold")
+    call s:C("Folded",g:cBlue,g:cLightBg,"bold")
+    call s:C("FoldColumn",g:cWhite,"","bold")
     call s:C("SignColumn",g:cRed,"","bold")
     hi! link ColorColumn SignColumn
 
     "syntax style
     call s:C("Boolean",g:cYellow,"","bold")
-    call s:C("Comment",g:cLightGrayFg,"","italic")
+    call s:C("Comment",g:cGray3,"","italic")
     call s:C("Conditional",g:cYellow,"","")
     call s:C("Constant",g:cBlue,"","bold")
     call s:C("Delimiter",g:cWhite,"","")
@@ -115,10 +115,10 @@ endfun
     call s:C("PreProc",g:cYellow,"","")
     call s:C("Question",g:cBlue,"","")
     call s:C("Special",g:cYellow,"","bold")
-    call s:C("SpecialKey",g:cLightGrayFg,"","")
+    call s:C("SpecialKey",g:cGray3,"","")
     call s:C("Statement",g:cYellow,"","")
     call s:C("String",g:cWhite,"","bold")
-    call s:C("StringDelimiter",g:cDarkText,"","")
+    call s:C("StringDelimiter",g:cGray2,"","")
     call s:C("Tag",g:cYellow,"","")
     call s:C("Title",g:cRed,"","bold")
     call s:C("Todo",g:cRed,"","bold")
@@ -141,7 +141,7 @@ endfun
     call s:C("DiffAdd",g:cYellow,"","standout")
     call s:C("DiffChange",g:cBlue,"","standout")
     call s:C("DiffDelete",g:cRed,"","standout")
-    call s:C("DiffText",g:cDarkText,"","standout")
+    call s:C("DiffText",g:cGray2,"","standout")
 "}}}
 
 "LANGUAGE: {{{
@@ -158,7 +158,7 @@ endfun
     hi! link dosiniLabel Function
 
     "gitcommit
-    call s:C("gitcommitSummary",g:cLightText,"","")
+    call s:C("gitcommitSummary",g:cWhite,"","")
     call s:C("gitcommitType",g:cBlue,"","")
     call s:C("gitcommitFile",g:cRed,"","")
 
@@ -197,8 +197,8 @@ endfun
     autocmd BufEnter,FileType json hi! link String Statement
 
     "markdown
-    call s:C("mkdCode",g:cYellow,g:cLightGrayBg,"")
-    call s:C("mkdURL",g:cLightGrayFg,"","")
+    call s:C("mkdCode",g:cYellow,g:cLightBg,"")
+    call s:C("mkdURL",g:cGray3,"","")
     hi! link mkdIndentCode mkdCode
 
     "objective-c/cocoa
@@ -280,63 +280,62 @@ endfun
 "TREESITTER: {{{
     if has('nvim')
         call s:C("@attribute",g:cRed,"","")
-        call s:C("@boolean",g:cBlue,"","bold")
+        call s:C("@boolean",g:cYellow,"","bold")
         call s:C("@character",g:cWhite,"","bold")
-        call s:C("@constant",g:cDarkText,"","")
-        call s:C("@constant.builtin",g:cDarkText,"","")
-        call s:C("@constant.macro",g:cDarkText,"","")
-        call s:C("@constructor",g:cDarkText,"","")
+        call s:C("@constant",g:cBlue,"","bold")
+        call s:C("@constructor",g:cGray2,"","")
         call s:C("@danger",g:cRed,"","bold")
         call s:C("@error",g:cRed,"","bold")
         call s:C("@exception",g:cRed,"","")
         call s:C("@float",g:cYellow,"","bold")
-        call s:C("@function",g:cLightText,"","")
-        call s:C("@function.builtin",g:cBlue,"","bold")
-        call s:C("@function.macro",g:cBlue,"","italic")
+        call s:C("@function",g:cGray2,"","bold")
+        call s:C("@function.call",g:cGray2,"","bold")
+        call s:C("@function.method",g:cGray2,"","bold")
+        call s:C("@function.builtin",g:cYellow,"","")
+        call s:C("@function.macro",g:cGray2,"","italic")
         call s:C("@field",g:cBlue,"","italic")
         call s:C("@include",g:cBlue,"","bold")
         call s:C("@keyword",g:cRed,"","bold")
-        call s:C("@keyword.function",g:cRed,"","bold")
-        call s:C("@keyword.operator","","","bold")
+        call s:C("@keyword.function",g:cBlue,"","bold")
+        call s:C("@keyword.import",g:cYellow,"","bold")
+        call s:C("@keyword.directive",g:cGray3,"","italic")
         call s:C("@label",g:cWhite,"","")
-        call s:C("@namespace",g:cDarkText,"","")
-        call s:C("@none",g:cLightText,"","")
+        call s:C("@namespace",g:cGray2,"","")
+        call s:C("@none",g:cWhite,"","")
         call s:C("@number",g:cRed,"","bold")
-        call s:C("@operator",g:cRed,"","")
+        call s:C("@operator",g:cYellow,"","")
         call s:C("@parameter",g:cYellow,"","")
         call s:C("@parameter.reference",g:cYellow,"","bold")
         call s:C("@property",g:cBlue,"","")
-        call s:C("@punctuation.bracket",g:cDarkText,"","")
-        call s:C("@punctuation.delimiter",g:cDarkText,"","")
-        call s:C("@punctuation.special",g:cDarkText,"","bold")
+        call s:C("@punctuation",g:cGray2,"","")
+        call s:C("@punctuation.special",g:cBlue,"","bold")
         call s:C("@repeat",g:cBlue,"","")
         call s:C("@string",g:cWhite,"","bold")
         call s:C("@string.escape",g:cYellow,"","")
-        call s:C("@string.regex","","","italic")
+        call s:C("@string.regexp",g:cWhite,"","bold,italic")
         call s:C("@symbol",g:cRed,"","")
         call s:C("@tag",g:cYellow,"","bold")
         call s:C("@tag.attribute",g:cBlue,"","bold")
         call s:C("@tag.delimiter",g:cBlue,"","bold")
-        call s:C("@text",g:cLightText,"","")
+        call s:C("@text",g:cWhite,"","")
         call s:C("@text.diff.add",g:cYellow,"","")
         call s:C("@text.diff.change",g:cBlue,"","")
         call s:C("@text.diff.delete",g:cRed,"","")
         call s:C("@text.emphasis","","","italic")
         call s:C("@text.environment",g:cWhite,"","")
-        call s:C("@text.environment.name",g:cWhite,"","")
-        call s:C("@text.literal",g:cLightText,"","")
         call s:C("@text.math","","","bold,italic")
         call s:C("@text.reference",g:cWhite,"","")
         call s:C("@text.strike","","","strikethrough")
         call s:C("@text.strong","","","bold")
-        call s:C("@text.title","","","")
-        call s:C("@text.todo",g:cDarkText,"","")
+        call s:C("@text.todo",g:cGray2,"","")
         call s:C("@text.underline","","","underline")
-        call s:C("@text.uri","","","bold")
-        call s:C("@type",g:cYellow,"","bold")
-        call s:C("@type.builtin",g:cYellow,"","bold")
+        call s:C("@text.uri",g:cDarkYellow,"","bold")
+        call s:C("@type",g:cBlue,"","bold")
+        call s:C("@type.qualifier",g:cYellow,"","bold")
         call s:C("@variable",g:cBlue,"","")
+        call s:C("@variable.member",g:cBlue,"","bold")
         call s:C("@variable.builtin",g:cYellow,"","bold")
+        call s:C("@variable.parameter",g:cYellow,"","")
         call s:C("@warning",g:cRed,"","")
         hi! link @annotation @comment
         hi! link @comment Comment

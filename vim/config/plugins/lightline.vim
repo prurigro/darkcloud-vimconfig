@@ -118,22 +118,22 @@ endif
     if &term != "linux"
         let g:lightline.colorscheme = 'darkcloud'
 
-        let s:p.normal.left = [[ g:cBlue, g:cDarkGrayBg ], [ g:cLightText, g:cLightGrayBg ]]
-        let s:p.inactive.left = [[ g:cLightGrayFg, g:cDarkGrayBg ], [ g:cLightGrayFg, g:cLightGrayBg ]]
-        let s:p.normal.right = [[ g:cLightText, g:cDarkGrayBg ], [ g:cLightText, g:cLightGrayBg ], [ g:cLightText, g:cDarkGrayBg ]]
-        let s:p.inactive.right = [[ g:cLightGrayFg, g:cDarkGrayBg ], [ g:cLightGrayFg, g:cLightGrayBg ], [ g:cLightGrayFg, g:cDarkGrayBg ]]
+        let s:p.normal.left = [[ g:cBlue, g:cDarkBg ], [ g:cWhite, g:cLightBg ]]
+        let s:p.inactive.left = [[ g:cGray3, g:cDarkBg ], [ g:cGray3, g:cLightBg ]]
+        let s:p.normal.right = [[ g:cWhite, g:cDarkBg ], [ g:cWhite, g:cLightBg ], [ g:cWhite, g:cDarkBg ]]
+        let s:p.inactive.right = [[ g:cGray3, g:cDarkBg ], [ g:cGray3, g:cLightBg ], [ g:cGray3, g:cDarkBg ]]
 
-        let s:p.insert.left = [[ g:cRed, g:cLightGrayBg ], [ g:cLightText, g:cDarkGrayBg ]]
-        let s:p.replace.left = [[ g:cLightGrayBg, g:cRed ], [ g:cLightText, g:cDarkGrayBg ]]
-        let s:p.visual.left = [[ g:cYellow, g:cLightGrayBg ], [ g:cLightText, g:cDarkGrayBg ]]
+        let s:p.insert.left = [[ g:cRed, g:cLightBg ], [ g:cWhite, g:cDarkBg ]]
+        let s:p.replace.left = [[ g:cLightBg, g:cRed ], [ g:cWhite, g:cDarkBg ]]
+        let s:p.visual.left = [[ g:cYellow, g:cLightBg ], [ g:cWhite, g:cDarkBg ]]
 
-        let s:p.normal.middle = [[ g:cLightText, g:cLightGrayBg ]]
-        let s:p.tabline.left = [[ g:cLightText, g:cDarkGrayBg ]]
-        let s:p.tabline.tabsel = [[ g:cLightText, g:cLightGrayBg ]]
-        let s:p.tabline.middle = [[ g:cDarkGrayBg, g:cGray ]]
+        let s:p.normal.middle = [[ g:cWhite, g:cLightBg ]]
+        let s:p.tabline.left = [[ g:cWhite, g:cDarkBg ]]
+        let s:p.tabline.tabsel = [[ g:cWhite, g:cLightBg ]]
+        let s:p.tabline.middle = [[ g:cDarkBg, g:cGray1 ]]
         let s:p.tabline.right = copy(s:p.normal.right)
-        let s:p.normal.error = [[ g:cRed, g:cLightGrayBg ]]
-        let s:p.normal.warning = [[ g:cYellow, g:cLightGrayBg ]]
+        let s:p.normal.error = [[ g:cRed, g:cLightBg ]]
+        let s:p.normal.warning = [[ g:cYellow, g:cLightBg ]]
 
         let g:lightline#colorscheme#darkcloud#palette = lightline#colorscheme#fill(s:p)
     endif
