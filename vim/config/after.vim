@@ -38,7 +38,6 @@ autocmd FileChangedRO * nested set noreadonly
     "set given filenames to various filetypes
     autocmd BufNewFile,BufRead *.aspx,*.asmx,*.ascx,*.master setlocal ft=aspnet
     autocmd BufNewFile,BufRead *.gradle setlocal ft=groovy
-    autocmd BufNewFile,BufRead cjdroute.conf,ircd.conf,.eslintrc setlocal ft=json
     autocmd BufNewFile,BufRead *.muttrc setlocal ft=muttrc
     autocmd BufNewFile,BufRead *.neomuttrc setlocal ft=neomuttrc
     autocmd BufNewFile,BufRead *pacman.conf setlocal ft=conf
@@ -48,8 +47,7 @@ autocmd FileChangedRO * nested set noreadonly
     autocmd BufEnter,FileType sh setlocal iskeyword-=.
     autocmd Filetype text,markdown,gitcommit,mail setlocal nonumber spell nolist linebreak tabstop=2 shiftwidth=2 breakat&vim breakat-=* breakat-=. breakat-=/ breakat-=? breakat-=, breakat-=: breakat-=; breakat-=! "set some defaults for word processing
     autocmd Filetype text,gitcommit,mail setlocal wrap
-    autocmd FileType tmux,taskrc setlocal commentstring=#\ %s "set the comment string to #
-    autocmd FileType slrnrc setlocal commentstring=%%\ %s "set the comment string to %
+    autocmd FileType tmux setlocal commentstring=#\ %s "set the comment string to #
     autocmd FileType scss setlocal iskeyword+=$
     autocmd FileType javascript setlocal iskeyword+=- iskeyword+=.
 
