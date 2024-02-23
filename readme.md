@@ -135,8 +135,6 @@ alias zless="$PAGER"
 | Leader+t | N    | Convert all tabs into spaces and continue session with spaces |
 | Leader+T | N    | Convert all spaces into tabs and continue session with tabs   |
 | Leader+w | N    | Remove all trailing whitespace                                |
-| Leader+A | N+V  | Align comments in document/selection                          |
-| Leader+a | N+V  | Align comments following non-comments in document/selection   |
 
 #### GVim
 

@@ -137,10 +137,6 @@
 "    <Leader>t                | (N) -> convert tabs into spaces
 "    <Leader>T                | (N) -> convert spaces into tabs
 "    <Leader>w                | (N) -> remove whitespace
-"    <Leader>A                | (N) -> aligns comments using the comment symbol
-"    <Leader>A                | (V) -> aligns selected comments
-"    <Leader>a                | (N) -> aligns all comments after text
-"    <Leader>a                | (V) -> aligns selected comments after text
 "    <Tab>                    | (V) -> indent all the lines currently selected
 "    <Tab>                    | (N) -> indent the current line
 "    <Leader>>                | (V) -> indent all the lines currently selected
@@ -566,14 +562,6 @@
 
         "remove trailing whitespace
         nnoremap <silent><expr> <Leader>w ':FixWhitespace<CR>:echo "Trailing whitespace has been removed"<CR>'
-
-        "align comments
-        nnoremap <Leader>A :exe "%Tabular" '/^[^'.matchstr(&commentstring, '[^%]*').']*\zs'.matchstr(&commentstring, '[^%]*').'.*'<CR>:redraw!<CR>
-        vnoremap <Leader>A <C-u>:exe "'<,'>Tabular" '/^[^'.matchstr(&commentstring, '[^%]*').']*\zs'.matchstr(&commentstring, '[^%]*').'.*'<CR>:redraw!<CR>
-
-        "align only comments following non-comments
-        nnoremap <Leader>a :exe "%Tabular" '/^ *[^'.matchstr(&commentstring, '[^%]*').' ][^\'.matchstr(&commentstring, '[^%]*').']*\zs'.matchstr(&commentstring, '[^%]*').'.*'<CR>:redraw!<CR>
-        vnoremap <Leader>a <C-u>:exe "'<,'>Tabular" '/^ *[^'.matchstr(&commentstring, '[^%]*').' ][^\'.matchstr(&commentstring, '[^%]*').']*\zs'.matchstr(&commentstring, '[^%]*').'.*'<CR>:redraw!<CR>
 
         "tab/<Leader>> and untab/<Leader>< the currently selected lines
         vnoremap <Tab> >gv
