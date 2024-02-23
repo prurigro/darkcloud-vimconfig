@@ -35,6 +35,9 @@ autocmd FileChangedRO * nested set noreadonly
     "enable more accurate syntax synchronization
     autocmd BufEnter * :syntax sync fromstart
 
+    "don't conceal json syntax
+    let g:vim_json_syntax_conceal = 0
+
     "set given filenames to various filetypes
     autocmd BufNewFile,BufRead *.aspx,*.asmx,*.ascx,*.master setlocal ft=aspnet
     autocmd BufNewFile,BufRead *.gradle setlocal ft=groovy
