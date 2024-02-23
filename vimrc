@@ -41,7 +41,7 @@
     runtime config/settings.vim
 
     "Initialize Plugins:
-    let pathogen_disabled = []
+    let g:pathogen_disabled = get(g:, "pathogen_disabled", [])
 
     if has('python3')
         "configure pythonx and check for the python-neovim and python-msgpack libraries if python3 is found
@@ -72,39 +72,39 @@
         endif
     else
         "if python isn't available disable plugins that depend on it and set library variables to false
-        call add(pathogen_disabled, 'MatchTagAlways')
+        call add(g:pathogen_disabled, 'MatchTagAlways')
         let g:python_neovim = 0
         let g:python_msgpack = 0
     endif
 
     "don't load vim-gutentags if ctags can't be found
     if !executable('ctags')
-        call add(pathogen_disabled, 'vim-gutentags')
+        call add(g:pathogen_disabled, 'vim-gutentags')
     endif
 
     if !g:python_neovim || !g:python_msgpack
         "don't load deoplete if either of its python dependencies are missing
-        call add(pathogen_disabled, 'deoplete.nvim')
-        call add(pathogen_disabled, 'neco-syntax')
-        call add(pathogen_disabled, 'nvim-yarp')
-        call add(pathogen_disabled, 'vim-hug-neovim-rpc')
+        call add(g:pathogen_disabled, 'deoplete.nvim')
+        call add(g:pathogen_disabled, 'neco-syntax')
+        call add(g:pathogen_disabled, 'nvim-yarp')
+        call add(g:pathogen_disabled, 'vim-hug-neovim-rpc')
     elseif has('nvim')
         "don't load the neovim compatibility plugins required by deoplete if actually running neovim
-        call add(pathogen_disabled, 'nvim-yarp')
-        call add(pathogen_disabled, 'vim-hug-neovim-rpc')
+        call add(g:pathogen_disabled, 'nvim-yarp')
+        call add(g:pathogen_disabled, 'vim-hug-neovim-rpc')
     endif
 
     "disable autocompletion logic when running in vimpager mode
     if exists('g:vimpager.enabled')
-        call add(pathogen_disabled, 'deoplete.nvim')
-        call add(pathogen_disabled, 'neco-syntax')
-        call add(pathogen_disabled, 'nvim-yarp')
-        call add(pathogen_disabled, 'vim-hug-neovim-rpc')
+        call add(g:pathogen_disabled, 'deoplete.nvim')
+        call add(g:pathogen_disabled, 'neco-syntax')
+        call add(g:pathogen_disabled, 'nvim-yarp')
+        call add(g:pathogen_disabled, 'vim-hug-neovim-rpc')
     endif
 
     "if neovim is being used we should disable plugins that aren't compatible or necessary
     if has('nvim')
-        call add(pathogen_disabled, 'vim-fixkey')
+        call add(g:pathogen_disabled, 'vim-fixkey')
     endif
 
     "use pathogen to load plugins that haven't been disabled
