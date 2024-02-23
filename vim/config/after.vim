@@ -38,6 +38,7 @@ autocmd FileChangedRO * nested set noreadonly
     "set given filenames to various filetypes
     autocmd BufNewFile,BufRead *.aspx,*.asmx,*.ascx,*.master setlocal ft=aspnet
     autocmd BufNewFile,BufRead *.gradle setlocal ft=groovy
+    autocmd BufNewFile,BufRead *eslintrc setlocal ft=json
     autocmd BufNewFile,BufRead *.muttrc setlocal ft=muttrc
     autocmd BufNewFile,BufRead *.neomuttrc setlocal ft=neomuttrc
     autocmd BufNewFile,BufRead *pacman.conf setlocal ft=conf
