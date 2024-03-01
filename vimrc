@@ -102,11 +102,6 @@
         call add(g:pathogen_disabled, 'vim-hug-neovim-rpc')
     endif
 
-    "if neovim is being used we should disable plugins that aren't compatible or necessary
-    if has('nvim')
-        call add(g:pathogen_disabled, 'vim-fixkey')
-    endif
-
     "use pathogen to load plugins that haven't been disabled
     runtime bundle/vim-pathogen/autoload/pathogen.vim
 
