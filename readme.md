@@ -164,8 +164,6 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [splitjoin.vim](https://github.com/AndrewRadev/splitjoin.vim): Simplifies the transition between multiline and single-line code
 * [tabular](https://github.com/godlygeek/tabular): Vim script for text filtering and alignment.
 * [tagbar](https://github.com/majutsushi/tagbar): Uses ctags to generate a sidebar of the tags for the current file.
-* [tcommand_vim](https://github.com/tomtom/tcommand_vim): Select commands, menu items etc. from a list.
-  * [tlib_vim](https://github.com/tomtom/tlib_vim): Some utility functions for VIM.
 * [tcomment_vim](https://github.com/tomtom/tcomment_vim): File-type sensible comments that can be easily toggled on and off for blocks of text.
   * [unite.vim](https://github.com/Shougo/unite.vim): A library used by Vim Filer to help build its user interface.
 * [vim-fugitive](https://github.com/tpope/vim-fugitive): A wrapper integrating git into vim in such a way as to provide features neither of them could offer on their own.

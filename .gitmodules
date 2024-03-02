@@ -43,12 +43,6 @@
 [submodule "vim/bundle/MatchTagAlways"]
 	path = vim/bundle/MatchTagAlways
 	url = https://github.com/Valloric/MatchTagAlways.git
-[submodule "vim/bundle/tcommand_vim"]
-	path = vim/bundle/tcommand_vim
-	url = https://github.com/tomtom/tcommand_vim.git
-[submodule "vim/bundle/tlib_vim"]
-	path = vim/bundle/tlib_vim
-	url = https://github.com/tomtom/tlib_vim.git
 [submodule "vim/bundle/tabular"]
 	path = vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular
