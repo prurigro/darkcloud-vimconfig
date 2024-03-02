@@ -43,9 +43,6 @@
 [submodule "vim/bundle/tabular"]
 	path = vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular
-[submodule "vim/bundle/incsearch.vim"]
-	path = vim/bundle/incsearch.vim
-	url = https://github.com/haya14busa/incsearch.vim
 [submodule "vim/bundle/vim-unimpaired"]
 	path = vim/bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
