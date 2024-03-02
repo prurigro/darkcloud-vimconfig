@@ -14,7 +14,7 @@ A theme, config and collection of plugins for Vim.
 * **Compilers, Linters and Runtimes**: The ale plugin can use compilers, linters and runtimes to provide real-time syntax checking.
 * **CTags**: Required by the _tagbar_ and _deoplete_ plugins as well as the _gentags_ script ([ctags website](http://ctags.sourceforge.net)).
 * **Powerline Fonts**: Required to enable the fancier looking status line ([powerline-fonts repo](https://github.com/Lokaltog/powerline-fonts)).
-* **Python**: Required for _deoplete_ autocompletion and _MatchTagAlways_ functionality.
+* **Python**: Required for _deoplete_ autocompletion functionality.
 * **Neovim Python Module**: Required for _deoplete_ autocompletion.
 * **Python Msgpack**: Required for _deoplete_ autocompletion.
 
@@ -159,7 +159,6 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 * [incsearch.vim](https://github.com/haya14busa/incsearch.vim): Improved incremental searching for Vim.
 * [lightline.vim](https://github.com/itchyny/lightline.vim): A light and configurable statusline/tabline for Vim.
   * [lightline-ale](https://github.com/maximbaz/lightline-ale): Provides ALE indicator for the lightline vim plugin.
-* [MatchTagAlways](https://github.com/Valloric/MatchTagAlways): A Vim plugin that always highlights the enclosing html/xml tags.
 * [ReplaceWithRegister](https://github.com/vim-scripts/ReplaceWithRegister): Replace text with the contents of a register (for paste+replace without writing over the buffer).
 * [splitjoin.vim](https://github.com/AndrewRadev/splitjoin.vim): Simplifies the transition between multiline and single-line code
 * [tabular](https://github.com/godlygeek/tabular): Vim script for text filtering and alignment.
