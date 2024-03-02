@@ -184,7 +184,3 @@ For a complete list of mappings specific to **darkcloud-vimconfig**, check the l
 
 * By Kevin MacMartin: [GitHub Projects](https://github.com/prurigro?tab=repositories) | [Arch Linux AUR Packages](https://aur.archlinux.org/packages/?SeB=m&K=prurigro)
 * The [vim-markdown](https://github.com/plasticboy/vim-markdown) plugin **TableFormat** command, used to format tables in markdown files, was pulled into [plugins.vim](https://github.com/prurigro/darkcloud-vimconfig/blob/master/vim/config/plugins.vim) from [ftplugin/mkd](https://github.com/plasticboy/vim-markdown/blob/master/ftplugin/mkd.vim).
-
-## License
-
-Licensed under the [MIT license](http://opensource.org/licenses/MIT).
