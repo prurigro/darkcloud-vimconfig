@@ -12,8 +12,8 @@ A theme, config and collection of plugins for Vim
 ## Optional Requirements
 
 * **Compilers, Linters and Runtimes**: The ale plugin can use compilers, linters and runtimes to provide real-time syntax checking
-* **CTags**: Required by _tagbar_ and _deoplete_ ([ctags website](http://ctags.sourceforge.net))
-* **Powerline Fonts**: Required to enable the fancier looking status line ([powerline-fonts repo](https://github.com/Lokaltog/powerline-fonts))
+* **CTags**: Required by _tagbar_, _vim-gutentags_ and _deoplete_
+* **Powerline Fonts**: Required to enable the fancier looking status line
 * **Python**: Required for _deoplete_ autocompletion functionality
 * **Neovim Python Module**: Required for _deoplete_ autocompletion
 * **Python Msgpack**: Required for _deoplete_ autocompletion
