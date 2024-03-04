@@ -12,7 +12,7 @@ A theme, config and collection of plugins for Vim
 ## Optional Requirements
 
 * **Compilers, Linters and Runtimes**: The ale plugin can use compilers, linters and runtimes to provide real-time syntax checking
-* **CTags**: Required by the _tagbar_ and _deoplete_ plugins as well as the _gentags_ script ([ctags website](http://ctags.sourceforge.net))
+* **CTags**: Required by _tagbar_ and _deoplete_ ([ctags website](http://ctags.sourceforge.net))
 * **Powerline Fonts**: Required to enable the fancier looking status line ([powerline-fonts repo](https://github.com/Lokaltog/powerline-fonts))
 * **Python**: Required for _deoplete_ autocompletion functionality
 * **Neovim Python Module**: Required for _deoplete_ autocompletion
@@ -62,7 +62,6 @@ alias zless="$PAGER"
 * **Custom Plugins**: Pathogen compatible plugins can be cloned or extracted to "darkcloud-vimconfig/vim/bundle.user/", or a folder named "bundle" or "bundle.user" in any of the folders in the runtimepath
 * **File Associations**: To use the file manager in vim to run files with external programs, create "~/.vim/filetypes.vim" and on each line, write an association between a file extension and the program to launch files of that type that looks like: `call vimfiler#set_execute_file('mp4','xdg-open')`
 * **Update Script**: (requires: bash+git) Use this to update the project and submodules, as well as handle any required maintenance, generate docs from the pathogen plugins and create missing config scripts with preset values
-* **Generate System Tags**: (requires: bash+ctags) Generate a list of ctags for your system libraries in _/usr/include_ and _/usr/local/include_ as well as any folders passed as arguments by running the _gentags_ script
 
 ## Mappings
 
