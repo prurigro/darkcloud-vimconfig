@@ -35,10 +35,7 @@ autocmd FileChangedRO * nested set noreadonly
     "enable more accurate syntax synchronization
     autocmd BufEnter * :syntax sync fromstart
 
-    "don't conceal json syntax
-    let g:vim_json_syntax_conceal = 0
-
-    "set given filenames to various filetypes
+    "set filetypes for various file extensions
     autocmd BufNewFile,BufRead *.aspx,*.asmx,*.ascx,*.master setlocal ft=aspnet
     autocmd BufNewFile,BufRead *.gradle setlocal ft=groovy
     autocmd BufNewFile,BufRead *eslintrc setlocal ft=json
@@ -49,7 +46,7 @@ autocmd FileChangedRO * nested set noreadonly
 
     "filtype specific settings
     autocmd BufEnter,FileType sh setlocal iskeyword-=.
-    autocmd Filetype text,markdown,gitcommit,mail setlocal nonumber spell nolist linebreak tabstop=2 shiftwidth=2 breakat&vim breakat-=* breakat-=. breakat-=/ breakat-=? breakat-=, breakat-=: breakat-=; breakat-=! "set some defaults for word processing
+    autocmd Filetype text,markdown,gitcommit,mail setlocal nonumber spell nolist linebreak textwidth=80 tabstop=2 shiftwidth=2 breakat&vim breakat-=* breakat-=. breakat-=/ breakat-=? breakat-=, breakat-=: breakat-=; breakat-=! "set some defaults for word processing
     autocmd Filetype text,gitcommit,mail setlocal wrap
     autocmd FileType tmux setlocal commentstring=#\ %s "set the comment string to #
     autocmd FileType scss setlocal iskeyword+=$
@@ -65,9 +62,8 @@ autocmd FileChangedRO * nested set noreadonly
 
     "settings for buffers in diff mode
     autocmd VimEnter,FilterWritePre * if &diff|setlocal nofoldenable|endif
-    autocmd VimEnter * if &diff|wincmd H|endif
 
-    "disable the whitespace plugin for vimfiler
+    "disable the whitespace plugin for vimfiler and the mail filetype
     autocmd BufEnter,FileType vimfiler,mail hi ExtraWhitespace ctermbg=NONE guibg=NONE
 
     "vimpager settings
