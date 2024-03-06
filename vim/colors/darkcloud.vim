@@ -80,12 +80,12 @@ endfun
     call s:C("PmenuSel",g:cBlue,g:cLightBg,"bold")
 
     "search
-    call s:C("Search","",g:cDarkBg,"standout")
+    call s:C("Search",g:cRed,g:cWhite,"bold")
+    hi! link IncSearch Search
     hi! link IncSearchMatch Search
     hi! link IncSearchMatchReverse Search
-    call s:C("IncSearch","",g:cDarkBg,"standout")
     hi! link IncSearchOnCursor IncSearch
-    hi! link IncSearchCursor IncSearchOnCursor
+    hi! link IncSearchCursor IncSearch
 
     "status line
     call s:C("StatusLine","",g:cLightBg,"")
