@@ -8,8 +8,14 @@
 #  Released under the MIT license
 #
 
+#
+# VARIABLES
+#
+
+error_log=update-errors.log
+
 script_name="${0//*\/}"
-script_home="${0%$script_name}"
+script_home="${0%"$script_name"}"
 
 if [[ -z "$script_home" ]]; then
     script_home="$PWD"
@@ -18,9 +24,6 @@ else
     script_home="$PWD"
     popd >/dev/null || exit
 fi
-
-repo_version="$(printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)")"
-error_log='update-errors.log'
 
 if [[ -t 1 ]]; then
     cbg_blue=$'\e[44m'
@@ -35,6 +38,10 @@ else
     cbg_blue='#'
 fi
 
+#
+# FUNCTIONS
+#
+
 # error: output and log error
 function error {
     printf '%s\n' "$cbg_blue $c_reset$cbg_red_bold ! ERROR: $c_reset$cfg_red_bold $2 " >&2
@@ -47,6 +54,7 @@ function error {
 
 # show_version: displays version information
 function show_version {
+    repo_version="$(printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)")"
     printf '%s\n' "$script_name: darkcloud-vimconfig update tool (version: $repo_version)"
 }
 
@@ -60,7 +68,10 @@ function show_help {
     printf '%s\n' 'Run with no arguments to update darkcloud-vimconfig'
 }
 
-### SETUP
+#
+# SETUP
+#
+
 if type -P timeout >/dev/null; then
     timeout_command=timeout
 elif type -P gtimeout >/dev/null; then
@@ -138,7 +149,10 @@ printf '\n%s\n' "$cbg_black ~~~ DarkCloud Vimconfig Update Tool ~~~ $c_reset"
     fi
 }
 
-### REPO UPDATE
+#
+# REPO UPDATE
+#
+
 printf '\n%s' "$cbg_blue >> Updating darkcloud-vimconfig:$c_reset"
 process_status="$(git pull origin master 2>&1)"
 
@@ -150,7 +164,10 @@ else
     exit 1
 fi
 
-### SUBMODULE UPDATE {
+#
+# SUBMODULE UPDATE
+#
+
 printf '\n%s\n' "$cbg_blue >> Updating plugin submodules >> $c_reset"
 printf '%s' "$cbg_blue $c_reset$cbg_yellow + Updating plugin URLs:$c_reset"
 process_status="$(git submodule sync 2>&1)"
@@ -198,7 +215,7 @@ fi
         [[ -f "$plugin/.git" ]] && {
             plugin_dirname="${plugin/*\/}"
 
-            grep 'path = ' .gitmodules | grep -o -e '[^\/]*$' | grep -q -e "$plugin_dirname$" || {
+            grep 'path = ' .gitmodules | grep -oe '[^\/]*$' | grep -qe "^$plugin_dirname$" || {
                 [[ -z "$first_found" ]] && {
                     first_found=1
                     printf '%s\n' "$cbg_blue $c_reset$cbg_yellow + Removing old plugins: $c_reset"
@@ -219,7 +236,10 @@ fi
     printf '\n'
 }
 
-### USER PLUGIN UPDATE
+#
+# USER PLUGIN UPDATE
+#
+
 [[ -d vim/bundle.user ]] && find vim/bundle.user -mindepth 3 -maxdepth 3 -name config | grep -q '.git/config' && {
     printf '%s\n' "$cbg_blue >> Updating user plugins >> $c_reset"
     pushd 'vim/bundle.user' >/dev/null || exit
@@ -248,7 +268,10 @@ fi
     printf '\n'
 }
 
-### GENERATE PLUGIN HELP
+#
+# GENERATE PLUGIN HELP
+#
+
 type -P vim >/dev/null && {
     printf '%s' "$cbg_blue >> Generating plugin help:$c_reset"
     $timeout_command --preserve-status --foreground 1m vim -u ./vimrc -c 'Helptags|qa!'
@@ -262,19 +285,8 @@ type -P vim >/dev/null && {
     fi
 }
 
-### UPDATE REMOTE PLUGINS IN NEOVIM
-type -P nvim >/dev/null && {
-    printf '%s' "$cbg_blue >> Updating remote plugins for neovim:$c_reset"
-    $timeout_command --preserve-status --foreground 1m nvim -u ./vimrc -c ':UpdateRemotePlugins|qa!'
+#
+# FINISH
+#
 
-    if (( ! $? )); then
-        printf '%s\n' "$cfg_green_bold SUCCESS! $c_reset"
-    else
-        reset -I
-        printf '%s\n' "$cfg_red_bold FAIL! $c_reset"
-        error "nvim -u ./vimrc -c ':UpdateRemotePlugins|qa!'" 'Updating remote plugins for neovim failed'
-    fi
-}
-
-### FINISH
 printf '\n%s\n\n' "$cbg_black ~~~ Update Complete ~~~ $c_reset"
