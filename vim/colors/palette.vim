@@ -1,20 +1,20 @@
 if has("gui_running")
     let g:cBlack = '#000000'
     let g:cWhite = '#ffffff'
-'
+
     let g:cGray1 = '#dadada'
     let g:cGray2 = '#c6c6c6'
     let g:cGray3 = '#6c6c6c'
     let g:cGray4 = '#4e4e4e'
-'
+
     let g:cBlue = '#87d7ff'
     let g:cRed = '#d75f5f'
     let g:cYellow = '#ffd787'
-'
+
     let g:cDarkBlue = '#5fafd7'
     let g:cDarkRed = '#af5f5f'
     let g:cDarkYellow = '#d7af5f'
-'
+
     let g:cLightBg = '#303030'
     let g:cDarkBg = '#262626'
 elseif &t_Co >= 256
