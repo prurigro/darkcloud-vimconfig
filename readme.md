@@ -2,6 +2,8 @@
 
 A theme, config and collection of plugins for Vim
 
+**NOTE**: This has been superseded by [darkcloud-nvimconfig](https://github.com/prurigro/darkcloud-nvimconfig)
+
 ## Requirements
 
 * **Vim**: The latest [vim](http://www.vim.org) should be installed to use this distribution
